@@ -43,7 +43,7 @@ import org.springframework.util.Assert;
  *
  * @author Sebastien Deleuze
  * @since 4.2
- * @see com.fasterxml.jackson.annotation.JsonView
+ * @see JsonView
  * @see com.fasterxml.jackson.databind.ObjectMapper#readerWithView(Class)
  */
 public class JsonViewRequestBodyAdvice extends RequestBodyAdviceAdapter {

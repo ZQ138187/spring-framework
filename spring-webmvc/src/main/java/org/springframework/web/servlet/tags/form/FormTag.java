@@ -254,7 +254,7 @@ public class FormTag extends AbstractHtmlElementTag {
 	private static final String MODEL_ATTRIBUTE = "modelAttribute";
 
 	/**
-	 * The name of the {@link javax.servlet.jsp.PageContext} attribute under which the
+	 * The name of the {@link PageContext} attribute under which the
 	 * form object name is exposed.
 	 */
 	public static final String MODEL_ATTRIBUTE_VARIABLE_NAME =
@@ -536,7 +536,7 @@ public class FormTag extends AbstractHtmlElementTag {
 
 	/**
 	 * Writes the opening part of the block	'{@code form}' tag and exposes
-	 * the form object name in the {@link javax.servlet.jsp.PageContext}.
+	 * the form object name in the {@link PageContext}.
 	 * @param tagWriter the {@link TagWriter} to which the form content is to be written
 	 * @return {@link javax.servlet.jsp.tagext.Tag#EVAL_BODY_INCLUDE}
 	 */
@@ -683,7 +683,7 @@ public class FormTag extends AbstractHtmlElementTag {
 
 	/**
 	 * Closes the '{@code form}' block tag and removes the form object name
-	 * from the {@link javax.servlet.jsp.PageContext}.
+	 * from the {@link PageContext}.
 	 */
 	@Override
 	public int doEndTag() throws JspException {

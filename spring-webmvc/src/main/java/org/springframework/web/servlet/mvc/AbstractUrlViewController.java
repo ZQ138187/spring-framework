@@ -47,7 +47,7 @@ public abstract class AbstractUrlViewController extends AbstractController {
 	 * context. Else, the path within the current servlet mapping is used
 	 * if applicable (i.e. in the case of a ".../*" servlet mapping in web.xml).
 	 * Default is "false".
-	 * @see org.springframework.web.util.UrlPathHelper#setAlwaysUseFullPath
+	 * @see UrlPathHelper#setAlwaysUseFullPath
 	 */
 	public void setAlwaysUseFullPath(boolean alwaysUseFullPath) {
 		this.urlPathHelper.setAlwaysUseFullPath(alwaysUseFullPath);
@@ -59,7 +59,7 @@ public abstract class AbstractUrlViewController extends AbstractController {
 	 * in contrast to the servlet path.
 	 * <p>Uses either the request encoding or the default encoding according
 	 * to the Servlet spec (ISO-8859-1).
-	 * @see org.springframework.web.util.UrlPathHelper#setUrlDecode
+	 * @see UrlPathHelper#setUrlDecode
 	 */
 	public void setUrlDecode(boolean urlDecode) {
 		this.urlPathHelper.setUrlDecode(urlDecode);
@@ -67,7 +67,7 @@ public abstract class AbstractUrlViewController extends AbstractController {
 
 	/**
 	 * Set if ";" (semicolon) content should be stripped from the request URI.
-	 * @see org.springframework.web.util.UrlPathHelper#setRemoveSemicolonContent(boolean)
+	 * @see UrlPathHelper#setRemoveSemicolonContent(boolean)
 	 */
 	public void setRemoveSemicolonContent(boolean removeSemicolonContent) {
 		this.urlPathHelper.setRemoveSemicolonContent(removeSemicolonContent);

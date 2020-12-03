@@ -29,7 +29,7 @@ import org.springframework.lang.Nullable;
  *
  * @author Juergen Hoeller
  * @since 20.06.2003
- * @see javax.servlet.http.HttpServletRequest#isUserInRole
+ * @see HttpServletRequest#isUserInRole
  */
 public class UserRoleAuthorizationInterceptor extends HandlerInterceptorAdapter {
 
@@ -69,8 +69,8 @@ public class UserRoleAuthorizationInterceptor extends HandlerInterceptorAdapter 
 	 * @param request current HTTP request
 	 * @param response current HTTP response
 	 * @param handler chosen handler to execute, for type and/or instance evaluation
-	 * @throws javax.servlet.ServletException if there is an internal error
-	 * @throws java.io.IOException in case of an I/O error when writing the response
+	 * @throws ServletException if there is an internal error
+	 * @throws IOException in case of an I/O error when writing the response
 	 */
 	protected void handleNotAuthorized(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws ServletException, IOException {

@@ -26,8 +26,8 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
- * A {@link org.springframework.web.servlet.resource.ResourceResolver} that
- * resolves resources from a {@link org.springframework.cache.Cache} or otherwise
+ * A {@link ResourceResolver} that
+ * resolves resources from a {@link Cache} or otherwise
  * delegates to the resolver chain and saves the result in the cache.
  *
  * @author Rossen Stoyanchev

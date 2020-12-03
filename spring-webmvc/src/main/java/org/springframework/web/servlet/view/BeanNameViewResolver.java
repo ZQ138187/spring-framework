@@ -27,7 +27,7 @@ import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.ViewResolver;
 
 /**
- * A simple implementation of {@link org.springframework.web.servlet.ViewResolver}
+ * A simple implementation of {@link ViewResolver}
  * that interprets a view name as a bean name in the current application context,
  * i.e. typically in the XML file of the executing {@code DispatcherServlet}.
  *
@@ -60,7 +60,7 @@ public class BeanNameViewResolver extends WebApplicationObjectSupport implements
 	/**
 	 * Specify the order value for this ViewResolver bean.
 	 * <p>The default value is {@code Ordered.LOWEST_PRECEDENCE}, meaning non-ordered.
-	 * @see org.springframework.core.Ordered#getOrder()
+	 * @see Ordered#getOrder()
 	 */
 	public void setOrder(int order) {
 		this.order = order;

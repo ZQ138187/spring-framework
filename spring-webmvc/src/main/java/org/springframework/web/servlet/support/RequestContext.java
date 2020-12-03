@@ -136,7 +136,7 @@ public class RequestContext {
 	 * Pass in a ServletContext to be able to fallback to the root WebApplicationContext.
 	 * @param request current HTTP request
 	 * @see org.springframework.web.servlet.DispatcherServlet
-	 * @see #RequestContext(javax.servlet.http.HttpServletRequest, javax.servlet.ServletContext)
+	 * @see #RequestContext(HttpServletRequest, ServletContext)
 	 */
 	public RequestContext(HttpServletRequest request) {
 		this(request, null, null, null);
@@ -151,7 +151,7 @@ public class RequestContext {
 	 * @param request current HTTP request
 	 * @param response current HTTP response
 	 * @see org.springframework.web.servlet.DispatcherServlet
-	 * @see #RequestContext(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, javax.servlet.ServletContext, Map)
+	 * @see #RequestContext(HttpServletRequest, HttpServletResponse, ServletContext, Map)
 	 */
 	public RequestContext(HttpServletRequest request, HttpServletResponse response) {
 		this(request, response, null, null);
@@ -166,7 +166,7 @@ public class RequestContext {
 	 * @param request current HTTP request
 	 * @param servletContext the servlet context of the web application (can be {@code null};
 	 * necessary for fallback to root WebApplicationContext)
-	 * @see org.springframework.web.context.WebApplicationContext
+	 * @see WebApplicationContext
 	 * @see org.springframework.web.servlet.DispatcherServlet
 	 */
 	public RequestContext(HttpServletRequest request, @Nullable ServletContext servletContext) {
@@ -182,7 +182,7 @@ public class RequestContext {
 	 * @param model the model attributes for the current view (can be {@code null},
 	 * using the request attributes for Errors retrieval)
 	 * @see org.springframework.web.servlet.DispatcherServlet
-	 * @see #RequestContext(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, javax.servlet.ServletContext, Map)
+	 * @see #RequestContext(HttpServletRequest, HttpServletResponse, ServletContext, Map)
 	 */
 	public RequestContext(HttpServletRequest request, @Nullable Map<String, Object> model) {
 		this(request, null, null, model);
@@ -199,7 +199,7 @@ public class RequestContext {
 	 * fallback to root WebApplicationContext)
 	 * @param model the model attributes for the current view (can be {@code null}, using the request attributes
 	 * for Errors retrieval)
-	 * @see org.springframework.web.context.WebApplicationContext
+	 * @see WebApplicationContext
 	 * @see org.springframework.web.servlet.DispatcherServlet
 	 */
 	public RequestContext(HttpServletRequest request, @Nullable HttpServletResponse response,
@@ -323,7 +323,7 @@ public class RequestContext {
 	 * <p>The default implementation checks for a JSTL locale attribute in request, session
 	 * or application scope; if not found, returns the {@code HttpServletRequest.getLocale()}.
 	 * @return the fallback locale (never {@code null})
-	 * @see javax.servlet.http.HttpServletRequest#getLocale()
+	 * @see HttpServletRequest#getLocale()
 	 */
 	protected Locale getFallbackLocale() {
 		if (jstlPresent) {
@@ -357,7 +357,7 @@ public class RequestContext {
 	 * storing the new locale through the configured {@link LocaleResolver}.
 	 * @param locale the new locale
 	 * @see LocaleResolver#setLocale
-	 * @see #changeLocale(java.util.Locale, java.util.TimeZone)
+	 * @see #changeLocale(Locale, TimeZone)
 	 */
 	public void changeLocale(Locale locale) {
 		LocaleResolver localeResolver = RequestContextUtils.getLocaleResolver(this.request);
@@ -374,7 +374,7 @@ public class RequestContext {
 	 * @param locale the new locale
 	 * @param timeZone the new time zone
 	 * @see LocaleContextResolver#setLocaleContext
-	 * @see org.springframework.context.i18n.SimpleTimeZoneAwareLocaleContext
+	 * @see SimpleTimeZoneAwareLocaleContext
 	 */
 	public void changeLocale(Locale locale, TimeZone timeZone) {
 		LocaleResolver localeResolver = RequestContextUtils.getLocaleResolver(this.request);
@@ -454,7 +454,7 @@ public class RequestContext {
 	/**
 	 * (De)activate default HTML escaping for messages and errors, for the scope of this RequestContext.
 	 * <p>The default is the application-wide setting (the "defaultHtmlEscape" context-param in web.xml).
-	 * @see org.springframework.web.util.WebUtils#getDefaultHtmlEscape
+	 * @see WebUtils#getDefaultHtmlEscape
 	 */
 	public void setDefaultHtmlEscape(boolean defaultHtmlEscape) {
 		this.defaultHtmlEscape = defaultHtmlEscape;
@@ -532,7 +532,7 @@ public class RequestContext {
 	 * indicates the current web application. This is useful for building links
 	 * to other resources within the application.
 	 * <p>Delegates to the UrlPathHelper for decoding.
-	 * @see javax.servlet.http.HttpServletRequest#getContextPath
+	 * @see HttpServletRequest#getContextPath
 	 * @see #getUrlPathHelper
 	 */
 	public String getContextPath() {
@@ -591,7 +591,7 @@ public class RequestContext {
 	 * possibly in combination with the original query string.
 	 * <p>Delegates to the UrlPathHelper for decoding.
 	 * @see #getQueryString
-	 * @see org.springframework.web.util.UrlPathHelper#getOriginatingRequestUri
+	 * @see UrlPathHelper#getOriginatingRequestUri
 	 * @see #getUrlPathHelper
 	 */
 	public String getRequestUri() {
@@ -604,7 +604,7 @@ public class RequestContext {
 	 * action target in combination with the original request URI.
 	 * <p>Delegates to the UrlPathHelper for decoding.
 	 * @see #getRequestUri
-	 * @see org.springframework.web.util.UrlPathHelper#getOriginatingQueryString
+	 * @see UrlPathHelper#getOriginatingQueryString
 	 * @see #getUrlPathHelper
 	 */
 	public String getQueryString() {
@@ -663,7 +663,7 @@ public class RequestContext {
 	 * Retrieve the message for the given code, using the "defaultHtmlEscape" setting.
 	 * @param code code of the message
 	 * @return the message
-	 * @throws org.springframework.context.NoSuchMessageException if not found
+	 * @throws NoSuchMessageException if not found
 	 */
 	public String getMessage(String code) throws NoSuchMessageException {
 		return getMessage(code, null, isDefaultHtmlEscape());
@@ -674,7 +674,7 @@ public class RequestContext {
 	 * @param code code of the message
 	 * @param args arguments for the message, or {@code null} if none
 	 * @return the message
-	 * @throws org.springframework.context.NoSuchMessageException if not found
+	 * @throws NoSuchMessageException if not found
 	 */
 	public String getMessage(String code, @Nullable Object[] args) throws NoSuchMessageException {
 		return getMessage(code, args, isDefaultHtmlEscape());
@@ -685,7 +685,7 @@ public class RequestContext {
 	 * @param code code of the message
 	 * @param args arguments for the message as a List, or {@code null} if none
 	 * @return the message
-	 * @throws org.springframework.context.NoSuchMessageException if not found
+	 * @throws NoSuchMessageException if not found
 	 */
 	public String getMessage(String code, @Nullable List<?> args) throws NoSuchMessageException {
 		return getMessage(code, (args != null ? args.toArray() : null), isDefaultHtmlEscape());
@@ -697,7 +697,7 @@ public class RequestContext {
 	 * @param args arguments for the message, or {@code null} if none
 	 * @param htmlEscape HTML escape the message?
 	 * @return the message
-	 * @throws org.springframework.context.NoSuchMessageException if not found
+	 * @throws NoSuchMessageException if not found
 	 */
 	public String getMessage(String code, @Nullable Object[] args, boolean htmlEscape) throws NoSuchMessageException {
 		String msg = this.webApplicationContext.getMessage(code, args, getLocale());
@@ -708,7 +708,7 @@ public class RequestContext {
 	 * Retrieve the given MessageSourceResolvable (e.g. an ObjectError instance), using the "defaultHtmlEscape" setting.
 	 * @param resolvable the MessageSourceResolvable
 	 * @return the message
-	 * @throws org.springframework.context.NoSuchMessageException if not found
+	 * @throws NoSuchMessageException if not found
 	 */
 	public String getMessage(MessageSourceResolvable resolvable) throws NoSuchMessageException {
 		return getMessage(resolvable, isDefaultHtmlEscape());
@@ -719,7 +719,7 @@ public class RequestContext {
 	 * @param resolvable the MessageSourceResolvable
 	 * @param htmlEscape HTML escape the message?
 	 * @return the message
-	 * @throws org.springframework.context.NoSuchMessageException if not found
+	 * @throws NoSuchMessageException if not found
 	 */
 	public String getMessage(MessageSourceResolvable resolvable, boolean htmlEscape) throws NoSuchMessageException {
 		String msg = this.webApplicationContext.getMessage(resolvable, getLocale());
@@ -774,7 +774,7 @@ public class RequestContext {
 	 * theme-specific resource paths and not client-visible messages.
 	 * @param code code of the message
 	 * @return the message
-	 * @throws org.springframework.context.NoSuchMessageException if not found
+	 * @throws NoSuchMessageException if not found
 	 */
 	public String getThemeMessage(String code) throws NoSuchMessageException {
 		return getTheme().getMessageSource().getMessage(code, null, getLocale());
@@ -787,7 +787,7 @@ public class RequestContext {
 	 * @param code code of the message
 	 * @param args arguments for the message, or {@code null} if none
 	 * @return the message
-	 * @throws org.springframework.context.NoSuchMessageException if not found
+	 * @throws NoSuchMessageException if not found
 	 */
 	public String getThemeMessage(String code, @Nullable Object[] args) throws NoSuchMessageException {
 		return getTheme().getMessageSource().getMessage(code, args, getLocale());
@@ -800,7 +800,7 @@ public class RequestContext {
 	 * @param code code of the message
 	 * @param args arguments for the message as a List, or {@code null} if none
 	 * @return the message
-	 * @throws org.springframework.context.NoSuchMessageException if not found
+	 * @throws NoSuchMessageException if not found
 	 */
 	public String getThemeMessage(String code, @Nullable List<?> args) throws NoSuchMessageException {
 		return getTheme().getMessageSource().getMessage(code, (args != null ? args.toArray() : null), getLocale());
@@ -812,7 +812,7 @@ public class RequestContext {
 	 * theme-specific resource paths and not client-visible messages.
 	 * @param resolvable the MessageSourceResolvable
 	 * @return the message
-	 * @throws org.springframework.context.NoSuchMessageException if not found
+	 * @throws NoSuchMessageException if not found
 	 */
 	public String getThemeMessage(MessageSourceResolvable resolvable) throws NoSuchMessageException {
 		return getTheme().getMessageSource().getMessage(resolvable, getLocale());

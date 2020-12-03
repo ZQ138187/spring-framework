@@ -26,7 +26,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.lang.Nullable;
 
 /**
- * Base class for {@link org.springframework.web.servlet.resource.ResourceResolver}
+ * Base class for {@link ResourceResolver}
  * implementations. Provides consistent logging.
  *
  * @author Rossen Stoyanchev

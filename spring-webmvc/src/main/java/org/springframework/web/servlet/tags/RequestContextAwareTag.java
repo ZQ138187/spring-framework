@@ -44,7 +44,7 @@ import org.springframework.web.servlet.support.RequestContext;
  *
  * @author Rod Johnson
  * @author Juergen Hoeller
- * @see org.springframework.web.servlet.support.RequestContext
+ * @see RequestContext
  * @see org.springframework.web.servlet.DispatcherServlet
  */
 @SuppressWarnings("serial")
@@ -70,7 +70,7 @@ public abstract class RequestContextAwareTag extends TagSupport implements TryCa
 	 * Create and expose the current RequestContext.
 	 * Delegates to {@link #doStartTagInternal()} for actual work.
 	 * @see #REQUEST_CONTEXT_PAGE_ATTRIBUTE
-	 * @see org.springframework.web.servlet.support.JspAwareRequestContext
+	 * @see JspAwareRequestContext
 	 */
 	@Override
 	public final int doStartTag() throws JspException {
@@ -105,7 +105,7 @@ public abstract class RequestContextAwareTag extends TagSupport implements TryCa
 	 * @return same as TagSupport.doStartTag
 	 * @throws Exception any exception, any checked one other than
 	 * a JspException gets wrapped in a JspException by doStartTag
-	 * @see javax.servlet.jsp.tagext.TagSupport#doStartTag
+	 * @see TagSupport#doStartTag
 	 */
 	protected abstract int doStartTagInternal() throws Exception;
 

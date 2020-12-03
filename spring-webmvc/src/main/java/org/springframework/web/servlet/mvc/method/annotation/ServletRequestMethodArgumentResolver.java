@@ -54,7 +54,7 @@ import org.springframework.web.servlet.support.RequestContextUtils;
  * <li>{@link HttpMethod} (as of Spring 4.0)
  * <li>{@link Locale}
  * <li>{@link TimeZone} (as of Spring 4.0)
- * <li>{@link java.time.ZoneId} (as of Spring 4.0 and Java 8)
+ * <li>{@link ZoneId} (as of Spring 4.0 and Java 8)
  * </ul>
  *
  * @author Arjen Poutsma

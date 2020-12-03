@@ -48,7 +48,7 @@ public abstract class AbstractMultiCheckedElementTag extends AbstractCheckedElem
 
 
 	/**
-	 * The {@link java.util.Collection}, {@link java.util.Map} or array of objects
+	 * The {@link Collection}, {@link Map} or array of objects
 	 * used to generate the '{@code input type="checkbox/radio"}' tags.
 	 */
 	@Nullable
@@ -80,7 +80,7 @@ public abstract class AbstractMultiCheckedElementTag extends AbstractCheckedElem
 
 
 	/**
-	 * Set the {@link java.util.Collection}, {@link java.util.Map} or array of objects
+	 * Set the {@link Collection}, {@link Map} or array of objects
 	 * used to generate the '{@code input type="checkbox/radio"}' tags.
 	 * <p>Typically a runtime expression.
 	 * @param items said items
@@ -91,7 +91,7 @@ public abstract class AbstractMultiCheckedElementTag extends AbstractCheckedElem
 	}
 
 	/**
-	 * Get the {@link java.util.Collection}, {@link java.util.Map} or array of objects
+	 * Get the {@link Collection}, {@link Map} or array of objects
 	 * used to generate the '{@code input type="checkbox/radio"}' tags.
 	 */
 	@Nullable

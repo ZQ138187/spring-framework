@@ -81,7 +81,7 @@ import org.springframework.web.util.WebUtils;
  * @see #setContextRelative
  * @see #setHttp10Compatible
  * @see #setExposeModelAttributes
- * @see javax.servlet.http.HttpServletResponse#sendRedirect
+ * @see HttpServletResponse#sendRedirect
  */
 public class RedirectView extends AbstractUrlBasedView implements SmartView {
 
@@ -178,7 +178,7 @@ public class RedirectView extends AbstractUrlBasedView implements SmartView {
 	 * <p>Default is "false": A URL that starts with a slash will be interpreted
 	 * as absolute, i.e. taken as-is. If "true", the context path will be
 	 * prepended to the URL in such a case.
-	 * @see javax.servlet.http.HttpServletRequest#getContextPath
+	 * @see HttpServletRequest#getContextPath
 	 */
 	public void setContextRelative(boolean contextRelative) {
 		this.contextRelative = contextRelative;
@@ -193,7 +193,7 @@ public class RedirectView extends AbstractUrlBasedView implements SmartView {
 	 * <p>Many HTTP 1.1 clients treat 302 just like 303, not making any
 	 * difference. However, some clients depend on 303 when redirecting
 	 * after a POST request; turn this flag off in such a scenario.
-	 * @see javax.servlet.http.HttpServletResponse#sendRedirect
+	 * @see HttpServletResponse#sendRedirect
 	 */
 	public void setHttp10Compatible(boolean http10Compatible) {
 		this.http10Compatible = http10Compatible;
@@ -572,7 +572,7 @@ public class RedirectView extends AbstractUrlBasedView implements SmartView {
 	 * @param encodingScheme the encoding scheme
 	 * @return the encoded output String
 	 * @throws UnsupportedEncodingException if thrown by the JDK URLEncoder
-	 * @see java.net.URLEncoder#encode(String, String)
+	 * @see URLEncoder#encode(String, String)
 	 */
 	protected String urlEncode(String input, String encodingScheme) throws UnsupportedEncodingException {
 		return URLEncoder.encode(input, encodingScheme);

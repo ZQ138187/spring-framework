@@ -164,7 +164,7 @@ public class ResponseBodyEmitter {
 	 * processing.
 	 * @param object the object to write
 	 * @throws IOException raised when an I/O error occurs
-	 * @throws java.lang.IllegalStateException wraps any other errors
+	 * @throws IllegalStateException wraps any other errors
 	 */
 	public void send(Object object) throws IOException {
 		send(object, null);
@@ -176,7 +176,7 @@ public class ResponseBodyEmitter {
 	 * @param object the object to write
 	 * @param mediaType a MediaType hint for selecting an HttpMessageConverter
 	 * @throws IOException raised when an I/O error occurs
-	 * @throws java.lang.IllegalStateException wraps any other errors
+	 * @throws IllegalStateException wraps any other errors
 	 */
 	public synchronized void send(Object object, @Nullable MediaType mediaType) throws IOException {
 		Assert.state(!this.complete, "ResponseBodyEmitter is already set complete");

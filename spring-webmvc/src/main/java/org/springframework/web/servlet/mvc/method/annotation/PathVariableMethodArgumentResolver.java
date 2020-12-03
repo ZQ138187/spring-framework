@@ -46,7 +46,7 @@ import org.springframework.web.util.UriComponentsBuilder;
  *
  * <p>An @{@link PathVariable} is a named value that gets resolved from a URI template variable.
  * It is always required and does not have a default value to fall back on. See the base class
- * {@link org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver}
+ * {@link AbstractNamedValueMethodArgumentResolver}
  * for more information on how named values are processed.
  *
  * <p>If the method parameter type is {@link Map}, the name specified in the annotation is used

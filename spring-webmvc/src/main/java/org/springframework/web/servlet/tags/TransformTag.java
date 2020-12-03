@@ -123,7 +123,7 @@ public class TransformTag extends HtmlEscapingAwareTag {
 	 * Set the scope to export the variable to.
 	 * Default is SCOPE_PAGE ("page").
 	 * @see #setVar
-	 * @see org.springframework.web.util.TagUtils#SCOPE_PAGE
+	 * @see TagUtils#SCOPE_PAGE
 	 * @see javax.servlet.jsp.PageContext#setAttribute
 	 */
 	public void setScope(String scope) {

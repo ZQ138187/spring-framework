@@ -83,7 +83,7 @@ public class XsltViewResolver extends UrlBasedViewResolver {
 	}
 
 	/**
-	 * Set an implementation of the {@link javax.xml.transform.ErrorListener}
+	 * Set an implementation of the {@link ErrorListener}
 	 * interface for custom handling of transformation errors and warnings.
 	 * <p>If not set, a default
 	 * {@link org.springframework.util.xml.SimpleTransformErrorListener} is

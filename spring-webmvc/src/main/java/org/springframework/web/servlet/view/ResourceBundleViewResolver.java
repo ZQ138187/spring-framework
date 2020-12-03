@@ -56,7 +56,7 @@ import org.springframework.web.servlet.View;
  *
  * @author Rod Johnson
  * @author Juergen Hoeller
- * @see java.util.ResourceBundle#getBundle
+ * @see ResourceBundle#getBundle
  * @see java.util.PropertyResourceBundle
  * @see UrlBasedViewResolver
  */
@@ -87,7 +87,7 @@ public class ResourceBundleViewResolver extends AbstractCachingViewResolver
 
 
 	/**
-	 * Set a single basename, following {@link java.util.ResourceBundle} conventions.
+	 * Set a single basename, following {@link ResourceBundle} conventions.
 	 * The default is "views".
 	 * <p>{@code ResourceBundle} supports different locale suffixes. For example,
 	 * a base name of "views" might map to {@code ResourceBundle} files
@@ -105,7 +105,7 @@ public class ResourceBundleViewResolver extends AbstractCachingViewResolver
 	}
 
 	/**
-	 * Set an array of basenames, each following {@link java.util.ResourceBundle}
+	 * Set an array of basenames, each following {@link ResourceBundle}
 	 * conventions. The default is a single basename "views".
 	 * <p>{@code ResourceBundle} supports different locale suffixes. For example,
 	 * a base name of "views" might map to {@code ResourceBundle} files
@@ -171,7 +171,7 @@ public class ResourceBundleViewResolver extends AbstractCachingViewResolver
 	/**
 	 * Specify the order value for this ViewResolver bean.
 	 * <p>The default value is {@code Ordered.LOWEST_PRECEDENCE}, meaning non-ordered.
-	 * @see org.springframework.core.Ordered#getOrder()
+	 * @see Ordered#getOrder()
 	 */
 	public void setOrder(int order) {
 		this.order = order;

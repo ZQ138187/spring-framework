@@ -149,7 +149,7 @@ class OptionWriter {
 
 	/**
 	 * Render the inner '{@code option}' tags using the {@link #optionSource}.
-	 * @see #doRenderFromCollection(java.util.Collection, TagWriter)
+	 * @see #doRenderFromCollection(Collection, TagWriter)
 	 */
 	private void renderFromArray(TagWriter tagWriter) throws JspException {
 		doRenderFromCollection(CollectionUtils.arrayToList(this.optionSource), tagWriter);
@@ -177,7 +177,7 @@ class OptionWriter {
 
 	/**
 	 * Render the inner '{@code option}' tags using the {@link #optionSource}.
-	 * @see #doRenderFromCollection(java.util.Collection, TagWriter)
+	 * @see #doRenderFromCollection(Collection, TagWriter)
 	 */
 	private void renderFromCollection(TagWriter tagWriter) throws JspException {
 		doRenderFromCollection((Collection<?>) this.optionSource, tagWriter);
@@ -185,7 +185,7 @@ class OptionWriter {
 
 	/**
 	 * Render the inner '{@code option}' tags using the {@link #optionSource}.
-	 * @see #doRenderFromCollection(java.util.Collection, TagWriter)
+	 * @see #doRenderFromCollection(Collection, TagWriter)
 	 */
 	private void renderFromEnum(TagWriter tagWriter) throws JspException {
 		doRenderFromCollection(CollectionUtils.arrayToList(((Class<?>) this.optionSource).getEnumConstants()), tagWriter);

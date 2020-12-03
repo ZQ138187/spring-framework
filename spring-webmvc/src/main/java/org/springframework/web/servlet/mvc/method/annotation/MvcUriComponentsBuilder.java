@@ -67,19 +67,19 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.web.util.UriComponentsBuilder;
 
 /**
- * Creates instances of {@link org.springframework.web.util.UriComponentsBuilder}
+ * Creates instances of {@link UriComponentsBuilder}
  * by pointing to {@code @RequestMapping} methods on Spring MVC controllers.
  *
  * <p>There are several groups of methods:
  * <ul>
  * <li>Static {@code fromXxx(...)} methods to prepare links using information
  * from the current request as determined by a call to
- * {@link org.springframework.web.servlet.support.ServletUriComponentsBuilder#fromCurrentServletMapping()}.
+ * {@link ServletUriComponentsBuilder#fromCurrentServletMapping()}.
  * <li>Static {@code fromXxx(UriComponentsBuilder,...)} methods can be given
  * a baseUrl when operating outside the context of a request.
  * <li>Instance-based {@code withXxx(...)} methods where an instance of
  * MvcUriComponentsBuilder is created with a baseUrl via
- * {@link #relativeTo(org.springframework.web.util.UriComponentsBuilder)}.
+ * {@link #relativeTo(UriComponentsBuilder)}.
  * </ul>
  *
  * <p><strong>Note:</strong> This class uses values from "Forwarded"

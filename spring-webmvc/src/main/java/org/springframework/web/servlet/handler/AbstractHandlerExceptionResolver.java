@@ -102,7 +102,7 @@ public abstract class AbstractHandlerExceptionResolver implements HandlerExcepti
 	 * to the logger's configuration.
 	 * <p>Default is no warn logging. Specify this setting to activate warn logging into a specific
 	 * category. Alternatively, override the {@link #logException} method for custom logging.
-	 * @see org.apache.commons.logging.LogFactory#getLog(String)
+	 * @see LogFactory#getLog(String)
 	 * @see java.util.logging.Logger#getLogger(String)
 	 */
 	public void setWarnLogCategory(String loggerName) {
@@ -187,7 +187,7 @@ public abstract class AbstractHandlerExceptionResolver implements HandlerExcepti
 	 * @param request current HTTP request (useful for obtaining metadata)
 	 * @see #setWarnLogCategory
 	 * @see #buildLogMessage
-	 * @see org.apache.commons.logging.Log#warn(Object, Throwable)
+	 * @see Log#warn(Object, Throwable)
 	 */
 	protected void logException(Exception ex, HttpServletRequest request) {
 		if (this.warnLogger != null && this.warnLogger.isWarnEnabled()) {

@@ -84,7 +84,7 @@ public interface HandlerInterceptor {
 	 * typically sending a HTTP error or writing a custom response.
 	 * <p><strong>Note:</strong> special considerations apply for asynchronous
 	 * request processing. For more details see
-	 * {@link org.springframework.web.servlet.AsyncHandlerInterceptor}.
+	 * {@link AsyncHandlerInterceptor}.
 	 * <p>The default implementation returns {@code true}.
 	 * @param request current HTTP request
 	 * @param response current HTTP response
@@ -110,7 +110,7 @@ public interface HandlerInterceptor {
 	 * getting applied in inverse order of the execution chain.
 	 * <p><strong>Note:</strong> special considerations apply for asynchronous
 	 * request processing. For more details see
-	 * {@link org.springframework.web.servlet.AsyncHandlerInterceptor}.
+	 * {@link AsyncHandlerInterceptor}.
 	 * <p>The default implementation is empty.
 	 * @param request current HTTP request
 	 * @param response current HTTP response
@@ -135,7 +135,7 @@ public interface HandlerInterceptor {
 	 * the last to be invoked.
 	 * <p><strong>Note:</strong> special considerations apply for asynchronous
 	 * request processing. For more details see
-	 * {@link org.springframework.web.servlet.AsyncHandlerInterceptor}.
+	 * {@link AsyncHandlerInterceptor}.
 	 * <p>The default implementation is empty.
 	 * @param request current HTTP request
 	 * @param response current HTTP response

@@ -45,7 +45,7 @@ import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 
 /**
  * Assist with the configuration of a chain of
- * {@link org.springframework.web.servlet.ViewResolver ViewResolver} instances.
+ * {@link ViewResolver ViewResolver} instances.
  * This class is expected to be used via {@link WebMvcConfigurer#configureViewResolvers}.
  *
  * @author Sebastien Deleuze
@@ -168,7 +168,7 @@ public class ViewResolverRegistry {
 	/**
 	 * Register Tiles 3.x view resolver.
 	 * <p><strong>Note</strong> that you must also configure Tiles by adding a
-	 * {@link org.springframework.web.servlet.view.tiles3.TilesConfigurer} bean.
+	 * {@link TilesConfigurer} bean.
 	 */
 	public UrlBasedViewResolverRegistration tiles() {
 		if (!checkBeanOfType(TilesConfigurer.class)) {
@@ -185,7 +185,7 @@ public class ViewResolverRegistry {
 	 * Register a FreeMarker view resolver with an empty default view name
 	 * prefix and a default suffix of ".ftl".
 	 * <p><strong>Note</strong> that you must also configure FreeMarker by adding a
-	 * {@link org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer} bean.
+	 * {@link FreeMarkerConfigurer} bean.
 	 */
 	public UrlBasedViewResolverRegistration freeMarker() {
 		if (!checkBeanOfType(FreeMarkerConfigurer.class)) {
@@ -233,7 +233,7 @@ public class ViewResolverRegistry {
 
 	/**
 	 * Register a bean name view resolver that interprets view names as the names
-	 * of {@link org.springframework.web.servlet.View} beans.
+	 * of {@link View} beans.
 	 */
 	public void beanName() {
 		BeanNameViewResolver resolver = new BeanNameViewResolver();

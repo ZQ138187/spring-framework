@@ -30,8 +30,8 @@ import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.ViewResolver;
 
 /**
- * Convenient base class for {@link org.springframework.web.servlet.ViewResolver}
- * implementations. Caches {@link org.springframework.web.servlet.View} objects
+ * Convenient base class for {@link ViewResolver}
+ * implementations. Caches {@link View} objects
  * once resolved: This means that view resolution won't be a performance problem,
  * no matter how costly initial view retrieval is.
  *

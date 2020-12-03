@@ -36,7 +36,7 @@ import org.springframework.web.method.support.ModelAndViewContainer;
 
 /**
  * Supports return values of type
- * {@link org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBody}
+ * {@link StreamingResponseBody}
  * and also {@code ResponseEntity<StreamingResponseBody>}.
  *
  * @author Rossen Stoyanchev

@@ -45,7 +45,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 /**
  * Utility class for easy access to request-specific state which has been
- * set by the {@link org.springframework.web.servlet.DispatcherServlet}.
+ * set by the {@link DispatcherServlet}.
  *
  * <p>Supports lookup of current WebApplicationContext, LocaleResolver,
  * Locale, ThemeResolver, Theme, and MultipartResolver.
@@ -54,7 +54,7 @@ import org.springframework.web.util.UriComponentsBuilder;
  * @author Rossen Stoyanchev
  * @since 03.03.2003
  * @see RequestContext
- * @see org.springframework.web.servlet.DispatcherServlet
+ * @see DispatcherServlet
  */
 public abstract class RequestContextUtils {
 
@@ -135,7 +135,7 @@ public abstract class RequestContextUtils {
 	 * LocaleResolver bound to the request by the DispatcherServlet
 	 * (if available), falling back to the request's accept-header Locale.
 	 * <p>This method serves as a straightforward alternative to the standard
-	 * Servlet {@link javax.servlet.http.HttpServletRequest#getLocale()} method,
+	 * Servlet {@link HttpServletRequest#getLocale()} method,
 	 * falling back to the latter if no more specific locale has been found.
 	 * <p>Consider using {@link org.springframework.context.i18n.LocaleContextHolder#getLocale()}
 	 * which will normally be populated with the same Locale.

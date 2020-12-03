@@ -482,7 +482,7 @@ public class RequestMappingHandlerAdapter extends AbstractHandlerMethodAdapter
 
 	/**
 	 * Specify the strategy to store session attributes with. The default is
-	 * {@link org.springframework.web.bind.support.DefaultSessionAttributeStore},
+	 * {@link DefaultSessionAttributeStore},
 	 * storing session attributes in the HttpSession with the same attribute
 	 * name as in the model.
 	 */
@@ -526,7 +526,7 @@ public class RequestMappingHandlerAdapter extends AbstractHandlerMethodAdapter
 	 * same active logical session. However, this is not guaranteed across
 	 * different servlet containers; the only 100% safe way is a session mutex.
 	 * @see org.springframework.web.util.HttpSessionMutexListener
-	 * @see org.springframework.web.util.WebUtils#getSessionMutex(javax.servlet.http.HttpSession)
+	 * @see WebUtils#getSessionMutex(HttpSession)
 	 */
 	public void setSynchronizeOnSession(boolean synchronizeOnSession) {
 		this.synchronizeOnSession = synchronizeOnSession;
@@ -535,7 +535,7 @@ public class RequestMappingHandlerAdapter extends AbstractHandlerMethodAdapter
 	/**
 	 * Set the ParameterNameDiscoverer to use for resolving method parameter names if needed
 	 * (e.g. for default attribute names).
-	 * <p>Default is a {@link org.springframework.core.DefaultParameterNameDiscoverer}.
+	 * <p>Default is a {@link DefaultParameterNameDiscoverer}.
 	 */
 	public void setParameterNameDiscoverer(ParameterNameDiscoverer parameterNameDiscoverer) {
 		this.parameterNameDiscoverer = parameterNameDiscoverer;

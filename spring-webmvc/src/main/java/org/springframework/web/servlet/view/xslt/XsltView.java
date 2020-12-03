@@ -131,13 +131,13 @@ public class XsltView extends AbstractUrlBasedView {
 	}
 
 	/**
-	 * Set an implementation of the {@link javax.xml.transform.ErrorListener}
+	 * Set an implementation of the {@link ErrorListener}
 	 * interface for custom handling of transformation errors and warnings.
 	 * <p>If not set, a default
-	 * {@link org.springframework.util.xml.SimpleTransformErrorListener} is
+	 * {@link SimpleTransformErrorListener} is
 	 * used that simply logs warnings using the logger instance of the view class,
 	 * and rethrows errors to discontinue the XML transformation.
-	 * @see org.springframework.util.xml.SimpleTransformErrorListener
+	 * @see SimpleTransformErrorListener
 	 */
 	public void setErrorListener(@Nullable ErrorListener errorListener) {
 		this.errorListener = (errorListener != null ? errorListener : new SimpleTransformErrorListener(logger));
@@ -148,7 +148,7 @@ public class XsltView extends AbstractUrlBasedView {
 	 * outputting the result tree.
 	 * <p>Default is {@code true} (on); set this to {@code false} (off)
 	 * to not specify an "indent" key, leaving the choice up to the stylesheet.
-	 * @see javax.xml.transform.OutputKeys#INDENT
+	 * @see OutputKeys#INDENT
 	 */
 	public void setIndent(boolean indent) {
 		this.indent = indent;
@@ -158,7 +158,7 @@ public class XsltView extends AbstractUrlBasedView {
 	 * Set arbitrary transformer output properties to be applied to the stylesheet.
 	 * <p>Any values specified here will override defaults that this view sets
 	 * programmatically.
-	 * @see javax.xml.transform.Transformer#setOutputProperty
+	 * @see Transformer#setOutputProperty
 	 */
 	public void setOutputProperties(Properties outputProperties) {
 		this.outputProperties = outputProperties;
@@ -192,7 +192,7 @@ public class XsltView extends AbstractUrlBasedView {
 	/**
 	 * Instantiate a new TransformerFactory for this view.
 	 * <p>The default implementation simply calls
-	 * {@link javax.xml.transform.TransformerFactory#newInstance()}.
+	 * {@link TransformerFactory#newInstance()}.
 	 * If a {@link #setTransformerFactoryClass "transformerFactoryClass"}
 	 * has been specified explicitly, the default constructor of the
 	 * specified class will be called instead.
@@ -355,8 +355,8 @@ public class XsltView extends AbstractUrlBasedView {
 	/**
 	 * Configure the indentation settings for the supplied {@link Transformer}.
 	 * @param transformer the target transformer
-	 * @see org.springframework.util.xml.TransformerUtils#enableIndenting(javax.xml.transform.Transformer)
-	 * @see org.springframework.util.xml.TransformerUtils#disableIndenting(javax.xml.transform.Transformer)
+	 * @see TransformerUtils#enableIndenting(Transformer)
+	 * @see TransformerUtils#disableIndenting(Transformer)
 	 */
 	protected final void configureIndentation(Transformer transformer) {
 		if (this.indent) {

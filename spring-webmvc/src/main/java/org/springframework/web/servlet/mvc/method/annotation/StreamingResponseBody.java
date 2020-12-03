@@ -29,7 +29,7 @@ import java.io.OutputStream;
  * asynchronous requests. Both the MVC Java config and the MVC namespaces provide
  * options to configure asynchronous handling. If not using those, an application
  * can set the {@code taskExecutor} property of
- * {@link org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter
+ * {@link RequestMappingHandlerAdapter
  * RequestMappingHandlerAdapter}.
  *
  * @author Rossen Stoyanchev

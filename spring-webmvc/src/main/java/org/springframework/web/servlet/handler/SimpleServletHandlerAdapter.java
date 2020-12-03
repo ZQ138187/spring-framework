@@ -47,7 +47,7 @@ import org.springframework.web.servlet.ModelAndView;
  *
  * @author Juergen Hoeller
  * @since 1.1.5
- * @see javax.servlet.Servlet
+ * @see Servlet
  * @see javax.servlet.http.HttpServlet
  * @see SimpleServletPostProcessor
  * @see org.springframework.web.servlet.mvc.ServletWrappingController

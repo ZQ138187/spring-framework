@@ -158,7 +158,7 @@ public interface WebMvcConfigurer {
 	 * <p><strong>Note</strong> that adding converters to the list, turns off
 	 * default converter registration. To simply add a converter without impacting
 	 * default registration, consider using the method
-	 * {@link #extendMessageConverters(java.util.List)} instead.
+	 * {@link #extendMessageConverters(List)} instead.
 	 * @param converters initially an empty list of converters
 	 */
 	default void configureMessageConverters(List<HttpMessageConverter<?>> converters) {

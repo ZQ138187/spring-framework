@@ -63,7 +63,7 @@ public class ResourceUrlProvider implements ApplicationListener<ContextRefreshed
 
 	/**
 	 * Configure a {@code UrlPathHelper} to use in
-	 * {@link #getForRequestUrl(javax.servlet.http.HttpServletRequest, String)}
+	 * {@link #getForRequestUrl(HttpServletRequest, String)}
 	 * in order to derive the lookup path for a target request URL path.
 	 */
 	public void setUrlPathHelper(UrlPathHelper urlPathHelper) {

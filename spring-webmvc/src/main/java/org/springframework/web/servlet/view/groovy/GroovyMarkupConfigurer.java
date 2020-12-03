@@ -37,7 +37,7 @@ import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
 /**
- * An extension of Groovy's {@link groovy.text.markup.TemplateConfiguration} and
+ * An extension of Groovy's {@link TemplateConfiguration} and
  * an implementation of Spring MVC's {@link GroovyMarkupConfig} for creating
  * a {@code MarkupTemplateEngine} for use in a web application. The most basic
  * way to configure this class is to set the "resourceLoaderPath". For example:
@@ -58,7 +58,7 @@ import org.springframework.util.StringUtils;
  * <ul>
  * <li>a parent ClassLoader for loading Groovy templates with their references
  * <li>the default configuration in the base class {@link TemplateConfiguration}
- * <li>a {@link groovy.text.markup.TemplateResolver} for resolving template files
+ * <li>a {@link TemplateResolver} for resolving template files
  * </ul>
  *
  * You can provide the {@link MarkupTemplateEngine} instance directly to this bean
@@ -186,7 +186,7 @@ public class GroovyMarkupConfigurer extends TemplateConfiguration
 	/**
 	 * Resolve a template from the given template path.
 	 * <p>The default implementation uses the Locale associated with the current request,
-	 * as obtained through {@link org.springframework.context.i18n.LocaleContextHolder LocaleContextHolder},
+	 * as obtained through {@link LocaleContextHolder LocaleContextHolder},
 	 * to find the template file. Effectively the locale configured at the engine level is ignored.
 	 * @see LocaleContextHolder
 	 * @see #setLocale

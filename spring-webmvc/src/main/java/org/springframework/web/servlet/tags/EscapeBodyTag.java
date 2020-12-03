@@ -67,7 +67,7 @@ import org.springframework.web.util.JavaScriptUtils;
  * @author Juergen Hoeller
  * @since 1.1.1
  * @see org.springframework.web.util.HtmlUtils
- * @see org.springframework.web.util.JavaScriptUtils
+ * @see JavaScriptUtils
  */
 @SuppressWarnings("serial")
 public class EscapeBodyTag extends HtmlEscapingAwareTag implements BodyTag {

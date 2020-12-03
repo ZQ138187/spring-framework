@@ -42,7 +42,7 @@ import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.support.RequestContext;
 
 /**
- * Abstract base class for {@link org.springframework.web.servlet.View}
+ * Abstract base class for {@link View}
  * implementations. Subclasses should be JavaBeans, to allow for
  * convenient configuration as Spring-managed bean instances.
  *
@@ -357,7 +357,7 @@ public abstract class AbstractView extends WebApplicationObjectSupport implement
 	 * with dynamic values taking precedence over static attributes
 	 * @return the RequestContext instance
 	 * @see #setRequestContextAttribute
-	 * @see org.springframework.web.servlet.support.RequestContext
+	 * @see RequestContext
 	 */
 	protected RequestContext createRequestContext(
 			HttpServletRequest request, HttpServletResponse response, Map<String, Object> model) {
@@ -387,7 +387,7 @@ public abstract class AbstractView extends WebApplicationObjectSupport implement
 	 * generating download content that requires temporary caching on the
 	 * client side, typically via the response OutputStream.
 	 * @see #prepareResponse
-	 * @see javax.servlet.http.HttpServletResponse#getOutputStream()
+	 * @see HttpServletResponse#getOutputStream()
 	 */
 	protected boolean generatesDownloadContent() {
 		return false;
@@ -401,7 +401,7 @@ public abstract class AbstractView extends WebApplicationObjectSupport implement
 	 * @return the wrapped request, or the original request if no wrapping is necessary
 	 * @see #setExposeContextBeansAsAttributes
 	 * @see #setExposedContextBeanNames
-	 * @see org.springframework.web.context.support.ContextExposingHttpServletRequest
+	 * @see ContextExposingHttpServletRequest
 	 */
 	protected HttpServletRequest getRequestToExpose(HttpServletRequest originalRequest) {
 		if (this.exposeContextBeansAsAttributes || this.exposedContextBeanNames != null) {

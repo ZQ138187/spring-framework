@@ -33,7 +33,7 @@ import org.springframework.web.context.ServletContextAware;
 /**
  * {@link org.springframework.beans.factory.config.BeanPostProcessor}
  * that applies initialization and destruction callbacks to beans that
- * implement the {@link javax.servlet.Servlet} interface.
+ * implement the {@link Servlet} interface.
  *
  * <p>After initialization of the bean instance, the Servlet {@code init}
  * method will be called with a ServletConfig that contains the bean name
@@ -60,8 +60,8 @@ import org.springframework.web.context.ServletContextAware;
  *
  * @author Juergen Hoeller
  * @since 1.1.5
- * @see javax.servlet.Servlet#init(javax.servlet.ServletConfig)
- * @see javax.servlet.Servlet#destroy()
+ * @see Servlet#init(ServletConfig)
+ * @see Servlet#destroy()
  * @see SimpleServletHandlerAdapter
  */
 public class SimpleServletPostProcessor implements

@@ -86,7 +86,7 @@ public class SseEmitter extends ResponseBodyEmitter {
 	 * for important notes on exception handling.
 	 * @param object the object to write
 	 * @throws IOException raised when an I/O error occurs
-	 * @throws java.lang.IllegalStateException wraps any other errors
+	 * @throws IllegalStateException wraps any other errors
 	 */
 	@Override
 	public void send(Object object) throws IOException {

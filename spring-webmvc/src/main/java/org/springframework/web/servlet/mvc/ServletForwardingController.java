@@ -157,10 +157,10 @@ public class ServletForwardingController extends AbstractController implements B
 	 * @param request current HTTP request
 	 * @param response current HTTP response
 	 * @return {@code true} for include, {@code false} for forward
-	 * @see javax.servlet.RequestDispatcher#forward
-	 * @see javax.servlet.RequestDispatcher#include
+	 * @see RequestDispatcher#forward
+	 * @see RequestDispatcher#include
 	 * @see javax.servlet.ServletResponse#isCommitted
-	 * @see org.springframework.web.util.WebUtils#isIncludeRequest
+	 * @see WebUtils#isIncludeRequest
 	 */
 	protected boolean useInclude(HttpServletRequest request, HttpServletResponse response) {
 		return (WebUtils.isIncludeRequest(request) || response.isCommitted());

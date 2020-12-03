@@ -219,7 +219,7 @@ public abstract class WebContentGenerator extends WebApplicationObjectSupport {
 	}
 
 	/**
-	 * Set the {@link org.springframework.http.CacheControl} instance to build
+	 * Set the {@link CacheControl} instance to build
 	 * the Cache-Control HTTP response header.
 	 * @since 4.2
 	 */
@@ -228,7 +228,7 @@ public abstract class WebContentGenerator extends WebApplicationObjectSupport {
 	}
 
 	/**
-	 * Get the {@link org.springframework.http.CacheControl} instance
+	 * Get the {@link CacheControl} instance
 	 * that builds the Cache-Control HTTP response header.
 	 * @since 4.2
 	 */
@@ -245,7 +245,7 @@ public abstract class WebContentGenerator extends WebApplicationObjectSupport {
 	 * <li>seconds == 0: "Cache-Control: no-store" will prevent caching</li>
 	 * <li>seconds > 0: "Cache-Control: max-age=seconds" will ask to cache content</li>
 	 * </ul>
-	 * <p>For more specific needs, a custom {@link org.springframework.http.CacheControl}
+	 * <p>For more specific needs, a custom {@link CacheControl}
 	 * should be used.
 	 * @see #setCacheControl
 	 */

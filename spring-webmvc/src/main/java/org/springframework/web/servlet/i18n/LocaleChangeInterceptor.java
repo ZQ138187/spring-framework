@@ -38,7 +38,7 @@ import org.springframework.web.servlet.support.RequestContextUtils;
  * @author Juergen Hoeller
  * @author Rossen Stoyanchev
  * @since 20.06.2003
- * @see org.springframework.web.servlet.LocaleResolver
+ * @see LocaleResolver
  */
 public class LocaleChangeInterceptor extends HandlerInterceptorAdapter {
 

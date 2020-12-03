@@ -32,7 +32,7 @@ import org.springframework.web.servlet.ModelAndView;
  * Also provides matching logic to test if the interceptor applies to a given request path.
  *
  * <p>A MappedInterceptor can be registered directly with any
- * {@link org.springframework.web.servlet.handler.AbstractHandlerMethodMapping}.
+ * {@link AbstractHandlerMethodMapping}.
  * Furthermore, beans of type {@code MappedInterceptor} are automatically detected by
  * {@code AbstractHandlerMethodMapping} (including ancestor ApplicationContext's) which
  * effectively means the interceptor is registered "globally" with all handler mappings.
@@ -104,7 +104,7 @@ public final class MappedInterceptor implements HandlerInterceptor {
 
 	/**
 	 * Configure a PathMatcher to use with this MappedInterceptor instead of the one passed
-	 * by default to the {@link #matches(String, org.springframework.util.PathMatcher)} method.
+	 * by default to the {@link #matches(String, PathMatcher)} method.
 	 * <p>This is an advanced property that is only required when using custom PathMatcher
 	 * implementations that support mapping metadata other than the Ant-style path patterns
 	 * supported by default.

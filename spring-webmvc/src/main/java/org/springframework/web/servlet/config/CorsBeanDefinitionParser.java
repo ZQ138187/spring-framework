@@ -32,7 +32,7 @@ import org.springframework.util.xml.DomUtils;
 import org.springframework.web.cors.CorsConfiguration;
 
 /**
- * {@link org.springframework.beans.factory.xml.BeanDefinitionParser} that parses a
+ * {@link BeanDefinitionParser} that parses a
  * {@code cors} element in order to set the CORS configuration in the various
  * {AbstractHandlerMapping} beans created by {@link AnnotationDrivenBeanDefinitionParser},
  * {@link ResourcesBeanDefinitionParser} and {@link ViewControllerBeanDefinitionParser}.

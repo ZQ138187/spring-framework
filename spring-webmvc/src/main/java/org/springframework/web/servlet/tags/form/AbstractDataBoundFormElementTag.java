@@ -47,7 +47,7 @@ public abstract class AbstractDataBoundFormElementTag extends AbstractFormTag im
 
 	/**
 	 * Name of the exposed path variable within the scope of this tag: "nestedPath".
-	 * Same value as {@link org.springframework.web.servlet.tags.NestedPathTag#NESTED_PATH_VARIABLE_NAME}.
+	 * Same value as {@link NestedPathTag#NESTED_PATH_VARIABLE_NAME}.
 	 */
 	protected static final String NESTED_PATH_VARIABLE_NAME = NestedPathTag.NESTED_PATH_VARIABLE_NAME;
 

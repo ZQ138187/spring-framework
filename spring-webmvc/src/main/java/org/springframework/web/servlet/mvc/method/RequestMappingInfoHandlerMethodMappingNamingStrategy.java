@@ -20,7 +20,7 @@ import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.handler.HandlerMethodMappingNamingStrategy;
 
 /**
- * A {@link org.springframework.web.servlet.handler.HandlerMethodMappingNamingStrategy
+ * A {@link HandlerMethodMappingNamingStrategy
  * HandlerMethodMappingNamingStrategy} for {@code RequestMappingInfo}-based handler
  * method mappings.
  *

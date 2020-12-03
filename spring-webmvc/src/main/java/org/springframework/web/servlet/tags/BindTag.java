@@ -28,7 +28,7 @@ import org.springframework.web.servlet.support.BindStatus;
 /**
  * The {@code <bind>} tag supports evaluation of binding errors for a certain
  * bean or bean property. Exposes a "status" variable of type
- * {@link org.springframework.web.servlet.support.BindStatus},
+ * {@link BindStatus},
  * to both Java expressions and JSP EL expressions.
  *
  * <p>Can be used to bind to any bean or bean property in the model.
@@ -37,7 +37,7 @@ import org.springframework.web.servlet.support.BindStatus;
  * (showing field errors), or a matching set of bean properties
  * (showing all corresponding field errors).
  *
- * <p>The {@link org.springframework.validation.Errors} object that has
+ * <p>The {@link Errors} object that has
  * been bound using this tag is exposed to collaborating tags, as well
  * as the bean property that this errors object applies to. Nested tags
  * such as the {@link TransformTag} can access those exposed properties.
@@ -112,8 +112,8 @@ public class BindTag extends HtmlEscapingAwareTag implements EditorAwareTag {
 	 * field errors (also supporting nested fields and "person.na*" mappings).
 	 * "person.*" will return all errors for the specified bean, both global
 	 * and field errors.
-	 * @see org.springframework.validation.Errors#getGlobalErrors
-	 * @see org.springframework.validation.Errors#getFieldErrors
+	 * @see Errors#getGlobalErrors
+	 * @see Errors#getFieldErrors
 	 */
 	public void setPath(String path) {
 		this.path = path;

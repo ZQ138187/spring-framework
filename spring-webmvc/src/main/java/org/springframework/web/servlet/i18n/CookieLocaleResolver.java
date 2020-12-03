@@ -298,7 +298,7 @@ public class CookieLocaleResolver extends CookieGenerator implements LocaleConte
 	 * @param request the request to resolve the locale for
 	 * @return the default locale (never {@code null})
 	 * @see #setDefaultLocale
-	 * @see javax.servlet.http.HttpServletRequest#getLocale()
+	 * @see HttpServletRequest#getLocale()
 	 */
 	protected Locale determineDefaultLocale(HttpServletRequest request) {
 		Locale defaultLocale = getDefaultLocale();

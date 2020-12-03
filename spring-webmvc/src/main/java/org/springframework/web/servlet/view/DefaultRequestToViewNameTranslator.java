@@ -51,7 +51,7 @@ import org.springframework.web.util.UrlPathHelper;
  * @author Rob Harrop
  * @author Juergen Hoeller
  * @since 2.0
- * @see org.springframework.web.servlet.RequestToViewNameTranslator
+ * @see RequestToViewNameTranslator
  * @see org.springframework.web.servlet.ViewResolver
  */
 public class DefaultRequestToViewNameTranslator implements RequestToViewNameTranslator {
@@ -125,7 +125,7 @@ public class DefaultRequestToViewNameTranslator implements RequestToViewNameTran
 
 	/**
 	 * Shortcut to same property on underlying {@link #setUrlPathHelper UrlPathHelper}.
-	 * @see org.springframework.web.util.UrlPathHelper#setAlwaysUseFullPath
+	 * @see UrlPathHelper#setAlwaysUseFullPath
 	 */
 	public void setAlwaysUseFullPath(boolean alwaysUseFullPath) {
 		this.urlPathHelper.setAlwaysUseFullPath(alwaysUseFullPath);
@@ -133,7 +133,7 @@ public class DefaultRequestToViewNameTranslator implements RequestToViewNameTran
 
 	/**
 	 * Shortcut to same property on underlying {@link #setUrlPathHelper UrlPathHelper}.
-	 * @see org.springframework.web.util.UrlPathHelper#setUrlDecode
+	 * @see UrlPathHelper#setUrlDecode
 	 */
 	public void setUrlDecode(boolean urlDecode) {
 		this.urlPathHelper.setUrlDecode(urlDecode);
@@ -141,14 +141,14 @@ public class DefaultRequestToViewNameTranslator implements RequestToViewNameTran
 
 	/**
 	 * Set if ";" (semicolon) content should be stripped from the request URI.
-	 * @see org.springframework.web.util.UrlPathHelper#setRemoveSemicolonContent(boolean)
+	 * @see UrlPathHelper#setRemoveSemicolonContent(boolean)
 	 */
 	public void setRemoveSemicolonContent(boolean removeSemicolonContent) {
 		this.urlPathHelper.setRemoveSemicolonContent(removeSemicolonContent);
 	}
 
 	/**
-	 * Set the {@link org.springframework.web.util.UrlPathHelper} to use for
+	 * Set the {@link UrlPathHelper} to use for
 	 * the resolution of lookup paths.
 	 * <p>Use this to override the default UrlPathHelper with a custom subclass,
 	 * or to share common UrlPathHelper settings across multiple web components.
@@ -162,7 +162,7 @@ public class DefaultRequestToViewNameTranslator implements RequestToViewNameTran
 	/**
 	 * Translates the request URI of the incoming {@link HttpServletRequest}
 	 * into the view name based on the configured parameters.
-	 * @see org.springframework.web.util.UrlPathHelper#getLookupPathForRequest
+	 * @see UrlPathHelper#getLookupPathForRequest
 	 * @see #transformPath
 	 */
 	@Override

@@ -50,7 +50,7 @@ public class RedirectViewControllerRegistration {
 
 	/**
 	 * Set the specific redirect 3xx status code to use.
-	 * <p>If not set, {@link org.springframework.web.servlet.view.RedirectView}
+	 * <p>If not set, {@link RedirectView}
 	 * will select {@code HttpStatus.MOVED_TEMPORARILY (302)} by default.
 	 */
 	public RedirectViewControllerRegistration setStatusCode(HttpStatus statusCode) {

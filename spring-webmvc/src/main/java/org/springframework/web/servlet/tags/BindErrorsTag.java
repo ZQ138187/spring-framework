@@ -61,7 +61,7 @@ import org.springframework.validation.Errors;
  * @author Rod Johnson
  * @author Juergen Hoeller
  * @see BindTag
- * @see org.springframework.validation.Errors
+ * @see Errors
  */
 @SuppressWarnings("serial")
 public class BindErrorsTag extends HtmlEscapingAwareTag {

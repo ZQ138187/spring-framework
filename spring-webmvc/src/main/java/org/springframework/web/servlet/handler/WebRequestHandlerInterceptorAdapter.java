@@ -32,7 +32,7 @@ import org.springframework.web.servlet.ModelAndView;
  *
  * @author Juergen Hoeller
  * @since 2.0
- * @see org.springframework.web.context.request.WebRequestInterceptor
+ * @see WebRequestInterceptor
  * @see org.springframework.web.servlet.HandlerInterceptor
  */
 public class WebRequestHandlerInterceptorAdapter implements AsyncHandlerInterceptor {

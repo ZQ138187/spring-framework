@@ -98,7 +98,7 @@ public class ContentNegotiationConfigurer {
 
 
 	/**
-	 * Class constructor with {@link javax.servlet.ServletContext}.
+	 * Class constructor with {@link ServletContext}.
 	 */
 	public ContentNegotiationConfigurer(@Nullable ServletContext servletContext) {
 		if (servletContext != null) {

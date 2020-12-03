@@ -26,14 +26,14 @@ import org.springframework.lang.Nullable;
  * A strategy for resolving a request to a server-side resource.
  *
  * <p>Provides mechanisms for resolving an incoming request to an actual
- * {@link org.springframework.core.io.Resource} and for obtaining the
+ * {@link Resource} and for obtaining the
  * public URL path that clients should use when requesting the resource.
  *
  * @author Jeremy Grelle
  * @author Rossen Stoyanchev
  * @author Sam Brannen
  * @since 4.1
- * @see org.springframework.web.servlet.resource.ResourceResolverChain
+ * @see ResourceResolverChain
  */
 public interface ResourceResolver {
 

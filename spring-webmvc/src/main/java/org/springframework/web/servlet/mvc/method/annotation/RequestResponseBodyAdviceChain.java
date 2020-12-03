@@ -35,7 +35,7 @@ import org.springframework.web.method.ControllerAdviceBean;
 /**
  * Invokes {@link RequestBodyAdvice} and {@link ResponseBodyAdvice} where each
  * instance may be (and is most likely) wrapped with
- * {@link org.springframework.web.method.ControllerAdviceBean ControllerAdviceBean}.
+ * {@link ControllerAdviceBean ControllerAdviceBean}.
  *
  * @author Rossen Stoyanchev
  * @author Sam Brannen

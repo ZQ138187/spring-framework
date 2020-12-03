@@ -30,7 +30,7 @@ import org.springframework.web.util.WebUtils;
 /**
  * Wrapper for a JSP or other resource within the same web application.
  * Exposes model objects as request attributes and forwards the request to
- * the specified resource URL using a {@link javax.servlet.RequestDispatcher}.
+ * the specified resource URL using a {@link RequestDispatcher}.
  *
  * <p>A URL for this view is supposed to specify a resource within the web
  * application, suitable for RequestDispatcher's {@code forward} or
@@ -56,8 +56,8 @@ import org.springframework.web.util.WebUtils;
  * @author Rod Johnson
  * @author Juergen Hoeller
  * @author Rob Harrop
- * @see javax.servlet.RequestDispatcher#forward
- * @see javax.servlet.RequestDispatcher#include
+ * @see RequestDispatcher#forward
+ * @see RequestDispatcher#include
  * @see javax.servlet.ServletResponse#flushBuffer
  * @see InternalResourceViewResolver
  * @see JstlView
@@ -101,9 +101,9 @@ public class InternalResourceView extends AbstractUrlBasedView {
 	 * Specify whether to always include the view rather than forward to it.
 	 * <p>Default is "false". Switch this flag on to enforce the use of a
 	 * Servlet include, even if a forward would be possible.
-	 * @see javax.servlet.RequestDispatcher#forward
-	 * @see javax.servlet.RequestDispatcher#include
-	 * @see #useInclude(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+	 * @see RequestDispatcher#forward
+	 * @see RequestDispatcher#include
+	 * @see #useInclude(HttpServletRequest, HttpServletResponse)
 	 */
 	public void setAlwaysInclude(boolean alwaysInclude) {
 		this.alwaysInclude = alwaysInclude;
@@ -237,10 +237,10 @@ public class InternalResourceView extends AbstractUrlBasedView {
 	 * @param request current HTTP request
 	 * @param response current HTTP response
 	 * @return {@code true} for include, {@code false} for forward
-	 * @see javax.servlet.RequestDispatcher#forward
-	 * @see javax.servlet.RequestDispatcher#include
+	 * @see RequestDispatcher#forward
+	 * @see RequestDispatcher#include
 	 * @see javax.servlet.ServletResponse#isCommitted
-	 * @see org.springframework.web.util.WebUtils#isIncludeRequest
+	 * @see WebUtils#isIncludeRequest
 	 */
 	protected boolean useInclude(HttpServletRequest request, HttpServletResponse response) {
 		return (this.alwaysInclude || WebUtils.isIncludeRequest(request) || response.isCommitted());

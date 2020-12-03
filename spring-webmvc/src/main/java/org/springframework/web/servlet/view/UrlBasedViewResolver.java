@@ -425,7 +425,7 @@ public class UrlBasedViewResolver extends AbstractCachingViewResolver implements
 	/**
 	 * Specify the order value for this ViewResolver bean.
 	 * <p>The default value is {@code Ordered.LOWEST_PRECEDENCE}, meaning non-ordered.
-	 * @see org.springframework.core.Ordered#getOrder()
+	 * @see Ordered#getOrder()
 	 */
 	public void setOrder(int order) {
 		this.order = order;
@@ -494,13 +494,13 @@ public class UrlBasedViewResolver extends AbstractCachingViewResolver implements
 
 	/**
 	 * Indicates whether or not this {@link org.springframework.web.servlet.ViewResolver} can
-	 * handle the supplied view name. If not, {@link #createView(String, java.util.Locale)} will
+	 * handle the supplied view name. If not, {@link #createView(String, Locale)} will
 	 * return {@code null}. The default implementation checks against the configured
 	 * {@link #setViewNames view names}.
 	 * @param viewName the name of the view to retrieve
 	 * @param locale the Locale to retrieve the view for
 	 * @return whether this resolver applies to the specified view
-	 * @see org.springframework.util.PatternMatchUtils#simpleMatch(String, String)
+	 * @see PatternMatchUtils#simpleMatch(String, String)
 	 */
 	protected boolean canHandle(String viewName, Locale locale) {
 		String[] viewNames = getViewNames();
@@ -541,7 +541,7 @@ public class UrlBasedViewResolver extends AbstractCachingViewResolver implements
 	 * @param viewName the name of the view to build
 	 * @return the View instance
 	 * @throws Exception if the view couldn't be resolved
-	 * @see #loadView(String, java.util.Locale)
+	 * @see #loadView(String, Locale)
 	 */
 	protected AbstractUrlBasedView buildView(String viewName) throws Exception {
 		Class<?> viewClass = getViewClass();

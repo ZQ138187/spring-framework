@@ -204,7 +204,7 @@ public class FreeMarkerView extends AbstractTemplateView {
 	/**
 	 * Return the configured FreeMarker {@link ObjectWrapper}, or the
 	 * {@link ObjectWrapper#DEFAULT_WRAPPER default wrapper} if none specified.
-	 * @see freemarker.template.Configuration#getObjectWrapper()
+	 * @see Configuration#getObjectWrapper()
 	 */
 	protected ObjectWrapper getObjectWrapper() {
 		ObjectWrapper ow = obtainConfiguration().getObjectWrapper();
@@ -288,10 +288,10 @@ public class FreeMarkerView extends AbstractTemplateView {
 	 * @throws IOException if the template file could not be retrieved
 	 * @throws Exception if rendering failed
 	 * @see #setUrl
-	 * @see org.springframework.web.servlet.support.RequestContextUtils#getLocale
-	 * @see #getTemplate(java.util.Locale)
+	 * @see RequestContextUtils#getLocale
+	 * @see #getTemplate(Locale)
 	 * @see #processTemplate
-	 * @see freemarker.ext.servlet.FreemarkerServlet
+	 * @see FreemarkerServlet
 	 */
 	protected void doRender(Map<String, Object> model, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
@@ -356,7 +356,7 @@ public class FreeMarkerView extends AbstractTemplateView {
 	 * @return the FreeMarker template to render
 	 * @throws IOException if the template file could not be retrieved
 	 * @see #setUrl
-	 * @see #getTemplate(String, java.util.Locale)
+	 * @see #getTemplate(String, Locale)
 	 */
 	protected Template getTemplate(Locale locale) throws IOException {
 		String url = getUrl();
@@ -388,7 +388,7 @@ public class FreeMarkerView extends AbstractTemplateView {
 	 * @param response servlet response (use this to get the OutputStream or Writer)
 	 * @throws IOException if the template file could not be retrieved
 	 * @throws TemplateException if thrown by FreeMarker
-	 * @see freemarker.template.Template#process(Object, java.io.Writer)
+	 * @see Template#process(Object, java.io.Writer)
 	 */
 	protected void processTemplate(Template template, SimpleHash model, HttpServletResponse response)
 			throws IOException, TemplateException {

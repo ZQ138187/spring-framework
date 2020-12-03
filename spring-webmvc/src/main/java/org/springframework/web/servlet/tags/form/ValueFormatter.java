@@ -42,7 +42,7 @@ abstract class ValueFormatter {
 	/**
 	 * Build the display value of the supplied {@code Object}, HTML escaped
 	 * as required. This version is <strong>not</strong> {@link PropertyEditor}-aware.
-	 * @see #getDisplayString(Object, java.beans.PropertyEditor, boolean)
+	 * @see #getDisplayString(Object, PropertyEditor, boolean)
 	 */
 	public static String getDisplayString(@Nullable Object value, boolean htmlEscape) {
 		String displayValue = ObjectUtils.getDisplayString(value);

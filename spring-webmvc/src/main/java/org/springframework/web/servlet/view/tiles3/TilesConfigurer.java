@@ -156,7 +156,7 @@ public class TilesConfigurer implements ServletContextAware, InitializingBean, D
 
 	/**
 	 * Configure Tiles using a custom TilesInitializer, typically specified as an inner bean.
-	 * <p>Default is a variant of {@link org.apache.tiles.startup.DefaultTilesInitializer},
+	 * <p>Default is a variant of {@link DefaultTilesInitializer},
 	 * respecting the "definitions", "preparerFactoryClass" etc properties on this configurer.
 	 * <p><b>NOTE: Specifying a custom TilesInitializer effectively disables all other bean
 	 * properties on this configurer.</b> The entire initialization procedure is then left
@@ -168,13 +168,13 @@ public class TilesConfigurer implements ServletContextAware, InitializingBean, D
 
 	/**
 	 * Specify whether to apply Tiles 3.0's "complete-autoload" configuration.
-	 * <p>See {@link org.apache.tiles.extras.complete.CompleteAutoloadTilesContainerFactory}
+	 * <p>See {@link CompleteAutoloadTilesContainerFactory}
 	 * for details on the complete-autoload mode.
 	 * <p><b>NOTE: Specifying the complete-autoload mode effectively disables all other bean
 	 * properties on this configurer.</b> The entire initialization procedure is then left
-	 * to {@link org.apache.tiles.extras.complete.CompleteAutoloadTilesInitializer}.
-	 * @see org.apache.tiles.extras.complete.CompleteAutoloadTilesContainerFactory
-	 * @see org.apache.tiles.extras.complete.CompleteAutoloadTilesInitializer
+	 * to {@link CompleteAutoloadTilesInitializer}.
+	 * @see CompleteAutoloadTilesContainerFactory
+	 * @see CompleteAutoloadTilesInitializer
 	 */
 	public void setCompleteAutoload(boolean completeAutoload) {
 		if (completeAutoload) {
@@ -214,7 +214,7 @@ public class TilesConfigurer implements ServletContextAware, InitializingBean, D
 	}
 
 	/**
-	 * Set the {@link org.apache.tiles.definition.DefinitionsFactory} implementation to use.
+	 * Set the {@link DefinitionsFactory} implementation to use.
 	 * Default is {@link org.apache.tiles.definition.UnresolvingLocaleDefinitionsFactory},
 	 * operating on definition resource URLs.
 	 * <p>Specify a custom DefinitionsFactory, e.g. a UrlDefinitionsFactory subclass,
@@ -227,7 +227,7 @@ public class TilesConfigurer implements ServletContextAware, InitializingBean, D
 	}
 
 	/**
-	 * Set the {@link org.apache.tiles.preparer.factory.PreparerFactory} implementation to use.
+	 * Set the {@link PreparerFactory} implementation to use.
 	 * Default is {@link org.apache.tiles.preparer.factory.BasicPreparerFactory}, creating
 	 * shared instances for specified preparer classes.
 	 * <p>Specify {@link SimpleSpringPreparerFactory} to autowire
@@ -253,7 +253,7 @@ public class TilesConfigurer implements ServletContextAware, InitializingBean, D
 	 * Set whether to use a MutableTilesContainer (typically the CachingTilesContainer
 	 * implementation) for this application. Default is "false".
 	 * @see org.apache.tiles.mgmt.MutableTilesContainer
-	 * @see org.apache.tiles.impl.mgmt.CachingTilesContainer
+	 * @see CachingTilesContainer
 	 */
 	public void setUseMutableTilesContainer(boolean useMutableTilesContainer) {
 		this.useMutableTilesContainer = useMutableTilesContainer;

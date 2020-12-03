@@ -108,7 +108,7 @@ public class ServletWrappingController extends AbstractController
 	/**
 	 * Set the class of the servlet to wrap.
 	 * Needs to implement {@code javax.servlet.Servlet}.
-	 * @see javax.servlet.Servlet
+	 * @see Servlet
 	 */
 	public void setServletClass(Class<? extends Servlet> servletClass) {
 		this.servletClass = servletClass;
@@ -138,7 +138,7 @@ public class ServletWrappingController extends AbstractController
 
 	/**
 	 * Initialize the wrapped Servlet instance.
-	 * @see javax.servlet.Servlet#init(javax.servlet.ServletConfig)
+	 * @see Servlet#init(ServletConfig)
 	 */
 	@Override
 	public void afterPropertiesSet() throws Exception {
@@ -155,7 +155,7 @@ public class ServletWrappingController extends AbstractController
 
 	/**
 	 * Invoke the wrapped Servlet instance.
-	 * @see javax.servlet.Servlet#service(javax.servlet.ServletRequest, javax.servlet.ServletResponse)
+	 * @see Servlet#service(javax.servlet.ServletRequest, javax.servlet.ServletResponse)
 	 */
 	@Override
 	protected ModelAndView handleRequestInternal(HttpServletRequest request, HttpServletResponse response)
@@ -169,7 +169,7 @@ public class ServletWrappingController extends AbstractController
 
 	/**
 	 * Destroy the wrapped Servlet instance.
-	 * @see javax.servlet.Servlet#destroy()
+	 * @see Servlet#destroy()
 	 */
 	@Override
 	public void destroy() {

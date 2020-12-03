@@ -46,7 +46,7 @@ import org.springframework.web.servlet.HandlerMapping;
 import org.springframework.web.util.UrlPathHelper;
 
 /**
- * Abstract base class for {@link org.springframework.web.servlet.HandlerMapping}
+ * Abstract base class for {@link HandlerMapping}
  * implementations. Supports ordering, a default handler, handler interceptors,
  * including handler interceptors mapped by path patterns.
  *
@@ -61,9 +61,9 @@ import org.springframework.web.util.UrlPathHelper;
  * @see #setDefaultHandler
  * @see #setAlwaysUseFullPath
  * @see #setUrlDecode
- * @see org.springframework.util.AntPathMatcher
+ * @see AntPathMatcher
  * @see #setInterceptors
- * @see org.springframework.web.servlet.HandlerInterceptor
+ * @see HandlerInterceptor
  */
 public abstract class AbstractHandlerMapping extends WebApplicationObjectSupport implements HandlerMapping, Ordered {
 
@@ -105,7 +105,7 @@ public abstract class AbstractHandlerMapping extends WebApplicationObjectSupport
 
 	/**
 	 * Shortcut to same property on underlying {@link #setUrlPathHelper UrlPathHelper}.
-	 * @see org.springframework.web.util.UrlPathHelper#setAlwaysUseFullPath(boolean)
+	 * @see UrlPathHelper#setAlwaysUseFullPath(boolean)
 	 */
 	public void setAlwaysUseFullPath(boolean alwaysUseFullPath) {
 		this.urlPathHelper.setAlwaysUseFullPath(alwaysUseFullPath);
@@ -114,7 +114,7 @@ public abstract class AbstractHandlerMapping extends WebApplicationObjectSupport
 
 	/**
 	 * Shortcut to same property on underlying {@link #setUrlPathHelper UrlPathHelper}.
-	 * @see org.springframework.web.util.UrlPathHelper#setUrlDecode(boolean)
+	 * @see UrlPathHelper#setUrlDecode(boolean)
 	 */
 	public void setUrlDecode(boolean urlDecode) {
 		this.urlPathHelper.setUrlDecode(urlDecode);
@@ -123,7 +123,7 @@ public abstract class AbstractHandlerMapping extends WebApplicationObjectSupport
 
 	/**
 	 * Shortcut to same property on underlying {@link #setUrlPathHelper UrlPathHelper}.
-	 * @see org.springframework.web.util.UrlPathHelper#setRemoveSemicolonContent(boolean)
+	 * @see UrlPathHelper#setRemoveSemicolonContent(boolean)
 	 */
 	public void setRemoveSemicolonContent(boolean removeSemicolonContent) {
 		this.urlPathHelper.setRemoveSemicolonContent(removeSemicolonContent);
@@ -152,7 +152,7 @@ public abstract class AbstractHandlerMapping extends WebApplicationObjectSupport
 	/**
 	 * Set the PathMatcher implementation to use for matching URL paths
 	 * against registered URL patterns. Default is AntPathMatcher.
-	 * @see org.springframework.util.AntPathMatcher
+	 * @see AntPathMatcher
 	 */
 	public void setPathMatcher(PathMatcher pathMatcher) {
 		Assert.notNull(pathMatcher, "PathMatcher must not be null");
@@ -175,8 +175,8 @@ public abstract class AbstractHandlerMapping extends WebApplicationObjectSupport
 	 * Mapped interceptor beans are also detected by type during initialization.
 	 * @param interceptors array of handler interceptors
 	 * @see #adaptInterceptor
-	 * @see org.springframework.web.servlet.HandlerInterceptor
-	 * @see org.springframework.web.context.request.WebRequestInterceptor
+	 * @see HandlerInterceptor
+	 * @see WebRequestInterceptor
 	 */
 	public void setInterceptors(Object... interceptors) {
 		this.interceptors.addAll(Arrays.asList(interceptors));
@@ -219,7 +219,7 @@ public abstract class AbstractHandlerMapping extends WebApplicationObjectSupport
 	/**
 	 * Specify the order value for this HandlerMapping bean.
 	 * <p>The default value is {@code Ordered.LOWEST_PRECEDENCE}, meaning non-ordered.
-	 * @see org.springframework.core.Ordered#getOrder()
+	 * @see Ordered#getOrder()
 	 */
 	public void setOrder(int order) {
 		this.order = order;
@@ -233,7 +233,7 @@ public abstract class AbstractHandlerMapping extends WebApplicationObjectSupport
 
 	/**
 	 * Initializes the interceptors.
-	 * @see #extendInterceptors(java.util.List)
+	 * @see #extendInterceptors(List)
 	 * @see #initInterceptors()
 	 */
 	@Override
@@ -295,8 +295,8 @@ public abstract class AbstractHandlerMapping extends WebApplicationObjectSupport
 	 * {@link WebRequestHandlerInterceptorAdapter}.
 	 * @param interceptor the interceptor
 	 * @return the interceptor downcast or adapted to HandlerInterceptor
-	 * @see org.springframework.web.servlet.HandlerInterceptor
-	 * @see org.springframework.web.context.request.WebRequestInterceptor
+	 * @see HandlerInterceptor
+	 * @see WebRequestInterceptor
 	 * @see WebRequestHandlerInterceptorAdapter
 	 */
 	protected HandlerInterceptor adaptInterceptor(Object interceptor) {

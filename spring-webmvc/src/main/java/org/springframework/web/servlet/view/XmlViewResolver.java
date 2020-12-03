@@ -51,7 +51,7 @@ import org.springframework.web.servlet.View;
  *
  * @author Juergen Hoeller
  * @since 18.06.2003
- * @see org.springframework.context.ApplicationContext#getResource
+ * @see ApplicationContext#getResource
  * @see ResourceBundleViewResolver
  * @see UrlBasedViewResolver
  */
@@ -83,7 +83,7 @@ public class XmlViewResolver extends AbstractCachingViewResolver
 	/**
 	 * Specify the order value for this ViewResolver bean.
 	 * <p>The default value is {@code Ordered.LOWEST_PRECEDENCE}, meaning non-ordered.
-	 * @see org.springframework.core.Ordered#getOrder()
+	 * @see Ordered#getOrder()
 	 */
 	public void setOrder(int order) {
 		this.order = order;

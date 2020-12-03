@@ -628,8 +628,8 @@ public class ResourceHttpRequestHandler extends WebContentGenerator
 	 * <ul>
 	 * <li>Paths that contain "WEB-INF" or "META-INF"
 	 * <li>Paths that contain "../" after a call to
-	 * {@link org.springframework.util.StringUtils#cleanPath}.
-	 * <li>Paths that represent a {@link org.springframework.util.ResourceUtils#isUrl
+	 * {@link StringUtils#cleanPath}.
+	 * <li>Paths that represent a {@link ResourceUtils#isUrl
 	 * valid URL} or would represent one after the leading slash is removed.
 	 * </ul>
 	 * <p><strong>Note:</strong> this method assumes that leading, duplicate '/'

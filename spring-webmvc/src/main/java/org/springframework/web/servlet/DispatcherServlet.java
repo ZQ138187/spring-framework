@@ -111,7 +111,7 @@ import org.springframework.web.util.WebUtils;
  * {@link org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator}.
  *
  * <li>The dispatcher's strategy for resolving multipart requests is determined by a
- * {@link org.springframework.web.multipart.MultipartResolver} implementation.
+ * {@link MultipartResolver} implementation.
  * Implementations for Apache Commons FileUpload and Servlet 3 are included; the typical
  * choice is {@link org.springframework.web.multipart.commons.CommonsMultipartResolver}.
  * The MultipartResolver bean name is "multipartResolver"; default is none.
@@ -872,7 +872,7 @@ public class DispatcherServlet extends FrameworkServlet {
 	 * @param context the current WebApplicationContext
 	 * @param clazz the strategy implementation class to instantiate
 	 * @return the fully configured strategy instance
-	 * @see org.springframework.context.ApplicationContext#getAutowireCapableBeanFactory()
+	 * @see ApplicationContext#getAutowireCapableBeanFactory()
 	 * @see org.springframework.beans.factory.config.AutowireCapableBeanFactory#createBean
 	 */
 	protected Object createDefaultStrategy(ApplicationContext context, Class<?> clazz) {
@@ -957,7 +957,7 @@ public class DispatcherServlet extends FrameworkServlet {
 			Exception dispatchException = null;
 
 			try {
-				processedRequest = checkMultipart(request);
+				processedRequest = checkMultipart(request);//检查是否是文件上传
 				multipartRequestParsed = (processedRequest != request);
 
 				// Determine handler for the current request.

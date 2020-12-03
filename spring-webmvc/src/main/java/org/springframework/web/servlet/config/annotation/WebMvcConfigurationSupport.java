@@ -253,7 +253,7 @@ public class WebMvcConfigurationSupport implements ApplicationContextAware, Serv
 	}
 
 	/**
-	 * Set the {@link javax.servlet.ServletContext}, e.g. for resource handling,
+	 * Set the {@link ServletContext}, e.g. for resource handling,
 	 * looking up file extensions, etc.
 	 */
 	@Override
@@ -262,7 +262,7 @@ public class WebMvcConfigurationSupport implements ApplicationContextAware, Serv
 	}
 
 	/**
-	 * Return the associated {@link javax.servlet.ServletContext}.
+	 * Return the associated {@link ServletContext}.
 	 * @since 4.2
 	 */
 	@Nullable

@@ -97,7 +97,7 @@ public class ResourceHandlerRegistration {
 	}
 
 	/**
-	 * Specify the {@link org.springframework.http.CacheControl} which should be used
+	 * Specify the {@link CacheControl} which should be used
 	 * by the resource handler.
 	 * <p>Setting a custom value here will override the configuration set with {@link #setCachePeriod}.
 	 * @param cacheControl the CacheControl configuration to use

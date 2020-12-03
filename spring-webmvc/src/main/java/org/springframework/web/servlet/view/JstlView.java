@@ -30,7 +30,7 @@ import org.springframework.web.servlet.support.RequestContext;
  *
  * <p>Exposes JSTL-specific request attributes specifying locale
  * and resource bundle for JSTL's formatting and message tags,
- * using Spring's locale and {@link org.springframework.context.MessageSource}.
+ * using Spring's locale and {@link MessageSource}.
  *
  * <p>Typical usage with {@link InternalResourceViewResolver} would look as follows,
  * from the perspective of the DispatcherServlet context definition:
@@ -70,7 +70,7 @@ import org.springframework.web.servlet.support.RequestContext;
  *
  * @author Juergen Hoeller
  * @since 27.02.2003
- * @see org.springframework.web.servlet.support.JstlUtils#exposeLocalizationContext
+ * @see JstlUtils#exposeLocalizationContext
  * @see InternalResourceViewResolver
  * @see org.springframework.context.support.ResourceBundleMessageSource
  * @see org.springframework.context.support.ReloadableResourceBundleMessageSource

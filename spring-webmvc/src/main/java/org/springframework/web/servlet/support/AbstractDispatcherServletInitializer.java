@@ -181,7 +181,7 @@ public abstract class AbstractDispatcherServletInitializer extends AbstractConte
 	 * @param filter the filter to be registered
 	 * @return the filter registration
 	 */
-	protected FilterRegistration.Dynamic registerServletFilter(ServletContext servletContext, Filter filter) {
+	protected Dynamic registerServletFilter(ServletContext servletContext, Filter filter) {
 		String filterName = Conventions.getVariableName(filter);
 		Dynamic registration = servletContext.addFilter(filterName, filter);
 

@@ -71,7 +71,7 @@ import org.springframework.web.util.WebUtils;
  *
  * <p>This class offers the following functionality:
  * <ul>
- * <li>Manages a {@link org.springframework.web.context.WebApplicationContext
+ * <li>Manages a {@link WebApplicationContext
  * WebApplicationContext} instance per servlet. The servlet's configuration is determined
  * by beans in the servlet's namespace.
  * <li>Publishes events on request processing, whether or not a request is
@@ -85,19 +85,19 @@ import org.springframework.web.util.WebUtils;
  *
  * <p>Detects a "contextClass" parameter at the servlet init-param level,
  * falling back to the default context class,
- * {@link org.springframework.web.context.support.XmlWebApplicationContext
+ * {@link XmlWebApplicationContext
  * XmlWebApplicationContext}, if not found. Note that, with the default
  * {@code FrameworkServlet}, a custom context class needs to implement the
- * {@link org.springframework.web.context.ConfigurableWebApplicationContext
+ * {@link ConfigurableWebApplicationContext
  * ConfigurableWebApplicationContext} SPI.
  *
  * <p>Accepts an optional "contextInitializerClasses" servlet init-param that
- * specifies one or more {@link org.springframework.context.ApplicationContextInitializer
+ * specifies one or more {@link ApplicationContextInitializer
  * ApplicationContextInitializer} classes. The managed web application context will be
  * delegated to these initializers, allowing for additional programmatic configuration,
  * e.g. adding property sources or activating profiles against the {@linkplain
- * org.springframework.context.ConfigurableApplicationContext#getEnvironment() context's
- * environment}. See also {@link org.springframework.web.context.ContextLoader} which
+ * ConfigurableApplicationContext#getEnvironment() context's
+ * environment}. See also {@link ContextLoader} which
  * supports a "contextInitializerClasses" context-param with identical semantics for
  * the "root" web application context.
  *
@@ -146,7 +146,7 @@ public abstract class FrameworkServlet extends HttpServletBean implements Applic
 
 	/**
 	 * Default context class for FrameworkServlet.
-	 * @see org.springframework.web.context.support.XmlWebApplicationContext
+	 * @see XmlWebApplicationContext
 	 */
 	public static final Class<?> DEFAULT_CONTEXT_CLASS = XmlWebApplicationContext.class;
 
@@ -303,10 +303,10 @@ public abstract class FrameworkServlet extends HttpServletBean implements Applic
 
 	/**
 	 * Set a custom context class. This class must be of type
-	 * {@link org.springframework.web.context.WebApplicationContext}.
+	 * {@link WebApplicationContext}.
 	 * <p>When using the default FrameworkServlet implementation,
 	 * the context class must also implement the
-	 * {@link org.springframework.web.context.ConfigurableWebApplicationContext}
+	 * {@link ConfigurableWebApplicationContext}
 	 * interface.
 	 * @see #createWebApplicationContext
 	 */
@@ -409,7 +409,7 @@ public abstract class FrameworkServlet extends HttpServletBean implements Applic
 	 * Set whether this servlet should publish a ServletRequestHandledEvent at the end
 	 * of each request. Default is "true"; can be turned off for a slight performance
 	 * improvement, provided that no ApplicationListeners rely on such events.
-	 * @see org.springframework.web.context.support.ServletRequestHandledEvent
+	 * @see ServletRequestHandledEvent
 	 */
 	public void setPublishEvents(boolean publishEvents) {
 		this.publishEvents = publishEvents;
@@ -417,7 +417,7 @@ public abstract class FrameworkServlet extends HttpServletBean implements Applic
 
 	/**
 	 * Set whether to expose the LocaleContext and RequestAttributes as inheritable
-	 * for child threads (using an {@link java.lang.InheritableThreadLocal}).
+	 * for child threads (using an {@link InheritableThreadLocal}).
 	 * <p>Default is "false", to avoid side effects on spawned background threads.
 	 * Switch this to "true" to enable inheritance for custom child threads which
 	 * are spawned during request processing and only used for this request
@@ -605,18 +605,18 @@ public abstract class FrameworkServlet extends HttpServletBean implements Applic
 
 	/**
 	 * Instantiate the WebApplicationContext for this servlet, either a default
-	 * {@link org.springframework.web.context.support.XmlWebApplicationContext}
+	 * {@link XmlWebApplicationContext}
 	 * or a {@link #setContextClass custom context class}, if set.
 	 * <p>This implementation expects custom contexts to implement the
-	 * {@link org.springframework.web.context.ConfigurableWebApplicationContext}
+	 * {@link ConfigurableWebApplicationContext}
 	 * interface. Can be overridden in subclasses.
 	 * <p>Do not forget to register this servlet instance as application listener on the
 	 * created context (for triggering its {@link #onRefresh callback}, and to call
-	 * {@link org.springframework.context.ConfigurableApplicationContext#refresh()}
+	 * {@link ConfigurableApplicationContext#refresh()}
 	 * before returning the context instance.
 	 * @param parent the parent ApplicationContext to use, or {@code null} if none
 	 * @return the WebApplicationContext for this servlet
-	 * @see org.springframework.web.context.support.XmlWebApplicationContext
+	 * @see XmlWebApplicationContext
 	 */
 	protected WebApplicationContext createWebApplicationContext(@Nullable ApplicationContext parent) {
 		Class<?> contextClass = getContextClass();
@@ -679,12 +679,12 @@ public abstract class FrameworkServlet extends HttpServletBean implements Applic
 
 	/**
 	 * Instantiate the WebApplicationContext for this servlet, either a default
-	 * {@link org.springframework.web.context.support.XmlWebApplicationContext}
+	 * {@link XmlWebApplicationContext}
 	 * or a {@link #setContextClass custom context class}, if set.
 	 * Delegates to #createWebApplicationContext(ApplicationContext).
 	 * @param parent the parent WebApplicationContext to use, or {@code null} if none
 	 * @return the WebApplicationContext for this servlet
-	 * @see org.springframework.web.context.support.XmlWebApplicationContext
+	 * @see XmlWebApplicationContext
 	 * @see #createWebApplicationContext(ApplicationContext)
 	 */
 	protected WebApplicationContext createWebApplicationContext(@Nullable WebApplicationContext parent) {
@@ -795,7 +795,7 @@ public abstract class FrameworkServlet extends HttpServletBean implements Applic
 	 * Refresh this servlet's application context, as well as the
 	 * dependent state of the servlet.
 	 * @see #getWebApplicationContext()
-	 * @see org.springframework.context.ConfigurableApplicationContext#refresh()
+	 * @see ConfigurableApplicationContext#refresh()
 	 */
 	public void refresh() {
 		WebApplicationContext wac = getWebApplicationContext();
@@ -831,7 +831,7 @@ public abstract class FrameworkServlet extends HttpServletBean implements Applic
 
 	/**
 	 * Close the WebApplicationContext of this servlet.
-	 * @see org.springframework.context.ConfigurableApplicationContext#close()
+	 * @see ConfigurableApplicationContext#close()
 	 */
 	@Override
 	public void destroy() {
@@ -1093,7 +1093,7 @@ public abstract class FrameworkServlet extends HttpServletBean implements Applic
 	 * Can be overridden in subclasses.
 	 * @param request current HTTP request
 	 * @return the username, or {@code null} if none found
-	 * @see javax.servlet.http.HttpServletRequest#getUserPrincipal()
+	 * @see HttpServletRequest#getUserPrincipal()
 	 */
 	@Nullable
 	protected String getUsernameForRequest(HttpServletRequest request) {

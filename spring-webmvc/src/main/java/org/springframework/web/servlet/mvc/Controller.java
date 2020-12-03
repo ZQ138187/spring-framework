@@ -46,7 +46,7 @@ import org.springframework.web.servlet.ModelAndView;
  * method of the located Controller will be invoked; the located Controller
  * is then responsible for handling the actual request and &mdash; if applicable
  * &mdash; returning an appropriate
- * {@link org.springframework.web.servlet.ModelAndView ModelAndView}.
+ * {@link ModelAndView ModelAndView}.
  * So actually, this method is the main entry point for the
  * {@link org.springframework.web.servlet.DispatcherServlet DispatcherServlet}
  * which delegates requests to controllers.
@@ -55,7 +55,7 @@ import org.springframework.web.servlet.ModelAndView;
  * just handles HttpServletRequests and should return a ModelAndView, to be further
  * interpreted by the DispatcherServlet. Any additional functionality such as
  * optional validation, form handling, etc. should be obtained through extending
- * {@link org.springframework.web.servlet.mvc.AbstractController AbstractController}
+ * {@link AbstractController AbstractController}
  * or one of its subclasses.
  *
  * <h3>Notes on design and testing</h3>

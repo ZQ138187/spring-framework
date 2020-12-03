@@ -93,7 +93,7 @@ public abstract class AbstractPdfView extends AbstractView {
 	 * <p>By default returns an A4 document, but the subclass can specify any
 	 * Document, possibly parameterized via bean properties defined on the View.
 	 * @return the newly created iText Document instance
-	 * @see com.lowagie.text.Document#Document(com.lowagie.text.Rectangle)
+	 * @see Document#Document(com.lowagie.text.Rectangle)
 	 */
 	protected Document newDocument() {
 		return new Document(PageSize.A4);
@@ -120,9 +120,9 @@ public abstract class AbstractPdfView extends AbstractView {
 	 * @param writer the PdfWriter to prepare
 	 * @param request in case we need locale etc. Shouldn't look at attributes.
 	 * @throws DocumentException if thrown during writer preparation
-	 * @see com.lowagie.text.Document#open()
-	 * @see com.lowagie.text.pdf.PdfWriter#setPageEvent
-	 * @see com.lowagie.text.pdf.PdfWriter#setViewerPreferences
+	 * @see Document#open()
+	 * @see PdfWriter#setPageEvent
+	 * @see PdfWriter#setViewerPreferences
 	 * @see #getViewerPreferences()
 	 */
 	protected void prepareWriter(Map<String, Object> model, PdfWriter writer, HttpServletRequest request)
@@ -138,8 +138,8 @@ public abstract class AbstractPdfView extends AbstractView {
 	 * The subclass can either have fixed preferences or retrieve
 	 * them from bean properties defined on the View.
 	 * @return an int containing the bits information against PdfWriter definitions
-	 * @see com.lowagie.text.pdf.PdfWriter#AllowPrinting
-	 * @see com.lowagie.text.pdf.PdfWriter#PageLayoutSinglePage
+	 * @see PdfWriter#AllowPrinting
+	 * @see PdfWriter#PageLayoutSinglePage
 	 */
 	protected int getViewerPreferences() {
 		return PdfWriter.ALLOW_PRINTING | PdfWriter.PageLayoutSinglePage;
@@ -154,14 +154,14 @@ public abstract class AbstractPdfView extends AbstractView {
 	 * @param model the model, in case meta information must be populated from it
 	 * @param document the iText document being populated
 	 * @param request in case we need locale etc. Shouldn't look at attributes.
-	 * @see com.lowagie.text.Document#addTitle
-	 * @see com.lowagie.text.Document#addSubject
-	 * @see com.lowagie.text.Document#addKeywords
-	 * @see com.lowagie.text.Document#addAuthor
-	 * @see com.lowagie.text.Document#addCreator
-	 * @see com.lowagie.text.Document#addProducer
-	 * @see com.lowagie.text.Document#addCreationDate
-	 * @see com.lowagie.text.Document#addHeader
+	 * @see Document#addTitle
+	 * @see Document#addSubject
+	 * @see Document#addKeywords
+	 * @see Document#addAuthor
+	 * @see Document#addCreator
+	 * @see Document#addProducer
+	 * @see Document#addCreationDate
+	 * @see Document#addHeader
 	 */
 	protected void buildPdfMetadata(Map<String, Object> model, Document document, HttpServletRequest request) {
 	}
@@ -179,8 +179,8 @@ public abstract class AbstractPdfView extends AbstractView {
 	 * @param request in case we need locale etc. Shouldn't look at attributes.
 	 * @param response in case we need to set cookies. Shouldn't write to it.
 	 * @throws Exception any exception that occurred during document building
-	 * @see com.lowagie.text.Document#open()
-	 * @see com.lowagie.text.Document#close()
+	 * @see Document#open()
+	 * @see Document#close()
 	 */
 	protected abstract void buildPdfDocument(Map<String, Object> model, Document document, PdfWriter writer,
 			HttpServletRequest request, HttpServletResponse response) throws Exception;

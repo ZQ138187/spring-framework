@@ -100,7 +100,7 @@ import org.springframework.web.util.TagUtils;
 public class EvalTag extends HtmlEscapingAwareTag {
 
 	/**
-	 * {@link javax.servlet.jsp.PageContext} attribute for the
+	 * {@link PageContext} attribute for the
 	 * page-level {@link EvaluationContext} instance.
 	 */
 	private static final String EVALUATION_CONTEXT_PAGE_ATTRIBUTE =

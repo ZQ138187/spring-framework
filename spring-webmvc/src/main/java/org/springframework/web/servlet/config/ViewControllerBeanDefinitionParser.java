@@ -34,7 +34,7 @@ import org.springframework.web.servlet.mvc.ParameterizableViewController;
 import org.springframework.web.servlet.view.RedirectView;
 
 /**
- * {@link org.springframework.beans.factory.xml.BeanDefinitionParser} that
+ * {@link BeanDefinitionParser} that
  * parses the following MVC namespace elements:
  * <ul>
  * <li>{@code <view-controller>}
@@ -43,9 +43,9 @@ import org.springframework.web.servlet.view.RedirectView;
  * </ul>
  *
  * <p>All elements result in the registration of a
- * {@link org.springframework.web.servlet.mvc.ParameterizableViewController
+ * {@link ParameterizableViewController
  * ParameterizableViewController} with all controllers mapped using in a single
- * {@link org.springframework.web.servlet.handler.SimpleUrlHandlerMapping
+ * {@link SimpleUrlHandlerMapping
  * SimpleUrlHandlerMapping}.
  *
  * @author Keith Donald

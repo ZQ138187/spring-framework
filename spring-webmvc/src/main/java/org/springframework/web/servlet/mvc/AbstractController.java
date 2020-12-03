@@ -43,7 +43,7 @@ import org.springframework.web.util.WebUtils;
  * {@link #handleRequestInternal(HttpServletRequest, HttpServletResponse) handleRequestInternal()}
  * (optionally synchronizing around the call on the HttpSession),
  * which should be implemented by extending classes to provide actual
- * functionality to return {@link org.springframework.web.servlet.ModelAndView ModelAndView} objects.</li>
+ * functionality to return {@link ModelAndView ModelAndView} objects.</li>
  * </ol>
  *
  * <p><b><a name="config">Exposed configuration properties</a>
@@ -135,7 +135,7 @@ public abstract class AbstractController extends WebContentGenerator implements 
 	 * different servlet containers; the only 100% safe way is a session mutex.
 	 * @see AbstractController#handleRequestInternal
 	 * @see org.springframework.web.util.HttpSessionMutexListener
-	 * @see org.springframework.web.util.WebUtils#getSessionMutex(javax.servlet.http.HttpSession)
+	 * @see WebUtils#getSessionMutex(HttpSession)
 	 */
 	public final void setSynchronizeOnSession(boolean synchronizeOnSession) {
 		this.synchronizeOnSession = synchronizeOnSession;

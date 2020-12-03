@@ -22,10 +22,10 @@ import org.springframework.web.method.HandlerMethod;
  * A strategy for assigning a name to a handler method's mapping.
  *
  * <p>The strategy can be configured on
- * {@link org.springframework.web.servlet.handler.AbstractHandlerMethodMapping
+ * {@link AbstractHandlerMethodMapping
  * AbstractHandlerMethodMapping}. It is used to assign a name to the mapping of
  * every registered handler method. The names can then be queried via
- * {@link org.springframework.web.servlet.handler.AbstractHandlerMethodMapping#getHandlerMethodsForMappingName(String)
+ * {@link AbstractHandlerMethodMapping#getHandlerMethodsForMappingName(String)
  * AbstractHandlerMethodMapping#getHandlerMethodsForMappingName}.
  *
  * <p>Applications can build a URL to a controller method by name with the help

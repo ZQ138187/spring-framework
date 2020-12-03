@@ -82,7 +82,7 @@ public class AsyncSupportConfigurer {
 	/**
 	 * Configure lifecycle interceptors with callbacks around concurrent request
 	 * execution that starts when a controller returns a
-	 * {@link java.util.concurrent.Callable}.
+	 * {@link Callable}.
 	 * @param interceptors the interceptors to register
 	 */
 	public AsyncSupportConfigurer registerCallableInterceptors(CallableProcessingInterceptor... interceptors) {

@@ -33,7 +33,7 @@ import org.springframework.util.xml.DomUtils;
 import org.springframework.web.servlet.handler.MappedInterceptor;
 
 /**
- * {@link org.springframework.beans.factory.xml.BeanDefinitionParser} that parses a
+ * {@link BeanDefinitionParser} that parses a
  * {@code interceptors} element to register a set of {@link MappedInterceptor} definitions.
  *
  * @author Keith Donald

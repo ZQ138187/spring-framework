@@ -319,7 +319,7 @@ public class BindStatus {
 	 * Return the Errors instance (typically a BindingResult) that this
 	 * bind status is currently associated with.
 	 * @return the current Errors instance, or {@code null} if none
-	 * @see org.springframework.validation.BindingResult
+	 * @see BindingResult
 	 */
 	@Nullable
 	public Errors getErrors() {

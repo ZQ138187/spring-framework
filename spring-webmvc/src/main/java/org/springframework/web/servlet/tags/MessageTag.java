@@ -236,7 +236,7 @@ public class MessageTag extends HtmlEscapingAwareTag implements ArgumentAware {
 	 * Set the scope to export the variable to.
 	 * Default is SCOPE_PAGE ("page").
 	 * @see #setVar
-	 * @see org.springframework.web.util.TagUtils#SCOPE_PAGE
+	 * @see TagUtils#SCOPE_PAGE
 	 * @see javax.servlet.jsp.PageContext#setAttribute
 	 */
 	public void setScope(String scope) {
@@ -263,7 +263,7 @@ public class MessageTag extends HtmlEscapingAwareTag implements ArgumentAware {
 	 * and writes it to the page (or exposes it as variable).
 	 * @see #resolveMessage()
 	 * @see org.springframework.web.util.HtmlUtils#htmlEscape(String)
-	 * @see org.springframework.web.util.JavaScriptUtils#javaScriptEscape(String)
+	 * @see JavaScriptUtils#javaScriptEscape(String)
 	 * @see #writeMessage(String)
 	 */
 	@Override

@@ -38,7 +38,7 @@ import org.springframework.web.servlet.LocaleResolver;
  * @author Juergen Hoeller
  * @author Rossen Stoyanchev
  * @since 27.02.2003
- * @see javax.servlet.http.HttpServletRequest#getLocale()
+ * @see HttpServletRequest#getLocale()
  */
 public class AcceptHeaderLocaleResolver implements LocaleResolver {
 
