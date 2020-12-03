@@ -1,7 +1,7 @@
 buildscript {
 	repositories {
-		gradlePluginPortal()
-		maven { url "https://repo.spring.io/plugins-release" }
+		maven { url "http://repo.springsource.org/plugins-release" }
+		maven { url "https://maven.aliyun.com/repository/spring-plugin" }
 	}
 	dependencies {
 		classpath("io.spring.gradle:propdeps-plugin:0.0.9.RELEASE")
