@@ -19,10 +19,10 @@ package org.springframework.util;
 import java.io.ByteArrayOutputStream;
 
 /**
- * An extension of {@link java.io.ByteArrayOutputStream} that:
+ * An extension of {@link ByteArrayOutputStream} that:
  * <ul>
- * <li>has public {@link org.springframework.util.ResizableByteArrayOutputStream#grow(int)}
- * and {@link org.springframework.util.ResizableByteArrayOutputStream#resize(int)} methods
+ * <li>has public {@link ResizableByteArrayOutputStream#grow(int)}
+ * and {@link ResizableByteArrayOutputStream#resize(int)} methods
  * to get more control over the size of the internal buffer</li>
  * <li>has a higher initial capacity (256) by default</li>
  * </ul>

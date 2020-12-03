@@ -28,8 +28,8 @@ import org.springframework.lang.Nullable;
  *
  * @author Juergen Hoeller
  * @since 4.0
- * @see java.lang.reflect.Method#getParameters()
- * @see java.lang.reflect.Parameter#getName()
+ * @see Method#getParameters()
+ * @see Parameter#getName()
  */
 public class StandardReflectionParameterNameDiscoverer implements ParameterNameDiscoverer {
 

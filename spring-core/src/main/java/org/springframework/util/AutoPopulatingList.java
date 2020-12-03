@@ -242,7 +242,7 @@ public class AutoPopulatingList<E> implements List<E>, Serializable {
 
 	/**
 	 * Factory interface for creating elements for an index-based access
-	 * data structure such as a {@link java.util.List}.
+	 * data structure such as a {@link List}.
 	 */
 	@FunctionalInterface
 	public interface ElementFactory<E> {

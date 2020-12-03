@@ -25,7 +25,7 @@ import org.springframework.util.Assert;
 
 /**
  * A {@link Converter} that delegates to a
- * {@link org.springframework.core.serializer.Deserializer}
+ * {@link Deserializer}
  * to convert data in a byte array to an object.
  *
  * @author Gary Russell

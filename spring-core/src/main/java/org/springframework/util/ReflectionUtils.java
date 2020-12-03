@@ -198,7 +198,7 @@ public abstract class ReflectionUtils {
 	 * when actually necessary, to avoid unnecessary conflicts with a JVM
 	 * SecurityManager (if active).
 	 * @param ctor the constructor to make accessible
-	 * @see java.lang.reflect.Constructor#setAccessible
+	 * @see Constructor#setAccessible
 	 */
 	@SuppressWarnings("deprecation")  // on JDK 9
 	public static void makeAccessible(Constructor<?> ctor) {
@@ -259,7 +259,7 @@ public abstract class ReflectionUtils {
 	 * @param method the method to invoke
 	 * @param target the target object to invoke the method on
 	 * @return the invocation result, if any
-	 * @see #invokeMethod(java.lang.reflect.Method, Object, Object[])
+	 * @see #invokeMethod(Method, Object, Object[])
 	 */
 	@Nullable
 	public static Object invokeMethod(Method method, @Nullable Object target) {
@@ -294,7 +294,7 @@ public abstract class ReflectionUtils {
 	 * @param target the target object to invoke the method on
 	 * @return the invocation result, if any
 	 * @throws SQLException the JDBC API SQLException to rethrow (if any)
-	 * @see #invokeJdbcMethod(java.lang.reflect.Method, Object, Object[])
+	 * @see #invokeJdbcMethod(Method, Object, Object[])
 	 * @deprecated as of 5.0.11, in favor of custom SQLException handling
 	 */
 	@Deprecated
@@ -311,7 +311,7 @@ public abstract class ReflectionUtils {
 	 * @param args the invocation arguments (may be {@code null})
 	 * @return the invocation result, if any
 	 * @throws SQLException the JDBC API SQLException to rethrow (if any)
-	 * @see #invokeMethod(java.lang.reflect.Method, Object, Object[])
+	 * @see #invokeMethod(Method, Object, Object[])
 	 * @deprecated as of 5.0.11, in favor of custom SQLException handling
 	 */
 	@Deprecated
@@ -528,7 +528,7 @@ public abstract class ReflectionUtils {
 
 	/**
 	 * Determine whether the given method is an "equals" method.
-	 * @see java.lang.Object#equals(Object)
+	 * @see Object#equals(Object)
 	 */
 	public static boolean isEqualsMethod(@Nullable Method method) {
 		if (method == null || !method.getName().equals("equals")) {
@@ -540,7 +540,7 @@ public abstract class ReflectionUtils {
 
 	/**
 	 * Determine whether the given method is a "hashCode" method.
-	 * @see java.lang.Object#hashCode()
+	 * @see Object#hashCode()
 	 */
 	public static boolean isHashCodeMethod(@Nullable Method method) {
 		return (method != null && method.getName().equals("hashCode") && method.getParameterCount() == 0);
@@ -548,14 +548,14 @@ public abstract class ReflectionUtils {
 
 	/**
 	 * Determine whether the given method is a "toString" method.
-	 * @see java.lang.Object#toString()
+	 * @see Object#toString()
 	 */
 	public static boolean isToStringMethod(@Nullable Method method) {
 		return (method != null && method.getName().equals("toString") && method.getParameterCount() == 0);
 	}
 
 	/**
-	 * Determine whether the given method is originally declared by {@link java.lang.Object}.
+	 * Determine whether the given method is originally declared by {@link Object}.
 	 */
 	public static boolean isObjectMethod(@Nullable Method method) {
 		if (method == null) {
@@ -593,7 +593,7 @@ public abstract class ReflectionUtils {
 	 * when actually necessary, to avoid unnecessary conflicts with a JVM
 	 * SecurityManager (if active).
 	 * @param method the method to make accessible
-	 * @see java.lang.reflect.Method#setAccessible
+	 * @see Method#setAccessible
 	 */
 	@SuppressWarnings("deprecation")  // on JDK 9
 	public static void makeAccessible(Method method) {
@@ -806,7 +806,7 @@ public abstract class ReflectionUtils {
 	 * when actually necessary, to avoid unnecessary conflicts with a JVM
 	 * SecurityManager (if active).
 	 * @param field the field to make accessible
-	 * @see java.lang.reflect.Field#setAccessible
+	 * @see Field#setAccessible
 	 */
 	@SuppressWarnings("deprecation")  // on JDK 9
 	public static void makeAccessible(Field field) {

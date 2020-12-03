@@ -45,7 +45,7 @@ public class ConfigurableObjectInputStream extends ObjectInputStream {
 	 * Create a new ConfigurableObjectInputStream for the given InputStream and ClassLoader.
 	 * @param in the InputStream to read from
 	 * @param classLoader the ClassLoader to use for loading local classes
-	 * @see java.io.ObjectInputStream#ObjectInputStream(java.io.InputStream)
+	 * @see ObjectInputStream#ObjectInputStream(InputStream)
 	 */
 	public ConfigurableObjectInputStream(InputStream in, @Nullable ClassLoader classLoader) throws IOException {
 		this(in, classLoader, true);
@@ -57,7 +57,7 @@ public class ConfigurableObjectInputStream extends ObjectInputStream {
 	 * @param classLoader the ClassLoader to use for loading local classes
 	 * @param acceptProxyClasses whether to accept deserialization of proxy classes
 	 * (may be deactivated as a security measure)
-	 * @see java.io.ObjectInputStream#ObjectInputStream(java.io.InputStream)
+	 * @see ObjectInputStream#ObjectInputStream(InputStream)
 	 */
 	public ConfigurableObjectInputStream(
 			InputStream in, @Nullable ClassLoader classLoader, boolean acceptProxyClasses) throws IOException {

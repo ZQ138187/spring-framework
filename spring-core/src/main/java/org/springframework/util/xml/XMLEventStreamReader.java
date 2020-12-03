@@ -38,7 +38,7 @@ import org.springframework.lang.Nullable;
  *
  * @author Arjen Poutsma
  * @since 3.0
- * @see StaxUtils#createEventStreamReader(javax.xml.stream.XMLEventReader)
+ * @see StaxUtils#createEventStreamReader(XMLEventReader)
  */
 class XMLEventStreamReader extends AbstractXMLStreamReader {
 

@@ -42,8 +42,8 @@ import org.springframework.util.Assert;
  * @author Arjen Poutsma
  * @author Luke Taylor
  * @since 1.2
- * @see org.w3c.dom.Node
- * @see org.w3c.dom.Element
+ * @see Node
+ * @see Element
  */
 public abstract class DomUtils {
 
@@ -54,8 +54,8 @@ public abstract class DomUtils {
 	 * @param ele the DOM element to analyze
 	 * @param childEleNames the child element names to look for
 	 * @return a List of child {@code org.w3c.dom.Element} instances
-	 * @see org.w3c.dom.Element
-	 * @see org.w3c.dom.Element#getElementsByTagName
+	 * @see Element
+	 * @see Element#getElementsByTagName
 	 */
 	public static List<Element> getChildElementsByTagName(Element ele, String... childEleNames) {
 		Assert.notNull(ele, "Element must not be null");
@@ -79,8 +79,8 @@ public abstract class DomUtils {
 	 * @param ele the DOM element to analyze
 	 * @param childEleName the child element name to look for
 	 * @return a List of child {@code org.w3c.dom.Element} instances
-	 * @see org.w3c.dom.Element
-	 * @see org.w3c.dom.Element#getElementsByTagName
+	 * @see Element
+	 * @see Element#getElementsByTagName
 	 */
 	public static List<Element> getChildElementsByTagName(Element ele, String childEleName) {
 		return getChildElementsByTagName(ele, new String[] {childEleName});

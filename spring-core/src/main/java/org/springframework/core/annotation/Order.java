@@ -55,7 +55,7 @@ import org.springframework.core.Ordered;
  * @author Rod Johnson
  * @author Juergen Hoeller
  * @since 2.0
- * @see org.springframework.core.Ordered
+ * @see Ordered
  * @see AnnotationAwareOrderComparator
  * @see OrderUtils
  * @see javax.annotation.Priority

@@ -30,13 +30,13 @@ import org.springframework.util.NumberUtils;
  *
  * @author Keith Donald
  * @since 3.0
- * @see java.lang.Byte
- * @see java.lang.Short
- * @see java.lang.Integer
- * @see java.lang.Long
+ * @see Byte
+ * @see Short
+ * @see Integer
+ * @see Long
  * @see java.math.BigInteger
- * @see java.lang.Float
- * @see java.lang.Double
+ * @see Float
+ * @see Double
  * @see java.math.BigDecimal
  * @see NumberUtils
  */

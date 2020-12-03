@@ -99,7 +99,7 @@ public abstract class ResourceUtils {
 	 * @param resourceLocation the location String to check
 	 * @return whether the location qualifies as a URL
 	 * @see #CLASSPATH_URL_PREFIX
-	 * @see java.net.URL
+	 * @see URL
 	 */
 	public static boolean isUrl(@Nullable String resourceLocation) {
 		if (resourceLocation == null) {
@@ -364,7 +364,7 @@ public abstract class ResourceUtils {
 	 * @param url the URL to convert into a URI instance
 	 * @return the URI instance
 	 * @throws URISyntaxException if the URL wasn't a valid URI
-	 * @see java.net.URL#toURI()
+	 * @see URL#toURI()
 	 */
 	public static URI toURI(URL url) throws URISyntaxException {
 		return toURI(url.toString());

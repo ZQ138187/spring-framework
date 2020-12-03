@@ -21,7 +21,7 @@ import java.io.InputStream;
 import java.security.MessageDigest;
 
 /**
- * Extension of {@link java.io.InputStream} that allows for optimized
+ * Extension of {@link InputStream} that allows for optimized
  * implementations of message digesting.
  *
  * @author Craig Andrews

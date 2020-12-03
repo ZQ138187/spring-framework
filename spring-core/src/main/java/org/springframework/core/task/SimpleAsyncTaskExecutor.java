@@ -235,7 +235,7 @@ public class SimpleAsyncTaskExecutor extends CustomizableThreadCreator
 	 * @param task the Runnable to execute
 	 * @see #setThreadFactory
 	 * @see #createThread
-	 * @see java.lang.Thread#start()
+	 * @see Thread#start()
 	 */
 	protected void doExecute(Runnable task) {
 		Thread thread = (this.threadFactory != null ? this.threadFactory.newThread(task) : createThread(task));

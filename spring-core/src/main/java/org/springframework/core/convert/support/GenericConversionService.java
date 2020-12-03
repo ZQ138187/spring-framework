@@ -1,5 +1,5 @@
 /*
- * Copyright 2002-2020 the original author or authors.
+ * Copyright 2002-2017 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -223,7 +223,7 @@ public class GenericConversionService implements ConfigurableConversionService {
 	/**
 	 * Template method to convert a {@code null} source.
 	 * <p>The default implementation returns {@code null} or the Java 8
-	 * {@link java.util.Optional#empty()} instance if the target type is
+	 * {@link Optional#empty()} instance if the target type is
 	 * {@code java.util.Optional}. Subclasses may override this to return
 	 * custom {@code null} objects for specific target types.
 	 * @param sourceType the source type to convert from
@@ -642,7 +642,7 @@ public class GenericConversionService implements ConfigurableConversionService {
 
 		private List<String> getConverterStrings() {
 			List<String> converterStrings = new ArrayList<>();
-			for (ConvertersForPair convertersForPair : this.converters.values()) {
+			for (ConvertersForPair convertersForPair : converters.values()) {
 				converterStrings.add(convertersForPair.toString());
 			}
 			Collections.sort(converterStrings);
@@ -692,7 +692,6 @@ public class GenericConversionService implements ConfigurableConversionService {
 		}
 
 		@Override
-		@Nullable
 		public Set<ConvertiblePair> getConvertibleTypes() {
 			return null;
 		}

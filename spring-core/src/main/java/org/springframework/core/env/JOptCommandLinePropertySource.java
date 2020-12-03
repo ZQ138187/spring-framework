@@ -56,7 +56,7 @@ import org.springframework.util.StringUtils;
  * @since 3.1
  * @see CommandLinePropertySource
  * @see joptsimple.OptionParser
- * @see joptsimple.OptionSet
+ * @see OptionSet
  */
 public class JOptCommandLinePropertySource extends CommandLinePropertySource<OptionSet> {
 

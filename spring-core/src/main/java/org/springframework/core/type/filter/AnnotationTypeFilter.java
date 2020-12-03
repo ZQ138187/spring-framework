@@ -29,7 +29,7 @@ import org.springframework.util.ClassUtils;
  * A simple filter which matches classes with a given annotation,
  * checking inherited annotations as well.
  *
- * <p>The matching logic mirrors that of {@link java.lang.Class#isAnnotationPresent(Class)}.
+ * <p>The matching logic mirrors that of {@link Class#isAnnotationPresent(Class)}.
  *
  * @author Mark Fisher
  * @author Ramnivas Laddad

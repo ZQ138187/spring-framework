@@ -84,7 +84,7 @@ class StaxSource extends SAXSource {
 	 * <p>If this {@code StaxSource} was created with an {@code XMLStreamReader},
 	 * the result will be {@code null}.
 	 * @return the StAX event reader used by this source
-	 * @see StaxSource#StaxSource(javax.xml.stream.XMLEventReader)
+	 * @see StaxSource#StaxSource(XMLEventReader)
 	 */
 	@Nullable
 	XMLEventReader getXMLEventReader() {
@@ -96,7 +96,7 @@ class StaxSource extends SAXSource {
 	 * <p>If this {@code StaxSource} was created with an {@code XMLEventReader},
 	 * the result will be {@code null}.
 	 * @return the StAX event reader used by this source
-	 * @see StaxSource#StaxSource(javax.xml.stream.XMLEventReader)
+	 * @see StaxSource#StaxSource(XMLEventReader)
 	 */
 	@Nullable
 	XMLStreamReader getXMLStreamReader() {

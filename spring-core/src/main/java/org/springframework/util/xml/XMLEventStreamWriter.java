@@ -30,12 +30,12 @@ import javax.xml.stream.events.Namespace;
 import javax.xml.stream.events.StartElement;
 
 /**
- * Implementation of the {@link javax.xml.stream.XMLStreamWriter} interface
+ * Implementation of the {@link XMLStreamWriter} interface
  * that wraps an {@link XMLEventWriter}.
  *
  * @author Arjen Poutsma
  * @since 3.0.5
- * @see StaxUtils#createEventStreamWriter(javax.xml.stream.XMLEventWriter, javax.xml.stream.XMLEventFactory)
+ * @see StaxUtils#createEventStreamWriter(XMLEventWriter, XMLEventFactory)
  */
 class XMLEventStreamWriter implements XMLStreamWriter {
 

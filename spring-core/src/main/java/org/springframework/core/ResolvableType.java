@@ -42,10 +42,10 @@ import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
 /**
- * Encapsulates a Java {@link java.lang.reflect.Type}, providing access to
+ * Encapsulates a Java {@link Type}, providing access to
  * {@link #getSuperType() supertypes}, {@link #getInterfaces() interfaces}, and
  * {@link #getGeneric(int...) generic parameters} along with the ability to ultimately
- * {@link #resolve() resolve} to a {@link java.lang.Class}.
+ * {@link #resolve() resolve} to a {@link Class}.
  *
  * <p>{@code ResolvableTypes} may be obtained from {@link #forField(Field) fields},
  * {@link #forMethodParameter(Method, int) method parameters},
@@ -742,7 +742,7 @@ public class ResolvableType implements Serializable {
 	}
 
 	/**
-	 * Resolve this type to a {@link java.lang.Class}, returning {@code null}
+	 * Resolve this type to a {@link Class}, returning {@code null}
 	 * if the type cannot be resolved. This method will consider bounds of
 	 * {@link TypeVariable}s and {@link WildcardType}s if direct resolution fails;
 	 * however, bounds of {@code Object.class} will be ignored.
@@ -757,7 +757,7 @@ public class ResolvableType implements Serializable {
 	}
 
 	/**
-	 * Resolve this type to a {@link java.lang.Class}, returning the specified
+	 * Resolve this type to a {@link Class}, returning the specified
 	 * {@code fallback} if the type cannot be resolved. This method will consider bounds
 	 * of {@link TypeVariable}s and {@link WildcardType}s if direct resolution fails;
 	 * however, bounds of {@code Object.class} will be ignored.

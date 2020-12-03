@@ -82,8 +82,8 @@ public class ConvertingComparator<S, T> implements Comparator<S> {
 	}
 
 	/**
-	 * Create a new {@link ConvertingComparator} that compares {@link java.util.Map.Entry
-	 * map * entries} based on their {@link java.util.Map.Entry#getKey() keys}.
+	 * Create a new {@link ConvertingComparator} that compares {@link Map.Entry
+	 * map * entries} based on their {@link Map.Entry#getKey() keys}.
 	 * @param comparator the underlying comparator used to compare keys
 	 * @return a new {@link ConvertingComparator} instance
 	 */
@@ -92,8 +92,8 @@ public class ConvertingComparator<S, T> implements Comparator<S> {
 	}
 
 	/**
-	 * Create a new {@link ConvertingComparator} that compares {@link java.util.Map.Entry
-	 * map entries} based on their {@link java.util.Map.Entry#getValue() values}.
+	 * Create a new {@link ConvertingComparator} that compares {@link Map.Entry
+	 * map entries} based on their {@link Map.Entry#getValue() values}.
 	 * @param comparator the underlying comparator used to compare values
 	 * @return a new {@link ConvertingComparator} instance
 	 */

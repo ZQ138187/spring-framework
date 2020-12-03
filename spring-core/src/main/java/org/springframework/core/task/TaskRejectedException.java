@@ -45,7 +45,7 @@ public class TaskRejectedException extends RejectedExecutionException {
 	 * @param msg the detail message
 	 * @param cause the root cause (usually from using an underlying
 	 * API such as the {@code java.util.concurrent} package)
-	 * @see java.util.concurrent.RejectedExecutionException
+	 * @see RejectedExecutionException
 	 */
 	public TaskRejectedException(String msg, Throwable cause) {
 		super(msg, cause);

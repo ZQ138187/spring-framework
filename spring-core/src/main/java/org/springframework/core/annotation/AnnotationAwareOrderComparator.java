@@ -41,7 +41,7 @@ import org.springframework.lang.Nullable;
  * @author Stephane Nicoll
  * @since 2.0.1
  * @see org.springframework.core.Ordered
- * @see org.springframework.core.annotation.Order
+ * @see Order
  * @see javax.annotation.Priority
  */
 public class AnnotationAwareOrderComparator extends OrderComparator {
@@ -118,7 +118,7 @@ public class AnnotationAwareOrderComparator extends OrderComparator {
 	 * <p>Optimized to skip sorting for lists with size 0 or 1,
 	 * in order to avoid unnecessary array extraction.
 	 * @param list the List to sort
-	 * @see java.util.List#sort(java.util.Comparator)
+	 * @see List#sort(java.util.Comparator)
 	 */
 	public static void sort(List<?> list) {
 		if (list.size() > 1) {
@@ -131,7 +131,7 @@ public class AnnotationAwareOrderComparator extends OrderComparator {
 	 * <p>Optimized to skip sorting for lists with size 0 or 1,
 	 * in order to avoid unnecessary array extraction.
 	 * @param array the array to sort
-	 * @see java.util.Arrays#sort(Object[], java.util.Comparator)
+	 * @see Arrays#sort(Object[], java.util.Comparator)
 	 */
 	public static void sort(Object[] array) {
 		if (array.length > 1) {
@@ -145,7 +145,7 @@ public class AnnotationAwareOrderComparator extends OrderComparator {
 	 * <p>Optimized to skip sorting for lists with size 0 or 1,
 	 * in order to avoid unnecessary array extraction.
 	 * @param value the array or List to sort
-	 * @see java.util.Arrays#sort(Object[], java.util.Comparator)
+	 * @see Arrays#sort(Object[], java.util.Comparator)
 	 */
 	public static void sortIfNecessary(Object value) {
 		if (value instanceof Object[]) {

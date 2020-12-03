@@ -107,9 +107,9 @@ import org.springframework.util.StringUtils;
  * @see AnnotationAttributes
  * @see AnnotatedElementUtils
  * @see BridgeMethodResolver
- * @see java.lang.reflect.AnnotatedElement#getAnnotations()
- * @see java.lang.reflect.AnnotatedElement#getAnnotation(Class)
- * @see java.lang.reflect.AnnotatedElement#getDeclaredAnnotations()
+ * @see AnnotatedElement#getAnnotations()
+ * @see AnnotatedElement#getAnnotation(Class)
+ * @see AnnotatedElement#getDeclaredAnnotations()
  */
 public abstract class AnnotationUtils {
 
@@ -219,7 +219,7 @@ public abstract class AnnotationUtils {
 	 * @param method the method to look for annotations on
 	 * @param annotationType the annotation type to look for
 	 * @return the first matching annotation, or {@code null} if not found
-	 * @see org.springframework.core.BridgeMethodResolver#findBridgedMethod(Method)
+	 * @see BridgeMethodResolver#findBridgedMethod(Method)
 	 * @see #getAnnotation(AnnotatedElement, Class)
 	 */
 	@Nullable
@@ -259,7 +259,7 @@ public abstract class AnnotationUtils {
 	 * @return the annotations found, an empty array, or {@code null} if not
 	 * resolvable (e.g. because nested Class values in annotation attributes
 	 * failed to resolve at runtime)
-	 * @see org.springframework.core.BridgeMethodResolver#findBridgedMethod(Method)
+	 * @see BridgeMethodResolver#findBridgedMethod(Method)
 	 * @see AnnotatedElement#getAnnotations()
 	 */
 	@Nullable
@@ -279,9 +279,9 @@ public abstract class AnnotationUtils {
 	 * such annotations are either <em>present</em>, <em>indirectly present</em>,
 	 * or <em>meta-present</em> on the element.
 	 * <p>This method mimics the functionality of Java 8's
-	 * {@link java.lang.reflect.AnnotatedElement#getAnnotationsByType(Class)}
+	 * {@link AnnotatedElement#getAnnotationsByType(Class)}
 	 * with support for automatic detection of a <em>container annotation</em>
-	 * declared via @{@link java.lang.annotation.Repeatable} (when running on
+	 * declared via @{@link Repeatable} (when running on
 	 * Java 8 or higher) and with additional support for meta-annotations.
 	 * <p>Handles both single annotations and annotations nested within a
 	 * <em>container annotation</em>.
@@ -296,9 +296,9 @@ public abstract class AnnotationUtils {
 	 * @see #getRepeatableAnnotations(AnnotatedElement, Class, Class)
 	 * @see #getDeclaredRepeatableAnnotations(AnnotatedElement, Class, Class)
 	 * @see AnnotatedElementUtils#getMergedRepeatableAnnotations(AnnotatedElement, Class)
-	 * @see org.springframework.core.BridgeMethodResolver#findBridgedMethod
-	 * @see java.lang.annotation.Repeatable
-	 * @see java.lang.reflect.AnnotatedElement#getAnnotationsByType
+	 * @see BridgeMethodResolver#findBridgedMethod
+	 * @see Repeatable
+	 * @see AnnotatedElement#getAnnotationsByType
 	 */
 	public static <A extends Annotation> Set<A> getRepeatableAnnotations(AnnotatedElement annotatedElement,
 			Class<A> annotationType) {
@@ -312,7 +312,7 @@ public abstract class AnnotationUtils {
 	 * such annotations are either <em>present</em>, <em>indirectly present</em>,
 	 * or <em>meta-present</em> on the element.
 	 * <p>This method mimics the functionality of Java 8's
-	 * {@link java.lang.reflect.AnnotatedElement#getAnnotationsByType(Class)}
+	 * {@link AnnotatedElement#getAnnotationsByType(Class)}
 	 * with additional support for meta-annotations.
 	 * <p>Handles both single annotations and annotations nested within a
 	 * <em>container annotation</em>.
@@ -324,7 +324,7 @@ public abstract class AnnotationUtils {
 	 * @param annotationType the annotation type to look for
 	 * @param containerAnnotationType the type of the container that holds
 	 * the annotations; may be {@code null} if a container is not supported
-	 * or if it should be looked up via @{@link java.lang.annotation.Repeatable}
+	 * or if it should be looked up via @{@link Repeatable}
 	 * when running on Java 8 or higher
 	 * @return the annotations found or an empty set (never {@code null})
 	 * @since 4.2
@@ -332,9 +332,9 @@ public abstract class AnnotationUtils {
 	 * @see #getDeclaredRepeatableAnnotations(AnnotatedElement, Class)
 	 * @see #getDeclaredRepeatableAnnotations(AnnotatedElement, Class, Class)
 	 * @see AnnotatedElementUtils#getMergedRepeatableAnnotations(AnnotatedElement, Class, Class)
-	 * @see org.springframework.core.BridgeMethodResolver#findBridgedMethod
-	 * @see java.lang.annotation.Repeatable
-	 * @see java.lang.reflect.AnnotatedElement#getAnnotationsByType
+	 * @see BridgeMethodResolver#findBridgedMethod
+	 * @see Repeatable
+	 * @see AnnotatedElement#getAnnotationsByType
 	 */
 	public static <A extends Annotation> Set<A> getRepeatableAnnotations(AnnotatedElement annotatedElement,
 			Class<A> annotationType, @Nullable Class<? extends Annotation> containerAnnotationType) {
@@ -360,9 +360,9 @@ public abstract class AnnotationUtils {
 	 * where such annotations are either <em>directly present</em>,
 	 * <em>indirectly present</em>, or <em>meta-present</em> on the element.
 	 * <p>This method mimics the functionality of Java 8's
-	 * {@link java.lang.reflect.AnnotatedElement#getDeclaredAnnotationsByType(Class)}
+	 * {@link AnnotatedElement#getDeclaredAnnotationsByType(Class)}
 	 * with support for automatic detection of a <em>container annotation</em>
-	 * declared via @{@link java.lang.annotation.Repeatable} (when running on
+	 * declared via @{@link Repeatable} (when running on
 	 * Java 8 or higher) and with additional support for meta-annotations.
 	 * <p>Handles both single annotations and annotations nested within a
 	 * <em>container annotation</em>.
@@ -378,9 +378,9 @@ public abstract class AnnotationUtils {
 	 * @see #getRepeatableAnnotations(AnnotatedElement, Class, Class)
 	 * @see #getDeclaredRepeatableAnnotations(AnnotatedElement, Class, Class)
 	 * @see AnnotatedElementUtils#getMergedRepeatableAnnotations(AnnotatedElement, Class)
-	 * @see org.springframework.core.BridgeMethodResolver#findBridgedMethod
-	 * @see java.lang.annotation.Repeatable
-	 * @see java.lang.reflect.AnnotatedElement#getDeclaredAnnotationsByType
+	 * @see BridgeMethodResolver#findBridgedMethod
+	 * @see Repeatable
+	 * @see AnnotatedElement#getDeclaredAnnotationsByType
 	 */
 	public static <A extends Annotation> Set<A> getDeclaredRepeatableAnnotations(AnnotatedElement annotatedElement,
 			Class<A> annotationType) {
@@ -394,7 +394,7 @@ public abstract class AnnotationUtils {
 	 * where such annotations are either <em>directly present</em>,
 	 * <em>indirectly present</em>, or <em>meta-present</em> on the element.
 	 * <p>This method mimics the functionality of Java 8's
-	 * {@link java.lang.reflect.AnnotatedElement#getDeclaredAnnotationsByType(Class)}
+	 * {@link AnnotatedElement#getDeclaredAnnotationsByType(Class)}
 	 * with additional support for meta-annotations.
 	 * <p>Handles both single annotations and annotations nested within a
 	 * <em>container annotation</em>.
@@ -406,7 +406,7 @@ public abstract class AnnotationUtils {
 	 * @param annotationType the annotation type to look for
 	 * @param containerAnnotationType the type of the container that holds
 	 * the annotations; may be {@code null} if a container is not supported
-	 * or if it should be looked up via @{@link java.lang.annotation.Repeatable}
+	 * or if it should be looked up via @{@link Repeatable}
 	 * when running on Java 8 or higher
 	 * @return the annotations found or an empty set (never {@code null})
 	 * @since 4.2
@@ -414,9 +414,9 @@ public abstract class AnnotationUtils {
 	 * @see #getRepeatableAnnotations(AnnotatedElement, Class, Class)
 	 * @see #getDeclaredRepeatableAnnotations(AnnotatedElement, Class)
 	 * @see AnnotatedElementUtils#getMergedRepeatableAnnotations(AnnotatedElement, Class, Class)
-	 * @see org.springframework.core.BridgeMethodResolver#findBridgedMethod
-	 * @see java.lang.annotation.Repeatable
-	 * @see java.lang.reflect.AnnotatedElement#getDeclaredAnnotationsByType
+	 * @see BridgeMethodResolver#findBridgedMethod
+	 * @see Repeatable
+	 * @see AnnotatedElement#getDeclaredAnnotationsByType
 	 */
 	public static <A extends Annotation> Set<A> getDeclaredRepeatableAnnotations(AnnotatedElement annotatedElement,
 			Class<A> annotationType, @Nullable Class<? extends Annotation> containerAnnotationType) {
@@ -435,14 +435,14 @@ public abstract class AnnotationUtils {
 	 * @param annotationType the annotation type to look for
 	 * @param containerAnnotationType the type of the container that holds
 	 * the annotations; may be {@code null} if a container is not supported
-	 * or if it should be looked up via @{@link java.lang.annotation.Repeatable}
+	 * or if it should be looked up via @{@link Repeatable}
 	 * when running on Java 8 or higher
 	 * @param declaredMode {@code true} if only declared annotations (i.e.,
 	 * directly or indirectly present) should be considered
 	 * @return the annotations found or an empty set (never {@code null})
 	 * @since 4.2
-	 * @see org.springframework.core.BridgeMethodResolver#findBridgedMethod
-	 * @see java.lang.annotation.Repeatable
+	 * @see BridgeMethodResolver#findBridgedMethod
+	 * @see Repeatable
 	 */
 	private static <A extends Annotation> Set<A> getRepeatableAnnotations(AnnotatedElement annotatedElement,
 			Class<A> annotationType, @Nullable Class<? extends Annotation> containerAnnotationType, boolean declaredMode) {
@@ -880,8 +880,8 @@ public abstract class AnnotationUtils {
 	 * @param clazz the class to check for the annotation on
 	 * @return {@code true} if an annotation of the specified {@code annotationType}
 	 * is <em>directly present</em>
-	 * @see java.lang.Class#getDeclaredAnnotations()
-	 * @see java.lang.Class#getDeclaredAnnotation(Class)
+	 * @see Class#getDeclaredAnnotations()
+	 * @see Class#getDeclaredAnnotation(Class)
 	 * @see #isAnnotationInherited(Class, Class)
 	 */
 	public static boolean isAnnotationDeclaredLocally(Class<? extends Annotation> annotationType, Class<?> clazz) {
@@ -1896,7 +1896,7 @@ public abstract class AnnotationUtils {
 	/**
 	 * Resolve the container type for the supplied repeatable {@code annotationType}.
 	 * <p>Automatically detects a <em>container annotation</em> declared via
-	 * {@link java.lang.annotation.Repeatable}. If the supplied annotation type
+	 * {@link Repeatable}. If the supplied annotation type
 	 * is not annotated with {@code @Repeatable}, this method simply returns
 	 * {@code null}.
 	 * @since 4.2

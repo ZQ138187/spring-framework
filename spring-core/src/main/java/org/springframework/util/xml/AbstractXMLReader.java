@@ -34,10 +34,10 @@ import org.springframework.lang.Nullable;
  * @author Arjen Poutsma
  * @author Juergen Hoeller
  * @since 3.0
- * @see #setContentHandler(org.xml.sax.ContentHandler)
- * @see #setDTDHandler(org.xml.sax.DTDHandler)
- * @see #setEntityResolver(org.xml.sax.EntityResolver)
- * @see #setErrorHandler(org.xml.sax.ErrorHandler)
+ * @see #setContentHandler(ContentHandler)
+ * @see #setDTDHandler(DTDHandler)
+ * @see #setEntityResolver(EntityResolver)
+ * @see #setErrorHandler(ErrorHandler)
  */
 abstract class AbstractXMLReader implements XMLReader {
 

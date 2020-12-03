@@ -58,10 +58,10 @@ import org.springframework.util.StringUtils;
  * A {@link ResourcePatternResolver} implementation that is able to resolve a
  * specified resource location path into one or more matching Resources.
  * The source path may be a simple path which has a one-to-one mapping to a
- * target {@link org.springframework.core.io.Resource}, or alternatively
+ * target {@link Resource}, or alternatively
  * may contain the special "{@code classpath*:}" prefix and/or
  * internal Ant-style regular expressions (matched using Spring's
- * {@link org.springframework.util.AntPathMatcher} utility).
+ * {@link AntPathMatcher} utility).
  * Both of the latter are effectively wildcards.
  *
  * <p><b>No Wildcards:</b>
@@ -175,8 +175,8 @@ import org.springframework.util.StringUtils;
  * @author Phillip Webb
  * @since 1.0.2
  * @see #CLASSPATH_ALL_URL_PREFIX
- * @see org.springframework.util.AntPathMatcher
- * @see org.springframework.core.io.ResourceLoader#getResource(String)
+ * @see AntPathMatcher
+ * @see ResourceLoader#getResource(String)
  * @see ClassLoader#getResources(String)
  */
 public class PathMatchingResourcePatternResolver implements ResourcePatternResolver {
@@ -208,7 +208,7 @@ public class PathMatchingResourcePatternResolver implements ResourcePatternResol
 	/**
 	 * Create a new PathMatchingResourcePatternResolver with a DefaultResourceLoader.
 	 * <p>ClassLoader access will happen via the thread context class loader.
-	 * @see org.springframework.core.io.DefaultResourceLoader
+	 * @see DefaultResourceLoader
 	 */
 	public PathMatchingResourcePatternResolver() {
 		this.resourceLoader = new DefaultResourceLoader();
@@ -230,7 +230,7 @@ public class PathMatchingResourcePatternResolver implements ResourcePatternResol
 	 * @param classLoader the ClassLoader to load classpath resources with,
 	 * or {@code null} for using the thread context class loader
 	 * at the time of actual resource access
-	 * @see org.springframework.core.io.DefaultResourceLoader
+	 * @see DefaultResourceLoader
 	 */
 	public PathMatchingResourcePatternResolver(@Nullable ClassLoader classLoader) {
 		this.resourceLoader = new DefaultResourceLoader(classLoader);
@@ -253,7 +253,7 @@ public class PathMatchingResourcePatternResolver implements ResourcePatternResol
 	/**
 	 * Set the PathMatcher implementation to use for this
 	 * resource pattern resolver. Default is AntPathMatcher.
-	 * @see org.springframework.util.AntPathMatcher
+	 * @see AntPathMatcher
 	 */
 	public void setPathMatcher(PathMatcher pathMatcher) {
 		Assert.notNull(pathMatcher, "PathMatcher must not be null");
@@ -309,7 +309,7 @@ public class PathMatchingResourcePatternResolver implements ResourcePatternResol
 	 * @param location the absolute path within the classpath
 	 * @return the result as Resource array
 	 * @throws IOException in case of I/O errors
-	 * @see java.lang.ClassLoader#getResources
+	 * @see ClassLoader#getResources
 	 * @see #convertClassLoaderURL
 	 */
 	protected Resource[] findAllClassPathResources(String location) throws IOException {
@@ -352,8 +352,8 @@ public class PathMatchingResourcePatternResolver implements ResourcePatternResol
 	 * <p>The default implementation simply creates a {@link UrlResource} instance.
 	 * @param url a URL as returned from the ClassLoader
 	 * @return the corresponding Resource object
-	 * @see java.lang.ClassLoader#getResources
-	 * @see org.springframework.core.io.Resource
+	 * @see ClassLoader#getResources
+	 * @see Resource
 	 */
 	protected Resource convertClassLoaderURL(URL url) {
 		return new UrlResource(url);
@@ -484,7 +484,7 @@ public class PathMatchingResourcePatternResolver implements ResourcePatternResol
 	 * @throws IOException in case of I/O errors
 	 * @see #doFindPathMatchingJarResources
 	 * @see #doFindPathMatchingFileResources
-	 * @see org.springframework.util.PathMatcher
+	 * @see PathMatcher
 	 */
 	protected Resource[] findPathMatchingResources(String locationPattern) throws IOException {
 		String rootDirPath = determineRootDir(locationPattern);
@@ -565,7 +565,7 @@ public class PathMatchingResourcePatternResolver implements ResourcePatternResol
 	 * @param resource the resource handle to check
 	 * (usually the root directory to start path matching from)
 	 * @see #doFindPathMatchingJarResources
-	 * @see org.springframework.util.ResourceUtils#isJarURL
+	 * @see ResourceUtils#isJarURL
 	 */
 	protected boolean isJarResource(Resource resource) throws IOException {
 		return false;
@@ -580,8 +580,8 @@ public class PathMatchingResourcePatternResolver implements ResourcePatternResol
 	 * @return a mutable Set of matching Resource instances
 	 * @throws IOException in case of I/O errors
 	 * @since 4.3
-	 * @see java.net.JarURLConnection
-	 * @see org.springframework.util.PathMatcher
+	 * @see JarURLConnection
+	 * @see PathMatcher
 	 */
 	protected Set<Resource> doFindPathMatchingJarResources(Resource rootDirResource, URL rootDirURL, String subPattern)
 			throws IOException {
@@ -688,7 +688,7 @@ public class PathMatchingResourcePatternResolver implements ResourcePatternResol
 	 * @return a mutable Set of matching Resource instances
 	 * @throws IOException in case of I/O errors
 	 * @see #retrieveMatchingFiles
-	 * @see org.springframework.util.PathMatcher
+	 * @see PathMatcher
 	 */
 	protected Set<Resource> doFindPathMatchingFileResources(Resource rootDirResource, String subPattern)
 			throws IOException {
@@ -721,7 +721,7 @@ public class PathMatchingResourcePatternResolver implements ResourcePatternResol
 	 * @return a mutable Set of matching Resource instances
 	 * @throws IOException in case of I/O errors
 	 * @see #retrieveMatchingFiles
-	 * @see org.springframework.util.PathMatcher
+	 * @see PathMatcher
 	 */
 	protected Set<Resource> doFindMatchingFileSystemResources(File rootDir, String subPattern) throws IOException {
 		if (logger.isDebugEnabled()) {

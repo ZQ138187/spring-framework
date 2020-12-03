@@ -37,7 +37,8 @@ package org.springframework.core;
  * a special phase, ahead of other post-processor beans. This subtly
  * affects their autowiring behavior: they will only be autowired against
  * beans which do not require eager initialization for type matching.
- *
+ * 后处理器bean在一个特殊的阶段初始化，比其他后处理器bean先初始化。这微妙地影响了
+ * 它们的自动装配行为:它们将只对不需要为类型匹配进行初始化的bean进行自动装配。
  * @author Juergen Hoeller
  * @author Sam Brannen
  * @since 2.5

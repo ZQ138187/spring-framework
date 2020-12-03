@@ -552,7 +552,7 @@ public class TypeDescriptor implements Serializable {
 	}
 
 	/**
-	 * Create a new type descriptor from a {@link java.util.Collection} type.
+	 * Create a new type descriptor from a {@link Collection} type.
 	 * <p>Useful for converting to typed Collections.
 	 * <p>For example, a {@code List<String>} could be converted to a
 	 * {@code List<EmailAddress>} by converting to a targetType built with this method.
@@ -573,7 +573,7 @@ public class TypeDescriptor implements Serializable {
 	}
 
 	/**
-	 * Create a new type descriptor from a {@link java.util.Map} type.
+	 * Create a new type descriptor from a {@link Map} type.
 	 * <p>Useful for converting to typed Maps.
 	 * <p>For example, a Map&lt;String, String&gt; could be converted to a Map&lt;Id, EmailAddress&gt;
 	 * by converting to a targetType built with this method:

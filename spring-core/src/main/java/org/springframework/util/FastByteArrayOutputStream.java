@@ -31,7 +31,7 @@ import org.springframework.lang.Nullable;
  * its sibling {@link ResizableByteArrayOutputStream}.
  *
  * <p>Unlike {@link java.io.ByteArrayOutputStream}, this implementation is backed
- * by a {@link java.util.LinkedList} of {@code byte[]} instead of 1 constantly
+ * by a {@link LinkedList} of {@code byte[]} instead of 1 constantly
  * resizing {@code byte[]}. It does not copy buffers when it gets expanded.
  *
  * <p>The initial buffer is only created when the stream is first written.
@@ -229,7 +229,7 @@ public class FastByteArrayOutputStream extends OutputStream {
 	 * <p>Note that if any methods are called on the OutputStream
 	 * (including, but not limited to, any of the write methods, {@link #reset()},
 	 * {@link #toByteArray()}, and {@link #toByteArrayUnsafe()}) then the
-	 * {@link java.io.InputStream}'s behavior is undefined.
+	 * {@link InputStream}'s behavior is undefined.
 	 * @return {@link InputStream} of the contents of this OutputStream
 	 */
 	public InputStream getInputStream() {
@@ -322,7 +322,7 @@ public class FastByteArrayOutputStream extends OutputStream {
 
 
 	/**
-	 * An implementation of {@link java.io.InputStream} that reads from a given
+	 * An implementation of {@link InputStream} that reads from a given
 	 * <code>FastByteArrayOutputStream</code>.
 	 */
 	private static final class FastByteArrayInputStream extends UpdateMessageDigestInputStream {

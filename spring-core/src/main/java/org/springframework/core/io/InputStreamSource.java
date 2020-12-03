@@ -33,7 +33,7 @@ import java.io.InputStream;
  *
  * @author Juergen Hoeller
  * @since 20.01.2004
- * @see java.io.InputStream
+ * @see InputStream
  * @see Resource
  * @see InputStreamResource
  * @see ByteArrayResource

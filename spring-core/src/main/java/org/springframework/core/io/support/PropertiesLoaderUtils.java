@@ -52,7 +52,7 @@ public abstract class PropertiesLoaderUtils {
 	/**
 	 * Load properties from the given EncodedResource,
 	 * potentially defining a specific encoding for the properties file.
-	 * @see #fillProperties(java.util.Properties, EncodedResource)
+	 * @see #fillProperties(Properties, EncodedResource)
 	 */
 	public static Properties loadProperties(EncodedResource resource) throws IOException {
 		Properties props = new Properties();
@@ -115,7 +115,7 @@ public abstract class PropertiesLoaderUtils {
 	 * @param resource the resource to load from
 	 * @return the populated Properties instance
 	 * @throws IOException if loading failed
-	 * @see #fillProperties(java.util.Properties, Resource)
+	 * @see #fillProperties(Properties, Resource)
 	 */
 	public static Properties loadProperties(Resource resource) throws IOException {
 		Properties props = new Properties();

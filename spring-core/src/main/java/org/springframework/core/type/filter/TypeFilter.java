@@ -23,7 +23,7 @@ import org.springframework.core.type.classreading.MetadataReaderFactory;
 
 /**
  * Base interface for type filters using a
- * {@link org.springframework.core.type.classreading.MetadataReader}.
+ * {@link MetadataReader}.
  *
  * @author Costin Leau
  * @author Juergen Hoeller

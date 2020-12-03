@@ -22,8 +22,8 @@ import org.springframework.core.task.TaskExecutor;
 import org.springframework.util.Assert;
 
 /**
- * Adapter that exposes the {@link java.util.concurrent.Executor} interface
- * for any Spring {@link org.springframework.core.task.TaskExecutor}.
+ * Adapter that exposes the {@link Executor} interface
+ * for any Spring {@link TaskExecutor}.
  *
  * <p>This is less useful as of Spring 3.0, since TaskExecutor itself
  * extends the Executor interface. The adapter is only relevant for
@@ -32,8 +32,8 @@ import org.springframework.util.Assert;
  *
  * @author Juergen Hoeller
  * @since 2.5
- * @see java.util.concurrent.Executor
- * @see org.springframework.core.task.TaskExecutor
+ * @see Executor
+ * @see TaskExecutor
  */
 public class ConcurrentExecutorAdapter implements Executor {
 

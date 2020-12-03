@@ -34,14 +34,14 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
- * Editor for {@link org.springframework.core.io.Resource} arrays, to
+ * Editor for {@link Resource} arrays, to
  * automatically convert {@code String} location patterns
  * (e.g. {@code "file:C:/my*.txt"} or {@code "classpath*:myfile.txt"})
  * to {@code Resource} array properties. Can also translate a collection
  * or array of location patterns into a merged Resource array.
  *
  * <p>A path may contain {@code ${...}} placeholders, to be
- * resolved as {@link org.springframework.core.env.Environment} properties:
+ * resolved as {@link Environment} properties:
  * e.g. {@code ${user.dir}}. Unresolvable placeholders are ignored by default.
  *
  * <p>Delegates to a {@link ResourcePatternResolver},
@@ -50,7 +50,7 @@ import org.springframework.util.Assert;
  * @author Juergen Hoeller
  * @author Chris Beams
  * @since 1.1.2
- * @see org.springframework.core.io.Resource
+ * @see Resource
  * @see ResourcePatternResolver
  * @see PathMatchingResourcePatternResolver
  */

@@ -27,7 +27,7 @@ import java.nio.channels.WritableByteChannel;
  *
  * @author Juergen Hoeller
  * @since 3.1
- * @see java.io.OutputStream
+ * @see OutputStream
  */
 public interface WritableResource extends Resource {
 

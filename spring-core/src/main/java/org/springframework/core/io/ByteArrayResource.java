@@ -36,7 +36,7 @@ import org.springframework.util.Assert;
  * @author Juergen Hoeller
  * @author Sam Brannen
  * @since 1.2.3
- * @see java.io.ByteArrayInputStream
+ * @see ByteArrayInputStream
  * @see InputStreamResource
  * @see org.springframework.mail.javamail.MimeMessageHelper#addAttachment(String, InputStreamSource)
  */
@@ -93,7 +93,7 @@ public class ByteArrayResource extends AbstractResource {
 	/**
 	 * This implementation returns a ByteArrayInputStream for the
 	 * underlying byte array.
-	 * @see java.io.ByteArrayInputStream
+	 * @see ByteArrayInputStream
 	 */
 	@Override
 	public InputStream getInputStream() throws IOException {
@@ -112,7 +112,7 @@ public class ByteArrayResource extends AbstractResource {
 
 	/**
 	 * This implementation compares the underlying byte array.
-	 * @see java.util.Arrays#equals(byte[], byte[])
+	 * @see Arrays#equals(byte[], byte[])
 	 */
 	@Override
 	public boolean equals(Object other) {

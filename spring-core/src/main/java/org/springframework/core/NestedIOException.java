@@ -34,8 +34,8 @@ import org.springframework.lang.Nullable;
  * @since 2.0
  * @see #getMessage
  * @see #printStackTrace
- * @see org.springframework.core.NestedCheckedException
- * @see org.springframework.core.NestedRuntimeException
+ * @see NestedCheckedException
+ * @see NestedRuntimeException
  */
 @SuppressWarnings("serial")
 public class NestedIOException extends IOException {

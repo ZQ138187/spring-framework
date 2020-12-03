@@ -1,5 +1,5 @@
 /*
- * Copyright 2002-2020 the original author or authors.
+ * Copyright 2002-2017 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,9 +43,6 @@ import org.springframework.lang.Nullable;
  */
 public abstract class FileCopyUtils {
 
-	/**
-	 * The default buffer size used when copying bytes.
-	 */
 	public static final int BUFFER_SIZE = StreamUtils.BUFFER_SIZE;
 
 
@@ -181,15 +178,15 @@ public abstract class FileCopyUtils {
 		Assert.notNull(out, "No Writer specified");
 
 		try {
-			int charCount = 0;
+			int byteCount = 0;
 			char[] buffer = new char[BUFFER_SIZE];
-			int charsRead;
-			while ((charsRead = in.read(buffer)) != -1) {
-				out.write(buffer, 0, charsRead);
-				charCount += charsRead;
+			int bytesRead = -1;
+			while ((bytesRead = in.read(buffer)) != -1) {
+				out.write(buffer, 0, bytesRead);
+				byteCount += bytesRead;
 			}
 			out.flush();
-			return charCount;
+			return byteCount;
 		}
 		finally {
 			try {
@@ -206,7 +203,7 @@ public abstract class FileCopyUtils {
 	}
 
 	/**
-	 * Copy the contents of the given String to the given Writer.
+	 * Copy the contents of the given String to the given output Writer.
 	 * Closes the writer when done.
 	 * @param in the String to copy from
 	 * @param out the Writer to copy to
@@ -240,7 +237,7 @@ public abstract class FileCopyUtils {
 			return "";
 		}
 
-		StringWriter out = new StringWriter(BUFFER_SIZE);
+		StringWriter out = new StringWriter();
 		copy(in, out);
 		return out.toString();
 	}

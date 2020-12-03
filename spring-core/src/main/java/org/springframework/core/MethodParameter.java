@@ -335,7 +335,7 @@ public class MethodParameter {
 
 	/**
 	 * Return whether this method indicates a parameter which is not required:
-	 * either in the form of Java 8's {@link java.util.Optional}, any variant
+	 * either in the form of Java 8's {@link Optional}, any variant
 	 * of a parameter-level {@code Nullable} annotation (such as from JSR-305
 	 * or the FindBugs set of annotations), or a language-level nullable type
 	 * declaration in Kotlin.
@@ -363,7 +363,7 @@ public class MethodParameter {
 	/**
 	 * Return a variant of this {@code MethodParameter} which points to
 	 * the same parameter but one nesting level deeper in case of a
-	 * {@link java.util.Optional} declaration.
+	 * {@link Optional} declaration.
 	 * @since 4.3
 	 * @see #isOptional()
 	 * @see #nested()

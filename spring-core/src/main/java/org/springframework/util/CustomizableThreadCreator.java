@@ -82,7 +82,7 @@ public class CustomizableThreadCreator implements Serializable {
 	/**
 	 * Set the priority of the threads that this factory creates.
 	 * Default is 5.
-	 * @see java.lang.Thread#NORM_PRIORITY
+	 * @see Thread#NORM_PRIORITY
 	 */
 	public void setThreadPriority(int threadPriority) {
 		this.threadPriority = threadPriority;
@@ -103,7 +103,7 @@ public class CustomizableThreadCreator implements Serializable {
 	 * execution.
 	 * <p>Specify "true" for eager shutdown of threads which still actively execute
 	 * a {@link Runnable} at the time that the application itself shuts down.
-	 * @see java.lang.Thread#setDaemon
+	 * @see Thread#setDaemon
 	 */
 	public void setDaemon(boolean daemon) {
 		this.daemon = daemon;

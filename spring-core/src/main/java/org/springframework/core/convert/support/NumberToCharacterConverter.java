@@ -23,13 +23,13 @@ import org.springframework.core.convert.converter.Converter;
  *
  * @author Keith Donald
  * @since 3.0
- * @see java.lang.Character
- * @see java.lang.Short
- * @see java.lang.Integer
- * @see java.lang.Long
+ * @see Character
+ * @see Short
+ * @see Integer
+ * @see Long
  * @see java.math.BigInteger
- * @see java.lang.Float
- * @see java.lang.Double
+ * @see Float
+ * @see Double
  * @see java.math.BigDecimal
  */
 final class NumberToCharacterConverter implements Converter<Number, Character> {

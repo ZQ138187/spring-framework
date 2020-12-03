@@ -33,7 +33,7 @@ import org.xml.sax.Locator;
  *
  * @author Arjen Poutsma
  * @since 3.0
- * @see org.w3c.dom.Node
+ * @see Node
  */
 class DomContentHandler implements ContentHandler {
 

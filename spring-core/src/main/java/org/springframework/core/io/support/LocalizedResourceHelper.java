@@ -44,7 +44,7 @@ public class LocalizedResourceHelper {
 
 	/**
 	 * Create a new LocalizedResourceHelper with a DefaultResourceLoader.
-	 * @see org.springframework.core.io.DefaultResourceLoader
+	 * @see DefaultResourceLoader
 	 */
 	public LocalizedResourceHelper() {
 		this.resourceLoader = new DefaultResourceLoader();

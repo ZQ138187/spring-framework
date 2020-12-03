@@ -33,7 +33,7 @@ import org.springframework.util.StringUtils;
 
 /**
  * ASM class visitor which looks only for the class name and implemented types,
- * exposing them through the {@link org.springframework.core.type.ClassMetadata}
+ * exposing them through the {@link ClassMetadata}
  * interface.
  *
  * @author Rod Johnson

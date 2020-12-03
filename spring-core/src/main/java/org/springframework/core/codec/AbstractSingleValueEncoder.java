@@ -28,7 +28,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.MimeType;
 
 /**
- * Abstract base class for {@link org.springframework.core.codec.Encoder}
+ * Abstract base class for {@link Encoder}
  * classes that can only deal with a single value.
  *
  * @author Arjen Poutsma

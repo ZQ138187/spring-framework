@@ -29,7 +29,7 @@ import org.springframework.lang.Nullable;
 
 /**
  * {@link MetadataReader} implementation based on an ASM
- * {@link org.springframework.asm.ClassReader}.
+ * {@link ClassReader}.
  *
  * <p>Package-visible in order to allow for repackaging the ASM library
  * without effect on users of the {@code core.type} package.

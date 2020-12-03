@@ -47,9 +47,9 @@ import java.util.Properties;
  *
  * @author Juergen Hoeller
  * @since 10.03.2004
- * @see java.util.Properties
- * @see java.util.Properties#load
- * @see java.util.Properties#store
+ * @see Properties
+ * @see Properties#load
+ * @see Properties#store
  */
 public class DefaultPropertiesPersister implements PropertiesPersister {
 

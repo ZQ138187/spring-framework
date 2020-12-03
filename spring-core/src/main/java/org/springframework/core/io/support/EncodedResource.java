@@ -39,8 +39,8 @@ import org.springframework.util.ObjectUtils;
  * @author Sam Brannen
  * @since 1.2.6
  * @see Resource#getInputStream()
- * @see java.io.Reader
- * @see java.nio.charset.Charset
+ * @see Reader
+ * @see Charset
  */
 public class EncodedResource implements InputStreamSource {
 

@@ -21,7 +21,7 @@ import java.util.Properties;
 
 /**
  * {@link PropertySource} implementation that extracts properties from a
- * {@link java.util.Properties} object.
+ * {@link Properties} object.
  *
  * <p>Note that because a {@code Properties} object is technically an
  * {@code <Object, Object>} {@link java.util.Hashtable Hashtable}, one may contain

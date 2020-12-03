@@ -36,8 +36,8 @@ import org.springframework.lang.Nullable;
  * <p>Even though {@code StaxResult} extends from {@code SAXResult}, calling the methods of
  * {@code SAXResult} is <strong>not supported</strong>. In general, the only supported operation
  * on this class is to use the {@code ContentHandler} obtained via {@link #getHandler()} to parse an
- * input source using an {@code XMLReader}. Calling {@link #setHandler(org.xml.sax.ContentHandler)}
- * or {@link #setLexicalHandler(org.xml.sax.ext.LexicalHandler)} will result in
+ * input source using an {@code XMLReader}. Calling {@link #setHandler(ContentHandler)}
+ * or {@link #setLexicalHandler(LexicalHandler)} will result in
  * {@code UnsupportedOperationException}s.
  *
  * @author Arjen Poutsma
@@ -83,7 +83,7 @@ class StaxResult extends SAXResult {
 	 * <p>If this {@code StaxResult} was created with an {@code XMLStreamWriter},
 	 * the result will be {@code null}.
 	 * @return the StAX event writer used by this result
-	 * @see #StaxResult(javax.xml.stream.XMLEventWriter)
+	 * @see #StaxResult(XMLEventWriter)
 	 */
 	@Nullable
 	public XMLEventWriter getXMLEventWriter() {
@@ -95,7 +95,7 @@ class StaxResult extends SAXResult {
 	 * <p>If this {@code StaxResult} was created with an {@code XMLEventConsumer},
 	 * the result will be {@code null}.
 	 * @return the StAX stream writer used by this result
-	 * @see #StaxResult(javax.xml.stream.XMLStreamWriter)
+	 * @see #StaxResult(XMLStreamWriter)
 	 */
 	@Nullable
 	public XMLStreamWriter getXMLStreamWriter() {

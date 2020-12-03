@@ -22,7 +22,7 @@ import javax.xml.transform.Transformer;
 import org.springframework.util.Assert;
 
 /**
- * Contains common behavior relating to {@link javax.xml.transform.Transformer Transformers}
+ * Contains common behavior relating to {@link Transformer Transformers}
  * and the {@code javax.xml.transform} package in general.
  *
  * @author Rick Evans
@@ -39,25 +39,25 @@ public abstract class TransformerUtils {
 
 
 	/**
-	 * Enable indenting for the supplied {@link javax.xml.transform.Transformer}.
+	 * Enable indenting for the supplied {@link Transformer}.
 	 * <p>If the underlying XSLT engine is Xalan, then the special output key {@code indent-amount}
 	 * will be also be set to a value of {@link #DEFAULT_INDENT_AMOUNT} characters.
 	 * @param transformer the target transformer
-	 * @see javax.xml.transform.Transformer#setOutputProperty(String, String)
-	 * @see javax.xml.transform.OutputKeys#INDENT
+	 * @see Transformer#setOutputProperty(String, String)
+	 * @see OutputKeys#INDENT
 	 */
 	public static void enableIndenting(Transformer transformer) {
 		enableIndenting(transformer, DEFAULT_INDENT_AMOUNT);
 	}
 
 	/**
-	 * Enable indenting for the supplied {@link javax.xml.transform.Transformer}.
+	 * Enable indenting for the supplied {@link Transformer}.
 	 * <p>If the underlying XSLT engine is Xalan, then the special output key {@code indent-amount}
 	 * will be also be set to a value of {@link #DEFAULT_INDENT_AMOUNT} characters.
 	 * @param transformer the target transformer
 	 * @param indentAmount the size of the indent (2 characters, 3 characters, etc)
-	 * @see javax.xml.transform.Transformer#setOutputProperty(String, String)
-	 * @see javax.xml.transform.OutputKeys#INDENT
+	 * @see Transformer#setOutputProperty(String, String)
+	 * @see OutputKeys#INDENT
 	 */
 	public static void enableIndenting(Transformer transformer, int indentAmount) {
 		Assert.notNull(transformer, "Transformer must not be null");
@@ -74,9 +74,9 @@ public abstract class TransformerUtils {
 	}
 
 	/**
-	 * Disable indenting for the supplied {@link javax.xml.transform.Transformer}.
+	 * Disable indenting for the supplied {@link Transformer}.
 	 * @param transformer the target transformer
-	 * @see javax.xml.transform.OutputKeys#INDENT
+	 * @see OutputKeys#INDENT
 	 */
 	public static void disableIndenting(Transformer transformer) {
 		Assert.notNull(transformer, "Transformer must not be null");

@@ -108,7 +108,7 @@ public class SettableListenableFuture<T> implements ListenableFuture<T> {
 	/**
 	 * Retrieve the value.
 	 * <p>This method returns the value if it has been set via {@link #set(Object)},
-	 * throws an {@link java.util.concurrent.ExecutionException} if an exception has
+	 * throws an {@link ExecutionException} if an exception has
 	 * been set via {@link #setException(Throwable)}, or throws a
 	 * {@link java.util.concurrent.CancellationException} if the future has been cancelled.
 	 * @return the value associated with this future
@@ -121,7 +121,7 @@ public class SettableListenableFuture<T> implements ListenableFuture<T> {
 	/**
 	 * Retrieve the value.
 	 * <p>This method returns the value if it has been set via {@link #set(Object)},
-	 * throws an {@link java.util.concurrent.ExecutionException} if an exception has
+	 * throws an {@link ExecutionException} if an exception has
 	 * been set via {@link #setException(Throwable)}, or throws a
 	 * {@link java.util.concurrent.CancellationException} if the future has been cancelled.
 	 * @param timeout the maximum time to wait

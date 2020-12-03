@@ -42,8 +42,8 @@ import org.springframework.util.Assert;
  * @author Philippe Marschall
  * @author Juergen Hoeller
  * @since 4.0
- * @see java.nio.file.Path
- * @see java.nio.file.Files
+ * @see Path
+ * @see Files
  * @see FileSystemResource
  */
 public class PathResource extends AbstractResource implements WritableResource {
@@ -69,7 +69,7 @@ public class PathResource extends AbstractResource implements WritableResource {
 	 * via {@link #createRelative}, the relative path will be built <i>underneath</i>
 	 * the given root: e.g. Paths.get("C:/dir1/"), relative path "dir2" -> "C:/dir1/dir2"!
 	 * @param path a path
-	 * @see java.nio.file.Paths#get(String, String...)
+	 * @see Paths#get(String, String...)
 	 */
 	public PathResource(String path) {
 		Assert.notNull(path, "Path must not be null");
@@ -82,7 +82,7 @@ public class PathResource extends AbstractResource implements WritableResource {
 	 * via {@link #createRelative}, the relative path will be built <i>underneath</i>
 	 * the given root: e.g. Paths.get("C:/dir1/"), relative path "dir2" -> "C:/dir1/dir2"!
 	 * @param uri a path URI
-	 * @see java.nio.file.Paths#get(URI)
+	 * @see Paths#get(URI)
 	 */
 	public PathResource(URI uri) {
 		Assert.notNull(uri, "URI must not be null");
@@ -99,7 +99,7 @@ public class PathResource extends AbstractResource implements WritableResource {
 
 	/**
 	 * This implementation returns whether the underlying file exists.
-	 * @see java.nio.file.Files#exists(Path, java.nio.file.LinkOption...)
+	 * @see Files#exists(Path, java.nio.file.LinkOption...)
 	 */
 	@Override
 	public boolean exists() {
@@ -109,8 +109,8 @@ public class PathResource extends AbstractResource implements WritableResource {
 	/**
 	 * This implementation checks whether the underlying file is marked as readable
 	 * (and corresponds to an actual file with content, not to a directory).
-	 * @see java.nio.file.Files#isReadable(Path)
-	 * @see java.nio.file.Files#isDirectory(Path, java.nio.file.LinkOption...)
+	 * @see Files#isReadable(Path)
+	 * @see Files#isDirectory(Path, java.nio.file.LinkOption...)
 	 */
 	@Override
 	public boolean isReadable() {
@@ -135,8 +135,8 @@ public class PathResource extends AbstractResource implements WritableResource {
 	/**
 	 * This implementation checks whether the underlying file is marked as writable
 	 * (and corresponds to an actual file with content, not to a directory).
-	 * @see java.nio.file.Files#isWritable(Path)
-	 * @see java.nio.file.Files#isDirectory(Path, java.nio.file.LinkOption...)
+	 * @see Files#isWritable(Path)
+	 * @see Files#isDirectory(Path, java.nio.file.LinkOption...)
 	 */
 	@Override
 	public boolean isWritable() {
@@ -157,8 +157,8 @@ public class PathResource extends AbstractResource implements WritableResource {
 
 	/**
 	 * This implementation returns a URL for the underlying file.
-	 * @see java.nio.file.Path#toUri()
-	 * @see java.net.URI#toURL()
+	 * @see Path#toUri()
+	 * @see URI#toURL()
 	 */
 	@Override
 	public URL getURL() throws IOException {
@@ -167,7 +167,7 @@ public class PathResource extends AbstractResource implements WritableResource {
 
 	/**
 	 * This implementation returns a URI for the underlying file.
-	 * @see java.nio.file.Path#toUri()
+	 * @see Path#toUri()
 	 */
 	@Override
 	public URI getURI() throws IOException {
@@ -230,7 +230,7 @@ public class PathResource extends AbstractResource implements WritableResource {
 
 	/**
 	 * This implementation returns the underlying File's timestamp.
-	 * @see java.nio.file.Files#getLastModifiedTime(Path, java.nio.file.LinkOption...)
+	 * @see Files#getLastModifiedTime(Path, java.nio.file.LinkOption...)
 	 */
 	@Override
 	public long lastModified() throws IOException {
@@ -242,7 +242,7 @@ public class PathResource extends AbstractResource implements WritableResource {
 	/**
 	 * This implementation creates a PathResource, applying the given path
 	 * relative to the path of the underlying file of this resource descriptor.
-	 * @see java.nio.file.Path#resolve(String)
+	 * @see Path#resolve(String)
 	 */
 	@Override
 	public Resource createRelative(String relativePath) throws IOException {
@@ -251,7 +251,7 @@ public class PathResource extends AbstractResource implements WritableResource {
 
 	/**
 	 * This implementation returns the name of the file.
-	 * @see java.nio.file.Path#getFileName()
+	 * @see Path#getFileName()
 	 */
 	@Override
 	public String getFilename() {

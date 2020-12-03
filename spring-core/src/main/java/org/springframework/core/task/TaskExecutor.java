@@ -25,7 +25,7 @@ import java.util.concurrent.Executor;
  * <p>Implementations can use all sorts of different execution strategies,
  * such as: synchronous, asynchronous, using a thread pool, and more.
  *
- * <p>Equivalent to JDK 1.5's {@link java.util.concurrent.Executor}
+ * <p>Equivalent to JDK 1.5's {@link Executor}
  * interface; extending it now in Spring 3.0, so that clients may declare
  * a dependency on an Executor and receive any TaskExecutor implementation.
  * This interface remains separate from the standard Executor interface
@@ -33,7 +33,7 @@ import java.util.concurrent.Executor;
  *
  * @author Juergen Hoeller
  * @since 2.0
- * @see java.util.concurrent.Executor
+ * @see Executor
  */
 @FunctionalInterface
 public interface TaskExecutor extends Executor {

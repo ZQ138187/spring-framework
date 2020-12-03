@@ -39,8 +39,8 @@ import org.springframework.util.concurrent.ListenableFutureTask;
  *
  * @author Juergen Hoeller
  * @since 3.0
- * @see java.util.concurrent.Executor
- * @see java.util.concurrent.ExecutorService
+ * @see Executor
+ * @see ExecutorService
  * @see java.util.concurrent.Executors
  */
 public class TaskExecutorAdapter implements AsyncListenableTaskExecutor {
@@ -84,7 +84,7 @@ public class TaskExecutorAdapter implements AsyncListenableTaskExecutor {
 
 	/**
 	 * Delegates to the specified JDK concurrent executor.
-	 * @see java.util.concurrent.Executor#execute(Runnable)
+	 * @see Executor#execute(Runnable)
 	 */
 	@Override
 	public void execute(Runnable task) {

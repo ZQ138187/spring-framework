@@ -24,14 +24,14 @@ import org.springframework.core.type.classreading.MetadataReaderFactory;
 
 /**
  * Type filter that exposes a
- * {@link org.springframework.core.type.ClassMetadata} object
+ * {@link ClassMetadata} object
  * to subclasses, for class testing purposes.
  *
  * @author Rod Johnson
  * @author Costin Leau
  * @author Juergen Hoeller
  * @since 2.5
- * @see #match(org.springframework.core.type.ClassMetadata)
+ * @see #match(ClassMetadata)
  */
 public abstract class AbstractClassTestingTypeFilter implements TypeFilter {
 

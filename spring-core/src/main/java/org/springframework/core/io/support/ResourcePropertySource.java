@@ -28,19 +28,19 @@ import org.springframework.util.StringUtils;
 
 /**
  * Subclass of {@link PropertiesPropertySource} that loads a {@link Properties} object
- * from a given {@link org.springframework.core.io.Resource} or resource location such as
+ * from a given {@link Resource} or resource location such as
  * {@code "classpath:/com/myco/foo.properties"} or {@code "file:/path/to/file.xml"}.
  *
  * <p>Both traditional and XML-based properties file formats are supported; however, in
  * order for XML processing to take effect, the underlying {@code Resource}'s
- * {@link org.springframework.core.io.Resource#getFilename() getFilename()} method must
+ * {@link Resource#getFilename() getFilename()} method must
  * return a non-{@code null} value that ends in {@code ".xml"}.
  *
  * @author Chris Beams
  * @author Juergen Hoeller
  * @since 3.1
- * @see org.springframework.core.io.Resource
- * @see org.springframework.core.io.support.EncodedResource
+ * @see Resource
+ * @see EncodedResource
  */
 public class ResourcePropertySource extends PropertiesPropertySource {
 
@@ -173,7 +173,7 @@ public class ResourcePropertySource extends PropertiesPropertySource {
 	/**
 	 * Return the description for the given Resource; if the description is
 	 * empty, return the class name of the resource plus its identity hash code.
-	 * @see org.springframework.core.io.Resource#getDescription()
+	 * @see Resource#getDescription()
 	 */
 	private static String getNameForResource(Resource resource) {
 		String name = resource.getDescription();

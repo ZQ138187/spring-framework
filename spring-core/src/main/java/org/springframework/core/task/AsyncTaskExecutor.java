@@ -22,7 +22,7 @@ import java.util.concurrent.Future;
 /**
  * Extended interface for asynchronous {@link TaskExecutor} implementations,
  * offering an overloaded {@link #execute(Runnable, long)} variant with a start
- * timeout parameter as well support for {@link java.util.concurrent.Callable}.
+ * timeout parameter as well support for {@link Callable}.
  *
  * <p>Note: The {@link java.util.concurrent.Executors} class includes a set of
  * methods that can convert some other common closure-like objects, for example,
@@ -36,7 +36,7 @@ import java.util.concurrent.Future;
  * @since 2.0.3
  * @see SimpleAsyncTaskExecutor
  * @see org.springframework.scheduling.SchedulingTaskExecutor
- * @see java.util.concurrent.Callable
+ * @see Callable
  * @see java.util.concurrent.Executors
  */
 public interface AsyncTaskExecutor extends TaskExecutor {

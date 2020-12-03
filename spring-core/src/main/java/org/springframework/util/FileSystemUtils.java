@@ -36,9 +36,9 @@ import static java.nio.file.FileVisitOption.FOLLOW_LINKS;
  * @author Rob Harrop
  * @author Juergen Hoeller
  * @since 2.5.3
- * @see java.io.File
- * @see java.nio.file.Path
- * @see java.nio.file.Files
+ * @see File
+ * @see Path
+ * @see Files
  */
 public abstract class FileSystemUtils {
 
