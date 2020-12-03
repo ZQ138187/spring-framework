@@ -12,6 +12,6 @@ public class Demo {
 		AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
 		AppConfig bean = ac.getBean(AppConfig.class);
 		System.out.println(bean);
-		System.out.println("这时错误的");
+		System.out.println("开始看源码");
 	}
 }
