@@ -29,7 +29,7 @@ import org.springframework.util.Assert;
  * @author Juergen Hoeller
  * @since 2.0
  * @see BeanWiringInfoResolver
- * @see org.springframework.beans.factory.config.AutowireCapableBeanFactory
+ * @see AutowireCapableBeanFactory
  * @see org.springframework.beans.factory.annotation.Configurable
  */
 public class BeanWiringInfo {
@@ -37,14 +37,14 @@ public class BeanWiringInfo {
 	/**
 	 * Constant that indicates autowiring bean properties by name.
 	 * @see #BeanWiringInfo(int, boolean)
-	 * @see org.springframework.beans.factory.config.AutowireCapableBeanFactory#AUTOWIRE_BY_NAME
+	 * @see AutowireCapableBeanFactory#AUTOWIRE_BY_NAME
 	 */
 	public static final int AUTOWIRE_BY_NAME = AutowireCapableBeanFactory.AUTOWIRE_BY_NAME;
 
 	/**
 	 * Constant that indicates autowiring bean properties by type.
 	 * @see #BeanWiringInfo(int, boolean)
-	 * @see org.springframework.beans.factory.config.AutowireCapableBeanFactory#AUTOWIRE_BY_TYPE
+	 * @see AutowireCapableBeanFactory#AUTOWIRE_BY_TYPE
 	 */
 	public static final int AUTOWIRE_BY_TYPE = AutowireCapableBeanFactory.AUTOWIRE_BY_TYPE;
 

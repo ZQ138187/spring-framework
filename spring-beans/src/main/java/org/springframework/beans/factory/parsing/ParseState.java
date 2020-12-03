@@ -95,7 +95,7 @@ public final class ParseState {
 	public String toString() {
 		StringBuilder sb = new StringBuilder(64);
 		int i = 0;
-		for (ParseState.Entry entry : this.state) {
+		for (Entry entry : this.state) {
 			if (i > 0) {
 				sb.append('\n');
 				for (int j = 0; j < i; j++) {

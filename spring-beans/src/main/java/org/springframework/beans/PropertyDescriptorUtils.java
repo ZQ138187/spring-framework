@@ -57,7 +57,7 @@ abstract class PropertyDescriptorUtils {
 	}
 
 	/**
-	 * See {@link java.beans.PropertyDescriptor#findPropertyType}.
+	 * See {@link PropertyDescriptor#findPropertyType}.
 	 */
 	@Nullable
 	public static Class<?> findPropertyType(@Nullable Method readMethod, @Nullable Method writeMethod)
@@ -163,7 +163,7 @@ abstract class PropertyDescriptorUtils {
 	 * Compare the given {@code PropertyDescriptors} and return {@code true} if
 	 * they are equivalent, i.e. their read method, write method, property type,
 	 * property editor and flags are equivalent.
-	 * @see java.beans.PropertyDescriptor#equals(Object)
+	 * @see PropertyDescriptor#equals(Object)
 	 */
 	public static boolean equals(PropertyDescriptor pd, PropertyDescriptor otherPd) {
 		return (ObjectUtils.nullSafeEquals(pd.getReadMethod(), otherPd.getReadMethod()) &&

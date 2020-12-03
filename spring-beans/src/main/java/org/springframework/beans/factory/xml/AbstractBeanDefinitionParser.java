@@ -101,7 +101,7 @@ public abstract class AbstractBeanDefinitionParser implements BeanDefinitionPars
 	 * @param element the element that the bean definition has been built from
 	 * @param definition the bean definition to be registered
 	 * @param parserContext the object encapsulating the current state of the parsing process;
-	 * provides access to a {@link org.springframework.beans.factory.support.BeanDefinitionRegistry}
+	 * provides access to a {@link BeanDefinitionRegistry}
 	 * @return the resolved id
 	 * @throws BeanDefinitionStoreException if no unique name could be generated
 	 * for the given bean definition
@@ -145,10 +145,10 @@ public abstract class AbstractBeanDefinitionParser implements BeanDefinitionPars
 	 * into one or more {@link BeanDefinition BeanDefinitions}.
 	 * @param element the element that is to be parsed into one or more {@link BeanDefinition BeanDefinitions}
 	 * @param parserContext the object encapsulating the current state of the parsing process;
-	 * provides access to a {@link org.springframework.beans.factory.support.BeanDefinitionRegistry}
+	 * provides access to a {@link BeanDefinitionRegistry}
 	 * @return the primary {@link BeanDefinition} resulting from the parsing of the supplied {@link Element}
-	 * @see #parse(org.w3c.dom.Element, ParserContext)
-	 * @see #postProcessComponentDefinition(org.springframework.beans.factory.parsing.BeanComponentDefinition)
+	 * @see #parse(Element, ParserContext)
+	 * @see #postProcessComponentDefinition(BeanComponentDefinition)
 	 */
 	@Nullable
 	protected abstract AbstractBeanDefinition parseInternal(Element element, ParserContext parserContext);
@@ -189,7 +189,7 @@ public abstract class AbstractBeanDefinitionParser implements BeanDefinitionPars
 
 	/**
 	 * Determine whether this parser is supposed to fire a
-	 * {@link org.springframework.beans.factory.parsing.BeanComponentDefinition}
+	 * {@link BeanComponentDefinition}
 	 * event after parsing the bean definition.
 	 * <p>This implementation returns {@code true} by default; that is,
 	 * an event will be fired when a bean definition has been completely parsed.
@@ -207,7 +207,7 @@ public abstract class AbstractBeanDefinitionParser implements BeanDefinitionPars
 	 * Hook method called after the primary parsing of a
 	 * {@link BeanComponentDefinition} but before the
 	 * {@link BeanComponentDefinition} has been registered with a
-	 * {@link org.springframework.beans.factory.support.BeanDefinitionRegistry}.
+	 * {@link BeanDefinitionRegistry}.
 	 * <p>Derived classes can override this method to supply any custom logic that
 	 * is to be executed after all the parsing is finished.
 	 * <p>The default implementation is a no-op.

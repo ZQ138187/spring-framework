@@ -46,7 +46,7 @@ import org.springframework.util.StringUtils;
  * <p>Does not have support for prototype beans or aliases.
  *
  * <p>Serves as an example for a simple implementation of the
- * {@link org.springframework.beans.factory.ListableBeanFactory} interface,
+ * {@link ListableBeanFactory} interface,
  * managing existing bean instances rather than creating new ones based on bean
  * definitions, and not implementing any extended SPI interfaces (such as
  * {@link org.springframework.beans.factory.config.ConfigurableBeanFactory}).

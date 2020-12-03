@@ -34,8 +34,8 @@ import org.springframework.util.Assert;
  *
  * @author Juergen Hoeller
  * @since 3.0.3
- * @see org.xml.sax.InputSource
- * @see org.springframework.core.io.ResourceEditor
+ * @see InputSource
+ * @see ResourceEditor
  * @see org.springframework.core.io.ResourceLoader
  * @see URLEditor
  * @see FileEditor

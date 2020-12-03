@@ -26,11 +26,11 @@ import org.springframework.util.ClassUtils;
 
 /**
  * Abstract base class for FactoryBeans operating on the
- * JDK 1.6 {@link java.util.ServiceLoader} facility.
+ * JDK 1.6 {@link ServiceLoader} facility.
  *
  * @author Juergen Hoeller
  * @since 2.5
- * @see java.util.ServiceLoader
+ * @see ServiceLoader
  */
 public abstract class AbstractServiceLoaderBasedFactoryBean extends AbstractFactoryBean<Object>
 		implements BeanClassLoaderAware {
@@ -64,7 +64,7 @@ public abstract class AbstractServiceLoaderBasedFactoryBean extends AbstractFact
 
 
 	/**
-	 * Delegates to {@link #getObjectToExpose(java.util.ServiceLoader)}.
+	 * Delegates to {@link #getObjectToExpose(ServiceLoader)}.
 	 * @return the object to expose
 	 */
 	@Override

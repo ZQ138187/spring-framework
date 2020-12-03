@@ -29,8 +29,8 @@ import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
  * @author Rod Johnson
  * @author Juergen Hoeller
  * @since 2.0
- * @see org.springframework.beans.factory.annotation.Configurable
- * @see org.springframework.beans.factory.config.AutowireCapableBeanFactory
+ * @see Configurable
+ * @see AutowireCapableBeanFactory
  */
 public enum Autowire {
 

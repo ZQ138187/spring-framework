@@ -55,8 +55,8 @@ import org.springframework.util.StringUtils;
  * @author Stephane Nicoll
  * @since 2.0
  * @see AbstractBeanFactory
- * @see org.springframework.beans.factory.DisposableBean
- * @see org.springframework.beans.factory.config.DestructionAwareBeanPostProcessor
+ * @see DisposableBean
+ * @see DestructionAwareBeanPostProcessor
  * @see AbstractBeanDefinition#getDestroyMethodName()
  */
 @SuppressWarnings("serial")
@@ -177,7 +177,7 @@ class DisposableBeanAdapter implements DisposableBean, Runnable, Serializable {
 	 * {@code @Bean#destroyMethod} attribute and the value of the constant may also be
 	 * used in XML within the {@code <bean destroy-method="">} or {@code
 	 * <beans default-destroy-method="">} attributes.
-	 * <p>Also processes the {@link java.io.Closeable} and {@link java.lang.AutoCloseable}
+	 * <p>Also processes the {@link java.io.Closeable} and {@link AutoCloseable}
 	 * interfaces, reflectively calling the "close" method on implementing beans as well.
 	 */
 	@Nullable

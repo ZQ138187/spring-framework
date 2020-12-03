@@ -35,7 +35,7 @@ import org.springframework.util.StringUtils;
  * @since 2.5.2
  */
 public class SimpleBeanDefinitionRegistry extends SimpleAliasRegistry implements BeanDefinitionRegistry {
-
+// 采用的ConcurrentHashMap来存储注册进来的Bean定义信息~~~~
 	/** Map of bean definition objects, keyed by bean name */
 	private final Map<String, BeanDefinition> beanDefinitionMap = new ConcurrentHashMap<>(64);
 
@@ -59,7 +59,7 @@ public class SimpleBeanDefinitionRegistry extends SimpleAliasRegistry implements
 	@Override
 	public BeanDefinition getBeanDefinition(String beanName) throws NoSuchBeanDefinitionException {
 		BeanDefinition bd = this.beanDefinitionMap.get(beanName);
-		if (bd == null) {
+		if (bd == null) {// 需要注意的是：如果没有Bean定义，是抛出的异常，而不是返回null这点需要注意
 			throw new NoSuchBeanDefinitionException(beanName);
 		}
 		return bd;
@@ -80,6 +80,8 @@ public class SimpleBeanDefinitionRegistry extends SimpleAliasRegistry implements
 		return this.beanDefinitionMap.size();
 	}
 
+	// beanName是个已存在的别名，或者已经包含此Bean定义了，那就证明在使用了嘛
+	// 它比单纯的containsBeanDefinition()范围更大些~~~
 	@Override
 	public boolean isBeanNameInUse(String beanName) {
 		return isAlias(beanName) || containsBeanDefinition(beanName);

@@ -58,7 +58,7 @@ import org.springframework.lang.Nullable;
  * @author Juergen Hoeller
  * @since 08.03.2003
  * @param <T> the bean type
- * @see org.springframework.beans.factory.BeanFactory
+ * @see BeanFactory
  * @see org.springframework.aop.framework.ProxyFactoryBean
  * @see org.springframework.jndi.JndiObjectFactoryBean
  */

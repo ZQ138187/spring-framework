@@ -45,7 +45,7 @@ import org.springframework.util.StringUtils;
  *
  * @author Juergen Hoeller
  * @since 2.0.2
- * @see java.net.URI
+ * @see URI
  * @see URLEditor
  */
 public class URIEditor extends PropertyEditorSupport {
@@ -133,7 +133,7 @@ public class URIEditor extends PropertyEditorSupport {
 	 * <p>The default implementation encodes the value into a RFC-2396 compliant URI.
 	 * @param value the value to convert into a URI instance
 	 * @return the URI instance
-	 * @throws java.net.URISyntaxException if URI conversion failed
+	 * @throws URISyntaxException if URI conversion failed
 	 */
 	protected URI createURI(String value) throws URISyntaxException {
 		int colonIndex = value.indexOf(':');

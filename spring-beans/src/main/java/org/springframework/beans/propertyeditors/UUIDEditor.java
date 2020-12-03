@@ -27,7 +27,7 @@ import org.springframework.util.StringUtils;
  *
  * @author Juergen Hoeller
  * @since 3.0.1
- * @see java.util.UUID
+ * @see UUID
  */
 public class UUIDEditor extends PropertyEditorSupport {
 

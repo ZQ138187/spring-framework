@@ -40,7 +40,7 @@ import org.springframework.util.ConcurrentReferenceHashMap;
 import org.springframework.util.StringUtils;
 
 /**
- * Internal class that caches JavaBeans {@link java.beans.PropertyDescriptor}
+ * Internal class that caches JavaBeans {@link PropertyDescriptor}
  * information for a Java class. Not intended for direct use by application code.
  *
  * <p>Necessary for Spring's own caching of bean descriptors within the application

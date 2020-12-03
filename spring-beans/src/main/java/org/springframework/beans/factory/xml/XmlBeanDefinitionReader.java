@@ -62,7 +62,7 @@ import org.springframework.util.xml.XmlValidationModeDetector;
  * <p>This class loads a DOM document and applies the BeanDefinitionDocumentReader to it.
  * The document reader will register each bean definition with the given bean factory,
  * talking to the latter's implementation of the
- * {@link org.springframework.beans.factory.support.BeanDefinitionRegistry} interface.
+ * {@link BeanDefinitionRegistry} interface.
  *
  * @author Juergen Hoeller
  * @author Rob Harrop
@@ -196,8 +196,8 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
 	}
 
 	/**
-	 * Specify which {@link org.springframework.beans.factory.parsing.ProblemReporter} to use.
-	 * <p>The default implementation is {@link org.springframework.beans.factory.parsing.FailFastProblemReporter}
+	 * Specify which {@link ProblemReporter} to use.
+	 * <p>The default implementation is {@link FailFastProblemReporter}
 	 * which exhibits fail fast behaviour. External tools can provide an alternative implementation
 	 * that collates errors and warnings for display in the tool UI.
 	 */
@@ -316,7 +316,7 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
 		if (logger.isInfoEnabled()) {
 			logger.info("Loading XML bean definitions from " + encodedResource);
 		}
-
+		// 用一个 ThreadLocal 来存放所有的配置文件资源
 		Set<EncodedResource> currentResources = this.resourcesCurrentlyBeingLoaded.get();
 		if (currentResources == null) {
 			currentResources = new HashSet<>(4);
@@ -327,12 +327,14 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
 					"Detected cyclic loading of " + encodedResource + " - check your import definitions!");
 		}
 		try {
+			//生成一个输入流
 			InputStream inputStream = encodedResource.getResource().getInputStream();
 			try {
 				InputSource inputSource = new InputSource(inputStream);
 				if (encodedResource.getEncoding() != null) {
 					inputSource.setEncoding(encodedResource.getEncoding());
 				}
+				//核心 我们点进去
 				return doLoadBeanDefinitions(inputSource, encodedResource.getResource());
 			}
 			finally {
@@ -388,7 +390,9 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
 	protected int doLoadBeanDefinitions(InputSource inputSource, Resource resource)
 			throws BeanDefinitionStoreException {
 		try {
+			//这里我们将资源文件转化为Document对象
 			Document doc = doLoadDocument(inputSource, resource);
+			//开始注册对应的BeanDefinition 我们继续进去
 			return registerBeanDefinitions(doc, resource);
 		}
 		catch (BeanDefinitionStoreException ex) {

@@ -47,8 +47,8 @@ import org.springframework.util.StringUtils;
  * @author Juergen Hoeller
  * @author Thomas Risberg
  * @since 09.12.2003
- * @see java.io.File
- * @see org.springframework.core.io.ResourceEditor
+ * @see File
+ * @see ResourceEditor
  * @see org.springframework.core.io.ResourceLoader
  * @see URLEditor
  * @see InputStreamEditor

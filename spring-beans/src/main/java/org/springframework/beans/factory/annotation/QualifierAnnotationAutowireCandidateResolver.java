@@ -58,7 +58,7 @@ import org.springframework.util.StringUtils;
  * @see Value
  */
 public class QualifierAnnotationAutowireCandidateResolver extends GenericTypeAwareAutowireCandidateResolver {
-
+	// 是个List，可以知道它不仅仅只支持org.springframework.beans.factory.annotation.Qualifier
 	private final Set<Class<? extends Annotation>> qualifierTypes = new LinkedHashSet<>(2);
 
 	private Class<? extends Annotation> valueAnnotationType = Value.class;
@@ -69,6 +69,7 @@ public class QualifierAnnotationAutowireCandidateResolver extends GenericTypeAwa
 	 * for Spring's standard {@link Qualifier} annotation.
 	 * <p>Also supports JSR-330's {@link javax.inject.Qualifier} annotation, if available.
 	 */
+	// 空构造：默认支持的是@Qualifier以及JSR330标准的@Qualifier
 	@SuppressWarnings("unchecked")
 	public QualifierAnnotationAutowireCandidateResolver() {
 		this.qualifierTypes.add(Qualifier.class);
@@ -86,6 +87,9 @@ public class QualifierAnnotationAutowireCandidateResolver extends GenericTypeAwa
 	 * for the given qualifier annotation type.
 	 * @param qualifierType the qualifier annotation to look for
 	 */
+	// 非空构造：可自己额外指定注解类型
+	// 注意：如果通过构造函数指定qualifierType，上面两种就不支持了，因此不建议使用
+	// 而建议使用它提供的addQualifierType() 来添加~~~
 	public QualifierAnnotationAutowireCandidateResolver(Class<? extends Annotation> qualifierType) {
 		Assert.notNull(qualifierType, "'qualifierType' must not be null");
 		this.qualifierTypes.add(qualifierType);
@@ -142,6 +146,8 @@ public class QualifierAnnotationAutowireCandidateResolver extends GenericTypeAwa
 	 * attribute does not match.
 	 * @see Qualifier
 	 */
+	// 这是个最重要的接口方法~~~  判断所提供的Bean-->BeanDefinitionHolder 是否是候选的
+	// （返回true表示此Bean符合条件）
 	@Override
 	public boolean isAutowireCandidate(BeanDefinitionHolder bdHolder, DependencyDescriptor descriptor) {
 		boolean match = super.isAutowireCandidate(bdHolder, descriptor);

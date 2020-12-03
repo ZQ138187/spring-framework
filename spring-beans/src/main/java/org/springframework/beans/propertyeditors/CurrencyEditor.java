@@ -25,7 +25,7 @@ import java.util.Currency;
  *
  * @author Juergen Hoeller
  * @since 3.0
- * @see java.util.Currency
+ * @see Currency
  */
 public class CurrencyEditor extends PropertyEditorSupport {
 

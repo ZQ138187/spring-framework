@@ -24,11 +24,11 @@ import org.springframework.beans.propertyeditors.PropertiesEditor;
 /**
  * {@link java.beans.PropertyEditor Editor} for a {@link PropertyValues} object.
  *
- * <p>The required format is defined in the {@link java.util.Properties}
+ * <p>The required format is defined in the {@link Properties}
  * documentation. Each property must be on a new line.
  *
  * <p>The present implementation relies on a
- * {@link org.springframework.beans.propertyeditors.PropertiesEditor}
+ * {@link PropertiesEditor}
  * underneath.
  *
  * @author Rod Johnson

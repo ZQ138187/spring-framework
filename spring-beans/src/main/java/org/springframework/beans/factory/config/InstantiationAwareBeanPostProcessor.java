@@ -65,7 +65,7 @@ public interface InstantiationAwareBeanPostProcessor extends BeanPostProcessor {
 	 * @param beanName the name of the bean
 	 * @return the bean object to expose instead of a default instance of the target bean,
 	 * or {@code null} to proceed with default instantiation
-	 * @throws org.springframework.beans.BeansException in case of errors
+	 * @throws BeansException in case of errors
 	 * @see #postProcessAfterInstantiation
 	 * @see org.springframework.beans.factory.support.AbstractBeanDefinition#getBeanClass()
 	 * @see org.springframework.beans.factory.support.AbstractBeanDefinition#getFactoryMethodName()
@@ -87,7 +87,7 @@ public interface InstantiationAwareBeanPostProcessor extends BeanPostProcessor {
 	 * if property population should be skipped. Normal implementations should return {@code true}.
 	 * Returning {@code false} will also prevent any subsequent InstantiationAwareBeanPostProcessor
 	 * instances being invoked on this bean instance.
-	 * @throws org.springframework.beans.BeansException in case of errors
+	 * @throws BeansException in case of errors
 	 * @see #postProcessBeforeInstantiation
 	 */
 	default boolean postProcessAfterInstantiation(Object bean, String beanName) throws BeansException {
@@ -109,7 +109,7 @@ public interface InstantiationAwareBeanPostProcessor extends BeanPostProcessor {
 	 * @param beanName the name of the bean
 	 * @return the actual property values to apply to the given bean (can be the passed-in
 	 * PropertyValues instance), or {@code null} to skip property population
-	 * @throws org.springframework.beans.BeansException in case of errors
+	 * @throws BeansException in case of errors
 	 * @see org.springframework.beans.MutablePropertyValues
 	 */
 	@Nullable

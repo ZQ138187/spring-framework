@@ -27,8 +27,8 @@ import org.springframework.lang.Nullable;
  *
  * @author Juergen Hoeller
  * @since 2.0.1
- * @see java.util.regex.Pattern
- * @see java.util.regex.Pattern#compile(String)
+ * @see Pattern
+ * @see Pattern#compile(String)
  */
 public class PatternEditor extends PropertyEditorSupport {
 
@@ -45,12 +45,12 @@ public class PatternEditor extends PropertyEditorSupport {
 	/**
 	 * Create a new PatternEditor with the given settings.
 	 * @param flags the {@code java.util.regex.Pattern} flags to apply
-	 * @see java.util.regex.Pattern#compile(String, int)
-	 * @see java.util.regex.Pattern#CASE_INSENSITIVE
-	 * @see java.util.regex.Pattern#MULTILINE
-	 * @see java.util.regex.Pattern#DOTALL
-	 * @see java.util.regex.Pattern#UNICODE_CASE
-	 * @see java.util.regex.Pattern#CANON_EQ
+	 * @see Pattern#compile(String, int)
+	 * @see Pattern#CASE_INSENSITIVE
+	 * @see Pattern#MULTILINE
+	 * @see Pattern#DOTALL
+	 * @see Pattern#UNICODE_CASE
+	 * @see Pattern#CANON_EQ
 	 */
 	public PatternEditor(int flags) {
 		this.flags = flags;

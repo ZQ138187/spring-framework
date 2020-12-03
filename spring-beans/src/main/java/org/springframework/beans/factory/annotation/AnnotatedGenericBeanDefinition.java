@@ -24,7 +24,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
- * Extension of the {@link org.springframework.beans.factory.support.GenericBeanDefinition}
+ * Extension of the {@link GenericBeanDefinition}
  * class, adding support for annotation metadata exposed through the
  * {@link AnnotatedBeanDefinition} interface.
  *
@@ -38,7 +38,7 @@ import org.springframework.util.Assert;
  * @author Chris Beams
  * @since 2.5
  * @see AnnotatedBeanDefinition#getMetadata()
- * @see org.springframework.core.type.StandardAnnotationMetadata
+ * @see StandardAnnotationMetadata
  */
 @SuppressWarnings("serial")
 public class AnnotatedGenericBeanDefinition extends GenericBeanDefinition implements AnnotatedBeanDefinition {

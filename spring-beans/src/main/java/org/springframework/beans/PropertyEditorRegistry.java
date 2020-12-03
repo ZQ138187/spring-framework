@@ -29,7 +29,7 @@ import org.springframework.lang.Nullable;
  *
  * @author Juergen Hoeller
  * @since 1.2.6
- * @see java.beans.PropertyEditor
+ * @see PropertyEditor
  * @see PropertyEditorRegistrar
  * @see BeanWrapper
  * @see org.springframework.validation.DataBinder

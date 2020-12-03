@@ -31,8 +31,8 @@ import org.springframework.util.StringUtils;
  * @author Rod Johnson
  * @author Juergen Hoeller
  * @author Dave Syer
- * @see org.springframework.util.StringUtils#delimitedListToStringArray
- * @see org.springframework.util.StringUtils#arrayToDelimitedString
+ * @see StringUtils#delimitedListToStringArray
+ * @see StringUtils#arrayToDelimitedString
  */
 public class StringArrayPropertyEditor extends PropertyEditorSupport {
 

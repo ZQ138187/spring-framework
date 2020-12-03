@@ -43,10 +43,10 @@ import org.springframework.util.Assert;
  *
  * @author Juergen Hoeller
  * @since 4.3.2
- * @see java.nio.file.Path
+ * @see Path
  * @see Paths#get(URI)
  * @see ResourceEditor
- * @see org.springframework.core.io.ResourceLoader
+ * @see ResourceLoader
  * @see FileEditor
  * @see URLEditor
  */

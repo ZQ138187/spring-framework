@@ -29,7 +29,7 @@ import org.springframework.lang.Nullable;
  * being thrown.
  *
  * <p>Warnings are written to
- * {@link #setLogger(org.apache.commons.logging.Log) the log} for this class.
+ * {@link #setLogger(Log) the log} for this class.
  *
  * @author Rob Harrop
  * @author Juergen Hoeller

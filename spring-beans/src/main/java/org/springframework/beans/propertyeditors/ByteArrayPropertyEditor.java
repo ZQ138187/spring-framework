@@ -26,7 +26,7 @@ import org.springframework.lang.Nullable;
  *
  * @author Juergen Hoeller
  * @since 1.0.1
- * @see java.lang.String#getBytes
+ * @see String#getBytes
  */
 public class ByteArrayPropertyEditor extends PropertyEditorSupport {
 

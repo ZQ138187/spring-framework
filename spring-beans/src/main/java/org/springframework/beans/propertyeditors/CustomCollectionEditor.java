@@ -39,10 +39,10 @@ import org.springframework.util.ReflectionUtils;
  *
  * @author Juergen Hoeller
  * @since 1.1.3
- * @see java.util.Collection
+ * @see Collection
  * @see java.util.Set
- * @see java.util.SortedSet
- * @see java.util.List
+ * @see SortedSet
+ * @see List
  */
 public class CustomCollectionEditor extends PropertyEditorSupport {
 
@@ -57,10 +57,10 @@ public class CustomCollectionEditor extends PropertyEditorSupport {
 	 * keeping an incoming {@code null} as-is.
 	 * @param collectionType the target type, which needs to be a
 	 * sub-interface of Collection or a concrete Collection class
-	 * @see java.util.Collection
-	 * @see java.util.ArrayList
-	 * @see java.util.TreeSet
-	 * @see java.util.LinkedHashSet
+	 * @see Collection
+	 * @see ArrayList
+	 * @see TreeSet
+	 * @see LinkedHashSet
 	 */
 	@SuppressWarnings("rawtypes")
 	public CustomCollectionEditor(Class<? extends Collection> collectionType) {
@@ -80,10 +80,10 @@ public class CustomCollectionEditor extends PropertyEditorSupport {
 	 * sub-interface of Collection or a concrete Collection class
 	 * @param nullAsEmptyCollection whether to convert an incoming {@code null}
 	 * value to an empty Collection (of the appropriate type)
-	 * @see java.util.Collection
-	 * @see java.util.ArrayList
-	 * @see java.util.TreeSet
-	 * @see java.util.LinkedHashSet
+	 * @see Collection
+	 * @see ArrayList
+	 * @see TreeSet
+	 * @see LinkedHashSet
 	 */
 	@SuppressWarnings("rawtypes")
 	public CustomCollectionEditor(Class<? extends Collection> collectionType, boolean nullAsEmptyCollection) {

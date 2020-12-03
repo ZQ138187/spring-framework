@@ -32,8 +32,8 @@ import org.springframework.util.ReflectionUtils;
  *
  * @author Juergen Hoeller
  * @since 2.0.1
- * @see java.util.Map
- * @see java.util.SortedMap
+ * @see Map
+ * @see SortedMap
  */
 public class CustomMapEditor extends PropertyEditorSupport {
 
@@ -48,10 +48,10 @@ public class CustomMapEditor extends PropertyEditorSupport {
 	 * keeping an incoming {@code null} as-is.
 	 * @param mapType the target type, which needs to be a
 	 * sub-interface of Map or a concrete Map class
-	 * @see java.util.Map
+	 * @see Map
 	 * @see java.util.HashMap
-	 * @see java.util.TreeMap
-	 * @see java.util.LinkedHashMap
+	 * @see TreeMap
+	 * @see LinkedHashMap
 	 */
 	@SuppressWarnings("rawtypes")
 	public CustomMapEditor(Class<? extends Map> mapType) {
@@ -71,9 +71,9 @@ public class CustomMapEditor extends PropertyEditorSupport {
 	 * sub-interface of Map or a concrete Map class
 	 * @param nullAsEmptyMap ap whether to convert an incoming {@code null}
 	 * value to an empty Map (of the appropriate type)
-	 * @see java.util.Map
-	 * @see java.util.TreeMap
-	 * @see java.util.LinkedHashMap
+	 * @see Map
+	 * @see TreeMap
+	 * @see LinkedHashMap
 	 */
 	@SuppressWarnings("rawtypes")
 	public CustomMapEditor(Class<? extends Map> mapType, boolean nullAsEmptyMap) {

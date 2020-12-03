@@ -38,8 +38,8 @@ import org.springframework.util.Assert;
  *
  * @author Juergen Hoeller
  * @since 15.12.2003
- * @see java.net.URL
- * @see org.springframework.core.io.ResourceEditor
+ * @see URL
+ * @see ResourceEditor
  * @see org.springframework.core.io.ResourceLoader
  * @see FileEditor
  * @see InputStreamEditor

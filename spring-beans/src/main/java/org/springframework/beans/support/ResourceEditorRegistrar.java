@@ -48,7 +48,7 @@ import org.springframework.core.io.support.ResourcePatternResolver;
 
 /**
  * PropertyEditorRegistrar implementation that populates a given
- * {@link org.springframework.beans.PropertyEditorRegistry}
+ * {@link PropertyEditorRegistry}
  * (typically a {@link org.springframework.beans.BeanWrapper} used for bean
  * creation within an {@link org.springframework.context.ApplicationContext})
  * with resource editors. Used by
@@ -72,7 +72,7 @@ public class ResourceEditorRegistrar implements PropertyEditorRegistrar {
 	 * to create editors for (usually an ApplicationContext)
 	 * @param propertyResolver the PropertyResolver (usually an Environment)
 	 * @see org.springframework.core.env.Environment
-	 * @see org.springframework.core.io.support.ResourcePatternResolver
+	 * @see ResourcePatternResolver
 	 * @see org.springframework.context.ApplicationContext
 	 */
 	public ResourceEditorRegistrar(ResourceLoader resourceLoader, PropertyResolver propertyResolver) {
@@ -87,15 +87,15 @@ public class ResourceEditorRegistrar implements PropertyEditorRegistrar {
 	 * URIEditor, ClassEditor, ClassArrayEditor.
 	 * <p>If this registrar has been configured with a {@link ResourcePatternResolver},
 	 * a ResourceArrayPropertyEditor will be registered as well.
-	 * @see org.springframework.core.io.ResourceEditor
-	 * @see org.springframework.beans.propertyeditors.InputStreamEditor
-	 * @see org.springframework.beans.propertyeditors.InputSourceEditor
-	 * @see org.springframework.beans.propertyeditors.FileEditor
-	 * @see org.springframework.beans.propertyeditors.URLEditor
-	 * @see org.springframework.beans.propertyeditors.URIEditor
-	 * @see org.springframework.beans.propertyeditors.ClassEditor
-	 * @see org.springframework.beans.propertyeditors.ClassArrayEditor
-	 * @see org.springframework.core.io.support.ResourceArrayPropertyEditor
+	 * @see ResourceEditor
+	 * @see InputStreamEditor
+	 * @see InputSourceEditor
+	 * @see FileEditor
+	 * @see URLEditor
+	 * @see URIEditor
+	 * @see ClassEditor
+	 * @see ClassArrayEditor
+	 * @see ResourceArrayPropertyEditor
 	 */
 	@Override
 	public void registerCustomEditors(PropertyEditorRegistry registry) {

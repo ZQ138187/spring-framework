@@ -29,7 +29,7 @@ import org.springframework.util.StringUtils;
  * @author Juergen Hoeller
  * @author Nicholas Williams
  * @since 3.0
- * @see java.util.TimeZone
+ * @see TimeZone
  * @see ZoneIdEditor
  */
 public class TimeZoneEditor extends PropertyEditorSupport {

@@ -54,7 +54,7 @@ public class MapFactoryBean extends AbstractFactoryBean<Map<Object, Object>> {
 	 * Set the class to use for the target Map. Can be populated with a fully
 	 * qualified class name when defined in a Spring application context.
 	 * <p>Default is a linked HashMap, keeping the registration order.
-	 * @see java.util.LinkedHashMap
+	 * @see LinkedHashMap
 	 */
 	@SuppressWarnings("rawtypes")
 	public void setTargetMapClass(@Nullable Class<? extends Map> targetMapClass) {

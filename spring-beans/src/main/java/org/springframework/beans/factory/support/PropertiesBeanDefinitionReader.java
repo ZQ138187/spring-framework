@@ -184,7 +184,7 @@ public class PropertiesBeanDefinitionReader extends AbstractBeanDefinitionReader
 	/**
 	 * Set the PropertiesPersister to use for parsing properties files.
 	 * The default is DefaultPropertiesPersister.
-	 * @see org.springframework.util.DefaultPropertiesPersister
+	 * @see DefaultPropertiesPersister
 	 */
 	public void setPropertiesPersister(@Nullable PropertiesPersister propertiesPersister) {
 		this.propertiesPersister =
@@ -205,7 +205,7 @@ public class PropertiesBeanDefinitionReader extends AbstractBeanDefinitionReader
 	 * @param resource the resource descriptor for the properties file
 	 * @return the number of bean definitions found
 	 * @throws BeanDefinitionStoreException in case of loading or parsing errors
-	 * @see #loadBeanDefinitions(org.springframework.core.io.Resource, String)
+	 * @see #loadBeanDefinitions(Resource, String)
 	 */
 	@Override
 	public int loadBeanDefinitions(Resource resource) throws BeanDefinitionStoreException {
@@ -270,7 +270,7 @@ public class PropertiesBeanDefinitionReader extends AbstractBeanDefinitionReader
 	 * @param rb the ResourceBundle to load from
 	 * @return the number of bean definitions found
 	 * @throws BeanDefinitionStoreException in case of loading or parsing errors
-	 * @see #registerBeanDefinitions(java.util.ResourceBundle, String)
+	 * @see #registerBeanDefinitions(ResourceBundle, String)
 	 */
 	public int registerBeanDefinitions(ResourceBundle rb) throws BeanDefinitionStoreException {
 		return registerBeanDefinitions(rb, null);
@@ -306,7 +306,7 @@ public class PropertiesBeanDefinitionReader extends AbstractBeanDefinitionReader
 	 * (keys) <b>must</b> be Strings. Class keys must be Strings.
 	 * @return the number of bean definitions found
 	 * @throws BeansException in case of loading or parsing errors
-	 * @see #registerBeanDefinitions(java.util.Map, String, String)
+	 * @see #registerBeanDefinitions(Map, String, String)
 	 */
 	public int registerBeanDefinitions(Map<?, ?> map) throws BeansException {
 		return registerBeanDefinitions(map, null);

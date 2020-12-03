@@ -43,7 +43,7 @@ import org.springframework.util.StringUtils;
  * {@link RootBeanDefinition}, and {@link ChildBeanDefinition}.
  *
  * <p>The autowire constants match the ones defined in the
- * {@link org.springframework.beans.factory.config.AutowireCapableBeanFactory}
+ * {@link AutowireCapableBeanFactory}
  * interface.
  *
  * @author Rod Johnson

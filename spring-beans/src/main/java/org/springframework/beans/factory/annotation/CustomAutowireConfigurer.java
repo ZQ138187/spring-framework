@@ -29,7 +29,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.ClassUtils;
 
 /**
- * A {@link org.springframework.beans.factory.config.BeanFactoryPostProcessor}
+ * A {@link BeanFactoryPostProcessor}
  * implementation that allows for convenient registration of custom autowire
  * qualifier types.
  *
@@ -45,7 +45,7 @@ import org.springframework.util.ClassUtils;
  * @author Mark Fisher
  * @author Juergen Hoeller
  * @since 2.5
- * @see org.springframework.beans.factory.annotation.Qualifier
+ * @see Qualifier
  */
 public class CustomAutowireConfigurer implements BeanFactoryPostProcessor, BeanClassLoaderAware, Ordered {
 
@@ -78,7 +78,7 @@ public class CustomAutowireConfigurer implements BeanFactoryPostProcessor, BeanC
 	 * be either a Class instance or a String representation of the
 	 * fully-qualified class name of the custom annotation.
 	 * <p>Note that any annotation that is itself annotated with Spring's
-	 * {@link org.springframework.beans.factory.annotation.Qualifier}
+	 * {@link Qualifier}
 	 * does not require explicit registration.
 	 * @param customQualifierTypes the custom types to register
 	 */

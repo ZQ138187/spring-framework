@@ -24,7 +24,7 @@ import org.springframework.core.CollectionFactory;
 import org.springframework.lang.Nullable;
 
 /**
- * Factory for {@link java.util.Properties} that reads from a YAML source,
+ * Factory for {@link Properties} that reads from a YAML source,
  * exposing a flat structure of String property values.
  *
  * <p>YAML is a nice human-readable format for configuration, and it has some

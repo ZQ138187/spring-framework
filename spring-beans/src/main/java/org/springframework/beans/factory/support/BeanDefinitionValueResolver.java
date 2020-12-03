@@ -48,7 +48,7 @@ import org.springframework.util.StringUtils;
  * into the actual values applied to the target bean instance.
  *
  * <p>Operates on an {@link AbstractBeanFactory} and a plain
- * {@link org.springframework.beans.factory.config.BeanDefinition} object.
+ * {@link BeanDefinition} object.
  * Used by {@link AbstractAutowireCapableBeanFactory}.
  *
  * @author Juergen Hoeller

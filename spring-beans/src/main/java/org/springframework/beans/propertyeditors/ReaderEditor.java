@@ -38,7 +38,7 @@ import org.springframework.util.Assert;
  * @author Juergen Hoeller
  * @since 4.2
  * @see java.io.Reader
- * @see org.springframework.core.io.ResourceEditor
+ * @see ResourceEditor
  * @see org.springframework.core.io.ResourceLoader
  * @see InputStreamEditor
  */

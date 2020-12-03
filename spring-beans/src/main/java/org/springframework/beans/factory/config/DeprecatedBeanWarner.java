@@ -43,7 +43,7 @@ public class DeprecatedBeanWarner implements BeanFactoryPostProcessor {
 	 * getting interpreted as log category according to the logger's configuration.
 	 * <p>This can be specified to not log into the category of this warner class but rather
 	 * into a specific named category.
-	 * @see org.apache.commons.logging.LogFactory#getLog(String)
+	 * @see LogFactory#getLog(String)
 	 * @see java.util.logging.Logger#getLogger(String)
 	 */
 	public void setLoggerName(String loggerName) {

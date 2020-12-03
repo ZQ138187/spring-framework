@@ -37,7 +37,7 @@ import org.springframework.lang.Nullable;
  *
  * @author Rod Johnson
  * @author Juergen Hoeller
- * @see java.util.Properties#load
+ * @see Properties#load
  */
 public class PropertiesEditor extends PropertyEditorSupport {
 

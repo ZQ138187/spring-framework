@@ -55,7 +55,7 @@ public abstract class AbstractSingleBeanDefinitionParser extends AbstractBeanDef
 	 * @param parserContext the object encapsulating the current state of the parsing process
 	 * @return the BeanDefinition resulting from the parsing of the supplied {@link Element}
 	 * @throws IllegalStateException if the bean {@link Class} returned from
-	 * {@link #getBeanClass(org.w3c.dom.Element)} is {@code null}
+	 * {@link #getBeanClass(Element)} is {@code null}
 	 * @see #doParse
 	 */
 	@Override

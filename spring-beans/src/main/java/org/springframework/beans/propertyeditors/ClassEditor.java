@@ -34,7 +34,7 @@ import org.springframework.util.StringUtils;
  * @author Rick Evans
  * @since 13.05.2003
  * @see Class#forName
- * @see org.springframework.util.ClassUtils#forName(String, ClassLoader)
+ * @see ClassUtils#forName(String, ClassLoader)
  */
 public class ClassEditor extends PropertyEditorSupport {
 

@@ -525,7 +525,7 @@ class ExtendedBeanInfo implements BeanInfo {
 
 	/**
 	 * Sorts PropertyDescriptor instances alpha-numerically to emulate the behavior of
-	 * {@link java.beans.BeanInfo#getPropertyDescriptors()}.
+	 * {@link BeanInfo#getPropertyDescriptors()}.
 	 * @see ExtendedBeanInfo#propertyDescriptors
 	 */
 	static class PropertyDescriptorComparator implements Comparator<PropertyDescriptor> {

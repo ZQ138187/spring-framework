@@ -87,8 +87,8 @@ import org.springframework.util.ClassUtils;
  *
  * @author Juergen Hoeller
  * @since 27.02.2004
- * @see java.beans.PropertyEditor
- * @see org.springframework.beans.PropertyEditorRegistrar
+ * @see PropertyEditor
+ * @see PropertyEditorRegistrar
  * @see ConfigurableBeanFactory#addPropertyEditorRegistrar
  * @see ConfigurableBeanFactory#registerCustomEditor
  * @see org.springframework.validation.DataBinder#registerCustomEditor

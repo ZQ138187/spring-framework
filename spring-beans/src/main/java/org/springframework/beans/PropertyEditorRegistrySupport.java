@@ -145,7 +145,7 @@ public class PropertyEditorRegistrySupport implements PropertyEditorRegistry {
 
 	/**
 	 * Activate config value editors which are only intended for configuration purposes,
-	 * such as {@link org.springframework.beans.propertyeditors.StringArrayPropertyEditor}.
+	 * such as {@link StringArrayPropertyEditor}.
 	 * <p>Those editors are not registered by default simply because they are in
 	 * general inappropriate for data binding purposes. Of course, you may register
 	 * them individually in any case, through {@link #registerCustomEditor}.
@@ -394,7 +394,7 @@ public class PropertyEditorRegistrySupport implements PropertyEditorRegistry {
 	 * to render a value as String via {@code getAsText}).
 	 * @param requiredType the type to look for
 	 * @return the custom editor, or {@code null} if none found for this type
-	 * @see java.beans.PropertyEditor#getAsText()
+	 * @see PropertyEditor#getAsText()
 	 */
 	@Nullable
 	private PropertyEditor getCustomEditor(@Nullable Class<?> requiredType) {

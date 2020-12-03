@@ -38,8 +38,8 @@ import org.springframework.util.StringUtils;
  *
  * @author Juergen Hoeller
  * @since 28.04.2003
- * @see java.util.Date
- * @see java.text.DateFormat
+ * @see Date
+ * @see DateFormat
  * @see org.springframework.validation.DataBinder#registerCustomEditor
  */
 public class CustomDateEditor extends PropertyEditorSupport {

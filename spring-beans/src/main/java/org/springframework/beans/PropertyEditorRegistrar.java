@@ -19,7 +19,7 @@ package org.springframework.beans;
 /**
  * Interface for strategies that register custom
  * {@link java.beans.PropertyEditor property editors} with a
- * {@link org.springframework.beans.PropertyEditorRegistry property editor registry}.
+ * {@link PropertyEditorRegistry property editor registry}.
  *
  * <p>This is particularly useful when you need to use the same set of
  * property editors in several different situations: write a corresponding

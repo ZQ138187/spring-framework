@@ -47,7 +47,7 @@ import org.springframework.util.Assert;
  * @author Juergen Hoeller
  * @since 19.05.2003
  * @see #getPageList()
- * @see org.springframework.beans.support.MutableSortDefinition
+ * @see MutableSortDefinition
  */
 @SuppressWarnings("serial")
 public class PagedListHolder<E> implements Serializable {
@@ -141,7 +141,7 @@ public class PagedListHolder<E> implements Serializable {
 	/**
 	 * Set the sort definition for this holder.
 	 * Typically an instance of MutableSortDefinition.
-	 * @see org.springframework.beans.support.MutableSortDefinition
+	 * @see MutableSortDefinition
 	 */
 	public void setSort(@Nullable SortDefinition sort) {
 		this.sort = sort;
@@ -337,7 +337,7 @@ public class PagedListHolder<E> implements Serializable {
 	 * the given sort definition.
 	 * <p>The default implementation uses Spring's PropertyComparator.
 	 * Can be overridden in subclasses.
-	 * @see PropertyComparator#sort(java.util.List, SortDefinition)
+	 * @see PropertyComparator#sort(List, SortDefinition)
 	 */
 	protected void doSort(List<E> source, SortDefinition sort) {
 		PropertyComparator.sort(source, sort);

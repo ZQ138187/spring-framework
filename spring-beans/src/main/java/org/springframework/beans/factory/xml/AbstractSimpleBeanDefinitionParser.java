@@ -68,7 +68,7 @@ import org.springframework.util.StringUtils;
  * is limited to populating the created bean definition with property values.
  * if you want to parse constructor arguments and nested elements from the
  * supplied XML element, then you will have to implement the
- * {@link #postProcess(org.springframework.beans.factory.support.BeanDefinitionBuilder, org.w3c.dom.Element)}
+ * {@link #postProcess(BeanDefinitionBuilder, Element)}
  * method and do such parsing yourself, or (more likely) subclass the
  * {@link AbstractSingleBeanDefinitionParser} or {@link AbstractBeanDefinitionParser}
  * classes directly.
@@ -80,7 +80,7 @@ import org.springframework.util.StringUtils;
  *
  * <p>For an example of this parser in action (so to speak), do look at
  * the source code for the
- * {@link org.springframework.beans.factory.xml.UtilNamespaceHandler.PropertiesBeanDefinitionParser};
+ * {@link UtilNamespaceHandler.PropertiesBeanDefinitionParser};
  * the observant (and even not so observant) reader will immediately notice that
  * there is next to no code in the implementation. The
  * {@code PropertiesBeanDefinitionParser} populates a
@@ -96,7 +96,7 @@ import org.springframework.util.StringUtils;
  * usage thus illustrated holds true for any number of attributes).
  * All that the {@code PropertiesBeanDefinitionParser} needs
  * actually do is supply an implementation of the
- * {@link #getBeanClass(org.w3c.dom.Element)} method to return the
+ * {@link #getBeanClass(Element)} method to return the
  * {@code PropertiesFactoryBean} type.
  *
  * @author Rob Harrop

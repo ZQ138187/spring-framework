@@ -41,7 +41,7 @@ public interface BeanDefinitionParser {
 	/**
 	 * Parse the specified {@link Element} and register the resulting
 	 * {@link BeanDefinition BeanDefinition(s)} with the
-	 * {@link org.springframework.beans.factory.xml.ParserContext#getRegistry() BeanDefinitionRegistry}
+	 * {@link ParserContext#getRegistry() BeanDefinitionRegistry}
 	 * embedded in the supplied {@link ParserContext}.
 	 * <p>Implementations must return the primary {@link BeanDefinition} that results
 	 * from the parse if they will ever be used in a nested fashion (for example as

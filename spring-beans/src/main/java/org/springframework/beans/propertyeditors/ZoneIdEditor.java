@@ -25,7 +25,7 @@ import java.time.ZoneId;
  *
  * @author Nicholas Williams
  * @since 4.0
- * @see java.time.ZoneId
+ * @see ZoneId
  * @see TimeZoneEditor
  */
 public class ZoneIdEditor extends PropertyEditorSupport {

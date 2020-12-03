@@ -77,16 +77,16 @@ import org.springframework.util.StringUtils;
 import org.springframework.util.StringValueResolver;
 
 /**
- * Abstract base class for {@link org.springframework.beans.factory.BeanFactory}
+ * Abstract base class for {@link BeanFactory}
  * implementations, providing the full capabilities of the
- * {@link org.springframework.beans.factory.config.ConfigurableBeanFactory} SPI.
+ * {@link ConfigurableBeanFactory} SPI.
  * Does <i>not</i> assume a listable bean factory: can therefore also be used
  * as base class for bean factory implementations which obtain bean definitions
  * from some backend resource (where bean definition access is an expensive operation).
  *
  * <p>This class provides a singleton cache (through its base class
- * {@link org.springframework.beans.factory.support.DefaultSingletonBeanRegistry},
- * singleton/prototype determination, {@link org.springframework.beans.factory.FactoryBean}
+ * {@link DefaultSingletonBeanRegistry},
+ * singleton/prototype determination, {@link FactoryBean}
  * handling, aliases, bean definition merging for child bean definitions,
  * and bean destruction ({@link org.springframework.beans.factory.DisposableBean}
  * interface, custom destroy methods). Furthermore, it can manage a bean factory
@@ -235,16 +235,172 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
 	 * @return an instance of the bean
 	 * @throws BeansException if the bean could not be created
 	 */
+	/**
+	 * 引入了几个重要的缓存：
+	 * mergedBeanDefinitions 缓存：beanName -> 合并的 bean 定义。
+	 * beanDefinitionMap 缓存：beanName -> BeanDefinition。
+	 * singletonObjects 缓存：beanName -> 单例 bean 对象。
+	 * earlySingletonObjects 缓存：beanName -> 单例 bean 对象，该缓存存放的是早期单例 bean 对象，可以理解成还未进行属性填充、初始化。
+	 * singletonFactories 缓存：beanName -> ObjectFactory。
+	 * singletonsCurrentlyInCreation 缓存：当前正在创建单例 bean 对象的 beanName 集合。
+	 */
 	@SuppressWarnings("unchecked")
 	protected <T> T doGetBean(
 			String name, @Nullable Class<T> requiredType, @Nullable Object[] args, boolean typeCheckOnly)
 			throws BeansException {
-
+		//这个方法非常重要，但是和笔者今天要分析的循环依赖没什么很大的关系
+		//读者可以简单的认为就是对beanName做一个校验特殊字符串的功能
+		//我会在下次更新博客的时候重点讨论这个方法
+		//transformedBeanName(name)这里的name就是bean的名字
+		//解析beanName，主要是解析别名、去掉FactoryBean的前缀“&”
 		String beanName = transformedBeanName(name);
+		//定义了一个对象，用来存将来返回出来的bean
 		Object bean;
 
 		// Eagerly check singleton cache for manually registered singletons.
+		/**
+		 * 注意这是第一次调用getSingleton方法，下面spring还会调用一次
+		 * 但是两次调用的不是同一个方法；属于方法重载
+		 * 第一次 getSingleton(beanName) 也是循环依赖最重要的方法
+		 * 首先spring会去单例池去根据名字获取这个bean，单例池就是一个map
+		 * 如果对象被创建了则直接从map中拿出来并且返回
+		 * 但是问题来了，为什么spring在创建一个bean的时候会去获取一次呢？
+		 * 因为作为代码的书写者肯定知道这个bean这个时候没有创建？为什么需要get一次呢？
+		 * 关于这个问题其实原因比较复杂，需要读者对spring源码设计比较精通
+		 * 笔者不准备来针对这个原因大书特书，稍微解释一下吧
+		 * 我们可以分析doGetBean这个方法，顾名思义其实是用来获取bean的
+		 * 为什么创建bean会调用这个doGetBean方法呢？难道是因为spring作者疏忽，获取乱起名字
+		 * 显然不是
+		 * 其实很简单doGetBean这个方法不仅仅在创建bean的时候会被调用，在getBean的时候也会调用
+		 * 他是创建bean和getBean通用的方法。但是这只是解释了这个方法的名字意义
+		 * 并么有解释这个方法为什么会在创建bean的时候调用
+		 * 笔者前面已经说过原因很复杂，和本文有关的就是因为循环引用
+		 * 由于循环引用需要在创建bean的过程中去获取被引用的那个类
+		 * 而被引用的这个类如果没有创建，则会调用createBean来创建这个bean
+		 * 在创建这个被引用的bean的过程中会判断这个bean的对象有没有实例化
+		 * bean的对象？什么意思呢？
+		 * 为了方便阅读，请读者一定记住两个概念；什么是bean，什么是对象
+		 * 笔者以为一个对象和bean是有区别的
+		 * 对象：只要类被实例化就可以称为对象
+		 * bean：首先得是一个对象，然后这个对象需要经历一系列的bean生命周期
+		 * 最后把这个对象put到单例池才能算一个bean
+		 * 读者千万注意，笔者下文中如果写到bean和写到对象不是随意写的
+		 * 是和这里的解释有关系的；重点一定要注意；一定；一定；
+		 * 简而言之就是spring先new一个对象，继而对这个对象进行生命周期回调
+		 * 接着对这个对象进行属性填充，也是大家说的自动注入
+		 * 然后在进行AOP判断等等；这一些操作简称----spring生命周期
+		 * 所以一个bean是一个经历了spring周期的对象，和一个对象有区别
+		 * 再回到前面说的循环引用，首先spring扫描到一个需要被实例化的类A
+		 * 于是spring就去创建A；A=new A-a;new A的过程会调用getBean("a"))；
+		 * 所谓的getBean方法--核心也就是笔者现在写注释的这个getSingleton(beanName)
+		 * 这个时候get出来肯定为空？为什么是空呢？我写这么多注释就是为了解释这个问题?
+		 * 可能有的读者会认为getBean就是去容器中获取，所以肯定为空，其实不然，接着往下看
+		 * 如果getA等于空；spring就会实例化A；也就是上面的new A
+		 * 但是在实例化A的时候会再次调用一下
+		 * getSingleton(String beanName, ObjectFactory<?> singletonFactory)
+		 * 笔者上面说过现在写的注释给getSingleton(beanName)
+		 * 也即是第一次调用getSingleton(beanName)
+		 * 实例化一共会调用两次getSingleton方法；但是是重载
+		 * 第二次调用getSingleton方法的时候spring会在一个set集合当中记录一下这个类正在被创建
+		 * 这个一定要记住，在调用完成第一次getSingleton完成之后
+		 * spring判读这个类没有创建，然后调用第二次getSingleton
+		 * 在第二次getSingleton里面记录了一下自己已经开始实例化这个类
+		 * 这是循环依赖做的最牛逼的地方，两次getSingleton的调用
+		 * 也是回答面试时候关于循环依赖必须要回答道的地方；
+		 * 需要说明的spring实例化一个对象底层用的是反射；
+		 * spring实例化一个对象的过程非常复杂，需要推断构造方法等等；
+		 * 这里笔者先不讨论这个过程，以后有机会更新一下
+		 * 读者可以理解spring直接通过new关键字来实例化一个对象
+		 * 但是这个时候对象a仅仅是一个对象，还不是一个完整的bean
+		 * 接着让这个对象去完成spring的bean的生命周期
+		 * 过程中spring会判断容器是否允许循环引用，判断循环引用的代码笔者下面会分析
+		 * 前面说过spring默认是支持循环引用的，笔者后面解析这个判断的源码也是spring默认支持循环引用的证据
+		 * 如果允许循环依赖，spring会把这个对象(还不是bean)临时存起来，放到一个map当中
+		 * 注意这个map和单例池是两个map，在spring源码中单例池的map叫做 singletonObjects
+		 * 而这个存放临时对象的map叫做singletonFactories
+		 * 当然spring还有一个存放临时对象的map叫做earlySingletonObjects
+		 * 所以一共是三个map，有些博客或者书籍人也叫做三级缓存
+		 * 为什么需要三个map呢？先来了解这三个map到底都缓存了什么
+		 * 第一个map singletonObjects 存放的单例的bean
+		 * 第二个map singletonFactories 存放的临时对象(没有完整springBean生命周期的对象)
+		 * 第三个map earlySingletonObjects 存放的临时对象(没有完整springBean生命周期的对象)
+		 * 笔者为了让大家不懵逼这里吧第二个和第三个map功能写成了一模一样
+		 * 其实第二个和第三个map会有不一样的地方，但这里不方便展开讲，下文会分析
+		 * 读者姑且认为这两个map是一样的
+		 * 第一个map主要为了直接缓存创建好的bean；方便程序员去getBean；很好理解
+		 * 第二个和第三个主要为了循环引用；为什么为了方便循环引用，接着往下看
+		 * 把对象a缓存到第二个map之后，会接着完善生命周期；
+		 * 当然spring bean的生命周期很有很多步骤；本文先不详细讨论；
+		 * 后面的博客笔者再更新；
+		 * 当进行到对象a的属性填充的这一周期的时候，发觉a依赖了一个B类
+		 * 所以spring就会去判断这个B类到底有没有bean在容器当中
+		 * 这里的判断就是从第一个map即单例池当中去拿一个bean
+		 * 后面我会通过源码来证明是从第一个map中拿一个bean的
+		 * 假设没有，那么spring会先去调用createBean创建这个bean
+		 * 于是又回到和创建A一样的流程，在创建B的时候同样也会去getBean("B")；
+		 * getBean核心也就是笔者现在写注释的这个getSingleton(beanName)方法
+		 * 下面我重申一下：因为是重点
+		 * 这个时候get出来肯定为空？为什么是空呢？我写这么多注释就是为了解释这个问题?
+		 * 可能有的读者会认为getBean就是去容器中获取；
+		 * 所以肯定为空，其实不然，接着往下看；
+		 * 第一次调用完getSingleton完成之后会调用第二次getSingleton
+		 * 第二次调用getSingleton同样会在set集合当中去记录B正在被创建
+		 * 请笔者记住这个时候 set集合至少有两个记录了 A和B；
+		 * 如果为空就 b=new B()；创建一个b对象；
+		 * 再次说明一下关于实例化一个对象，spring做的很复杂，下次讨论
+		 * 创建完B的对象之后，接着完善B的生命周期
+		 * 同样也会判断是否允许循环依赖，如果允许则把对象b存到第二个map当中；
+		 * 提醒一下笔者这个时候第二个map当中至少有两个对象了，a和b
+		 * 接着继续生命周期；当进行到b对象的属性填充的时候发觉b需要依赖A
+		 * 于是就去容器看看A有没有创建，说白了就是从第一个map当中去找a
+		 * 有人会说不上A在前面创建了a嘛？注意那只是个对象，不是bean;
+		 * 还不在第一个map当中 对所以b判定A没有创建，于是就是去创建A；
+		 * 那么又再次回到了原点了，创建A的过程中；首先调用getBean("a")
+		 * 上文说到getBean("a")的核心就是 getSingleton(beanName)
+		 * 上文也说了get出来a==null；但是这次却不等于空了
+		 * 这次能拿出一个a对象；注意是对象不是bean
+		 * 为什么两次不同？原因在于getSingleton(beanName)的源码
+		 * getSingleton(beanName)首先从第一个map当中获取bean
+		 * 这里就是获取a；但是获取不到；然后判断a是不是等于空
+		 * 如果等于空则在判断a是不是正在创建？什么叫做正在创建？
+		 * 就是判断a那个set集合当中有没有记录A；
+		 * 如果这个集合当中包含了A则直接把a对象从map当中get出来并且返回
+		 * 所以这一次就不等于空了，于是B就可以自动注入这个a对象了
+		 * 这个时候a还只是对象，a这个对象里面依赖的B还没有注入
+		 * 当b对象注入完成a之后，把B的周期走完，存到容器当中
+		 * 存完之后继续返回，返回到a注入b哪里？
+		 * 因为b的创建时因为a需要注入b；于是去get b
+		 * 当b创建完成一个bean之后，返回b(b已经是一个bean了)
+		 * 需要说明的b是一个bean意味着b已经注入完成了a；这点上面已经说明了
+		 * 由于返回了一个b，故而a也能注入b了；
+		 * 接着a对象继续完成生命周期，当走完之后a也在容器中了
+		 * 至此循环依赖搞定
+		 * 需要说明一下上文提到的正在创建这种说法并没有官方支持
+		 * 是笔者自己的认为；各位读者可以自行给他取名字
+		 * 笔者是因为存放那些记录的set集合的名字叫做singletonsCurrentlyInCreation
+		 * 顾名思义，当前正在创建的单例对象。。。。。
+		 * 还有上文提到的对象和bean的概念；也没有官方支持
+		 * 也是笔者为了让读者更好的理解spring源码而提出的个人概念
+		 * 但是如果你觉得这种方法确实能让你更好的理解spring源码
+		 * 那么请姑且相信笔者对spring源码的理解，假设10个人相信就会有100个人相信
+		 * 继而会有更多人相信，就会成为官方说法，哈哈。
+		 * 以上是循环依赖的整个过程，其中getSingleton(beanName)
+		 * 这个方法的存在至关重要
+		 * 最后说明一下getSingleton(beanName)的源码分析，下文会分析
+		 **/
+		//尝试从缓存中获取beanName对应的实例，通过缓存解决循环依赖问题
 		Object sharedInstance = getSingleton(beanName);
+		/**
+		 * 如果sharedInstance不等于空直接返回
+		 * 当然这里没有直接返回而是调用了getObjectForBeanInstance
+		 * 关于这方法以后解释，读者可以认为这里可以理解为
+		 * bean =sharedInstance; 然后方法最下面会返回bean
+		 * 什么时候不等于空？
+		 * 再容器初始化完成之后
+		 * 程序员直接调用getbean的时候不等于空
+		 * 什么时候等于空？
+		 * 上文已经解释过了，创建对象的时候调用就会等于空
+		 */
 		if (sharedInstance != null && args == null) {
 			if (logger.isDebugEnabled()) {
 				if (isSingletonCurrentlyInCreation(beanName)) {
@@ -255,18 +411,32 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
 					logger.debug("Returning cached instance of singleton bean '" + beanName + "'");
 				}
 			}
+			//返回beanName对应的实例对象（主要用于FactoryBean的特殊处理，普通Bean会直接返回sharedInstance本身）
 			bean = getObjectForBeanInstance(sharedInstance, name, beanName, null);
 		}
 
 		else {
 			// Fail if we're already creating this bean instance:
 			// We're assumably within a circular reference.
+			/**
+			 * 判断这个类是不是在创建过程中
+			 * 上文说了，一个类是否在创建的过程中是第二次调用getSingleton中决定的
+			 * 这里还没有执行到，如果就在创建过程中则出异常
+			 *
+			 **/
+			//prototypesCurrentlyInCreation 需要联系 getSingleton方法
+			// scope为prototype非单例的循环依赖校验：如果beanName已经正在创建Bean实例中，
+			// 而此时我们又要再一次创建beanName的实例，则代表出现了循环依赖，需要抛出异常。
+			// 例子：如果存在A中有B的属性，B中有A的属性，那么当依赖注入的时候，就会产生当
+			// A还未创建完的时候因为对于B的创建再次返回创建A，造成循环依赖
 			if (isPrototypeCurrentlyInCreation(beanName)) {
 				throw new BeanCurrentlyInCreationException(beanName);
 			}
 
 			// Check if bean definition exists in this factory.
 			BeanFactory parentBeanFactory = getParentBeanFactory();
+			//如果parentBeanFactory存在，并且beanName在当前BeanFactory不存在Bean定义，
+			// 则尝试从parentBeanFactory中获取bean实例
 			if (parentBeanFactory != null && !containsBeanDefinition(beanName)) {
 				// Not found -> check parent.
 				String nameToLookup = originalBeanName(name);
@@ -283,7 +453,8 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
 					return parentBeanFactory.getBean(nameToLookup, requiredType);
 				}
 			}
-
+            //如果不是仅仅做类型检测，
+            // 而是创建bean实例，这里要将beanName放到alreadyCreated缓存
 			if (!typeCheckOnly) {
 				markBeanAsCreated(beanName);
 			}
@@ -293,6 +464,7 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
 				checkMergedBeanDefinition(mbd, beanName, args);
 
 				// Guarantee initialization of beans that the current bean depends on.
+				//拿到当前bean依赖的bean名称集合，在实例化自己之前，需要先实例化自己依赖的bean，如使用@DependsOn
 				String[] dependsOn = mbd.getDependsOn();
 				if (dependsOn != null) {
 					for (String dep : dependsOn) {
@@ -312,9 +484,24 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
 				}
 
 				// Create bean instance.
+				/**
+				 * 需要说明的笔者删了很多和本文无用的代码
+				 * 意思就是源码中执行到这个if的时候有很多其他代码
+				 * 但是都是一些判断，很本文需要讨论的问题关联不大
+				 * 这个if就是判断当前需要实例化的类是不是单例的
+				 * spring默认都是单例的，故而一般都成立的
+				 * 接下来便是调用第二次 getSingleton
+				 * 第二次会把当前正在创建的类记录到set集合
+				 * 然后反射创建这个实例，并且走完生命周期
+				 * 第二次调用getSingleton的源码分析会在下文
+				 **/
 				if (mbd.isSingleton()) {
+//					/scope为singleton的bean创建（新建了一个ObjectFactory，
+//					并且重写了getObject方法，在里面创建bean
 					sharedInstance = getSingleton(beanName, () -> {
 						try {
+							//完成了目标对象的创建
+							//如果需要代理，还完成了代理
 							return createBean(beanName, mbd, args);
 						}
 						catch (BeansException ex) {
@@ -325,9 +512,10 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
 							throw ex;
 						}
 					});
+					//返回beanName对应的实例对象
 					bean = getObjectForBeanInstance(sharedInstance, name, beanName, mbd);
 				}
-
+				//其它非单例的情况，
 				else if (mbd.isPrototype()) {
 					// It's a prototype -> create a new instance.
 					Object prototypeInstance = null;
@@ -863,15 +1051,22 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
 	public void addBeanPostProcessor(BeanPostProcessor beanPostProcessor) {
 		Assert.notNull(beanPostProcessor, "BeanPostProcessor must not be null");
 		// Remove from old position, if any
+		// 1.如果beanPostProcessor已经存在则移除（可以起到排序的效果，
+		// beanPostProcessor可能本来在前面，移除再添加，则变到最后面）
 		this.beanPostProcessors.remove(beanPostProcessor);
 		// Track whether it is instantiation/destruction aware
+		// 3.如果beanPostProcessor是InstantiationAwareBeanPostProcessor, 则将hasInstantiationAwareBeanPostProcessors设置为true,
+		// 该变量用于指示beanFactory是否已注册过InstantiationAwareBeanPostProcessors
 		if (beanPostProcessor instanceof InstantiationAwareBeanPostProcessor) {
 			this.hasInstantiationAwareBeanPostProcessors = true;
 		}
+		// 4.如果beanPostProcessor是DestructionAwareBeanPostProcessor, 则将hasInstantiationAwareBeanPostProcessors设置为true,
+		// 该变量用于指示beanFactory是否已注册过DestructionAwareBeanPostProcessor
 		if (beanPostProcessor instanceof DestructionAwareBeanPostProcessor) {
 			this.hasDestructionAwareBeanPostProcessors = true;
 		}
 		// Add to end of list
+		// 2.将beanPostProcessor添加到beanPostProcessors缓存
 		this.beanPostProcessors.add(beanPostProcessor);
 	}
 
@@ -892,7 +1087,7 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
 	 * Return whether this factory holds a InstantiationAwareBeanPostProcessor
 	 * that will get applied to singleton beans on creation.
 	 * @see #addBeanPostProcessor
-	 * @see org.springframework.beans.factory.config.InstantiationAwareBeanPostProcessor
+	 * @see InstantiationAwareBeanPostProcessor
 	 */
 	protected boolean hasInstantiationAwareBeanPostProcessors() {
 		return this.hasInstantiationAwareBeanPostProcessors;
@@ -902,7 +1097,7 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
 	 * Return whether this factory holds a DestructionAwareBeanPostProcessor
 	 * that will get applied to singleton beans on shutdown.
 	 * @see #addBeanPostProcessor
-	 * @see org.springframework.beans.factory.config.DestructionAwareBeanPostProcessor
+	 * @see DestructionAwareBeanPostProcessor
 	 */
 	protected boolean hasDestructionAwareBeanPostProcessors() {
 		return this.hasDestructionAwareBeanPostProcessors;
@@ -1253,6 +1448,8 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
 			throws BeanDefinitionStoreException {
 
 		synchronized (this.mergedBeanDefinitions) {
+			// 准备一个RootBeanDefinition变量引用，用于记录要构建和最终要返回的BeanDefinition，
+			// 这里根据上下文不难猜测 mbd 应该就是 mergedBeanDefinition 的缩写。
 			RootBeanDefinition mbd = null;
 
 			// Check with full lock now in order to enforce the same merged instance.
@@ -1262,6 +1459,10 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
 
 			if (mbd == null) {
 				if (bd.getParentName() == null) {
+					// bd不是一个ChildBeanDefinition的情况,换句话讲，这 bd应该是 :
+					// 1. 一个独立的 GenericBeanDefinition 实例，parentName 属性为null
+					// 2. 或者是一个 RootBeanDefinition 实例，parentName 属性为null
+					// 此时mbd直接使用一个bd的复制品
 					// Use copy of given root bean definition.
 					if (bd instanceof RootBeanDefinition) {
 						mbd = ((RootBeanDefinition) bd).cloneBeanDefinition();
@@ -1271,6 +1472,13 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
 					}
 				}
 				else {
+					// bd是一个ChildBeanDefinition的情况,
+					// 这种情况下，需要将bd和其parent bean definition 合并到一起，
+					// 形成最终的 mbd
+					// 下面是获取bd的 parent bean definition 的过程，最终结果记录到 pbd，
+					// 并且可以看到该过程中递归使用了getMergedBeanDefinition(), 为什么呢?
+					// 因为 bd 的 parent bd 可能也是个ChildBeanDefinition，所以该过程
+					// 需要递归处理
 					// Child bean definition: needs to be merged with parent.
 					BeanDefinition pbd;
 					try {
@@ -1294,6 +1502,13 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
 						throw new BeanDefinitionStoreException(bd.getResourceDescription(), beanName,
 								"Could not resolve parent bean definition '" + bd.getParentName() + "'", ex);
 					}
+					// Deep copy with overridden values.
+					// 现在已经获取 bd 的parent bd到pbd，从上面的过程可以看出，这个pbd
+					// 也是已经"合并"过的。
+					// 这里根据pbd创建最终的mbd，然后再使用bd覆盖一次，
+					// 这样就相当于mbd来自两个BeanDefinition:
+					// 当前 BeanDefinition 及其合并的("Merged")双亲 BeanDefinition,
+					// 然后mbd就是针对当前bd的一个MergedBeanDefinition(合并的BeanDefinition)了。
 					// Deep copy with overridden values.
 					mbd = new RootBeanDefinition(pbd);
 					mbd.overrideFrom(bd);
@@ -1517,7 +1732,7 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
 	 * @param beanName the name of the bean
 	 * @param mbd the merged bean definition for the bean
 	 * @return the type for the bean if determinable, or {@code null} otherwise
-	 * @see org.springframework.beans.factory.FactoryBean#getObjectType()
+	 * @see FactoryBean#getObjectType()
 	 * @see #getBean(String)
 	 */
 	@Nullable
@@ -1680,7 +1895,7 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
 	 * @param mbd the corresponding bean definition
 	 * @see org.springframework.beans.factory.DisposableBean
 	 * @see AbstractBeanDefinition#getDestroyMethodName()
-	 * @see org.springframework.beans.factory.config.DestructionAwareBeanPostProcessor
+	 * @see DestructionAwareBeanPostProcessor
 	 */
 	protected boolean requiresDestruction(Object bean, RootBeanDefinition mbd) {
 		return (bean.getClass() != NullBean.class &&
@@ -1756,7 +1971,7 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
 	 * template method and the public interface method in that case.
 	 * @param beanName the name of the bean to find a definition for
 	 * @return the BeanDefinition for this prototype name (never {@code null})
-	 * @throws org.springframework.beans.factory.NoSuchBeanDefinitionException
+	 * @throws NoSuchBeanDefinitionException
 	 * if the bean definition cannot be resolved
 	 * @throws BeansException in case of errors
 	 * @see RootBeanDefinition

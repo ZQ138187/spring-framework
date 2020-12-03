@@ -139,7 +139,7 @@ public class PropertyPlaceholderConfigurer extends PlaceholderConfigurerSupport 
 	 * @return the resolved value, of null if none
 	 * @see #setSystemPropertiesMode
 	 * @see System#getProperty
-	 * @see #resolvePlaceholder(String, java.util.Properties)
+	 * @see #resolvePlaceholder(String, Properties)
 	 */
 	@Nullable
 	protected String resolvePlaceholder(String placeholder, Properties props, int systemPropertiesMode) {

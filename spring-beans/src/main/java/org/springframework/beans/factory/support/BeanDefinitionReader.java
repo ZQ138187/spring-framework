@@ -35,7 +35,7 @@ import org.springframework.lang.Nullable;
  *
  * @author Juergen Hoeller
  * @since 1.1
- * @see org.springframework.core.io.Resource
+ * @see Resource
  */
 public interface BeanDefinitionReader {
 
@@ -107,8 +107,8 @@ public interface BeanDefinitionReader {
 	 * @return the number of bean definitions found
 	 * @throws BeanDefinitionStoreException in case of loading or parsing errors
 	 * @see #getResourceLoader()
-	 * @see #loadBeanDefinitions(org.springframework.core.io.Resource)
-	 * @see #loadBeanDefinitions(org.springframework.core.io.Resource[])
+	 * @see #loadBeanDefinitions(Resource)
+	 * @see #loadBeanDefinitions(Resource[])
 	 */
 	int loadBeanDefinitions(String location) throws BeanDefinitionStoreException;
 

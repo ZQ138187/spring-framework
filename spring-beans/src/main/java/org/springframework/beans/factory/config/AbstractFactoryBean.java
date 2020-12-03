@@ -119,7 +119,7 @@ public abstract class AbstractFactoryBean<T>
 	 * since TypeConverters are usually <i>not</i> thread-safe.
 	 * <p>Falls back to a SimpleTypeConverter when not running in a BeanFactory.
 	 * @see ConfigurableBeanFactory#getTypeConverter()
-	 * @see org.springframework.beans.SimpleTypeConverter
+	 * @see SimpleTypeConverter
 	 */
 	protected TypeConverter getBeanTypeConverter() {
 		BeanFactory beanFactory = getBeanFactory();
@@ -203,7 +203,7 @@ public abstract class AbstractFactoryBean<T>
 	/**
 	 * This abstract method declaration mirrors the method in the FactoryBean
 	 * interface, for a consistent offering of abstract template methods.
-	 * @see org.springframework.beans.factory.FactoryBean#getObjectType()
+	 * @see FactoryBean#getObjectType()
 	 */
 	@Override
 	@Nullable
@@ -230,7 +230,7 @@ public abstract class AbstractFactoryBean<T>
 	 * This will lead to a FactoryBeanNotInitializedException getting thrown.
 	 * @return the interfaces to use for 'early singletons',
 	 * or {@code null} to indicate a FactoryBeanNotInitializedException
-	 * @see org.springframework.beans.factory.FactoryBeanNotInitializedException
+	 * @see FactoryBeanNotInitializedException
 	 */
 	@Nullable
 	protected Class<?>[] getEarlySingletonInterfaces() {

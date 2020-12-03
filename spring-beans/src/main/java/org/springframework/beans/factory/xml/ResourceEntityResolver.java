@@ -32,7 +32,7 @@ import org.springframework.lang.Nullable;
 
 /**
  * {@code EntityResolver} implementation that tries to resolve entity references
- * through a {@link org.springframework.core.io.ResourceLoader} (usually,
+ * through a {@link ResourceLoader} (usually,
  * relative to the resource base of an {@code ApplicationContext}), if applicable.
  * Extends {@link DelegatingEntityResolver} to also provide DTD and XSD lookup.
  *
@@ -48,7 +48,7 @@ import org.springframework.lang.Nullable;
  *
  * @author Juergen Hoeller
  * @since 31.07.2003
- * @see org.springframework.core.io.ResourceLoader
+ * @see ResourceLoader
  * @see org.springframework.context.ApplicationContext
  */
 public class ResourceEntityResolver extends DelegatingEntityResolver {

@@ -61,7 +61,7 @@ public interface Scope {
 
 	/**
 	 * Return the object with the given name from the underlying scope,
-	 * {@link org.springframework.beans.factory.ObjectFactory#getObject() creating it}
+	 * {@link ObjectFactory#getObject() creating it}
 	 * if not found in the underlying storage mechanism.
 	 * <p>This is the central operation of a Scope, and the only operation
 	 * that is absolutely required.

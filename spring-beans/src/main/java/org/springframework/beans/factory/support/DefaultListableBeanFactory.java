@@ -162,7 +162,7 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
 	/** Map of singleton-only bean names, keyed by dependency type */
 	private final Map<Class<?>, String[]> singletonBeanNamesByType = new ConcurrentHashMap<>(64);
 
-	/** List of bean definition names, in registration order */
+	/** List of bean definition names, in registration order */// 保存所有的Bean名称
 	private volatile List<String> beanDefinitionNames = new ArrayList<>(256);
 
 	/** List of names of manually registered singletons, in registration order */
@@ -260,9 +260,9 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
 	}
 
 	/**
-	 * Set a {@link java.util.Comparator} for dependency Lists and arrays.
+	 * Set a {@link Comparator} for dependency Lists and arrays.
 	 * @since 4.0
-	 * @see org.springframework.core.OrderComparator
+	 * @see OrderComparator
 	 * @see org.springframework.core.annotation.AnnotationAwareOrderComparator
 	 */
 	public void setDependencyComparator(@Nullable Comparator<Object> dependencyComparator) {
@@ -672,7 +672,7 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
 		return resolver.isAutowireCandidate(
 				new BeanDefinitionHolder(mbd, beanName, getAliases(bdName)), descriptor);
 	}
-
+	// 这个实现非常的简单，直接从map里拿
 	@Override
 	public BeanDefinition getBeanDefinition(String beanName) throws NoSuchBeanDefinitionException {
 		BeanDefinition bd = this.beanDefinitionMap.get(beanName);
@@ -719,7 +719,10 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
 	protected boolean isBeanEligibleForMetadataCaching(String beanName) {
 		return (this.configurationFrozen || super.isBeanEligibleForMetadataCaching(beanName));
 	}
-
+//	一般情况下，Spring 通过反射机制利用 bean 的  class 属性指定实现类来实例化 bean。
+//	而 FactoryBean 是一种特殊的 bean，它是个工厂 bean，可以自己创建 bean 实例，
+//	如果一个类实现了 FactoryBean 接口，则该类可以自己定义创建实例对象的方法，
+//	只需要实现它的 getObject() 方法。注：很多中间件都利用 FactoryBean 来进行扩展。
 	@Override
 	public void preInstantiateSingletons() throws BeansException {
 		if (logger.isDebugEnabled()) {
@@ -731,13 +734,19 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
 		List<String> beanNames = new ArrayList<>(this.beanDefinitionNames);
 
 		// Trigger initialization of all non-lazy singleton beans...
+		//遍历beanNames，触发所有非懒加载单例bean的初始化
 		for (String beanName : beanNames) {
 			RootBeanDefinition bd = getMergedLocalBeanDefinition(beanName);
+			//Bean实例：不是抽象类 && 是单例 && 不是懒加载
 			if (!bd.isAbstract() && bd.isSingleton() && !bd.isLazyInit()) {
+				//判断beanName对应的bean是否为FactoryBean
 				if (isFactoryBean(beanName)) {
+					//通过getBean(&beanName)拿到的是FactoryBean本身；通过getBean(beanName)
+					// 拿到的是FactoryBean创建的Bean实例
 					Object bean = getBean(FACTORY_BEAN_PREFIX + beanName);
 					if (bean instanceof FactoryBean) {
 						FactoryBean<?> factory = (FactoryBean<?>) bean;
+						//判断这个FactoryBean是否希望急切的初始化
 						boolean isEagerInit;
 						if (System.getSecurityManager() != null && factory instanceof SmartFactoryBean) {
 							isEagerInit = AccessController.doPrivileged(
@@ -754,6 +763,8 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
 					}
 				}
 				else {
+					//如果beanName对应的bean不是FactoryBean，只是普通Bean，通过beanName获取bean实例
+					//经过一系列判断之后会调用getBean方法去实例化扫描出来的类
 					getBean(beanName);
 				}
 			}
@@ -781,7 +792,7 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
 	//---------------------------------------------------------------------
 	// Implementation of BeanDefinitionRegistry interface
 	//---------------------------------------------------------------------
-
+// 注册Bean定义信息~~
 	@Override
 	public void registerBeanDefinition(String beanName, BeanDefinition beanDefinition)
 			throws BeanDefinitionStoreException {
@@ -800,12 +811,17 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
 		}
 
 		BeanDefinition existingDefinition = this.beanDefinitionMap.get(beanName);
+		//判断是否重新创建BeanDefinition  如果不为空而且 不是可重复出现的bean则报错（前面已经提到过）
 		if (existingDefinition != null) {
-			if (!isAllowBeanDefinitionOverriding()) {
+			if (!isAllowBeanDefinitionOverriding()) {// 是否允许覆盖（默认是true 表示允许的）
 				throw new BeanDefinitionStoreException(beanDefinition.getResourceDescription(), beanName,
 						"Cannot register bean definition [" + beanDefinition + "] for bean '" + beanName +
 						"': There is already [" + existingDefinition + "] bound.");
 			}
+			// 若允许覆盖  那还得比较下role  如果新进来的这个Bean的role更大
+			// 比如老的是ROLE_APPLICATION（0）  新的是ROLE_INFRASTRUCTURE(2)
+			// 最终会执行到put，但是此处输出一个warn日志，告知你的bean被覆盖啦~~~~~~~
+			// （我们自己覆盖Spring框架内的bean显然就不需要warn提示了）
 			else if (existingDefinition.getRole() < beanDefinition.getRole()) {
 				// e.g. was ROLE_APPLICATION, now overriding with ROLE_SUPPORT or ROLE_INFRASTRUCTURE
 				if (logger.isWarnEnabled()) {
@@ -814,7 +830,7 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
 							existingDefinition + "] with [" + beanDefinition + "]");
 				}
 			}
-			else if (!beanDefinition.equals(existingDefinition)) {
+			else if (!beanDefinition.equals(existingDefinition)) {// 最终会执行put，但是内容还不相同  那就提醒一个info信息吧
 				if (logger.isInfoEnabled()) {
 					logger.info("Overriding bean definition for bean '" + beanName +
 							"' with a different definition: replacing [" + existingDefinition +
@@ -828,16 +844,21 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
 							"] with [" + beanDefinition + "]");
 				}
 			}
+			// 最终添加进去 （哪怕已经存在了~）
+			// 从这里能看出Spring对日志输出的一个优秀处理，方便我们定位问题~~~
 			this.beanDefinitionMap.put(beanName, beanDefinition);
+			// 请注意：这里beanName并没有再add了，因为已经存在了  没必要了嘛
 		}
 		else {
+			// hasBeanCreationStarted:表示已经存在bean开始创建了（开始getBean()了吧~~~）
 			if (hasBeanCreationStarted()) {
 				// Cannot modify startup-time collection elements anymore (for stable iteration)
 				synchronized (this.beanDefinitionMap) {
+					//解析出来的beanDefinition对象放入beanDefinitionMap
 					this.beanDefinitionMap.put(beanName, beanDefinition);
 					List<String> updatedDefinitions = new ArrayList<>(this.beanDefinitionNames.size() + 1);
 					updatedDefinitions.addAll(this.beanDefinitionNames);
-					updatedDefinitions.add(beanName);
+					updatedDefinitions.add(beanName);//即将Bean存储到beanDefinitionNames中
 					this.beanDefinitionNames = updatedDefinitions;
 					if (this.manualSingletonNames.contains(beanName)) {
 						Set<String> updatedSingletons = new LinkedHashSet<>(this.manualSingletonNames);
@@ -848,14 +869,22 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
 			}
 			else {
 				// Still in startup registration phase
+				// 表示仍然在启动  注册的状态~~~就很好处理了 put仅需，名字add进去
 				this.beanDefinitionMap.put(beanName, beanDefinition);
 				this.beanDefinitionNames.add(beanName);
+				// 手动注册的BeanNames里面移除~~~ 因为有Bean定义信息了，所以现在不是手动直接注册的Bean单例~~~~
 				this.manualSingletonNames.remove(beanName);
 			}
+			// 这里的意思是：但凡你新增了一个新的Bean定义信息，之前已经冻结的就清空呗~~~
 			this.frozenBeanDefinitionNames = null;
 		}
-
+// 最后异步很有意思：老的bean定义信息不为null（beanName已经存在了）,或者这个beanName直接是一个单例Bean了~
 		if (existingDefinition != null || containsSingleton(beanName)) {
+			// 做清理工作：
+			// clearMergedBeanDefinition(beanName)
+			// destroySingleton(beanName);  销毁这个单例Bean  因为有了该bean定义信息  最终还是会创建的
+			// Reset all bean definitions that have the given bean as parent (recursively).
+			// 处理该Bean定义的getParentName  有相同的也得做清楚  所以这里是个递归
 			resetBeanDefinition(beanName);
 		}
 		else if (isConfigurationFrozen()) {
@@ -866,8 +895,11 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
 	@Override
 	public void removeBeanDefinition(String beanName) throws NoSuchBeanDefinitionException {
 		Assert.hasText(beanName, "'beanName' must not be empty");
-
+		// 移除整体上比较简单：beanDefinitionMap.remove
+		// beanDefinitionNames.remove
+		// resetBeanDefinition(beanName);
 		BeanDefinition bd = this.beanDefinitionMap.remove(beanName);
+		// 这里发现移除，若这个Bean定义本来就不存在，事抛异常，而不是返回null 需要注意~~~~
 		if (bd == null) {
 			if (logger.isTraceEnabled()) {
 				logger.trace("No bean named '" + beanName + "' found in " + this);
@@ -1780,7 +1812,7 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
 
 
 	/**
-	 * An {@link org.springframework.core.OrderComparator.OrderSourceProvider} implementation
+	 * An {@link OrderComparator.OrderSourceProvider} implementation
 	 * that is aware of the bean metadata of the instances to sort.
 	 * <p>Lookup for the method factory of an instance to sort, if any, and let the
 	 * comparator retrieve the {@link org.springframework.core.annotation.Order}

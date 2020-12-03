@@ -44,7 +44,7 @@ public abstract class AnnotationBeanUtils {
 	 * @param ann the annotation to copy from
 	 * @param bean the bean instance to copy to
 	 * @param excludedProperties the names of excluded properties, if any
-	 * @see org.springframework.beans.BeanWrapper
+	 * @see BeanWrapper
 	 */
 	public static void copyPropertiesToBean(Annotation ann, Object bean, String... excludedProperties) {
 		copyPropertiesToBean(ann, bean, null, excludedProperties);
@@ -58,7 +58,7 @@ public abstract class AnnotationBeanUtils {
 	 * @param bean the bean instance to copy to
 	 * @param valueResolver a resolve to post-process String property values (may be {@code null})
 	 * @param excludedProperties the names of excluded properties, if any
-	 * @see org.springframework.beans.BeanWrapper
+	 * @see BeanWrapper
 	 */
 	public static void copyPropertiesToBean(Annotation ann, Object bean, @Nullable StringValueResolver valueResolver,
 			String... excludedProperties) {

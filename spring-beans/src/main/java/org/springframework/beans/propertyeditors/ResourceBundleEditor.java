@@ -25,7 +25,7 @@ import org.springframework.util.StringUtils;
 
 /**
  * {@link java.beans.PropertyEditor} implementation for standard JDK
- * {@link java.util.ResourceBundle ResourceBundles}.
+ * {@link ResourceBundle ResourceBundles}.
  *
  * <p>Only supports conversion <i>from</i> a String, but not <i>to</i> a String.
  *

@@ -30,7 +30,7 @@ import org.springframework.util.StringUtils;
  * @author Juergen Hoeller
  * @since 26.05.2003
  * @see java.util.Locale
- * @see org.springframework.util.StringUtils#parseLocaleString
+ * @see StringUtils#parseLocaleString
  */
 public class LocaleEditor extends PropertyEditorSupport {
 

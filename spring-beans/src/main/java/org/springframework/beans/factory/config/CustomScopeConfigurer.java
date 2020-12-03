@@ -31,7 +31,7 @@ import org.springframework.util.ClassUtils;
  * Simple {@link BeanFactoryPostProcessor} implementation that registers
  * custom {@link Scope Scope(s)} with the containing {@link ConfigurableBeanFactory}.
  *
- * <p>Will register all of the supplied {@link #setScopes(java.util.Map) scopes}
+ * <p>Will register all of the supplied {@link #setScopes(Map) scopes}
  * with the {@link ConfigurableListableBeanFactory} that is passed to the
  * {@link #postProcessBeanFactory(ConfigurableListableBeanFactory)} method.
  *

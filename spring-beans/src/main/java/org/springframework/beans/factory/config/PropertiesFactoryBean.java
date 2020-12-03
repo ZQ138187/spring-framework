@@ -41,7 +41,7 @@ import org.springframework.lang.Nullable;
  * @see #setLocation
  * @see #setProperties
  * @see #setLocalOverride
- * @see java.util.Properties
+ * @see Properties
  */
 public class PropertiesFactoryBean extends PropertiesLoaderSupport
 		implements FactoryBean<Properties>, InitializingBean {
