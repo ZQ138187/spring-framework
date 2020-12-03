@@ -19,7 +19,7 @@ package org.springframework.scripting.support;
 import javax.script.ScriptException;
 
 /**
- * Exception decorating a {@link javax.script.ScriptException} coming out of
+ * Exception decorating a {@link ScriptException} coming out of
  * JSR-223 script evaluation, i.e. a {@link javax.script.ScriptEngine#eval}
  * call or {@link javax.script.Invocable#invokeMethod} /
  * {@link javax.script.Invocable#invokeFunction} call.

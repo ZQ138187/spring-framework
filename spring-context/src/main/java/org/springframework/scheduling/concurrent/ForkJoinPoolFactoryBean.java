@@ -60,7 +60,7 @@ public class ForkJoinPoolFactoryBean implements FactoryBean<ForkJoinPool>, Initi
 	 * instead. This is a fine choice on JDK 8 but does remove the application's ability
 	 * to customize ForkJoinPool behavior, in particular the use of custom threads.
 	 * @since 3.2
-	 * @see java.util.concurrent.ForkJoinPool#commonPool()
+	 * @see ForkJoinPool#commonPool()
 	 */
 	public void setCommonPool(boolean commonPool) {
 		this.commonPool = commonPool;
@@ -113,8 +113,8 @@ public class ForkJoinPoolFactoryBean implements FactoryBean<ForkJoinPool>, Initi
 	 * <p>Note that this feature works for the {@link #setCommonPool "commonPool"}
 	 * mode as well. The underlying ForkJoinPool won't actually terminate in that
 	 * case but will wait for all tasks to terminate.
-	 * @see java.util.concurrent.ForkJoinPool#shutdown()
-	 * @see java.util.concurrent.ForkJoinPool#awaitTermination
+	 * @see ForkJoinPool#shutdown()
+	 * @see ForkJoinPool#awaitTermination
 	 */
 	public void setAwaitTerminationSeconds(int awaitTerminationSeconds) {
 		this.awaitTerminationSeconds = awaitTerminationSeconds;

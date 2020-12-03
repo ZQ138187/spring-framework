@@ -69,7 +69,7 @@ import org.springframework.util.ReflectionUtils;
 import org.springframework.util.StringUtils;
 
 /**
- * {@link org.aopalliance.intercept.MethodInterceptor} that routes calls to an
+ * {@link MethodInterceptor} that routes calls to an
  * MBean running on the supplied {@code MBeanServerConnection}.
  * Works for both local and remote {@code MBeanServerConnection}s.
  *
@@ -156,7 +156,7 @@ public class MBeanClientInterceptor
 
 	/**
 	 * Specify the environment for the JMX connector.
-	 * @see javax.management.remote.JMXConnectorFactory#connect(javax.management.remote.JMXServiceURL, java.util.Map)
+	 * @see javax.management.remote.JMXConnectorFactory#connect(JMXServiceURL, Map)
 	 */
 	public void setEnvironment(@Nullable Map<String, ?> environment) {
 		this.environment = environment;

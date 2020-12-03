@@ -22,7 +22,7 @@ import org.springframework.util.Assert;
 
 /**
  * Default {@link Theme} implementation, wrapping a name and an
- * underlying {@link org.springframework.context.MessageSource}.
+ * underlying {@link MessageSource}.
  *
  * @author Juergen Hoeller
  * @since 17.06.2003

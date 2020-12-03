@@ -45,7 +45,7 @@ import org.springframework.util.concurrent.ListenableFutureTask;
 
 /**
  * Implementation of Spring's {@link TaskScheduler} interface, wrapping
- * a native {@link java.util.concurrent.ScheduledThreadPoolExecutor}.
+ * a native {@link ScheduledThreadPoolExecutor}.
  *
  * @author Juergen Hoeller
  * @author Mark Fisher
@@ -138,7 +138,7 @@ public class ThreadPoolTaskScheduler extends ExecutorConfigurationSupport
 	 * @param rejectedExecutionHandler the RejectedExecutionHandler to use
 	 * @return a new ScheduledExecutorService instance
 	 * @see #afterPropertiesSet()
-	 * @see java.util.concurrent.ScheduledThreadPoolExecutor
+	 * @see ScheduledThreadPoolExecutor
 	 */
 	protected ScheduledExecutorService createExecutor(
 			int poolSize, ThreadFactory threadFactory, RejectedExecutionHandler rejectedExecutionHandler) {
@@ -173,7 +173,7 @@ public class ThreadPoolTaskScheduler extends ExecutorConfigurationSupport
 	 * Return the current pool size.
 	 * <p>Requires an underlying {@link ScheduledThreadPoolExecutor}.
 	 * @see #getScheduledThreadPoolExecutor()
-	 * @see java.util.concurrent.ScheduledThreadPoolExecutor#getPoolSize()
+	 * @see ScheduledThreadPoolExecutor#getPoolSize()
 	 */
 	public int getPoolSize() {
 		if (this.scheduledExecutor == null) {
@@ -199,7 +199,7 @@ public class ThreadPoolTaskScheduler extends ExecutorConfigurationSupport
 	 * Return the number of currently active threads.
 	 * <p>Requires an underlying {@link ScheduledThreadPoolExecutor}.
 	 * @see #getScheduledThreadPoolExecutor()
-	 * @see java.util.concurrent.ScheduledThreadPoolExecutor#getActiveCount()
+	 * @see ScheduledThreadPoolExecutor#getActiveCount()
 	 */
 	public int getActiveCount() {
 		if (this.scheduledExecutor == null) {

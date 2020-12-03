@@ -20,7 +20,7 @@ import org.aopalliance.intercept.MethodInvocation;
 
 /**
  * Strategy interface for creating a {@link RemoteInvocation} from an AOP Alliance
- * {@link org.aopalliance.intercept.MethodInvocation}.
+ * {@link MethodInvocation}.
  *
  * <p>Used by {@link org.springframework.remoting.rmi.RmiClientInterceptor} (for RMI invokers)
  * and by {@link org.springframework.remoting.httpinvoker.HttpInvokerClientInterceptor}.

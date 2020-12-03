@@ -114,7 +114,7 @@ import org.springframework.lang.Nullable;
  * @author Juergen Hoeller
  * @author Jeff Brown
  * @since 4.0
- * @see org.springframework.beans.factory.groovy.GroovyBeanDefinitionReader
+ * @see GroovyBeanDefinitionReader
  */
 public class GenericGroovyApplicationContext extends GenericApplicationContext implements GroovyObject {
 
@@ -169,7 +169,7 @@ public class GenericGroovyApplicationContext extends GenericApplicationContext i
 	 * Exposes the underlying {@link GroovyBeanDefinitionReader} for convenient access
 	 * to the {@code loadBeanDefinition} methods on it as well as the ability
 	 * to specify an inline Groovy bean definition closure.
-	 * @see GroovyBeanDefinitionReader#loadBeanDefinitions(org.springframework.core.io.Resource...)
+	 * @see GroovyBeanDefinitionReader#loadBeanDefinitions(Resource...)
 	 * @see GroovyBeanDefinitionReader#loadBeanDefinitions(String...)
 	 */
 	public final GroovyBeanDefinitionReader getReader() {

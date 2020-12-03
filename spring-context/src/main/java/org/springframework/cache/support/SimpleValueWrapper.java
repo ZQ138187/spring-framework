@@ -20,7 +20,7 @@ import org.springframework.cache.Cache.ValueWrapper;
 import org.springframework.lang.Nullable;
 
 /**
- * Straightforward implementation of {@link org.springframework.cache.Cache.ValueWrapper},
+ * Straightforward implementation of {@link ValueWrapper},
  * simply holding the value as given at construction and returning it from {@link #get()}.
  *
  * @author Costin Leau

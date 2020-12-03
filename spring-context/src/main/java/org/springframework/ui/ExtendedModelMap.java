@@ -26,8 +26,8 @@ import org.springframework.lang.Nullable;
  * Java 5 specific like the {@code Model} interface itself.
  *
  * <p>This is an implementation class exposed to handler methods by Spring MVC, typically via
- * a declaration of the {@link org.springframework.ui.Model} interface. There is no need to
- * build it within user code; a plain {@link org.springframework.ui.ModelMap} or even a just
+ * a declaration of the {@link Model} interface. There is no need to
+ * build it within user code; a plain {@link ModelMap} or even a just
  * a regular {@link Map} with String keys will be good enough to return a user model.
  *
  * @author Juergen Hoeller

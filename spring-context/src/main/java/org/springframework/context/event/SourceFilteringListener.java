@@ -23,9 +23,9 @@ import org.springframework.core.ResolvableType;
 import org.springframework.lang.Nullable;
 
 /**
- * {@link org.springframework.context.ApplicationListener} decorator that filters
+ * {@link ApplicationListener} decorator that filters
  * events from a specified event source, invoking its delegate listener for
- * matching {@link org.springframework.context.ApplicationEvent} objects only.
+ * matching {@link ApplicationEvent} objects only.
  *
  * <p>Can also be used as base class, overriding the {@link #onApplicationEventInternal}
  * method instead of specifying a delegate listener.

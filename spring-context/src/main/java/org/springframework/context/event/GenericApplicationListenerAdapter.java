@@ -31,7 +31,7 @@ import org.springframework.util.Assert;
  * @author Juergen Hoeller
  * @author Stephane Nicoll
  * @since 3.0
- * @see org.springframework.context.ApplicationListener#onApplicationEvent
+ * @see ApplicationListener#onApplicationEvent
  */
 public class GenericApplicationListenerAdapter implements GenericApplicationListener, SmartApplicationListener {
 

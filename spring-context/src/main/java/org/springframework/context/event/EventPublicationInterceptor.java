@@ -42,9 +42,9 @@ import org.springframework.util.Assert;
  * @author Juergen Hoeller
  * @author Rick Evans
  * @see #setApplicationEventClass
- * @see org.springframework.context.ApplicationEvent
+ * @see ApplicationEvent
  * @see org.springframework.context.ApplicationListener
- * @see org.springframework.context.ApplicationEventPublisher
+ * @see ApplicationEventPublisher
  * @see org.springframework.context.ApplicationContext
  */
 public class EventPublicationInterceptor

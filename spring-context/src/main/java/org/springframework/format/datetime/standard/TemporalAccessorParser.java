@@ -30,18 +30,18 @@ import java.util.Locale;
 import org.springframework.format.Parser;
 
 /**
- * {@link Parser} implementation for a JSR-310 {@link java.time.temporal.TemporalAccessor},
- * using a {@link java.time.format.DateTimeFormatter}) (the contextual one, if available).
+ * {@link Parser} implementation for a JSR-310 {@link TemporalAccessor},
+ * using a {@link DateTimeFormatter}) (the contextual one, if available).
  *
  * @author Juergen Hoeller
  * @since 4.0
  * @see DateTimeContextHolder#getFormatter
- * @see java.time.LocalDate#parse(CharSequence, java.time.format.DateTimeFormatter)
- * @see java.time.LocalTime#parse(CharSequence, java.time.format.DateTimeFormatter)
- * @see java.time.LocalDateTime#parse(CharSequence, java.time.format.DateTimeFormatter)
- * @see java.time.ZonedDateTime#parse(CharSequence, java.time.format.DateTimeFormatter)
- * @see java.time.OffsetDateTime#parse(CharSequence, java.time.format.DateTimeFormatter)
- * @see java.time.OffsetTime#parse(CharSequence, java.time.format.DateTimeFormatter)
+ * @see LocalDate#parse(CharSequence, DateTimeFormatter)
+ * @see LocalTime#parse(CharSequence, DateTimeFormatter)
+ * @see LocalDateTime#parse(CharSequence, DateTimeFormatter)
+ * @see ZonedDateTime#parse(CharSequence, DateTimeFormatter)
+ * @see OffsetDateTime#parse(CharSequence, DateTimeFormatter)
+ * @see OffsetTime#parse(CharSequence, DateTimeFormatter)
  */
 public final class TemporalAccessorParser implements Parser<TemporalAccessor> {
 

@@ -32,16 +32,16 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.lang.Nullable;
 
 /**
- * JavaBean that allows for configuring a {@link java.util.concurrent.ThreadPoolExecutor}
+ * JavaBean that allows for configuring a {@link ThreadPoolExecutor}
  * in bean style (through its "corePoolSize", "maxPoolSize", "keepAliveSeconds",
  * "queueCapacity" properties) and exposing it as a bean reference of its native
- * {@link java.util.concurrent.ExecutorService} type.
+ * {@link ExecutorService} type.
  *
  * <p>The default configuration is a core pool size of 1, with unlimited max pool size
  * and unlimited queue capacity. This is roughly equivalent to
- * {@link java.util.concurrent.Executors#newSingleThreadExecutor()}, sharing a single
+ * {@link Executors#newSingleThreadExecutor()}, sharing a single
  * thread for all tasks. Setting {@link #setQueueCapacity "queueCapacity"} to 0 mimics
- * {@link java.util.concurrent.Executors#newCachedThreadPool()}, with immediate scaling
+ * {@link Executors#newCachedThreadPool()}, with immediate scaling
  * of threads in the pool to a potentially very high number. Consider also setting a
  * {@link #setMaxPoolSize "maxPoolSize"} at that point, as well as possibly a higher
  * {@link #setCorePoolSize "corePoolSize"} (see also the
@@ -49,7 +49,7 @@ import org.springframework.lang.Nullable;
  *
  * <p>For an alternative, you may set up a {@link ThreadPoolExecutor} instance directly
  * using constructor injection, or use a factory method definition that points to the
- * {@link java.util.concurrent.Executors} class.
+ * {@link Executors} class.
  * <b>This is strongly recommended in particular for common {@code @Bean} methods in
  * configuration classes, where this {@code FactoryBean} variant would force you to
  * return the {@code FactoryBean} type instead of the actual {@code Executor} type.</b>
@@ -59,9 +59,9 @@ import org.springframework.lang.Nullable;
 
  * @author Juergen Hoeller
  * @since 3.0
- * @see java.util.concurrent.ExecutorService
- * @see java.util.concurrent.Executors
- * @see java.util.concurrent.ThreadPoolExecutor
+ * @see ExecutorService
+ * @see Executors
+ * @see ThreadPoolExecutor
  */
 @SuppressWarnings("serial")
 public class ThreadPoolExecutorFactoryBean extends ExecutorConfigurationSupport
@@ -112,7 +112,7 @@ public class ThreadPoolExecutorFactoryBean extends ExecutorConfigurationSupport
 	 * growing and shrinking even in combination with a non-zero queue (since
 	 * the max pool size will only grow once the queue is full).
 	 * <p>Default is "false".
-	 * @see java.util.concurrent.ThreadPoolExecutor#allowCoreThreadTimeOut(boolean)
+	 * @see ThreadPoolExecutor#allowCoreThreadTimeOut(boolean)
 	 */
 	public void setAllowCoreThreadTimeOut(boolean allowCoreThreadTimeOut) {
 		this.allowCoreThreadTimeOut = allowCoreThreadTimeOut;
@@ -123,8 +123,8 @@ public class ThreadPoolExecutorFactoryBean extends ExecutorConfigurationSupport
 	 * Default is {@code Integer.MAX_VALUE}.
 	 * <p>Any positive value will lead to a LinkedBlockingQueue instance;
 	 * any other value will lead to a SynchronousQueue instance.
-	 * @see java.util.concurrent.LinkedBlockingQueue
-	 * @see java.util.concurrent.SynchronousQueue
+	 * @see LinkedBlockingQueue
+	 * @see SynchronousQueue
 	 */
 	public void setQueueCapacity(int queueCapacity) {
 		this.queueCapacity = queueCapacity;
@@ -136,7 +136,7 @@ public class ThreadPoolExecutorFactoryBean extends ExecutorConfigurationSupport
 	 * <p>Default is "false", exposing the raw executor as bean reference.
 	 * Switch this flag to "true" to strictly prevent clients from
 	 * modifying the executor's configuration.
-	 * @see java.util.concurrent.Executors#unconfigurableExecutorService
+	 * @see Executors#unconfigurableExecutorService
 	 */
 	public void setExposeUnconfigurableExecutor(boolean exposeUnconfigurableExecutor) {
 		this.exposeUnconfigurableExecutor = exposeUnconfigurableExecutor;
@@ -188,8 +188,8 @@ public class ThreadPoolExecutorFactoryBean extends ExecutorConfigurationSupport
 	 * capacity value; a SynchronousQueue else.
 	 * @param queueCapacity the specified queue capacity
 	 * @return the BlockingQueue instance
-	 * @see java.util.concurrent.LinkedBlockingQueue
-	 * @see java.util.concurrent.SynchronousQueue
+	 * @see LinkedBlockingQueue
+	 * @see SynchronousQueue
 	 */
 	protected BlockingQueue<Runnable> createQueue(int queueCapacity) {
 		if (queueCapacity > 0) {

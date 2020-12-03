@@ -81,7 +81,7 @@ import org.springframework.core.Ordered;
  * components that power annotation-driven cache management, such as the
  * {@link org.springframework.cache.interceptor.CacheInterceptor CacheInterceptor} and the
  * proxy- or AspectJ-based advice that weaves the interceptor into the call stack when
- * {@link org.springframework.cache.annotation.Cacheable @Cacheable} methods are invoked.
+ * {@link Cacheable @Cacheable} methods are invoked.
  *
  * <p>If the JSR-107 API and Spring's JCache implementation are present, the necessary
  * components to manage standard cache annotations are also registered. This creates the
@@ -143,7 +143,7 @@ import org.springframework.core.Ordered;
  * from this method if no customization is necessary.
  *
  * <p>{@link CachingConfigurer} offers additional customization options: it is recommended
- * to extend from {@link org.springframework.cache.annotation.CachingConfigurerSupport
+ * to extend from {@link CachingConfigurerSupport
  * CachingConfigurerSupport} that provides a default implementation for all methods which
  * can be useful if you do not need to customize everything. See {@link CachingConfigurer}
  * Javadoc for further details.

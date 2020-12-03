@@ -26,7 +26,7 @@ import org.springframework.ui.context.ThemeSource;
 /**
  * Utility class for UI application context implementations.
  * Provides support for a special bean named "themeSource",
- * of type {@link org.springframework.ui.context.ThemeSource}.
+ * of type {@link ThemeSource}.
  *
  * @author Jean-Pierre Pawlak
  * @author Juergen Hoeller
@@ -37,7 +37,7 @@ public abstract class UiApplicationContextUtils {
 	/**
 	 * Name of the ThemeSource bean in the factory.
 	 * If none is supplied, theme resolution is delegated to the parent.
-	 * @see org.springframework.ui.context.ThemeSource
+	 * @see ThemeSource
 	 */
 	public static final String THEME_SOURCE_BEAN_NAME = "themeSource";
 

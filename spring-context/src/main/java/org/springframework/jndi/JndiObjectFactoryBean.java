@@ -38,7 +38,7 @@ import org.springframework.util.Assert;
 import org.springframework.util.ClassUtils;
 
 /**
- * {@link org.springframework.beans.factory.FactoryBean} that looks up a
+ * {@link FactoryBean} that looks up a
  * JNDI object. Exposes the object found in JNDI for bean references,
  * e.g. for data access object's "dataSource" property in case of a
  * {@link javax.sql.DataSource}.

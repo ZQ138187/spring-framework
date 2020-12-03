@@ -38,7 +38,7 @@ import org.springframework.lang.Nullable;
  * setup (i.e. without profiles).
  *
  * <p>Note: This class is not strictly JSR-236 based; it can work with any regular
- * {@link java.util.concurrent.ThreadFactory} that can be found in JNDI. Therefore,
+ * {@link ThreadFactory} that can be found in JNDI. Therefore,
  * the default JNDI name "java:comp/DefaultManagedThreadFactory" can be customized
  * through the {@link #setJndiName "jndiName"} bean property.
  *
@@ -86,7 +86,7 @@ public class DefaultManagedAwareThreadFactory extends CustomizableThreadFactory 
 	}
 
 	/**
-	 * Specify a JNDI name of the {@link java.util.concurrent.ThreadFactory} to delegate to,
+	 * Specify a JNDI name of the {@link ThreadFactory} to delegate to,
 	 * replacing the default JNDI name "java:comp/DefaultManagedThreadFactory".
 	 * <p>This can either be a fully qualified JNDI name, or the JNDI name relative
 	 * to the current environment naming context if "resourceRef" is set to "true".

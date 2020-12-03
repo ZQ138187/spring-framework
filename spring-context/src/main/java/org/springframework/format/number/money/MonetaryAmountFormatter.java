@@ -25,9 +25,9 @@ import org.springframework.format.Formatter;
 import org.springframework.lang.Nullable;
 
 /**
- * Formatter for JSR-354 {@link javax.money.MonetaryAmount} values,
- * delegating to {@link javax.money.format.MonetaryAmountFormat#format}
- * and {@link javax.money.format.MonetaryAmountFormat#parse}.
+ * Formatter for JSR-354 {@link MonetaryAmount} values,
+ * delegating to {@link MonetaryAmountFormat#format}
+ * and {@link MonetaryAmountFormat#parse}.
  *
  * @author Juergen Hoeller
  * @since 4.2
@@ -80,7 +80,7 @@ public class MonetaryAmountFormatter implements Formatter<MonetaryAmount> {
 	/**
 	 * Obtain a MonetaryAmountFormat for the given locale.
 	 * <p>The default implementation simply calls
-	 * {@link javax.money.format.MonetaryFormats#getAmountFormat}
+	 * {@link MonetaryFormats#getAmountFormat}
 	 * with either the configured format name or the given locale.
 	 * @param locale the current locale
 	 * @return the MonetaryAmountFormat (never {@code null})

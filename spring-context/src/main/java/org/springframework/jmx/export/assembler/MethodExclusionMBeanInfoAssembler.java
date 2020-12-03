@@ -69,7 +69,7 @@ public class MethodExclusionMBeanInfoAssembler extends AbstractConfigurableMBean
 	 * Set the array of method names to be <b>ignored</b> when creating the management info.
 	 * <p>These method names will be used for a bean if no entry corresponding to
 	 * that bean is found in the {@code ignoredMethodsMappings} property.
-	 * @see #setIgnoredMethodMappings(java.util.Properties)
+	 * @see #setIgnoredMethodMappings(Properties)
 	 */
 	public void setIgnoredMethods(String... ignoredMethodNames) {
 		this.ignoredMethods = new HashSet<>(Arrays.asList(ignoredMethodNames));

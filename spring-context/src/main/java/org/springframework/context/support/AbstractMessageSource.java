@@ -57,10 +57,10 @@ import org.springframework.util.ObjectUtils;
  *
  * @author Juergen Hoeller
  * @author Rod Johnson
- * @see #resolveCode(String, java.util.Locale)
- * @see #resolveCodeWithoutArguments(String, java.util.Locale)
+ * @see #resolveCode(String, Locale)
+ * @see #resolveCodeWithoutArguments(String, Locale)
  * @see #setAlwaysUseMessageFormat
- * @see java.text.MessageFormat
+ * @see MessageFormat
  */
 public abstract class AbstractMessageSource extends MessageSourceSupport implements HierarchicalMessageSource {
 
@@ -355,7 +355,7 @@ public abstract class AbstractMessageSource extends MessageSourceSupport impleme
 	 * (subclasses are encouraged to support internationalization)
 	 * @return the message String, or {@code null} if not found
 	 * @see #resolveCode
-	 * @see java.text.MessageFormat
+	 * @see MessageFormat
 	 */
 	@Nullable
 	protected String resolveCodeWithoutArguments(String code, Locale locale) {
@@ -379,7 +379,7 @@ public abstract class AbstractMessageSource extends MessageSourceSupport impleme
 	 * @param locale the locale to resolve the code for
 	 * (subclasses are encouraged to support internationalization)
 	 * @return the MessageFormat for the message, or {@code null} if not found
-	 * @see #resolveCodeWithoutArguments(String, java.util.Locale)
+	 * @see #resolveCodeWithoutArguments(String, Locale)
 	 */
 	@Nullable
 	protected abstract MessageFormat resolveCode(String code, Locale locale);

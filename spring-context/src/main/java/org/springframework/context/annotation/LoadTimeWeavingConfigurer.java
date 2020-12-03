@@ -20,7 +20,7 @@ import org.springframework.instrument.classloading.LoadTimeWeaver;
 
 /**
  * Interface to be implemented by
- * {@link org.springframework.context.annotation.Configuration @Configuration}
+ * {@link Configuration @Configuration}
  * classes annotated with {@link EnableLoadTimeWeaving @EnableLoadTimeWeaving} that wish to
  * customize the {@link LoadTimeWeaver} instance to be used.
  *

@@ -34,12 +34,12 @@ import org.springframework.util.ReflectionUtils;
 import org.springframework.util.StringUtils;
 
 /**
- * {@link org.springframework.scripting.ScriptFactory} implementation based
+ * {@link ScriptFactory} implementation based
  * on the JSR-223 script engine abstraction (as included in Java 6+).
  * Supports JavaScript, Groovy, JRuby, and other JSR-223 compliant engines.
  *
  * <p>Typically used in combination with a
- * {@link org.springframework.scripting.support.ScriptFactoryPostProcessor};
+ * {@link ScriptFactoryPostProcessor};
  * see the latter's javadoc for a configuration example.
  *
  * @author Juergen Hoeller

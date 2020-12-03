@@ -41,7 +41,7 @@ import org.springframework.util.concurrent.ListenableFuture;
 import org.springframework.util.concurrent.ListenableFutureTask;
 
 /**
- * JavaBean that allows for configuring a {@link java.util.concurrent.ThreadPoolExecutor}
+ * JavaBean that allows for configuring a {@link ThreadPoolExecutor}
  * in bean style (through its "corePoolSize", "maxPoolSize", "keepAliveSeconds", "queueCapacity"
  * properties) and exposing it as a Spring {@link org.springframework.core.task.TaskExecutor}.
  * This class is also well suited for management and monitoring (e.g. through JMX),
@@ -60,21 +60,21 @@ import org.springframework.util.concurrent.ListenableFutureTask;
  *
  * <p><b>NOTE:</b> This class implements Spring's
  * {@link org.springframework.core.task.TaskExecutor} interface as well as the
- * {@link java.util.concurrent.Executor} interface, with the former being the primary
+ * {@link Executor} interface, with the former being the primary
  * interface, the other just serving as secondary convenience. For this reason, the
  * exception handling follows the TaskExecutor contract rather than the Executor contract,
- * in particular regarding the {@link org.springframework.core.task.TaskRejectedException}.
+ * in particular regarding the {@link TaskRejectedException}.
  *
  * <p>For an alternative, you may set up a ThreadPoolExecutor instance directly using
  * constructor injection, or use a factory method definition that points to the
  * {@link java.util.concurrent.Executors} class. To expose such a raw Executor as a
  * Spring {@link org.springframework.core.task.TaskExecutor}, simply wrap it with a
- * {@link org.springframework.scheduling.concurrent.ConcurrentTaskExecutor} adapter.
+ * {@link ConcurrentTaskExecutor} adapter.
  *
  * @author Juergen Hoeller
  * @since 2.0
  * @see org.springframework.core.task.TaskExecutor
- * @see java.util.concurrent.ThreadPoolExecutor
+ * @see ThreadPoolExecutor
  * @see ThreadPoolExecutorFactoryBean
  * @see ConcurrentTaskExecutor
  */
@@ -179,8 +179,8 @@ public class ThreadPoolTaskExecutor extends ExecutorConfigurationSupport
 	 * Default is {@code Integer.MAX_VALUE}.
 	 * <p>Any positive value will lead to a LinkedBlockingQueue instance;
 	 * any other value will lead to a SynchronousQueue instance.
-	 * @see java.util.concurrent.LinkedBlockingQueue
-	 * @see java.util.concurrent.SynchronousQueue
+	 * @see LinkedBlockingQueue
+	 * @see SynchronousQueue
 	 */
 	public void setQueueCapacity(int queueCapacity) {
 		this.queueCapacity = queueCapacity;
@@ -191,7 +191,7 @@ public class ThreadPoolTaskExecutor extends ExecutorConfigurationSupport
 	 * growing and shrinking even in combination with a non-zero queue (since
 	 * the max pool size will only grow once the queue is full).
 	 * <p>Default is "false".
-	 * @see java.util.concurrent.ThreadPoolExecutor#allowCoreThreadTimeOut(boolean)
+	 * @see ThreadPoolExecutor#allowCoreThreadTimeOut(boolean)
 	 */
 	public void setAllowCoreThreadTimeOut(boolean allowCoreThreadTimeOut) {
 		this.allowCoreThreadTimeOut = allowCoreThreadTimeOut;
@@ -267,8 +267,8 @@ public class ThreadPoolTaskExecutor extends ExecutorConfigurationSupport
 	 * capacity value; a SynchronousQueue else.
 	 * @param queueCapacity the specified queue capacity
 	 * @return the BlockingQueue instance
-	 * @see java.util.concurrent.LinkedBlockingQueue
-	 * @see java.util.concurrent.SynchronousQueue
+	 * @see LinkedBlockingQueue
+	 * @see SynchronousQueue
 	 */
 	protected BlockingQueue<Runnable> createQueue(int queueCapacity) {
 		if (queueCapacity > 0) {
@@ -291,7 +291,7 @@ public class ThreadPoolTaskExecutor extends ExecutorConfigurationSupport
 
 	/**
 	 * Return the current pool size.
-	 * @see java.util.concurrent.ThreadPoolExecutor#getPoolSize()
+	 * @see ThreadPoolExecutor#getPoolSize()
 	 */
 	public int getPoolSize() {
 		if (this.threadPoolExecutor == null) {
@@ -303,7 +303,7 @@ public class ThreadPoolTaskExecutor extends ExecutorConfigurationSupport
 
 	/**
 	 * Return the number of currently active threads.
-	 * @see java.util.concurrent.ThreadPoolExecutor#getActiveCount()
+	 * @see ThreadPoolExecutor#getActiveCount()
 	 */
 	public int getActiveCount() {
 		if (this.threadPoolExecutor == null) {

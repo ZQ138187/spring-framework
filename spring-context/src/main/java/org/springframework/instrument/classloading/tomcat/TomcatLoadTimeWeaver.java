@@ -27,7 +27,7 @@ import org.springframework.util.Assert;
 import org.springframework.util.ClassUtils;
 
 /**
- * {@link org.springframework.instrument.classloading.LoadTimeWeaver} implementation
+ * {@link LoadTimeWeaver} implementation
  * for Tomcat's new {@code org.apache.tomcat.InstrumentableClassLoader}.
  * Also capable of handling Spring's TomcatInstrumentableClassLoader when encountered.
  *
@@ -49,7 +49,7 @@ public class TomcatLoadTimeWeaver implements LoadTimeWeaver {
 	/**
 	 * Create a new instance of the {@link TomcatLoadTimeWeaver} class using
 	 * the default {@link ClassLoader class loader}.
-	 * @see org.springframework.util.ClassUtils#getDefaultClassLoader()
+	 * @see ClassUtils#getDefaultClassLoader()
 	 */
 	public TomcatLoadTimeWeaver() {
 		this(ClassUtils.getDefaultClassLoader());

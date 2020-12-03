@@ -26,7 +26,7 @@ import org.springframework.util.Assert;
 
 /**
  * EL property accessor that knows how to traverse the beans of a
- * Spring {@link org.springframework.beans.factory.BeanFactory}.
+ * Spring {@link BeanFactory}.
  *
  * @author Juergen Hoeller
  * @author Andy Clement

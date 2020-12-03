@@ -52,7 +52,7 @@ public class GlassFishLoadTimeWeaver implements LoadTimeWeaver {
 	/**
 	 * Create a new instance of the {@link GlassFishLoadTimeWeaver} class using
 	 * the default {@link ClassLoader class loader}.
-	 * @see org.springframework.util.ClassUtils#getDefaultClassLoader()
+	 * @see ClassUtils#getDefaultClassLoader()
 	 */
 	public GlassFishLoadTimeWeaver() {
 		this(ClassUtils.getDefaultClassLoader());

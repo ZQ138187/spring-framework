@@ -32,7 +32,7 @@ import org.springframework.util.ClassUtils;
 import org.springframework.util.StringUtils;
 
 /**
- * {@link org.springframework.beans.factory.support.BeanNameGenerator}
+ * {@link BeanNameGenerator}
  * implementation for bean classes annotated with the
  * {@link org.springframework.stereotype.Component @Component} annotation
  * or with another annotation that is itself annotated with

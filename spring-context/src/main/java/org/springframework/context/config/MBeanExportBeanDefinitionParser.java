@@ -31,13 +31,13 @@ import org.springframework.util.StringUtils;
  * Parser for the &lt;context:mbean-export/&gt; element.
  *
  * <p>Registers an instance of
- * {@link org.springframework.jmx.export.annotation.AnnotationMBeanExporter}
+ * {@link AnnotationMBeanExporter}
  * within the context.
  *
  * @author Juergen Hoeller
  * @author Mark Fisher
  * @since 2.5
- * @see org.springframework.jmx.export.annotation.AnnotationMBeanExporter
+ * @see AnnotationMBeanExporter
  */
 class MBeanExportBeanDefinitionParser extends AbstractBeanDefinitionParser {
 

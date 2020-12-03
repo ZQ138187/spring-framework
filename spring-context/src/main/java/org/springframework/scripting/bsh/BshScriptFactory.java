@@ -30,7 +30,7 @@ import org.springframework.util.ClassUtils;
 import org.springframework.util.ReflectionUtils;
 
 /**
- * {@link org.springframework.scripting.ScriptFactory} implementation
+ * {@link ScriptFactory} implementation
  * for a BeanShell script.
  *
  * <p>Typically used in combination with a

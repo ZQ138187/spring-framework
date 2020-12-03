@@ -22,8 +22,8 @@ import org.springframework.ui.ExtendedModelMap;
 import org.springframework.validation.BindingResult;
 
 /**
- * Subclass of {@link org.springframework.ui.ExtendedModelMap} that automatically removes
- * a {@link org.springframework.validation.BindingResult} object if the corresponding
+ * Subclass of {@link ExtendedModelMap} that automatically removes
+ * a {@link BindingResult} object if the corresponding
  * target attribute gets replaced through regular {@link Map} operations.
  *
  * <p>This is the class exposed to handler methods by Spring MVC, typically consumed through
@@ -33,7 +33,7 @@ import org.springframework.validation.BindingResult;
  *
  * @author Juergen Hoeller
  * @since 2.5.6
- * @see org.springframework.validation.BindingResult
+ * @see BindingResult
  */
 @SuppressWarnings("serial")
 public class BindingAwareModelMap extends ExtendedModelMap {

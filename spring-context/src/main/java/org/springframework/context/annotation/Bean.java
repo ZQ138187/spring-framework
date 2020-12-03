@@ -281,7 +281,7 @@ public @interface Bean {
 	 * {@link org.springframework.beans.factory.DisposableBean} callback interface will
 	 * nevertheless get detected and the corresponding destroy method invoked: In other
 	 * words, {@code destroyMethod=""} only affects custom close/shutdown methods and
-	 * {@link java.io.Closeable}/{@link java.lang.AutoCloseable} declared close methods.
+	 * {@link java.io.Closeable}/{@link AutoCloseable} declared close methods.
 	 * <p>Note: Only invoked on beans whose lifecycle is under the full control of the
 	 * factory, which is always the case for singletons but not guaranteed for any
 	 * other scope.

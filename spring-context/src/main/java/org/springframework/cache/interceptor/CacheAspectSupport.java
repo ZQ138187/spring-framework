@@ -211,7 +211,7 @@ public abstract class CacheAspectSupport extends AbstractCacheInvoker
 	 * @param method the method we're interested in
 	 * @param targetClass class the method is on
 	 * @return log message identifying this method
-	 * @see org.springframework.util.ClassUtils#getQualifiedMethodName
+	 * @see ClassUtils#getQualifiedMethodName
 	 */
 	protected String methodIdentification(Method method, Class<?> targetClass) {
 		Method specificMethod = ClassUtils.getMostSpecificMethod(method, targetClass);
@@ -284,7 +284,7 @@ public abstract class CacheAspectSupport extends AbstractCacheInvoker
 	 * @param beanName the name of the bean, as defined by the operation
 	 * @param expectedType type for the bean
 	 * @return the bean matching that name
-	 * @throws org.springframework.beans.factory.NoSuchBeanDefinitionException if such bean does not exist
+	 * @throws NoSuchBeanDefinitionException if such bean does not exist
 	 * @see CacheOperation#getKeyGenerator()
 	 * @see CacheOperation#getCacheManager()
 	 * @see CacheOperation#getCacheResolver()

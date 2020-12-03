@@ -182,8 +182,8 @@ public class SpringValidatorAdapter implements SmartValidator, javax.validation.
 	 * @param violation the current JSR-303 ConstraintViolation
 	 * @return the Spring-reported field (for use with {@link Errors})
 	 * @since 4.2
-	 * @see javax.validation.ConstraintViolation#getPropertyPath()
-	 * @see org.springframework.validation.FieldError#getField()
+	 * @see ConstraintViolation#getPropertyPath()
+	 * @see FieldError#getField()
 	 */
 	protected String determineField(ConstraintViolation<Object> violation) {
 		Path path = violation.getPropertyPath();
@@ -222,7 +222,7 @@ public class SpringValidatorAdapter implements SmartValidator, javax.validation.
 	 * @param descriptor the JSR-303 ConstraintDescriptor for the current violation
 	 * @return a corresponding error code (for use with {@link Errors})
 	 * @since 4.2
-	 * @see javax.validation.metadata.ConstraintDescriptor#getAnnotation()
+	 * @see ConstraintDescriptor#getAnnotation()
 	 * @see org.springframework.validation.MessageCodesResolver
 	 */
 	protected String determineErrorCode(ConstraintDescriptor<?> descriptor) {
@@ -241,8 +241,8 @@ public class SpringValidatorAdapter implements SmartValidator, javax.validation.
 	 * @param field the field that caused the binding error
 	 * @param descriptor the JSR-303 constraint descriptor
 	 * @return the Object array that represents the FieldError arguments
-	 * @see org.springframework.validation.FieldError#getArguments
-	 * @see org.springframework.context.support.DefaultMessageSourceResolvable
+	 * @see FieldError#getArguments
+	 * @see DefaultMessageSourceResolvable
 	 * @see org.springframework.validation.DefaultBindingErrorProcessor#getArgumentsForBindError
 	 */
 	protected Object[] getArgumentsForConstraint(String objectName, String field, ConstraintDescriptor<?> descriptor) {
@@ -287,8 +287,8 @@ public class SpringValidatorAdapter implements SmartValidator, javax.validation.
 	 * which contains the current field's value
 	 * @return the invalid value to expose as part of the field error
 	 * @since 4.2
-	 * @see javax.validation.ConstraintViolation#getInvalidValue()
-	 * @see org.springframework.validation.FieldError#getRejectedValue()
+	 * @see ConstraintViolation#getInvalidValue()
+	 * @see FieldError#getRejectedValue()
 	 */
 	@Nullable
 	protected Object getRejectedValue(String field, ConstraintViolation<Object> violation, BindingResult bindingResult) {

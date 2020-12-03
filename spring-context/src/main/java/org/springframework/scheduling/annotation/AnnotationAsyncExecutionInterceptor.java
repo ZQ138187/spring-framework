@@ -34,8 +34,8 @@ import org.springframework.lang.Nullable;
  * @author Chris Beams
  * @author Stephane Nicoll
  * @since 3.1.2
- * @see org.springframework.scheduling.annotation.Async
- * @see org.springframework.scheduling.annotation.AsyncAnnotationAdvisor
+ * @see Async
+ * @see AsyncAnnotationAdvisor
  */
 public class AnnotationAsyncExecutionInterceptor extends AsyncExecutionInterceptor {
 

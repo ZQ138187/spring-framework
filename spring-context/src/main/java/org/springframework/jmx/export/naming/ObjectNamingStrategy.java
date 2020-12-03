@@ -30,7 +30,7 @@ import org.springframework.lang.Nullable;
  * @author Rob Harrop
  * @since 1.2
  * @see org.springframework.jmx.export.MBeanExporter
- * @see javax.management.ObjectName
+ * @see ObjectName
  */
 @FunctionalInterface
 public interface ObjectNamingStrategy {

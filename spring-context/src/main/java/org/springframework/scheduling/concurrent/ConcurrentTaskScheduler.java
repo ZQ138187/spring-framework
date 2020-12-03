@@ -38,11 +38,11 @@ import org.springframework.util.ErrorHandler;
 
 /**
  * Adapter that takes a {@code java.util.concurrent.ScheduledExecutorService} and
- * exposes a Spring {@link org.springframework.scheduling.TaskScheduler} for it.
+ * exposes a Spring {@link TaskScheduler} for it.
  * Extends {@link ConcurrentTaskExecutor} in order to implement the
  * {@link org.springframework.scheduling.SchedulingTaskExecutor} interface as well.
  *
- * <p>Autodetects a JSR-236 {@link javax.enterprise.concurrent.ManagedScheduledExecutorService}
+ * <p>Autodetects a JSR-236 {@link ManagedScheduledExecutorService}
  * in order to use it for trigger-based scheduling if possible, instead of Spring's
  * local trigger management which ends up delegating to regular delay-based scheduling
  * against the {@code java.util.concurrent.ScheduledExecutorService} API. For JSR-236 style
@@ -50,16 +50,16 @@ import org.springframework.util.ErrorHandler;
  *
  * <p>Note that there is a pre-built {@link ThreadPoolTaskScheduler} that allows for
  * defining a {@link java.util.concurrent.ScheduledThreadPoolExecutor} in bean style,
- * exposing it as a Spring {@link org.springframework.scheduling.TaskScheduler} directly.
+ * exposing it as a Spring {@link TaskScheduler} directly.
  * This is a convenient alternative to a raw ScheduledThreadPoolExecutor definition with
  * a separate definition of the present adapter class.
  *
  * @author Juergen Hoeller
  * @author Mark Fisher
  * @since 3.0
- * @see java.util.concurrent.ScheduledExecutorService
+ * @see ScheduledExecutorService
  * @see java.util.concurrent.ScheduledThreadPoolExecutor
- * @see java.util.concurrent.Executors
+ * @see Executors
  * @see DefaultManagedTaskScheduler
  * @see ThreadPoolTaskScheduler
  */
@@ -92,7 +92,7 @@ public class ConcurrentTaskScheduler extends ConcurrentTaskExecutor implements T
 	/**
 	 * Create a new ConcurrentTaskScheduler,
 	 * using a single thread executor as default.
-	 * @see java.util.concurrent.Executors#newSingleThreadScheduledExecutor()
+	 * @see Executors#newSingleThreadScheduledExecutor()
 	 */
 	public ConcurrentTaskScheduler() {
 		super();
@@ -101,11 +101,11 @@ public class ConcurrentTaskScheduler extends ConcurrentTaskExecutor implements T
 
 	/**
 	 * Create a new ConcurrentTaskScheduler, using the given
-	 * {@link java.util.concurrent.ScheduledExecutorService} as shared delegate.
-	 * <p>Autodetects a JSR-236 {@link javax.enterprise.concurrent.ManagedScheduledExecutorService}
+	 * {@link ScheduledExecutorService} as shared delegate.
+	 * <p>Autodetects a JSR-236 {@link ManagedScheduledExecutorService}
 	 * in order to use it for trigger-based scheduling if possible,
 	 * instead of Spring's local trigger management.
-	 * @param scheduledExecutor the {@link java.util.concurrent.ScheduledExecutorService}
+	 * @param scheduledExecutor the {@link ScheduledExecutorService}
 	 * to delegate to for {@link org.springframework.scheduling.SchedulingTaskExecutor}
 	 * as well as {@link TaskScheduler} invocations
 	 */
@@ -115,14 +115,14 @@ public class ConcurrentTaskScheduler extends ConcurrentTaskExecutor implements T
 	}
 
 	/**
-	 * Create a new ConcurrentTaskScheduler, using the given {@link java.util.concurrent.Executor}
-	 * and {@link java.util.concurrent.ScheduledExecutorService} as delegates.
-	 * <p>Autodetects a JSR-236 {@link javax.enterprise.concurrent.ManagedScheduledExecutorService}
+	 * Create a new ConcurrentTaskScheduler, using the given {@link Executor}
+	 * and {@link ScheduledExecutorService} as delegates.
+	 * <p>Autodetects a JSR-236 {@link ManagedScheduledExecutorService}
 	 * in order to use it for trigger-based scheduling if possible,
 	 * instead of Spring's local trigger management.
-	 * @param concurrentExecutor the {@link java.util.concurrent.Executor} to delegate to
+	 * @param concurrentExecutor the {@link Executor} to delegate to
 	 * for {@link org.springframework.scheduling.SchedulingTaskExecutor} invocations
-	 * @param scheduledExecutor the {@link java.util.concurrent.ScheduledExecutorService}
+	 * @param scheduledExecutor the {@link ScheduledExecutorService}
 	 * to delegate to for {@link TaskScheduler} invocations
 	 */
 	public ConcurrentTaskScheduler(Executor concurrentExecutor, ScheduledExecutorService scheduledExecutor) {
@@ -145,8 +145,8 @@ public class ConcurrentTaskScheduler extends ConcurrentTaskExecutor implements T
 	}
 
 	/**
-	 * Specify the {@link java.util.concurrent.ScheduledExecutorService} to delegate to.
-	 * <p>Autodetects a JSR-236 {@link javax.enterprise.concurrent.ManagedScheduledExecutorService}
+	 * Specify the {@link ScheduledExecutorService} to delegate to.
+	 * <p>Autodetects a JSR-236 {@link ManagedScheduledExecutorService}
 	 * in order to use it for trigger-based scheduling if possible,
 	 * instead of Spring's local trigger management.
 	 * <p>Note: This will only apply to {@link TaskScheduler} invocations.

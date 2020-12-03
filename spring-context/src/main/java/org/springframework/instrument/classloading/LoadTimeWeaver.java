@@ -28,7 +28,7 @@ import java.lang.instrument.ClassFileTransformer;
  * @author Rod Johnson
  * @author Costin Leau
  * @since 2.0
- * @see java.lang.instrument.ClassFileTransformer
+ * @see ClassFileTransformer
  */
 public interface LoadTimeWeaver {
 

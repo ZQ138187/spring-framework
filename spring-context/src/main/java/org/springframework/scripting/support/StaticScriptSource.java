@@ -22,7 +22,7 @@ import org.springframework.util.Assert;
 
 /**
  * Static implementation of the
- * {@link org.springframework.scripting.ScriptSource} interface,
+ * {@link ScriptSource} interface,
  * encapsulating a given String that contains the script source text.
  * Supports programmatic updates of the script String.
  *

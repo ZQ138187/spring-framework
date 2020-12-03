@@ -33,7 +33,7 @@ import org.springframework.util.Assert;
  *
  * @author Juergen Hoeller
  * @since 2.0
- * @see java.util.Map
+ * @see Map
  */
 @SuppressWarnings("serial")
 public class MapBindingResult extends AbstractBindingResult implements Serializable {

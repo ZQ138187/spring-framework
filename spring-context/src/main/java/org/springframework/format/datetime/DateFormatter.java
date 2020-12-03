@@ -32,7 +32,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.StringUtils;
 
 /**
- * A formatter for {@link java.util.Date} types.
+ * A formatter for {@link Date} types.
  * Allows the configuration of an explicit date pattern and locale.
  *
  * @author Keith Donald

@@ -26,7 +26,7 @@ import org.springframework.beans.factory.support.BeanDefinitionRegistry;
  *
  * @author Juergen Hoeller
  * @since 3.0
- * @see org.springframework.aop.scope.ScopedProxyUtils#createScopedProxy
+ * @see ScopedProxyUtils#createScopedProxy
  */
 class ScopedProxyCreator {
 

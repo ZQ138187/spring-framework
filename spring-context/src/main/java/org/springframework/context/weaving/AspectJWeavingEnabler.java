@@ -33,9 +33,9 @@ import org.springframework.lang.Nullable;
 
 /**
  * Post-processor that registers AspectJ's
- * {@link org.aspectj.weaver.loadtime.ClassPreProcessorAgentAdapter}
+ * {@link ClassPreProcessorAgentAdapter}
  * with the Spring application context's default
- * {@link org.springframework.instrument.classloading.LoadTimeWeaver}.
+ * {@link LoadTimeWeaver}.
  *
  * @author Juergen Hoeller
  * @author Ramnivas Laddad

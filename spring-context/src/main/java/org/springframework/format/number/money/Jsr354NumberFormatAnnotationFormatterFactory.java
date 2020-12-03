@@ -38,7 +38,7 @@ import org.springframework.format.number.PercentStyleFormatter;
 import org.springframework.util.StringUtils;
 
 /**
- * Formats {@link javax.money.MonetaryAmount} fields annotated
+ * Formats {@link MonetaryAmount} fields annotated
  * with Spring's common {@link NumberFormat} annotation.
  *
  * @author Juergen Hoeller

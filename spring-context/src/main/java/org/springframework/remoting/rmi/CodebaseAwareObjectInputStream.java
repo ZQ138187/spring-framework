@@ -47,7 +47,7 @@ import org.springframework.lang.Nullable;
  *
  * @author Juergen Hoeller
  * @since 1.1.3
- * @see java.rmi.server.RMIClassLoader
+ * @see RMIClassLoader
  * @see RemoteInvocationSerializingExporter#createObjectInputStream
  * @see org.springframework.remoting.httpinvoker.HttpInvokerClientInterceptor#setCodebaseUrl
  */
@@ -61,7 +61,7 @@ public class CodebaseAwareObjectInputStream extends ConfigurableObjectInputStrea
 	 * @param in the InputStream to read from
 	 * @param codebaseUrl the codebase URL to load classes from if not found locally
 	 * (can consist of multiple URLs, separated by spaces)
-	 * @see java.io.ObjectInputStream#ObjectInputStream(java.io.InputStream)
+	 * @see java.io.ObjectInputStream#ObjectInputStream(InputStream)
 	 */
 	public CodebaseAwareObjectInputStream(InputStream in, String codebaseUrl) throws IOException {
 		this(in, null, codebaseUrl);
@@ -74,7 +74,7 @@ public class CodebaseAwareObjectInputStream extends ConfigurableObjectInputStrea
 	 * (may be {@code null} to indicate RMI's default ClassLoader)
 	 * @param codebaseUrl the codebase URL to load classes from if not found locally
 	 * (can consist of multiple URLs, separated by spaces)
-	 * @see java.io.ObjectInputStream#ObjectInputStream(java.io.InputStream)
+	 * @see java.io.ObjectInputStream#ObjectInputStream(InputStream)
 	 */
 	public CodebaseAwareObjectInputStream(
 			InputStream in, @Nullable ClassLoader classLoader, String codebaseUrl) throws IOException {
@@ -90,7 +90,7 @@ public class CodebaseAwareObjectInputStream extends ConfigurableObjectInputStrea
 	 * (may be {@code null} to indicate RMI's default ClassLoader)
 	 * @param acceptProxyClasses whether to accept deserialization of proxy classes
 	 * (may be deactivated as a security measure)
-	 * @see java.io.ObjectInputStream#ObjectInputStream(java.io.InputStream)
+	 * @see java.io.ObjectInputStream#ObjectInputStream(InputStream)
 	 */
 	public CodebaseAwareObjectInputStream(
 			InputStream in, @Nullable ClassLoader classLoader, boolean acceptProxyClasses) throws IOException {

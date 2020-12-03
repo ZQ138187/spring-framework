@@ -59,7 +59,7 @@ import org.springframework.util.ReflectionUtils;
  * @author Costin Leau
  * @author Juergen Hoeller
  * @since 2.0
- * @see #addTransformer(java.lang.instrument.ClassFileTransformer)
+ * @see #addTransformer(ClassFileTransformer)
  * @see #getThrowawayClassLoader()
  * @see SimpleThrowawayClassLoader
  */

@@ -79,7 +79,7 @@ public class CronSequenceGenerator {
 	 * using the default {@link TimeZone}.
 	 * @param expression a space-separated list of time fields
 	 * @throws IllegalArgumentException if the pattern cannot be parsed
-	 * @see java.util.TimeZone#getDefault()
+	 * @see TimeZone#getDefault()
 	 */
 	public CronSequenceGenerator(String expression) {
 		this(expression, TimeZone.getDefault());

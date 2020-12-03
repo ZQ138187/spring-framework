@@ -31,9 +31,9 @@ import org.springframework.util.Assert;
 import org.springframework.util.ObjectUtils;
 
 /**
- * {@link org.springframework.beans.factory.FactoryBean} that sets up
- * a {@link java.util.concurrent.ScheduledExecutorService}
- * (by default: a {@link java.util.concurrent.ScheduledThreadPoolExecutor})
+ * {@link FactoryBean} that sets up
+ * a {@link ScheduledExecutorService}
+ * (by default: a {@link ScheduledThreadPoolExecutor})
  * and exposes it for bean references.
  *
  * <p>Allows for registration of {@link ScheduledExecutorTask ScheduledExecutorTasks},
@@ -45,17 +45,17 @@ import org.springframework.util.ObjectUtils;
  *
  * <p>For an alternative, you may set up a {@link ScheduledThreadPoolExecutor} instance
  * directly using constructor injection, or use a factory method definition that points
- * to the {@link java.util.concurrent.Executors} class.
+ * to the {@link Executors} class.
  * <b>This is strongly recommended in particular for common {@code @Bean} methods in
  * configuration classes, where this {@code FactoryBean} variant would force you to
  * return the {@code FactoryBean} type instead of {@code ScheduledExecutorService}.</b>
  *
- * <p>Note that {@link java.util.concurrent.ScheduledExecutorService}
+ * <p>Note that {@link ScheduledExecutorService}
  * uses a {@link Runnable} instance that is shared between repeated executions,
  * in contrast to Quartz which instantiates a new Job for each execution.
  *
  * <p><b>WARNING:</b> {@link Runnable Runnables} submitted via a native
- * {@link java.util.concurrent.ScheduledExecutorService} are removed from
+ * {@link ScheduledExecutorService} are removed from
  * the execution schedule once they throw an exception. If you would prefer
  * to continue execution after such an exception, switch this FactoryBean's
  * {@link #setContinueScheduledExecutionAfterException "continueScheduledExecutionAfterException"}
@@ -67,8 +67,8 @@ import org.springframework.util.ObjectUtils;
  * @see #setRemoveOnCancelPolicy
  * @see #setThreadFactory
  * @see ScheduledExecutorTask
- * @see java.util.concurrent.ScheduledExecutorService
- * @see java.util.concurrent.ScheduledThreadPoolExecutor
+ * @see ScheduledExecutorService
+ * @see ScheduledThreadPoolExecutor
  */
 @SuppressWarnings("serial")
 public class ScheduledExecutorFactoryBean extends ExecutorConfigurationSupport
@@ -102,9 +102,9 @@ public class ScheduledExecutorFactoryBean extends ExecutorConfigurationSupport
 	 * Register a list of ScheduledExecutorTask objects with the ScheduledExecutorService
 	 * that this FactoryBean creates. Depending on each ScheduledExecutorTask's settings,
 	 * it will be registered via one of ScheduledExecutorService's schedule methods.
-	 * @see java.util.concurrent.ScheduledExecutorService#schedule(java.lang.Runnable, long, java.util.concurrent.TimeUnit)
-	 * @see java.util.concurrent.ScheduledExecutorService#scheduleWithFixedDelay(java.lang.Runnable, long, long, java.util.concurrent.TimeUnit)
-	 * @see java.util.concurrent.ScheduledExecutorService#scheduleAtFixedRate(java.lang.Runnable, long, long, java.util.concurrent.TimeUnit)
+	 * @see ScheduledExecutorService#schedule(Runnable, long, java.util.concurrent.TimeUnit)
+	 * @see ScheduledExecutorService#scheduleWithFixedDelay(Runnable, long, long, java.util.concurrent.TimeUnit)
+	 * @see ScheduledExecutorService#scheduleAtFixedRate(Runnable, long, long, java.util.concurrent.TimeUnit)
 	 */
 	public void setScheduledExecutorTasks(ScheduledExecutorTask... scheduledExecutorTasks) {
 		this.scheduledExecutorTasks = scheduledExecutorTasks;
@@ -123,10 +123,10 @@ public class ScheduledExecutorFactoryBean extends ExecutorConfigurationSupport
 	 * Specify whether to continue the execution of a scheduled task
 	 * after it threw an exception.
 	 * <p>Default is "false", matching the native behavior of a
-	 * {@link java.util.concurrent.ScheduledExecutorService}.
+	 * {@link ScheduledExecutorService}.
 	 * Switch this flag to "true" for exception-proof execution of each task,
 	 * continuing scheduled execution as in the case of successful execution.
-	 * @see java.util.concurrent.ScheduledExecutorService#scheduleAtFixedRate
+	 * @see ScheduledExecutorService#scheduleAtFixedRate
 	 */
 	public void setContinueScheduledExecutionAfterException(boolean continueScheduledExecutionAfterException) {
 		this.continueScheduledExecutionAfterException = continueScheduledExecutionAfterException;
@@ -138,7 +138,7 @@ public class ScheduledExecutorFactoryBean extends ExecutorConfigurationSupport
 	 * <p>Default is "false", exposing the raw executor as bean reference.
 	 * Switch this flag to "true" to strictly prevent clients from
 	 * modifying the executor's configuration.
-	 * @see java.util.concurrent.Executors#unconfigurableScheduledExecutorService
+	 * @see Executors#unconfigurableScheduledExecutorService
 	 */
 	public void setExposeUnconfigurableExecutor(boolean exposeUnconfigurableExecutor) {
 		this.exposeUnconfigurableExecutor = exposeUnconfigurableExecutor;
@@ -182,7 +182,7 @@ public class ScheduledExecutorFactoryBean extends ExecutorConfigurationSupport
 	 * @param rejectedExecutionHandler the RejectedExecutionHandler to use
 	 * @return a new ScheduledExecutorService instance
 	 * @see #afterPropertiesSet()
-	 * @see java.util.concurrent.ScheduledThreadPoolExecutor
+	 * @see ScheduledThreadPoolExecutor
 	 */
 	protected ScheduledExecutorService createExecutor(
 			int poolSize, ThreadFactory threadFactory, RejectedExecutionHandler rejectedExecutionHandler) {
@@ -216,7 +216,7 @@ public class ScheduledExecutorFactoryBean extends ExecutorConfigurationSupport
 	/**
 	 * Determine the actual Runnable to schedule for the given task.
 	 * <p>Wraps the task's Runnable in a
-	 * {@link org.springframework.scheduling.support.DelegatingErrorHandlingRunnable}
+	 * {@link DelegatingErrorHandlingRunnable}
 	 * that will catch and log the Exception. If necessary, it will suppress the
 	 * Exception according to the
 	 * {@link #setContinueScheduledExecutionAfterException "continueScheduledExecutionAfterException"}

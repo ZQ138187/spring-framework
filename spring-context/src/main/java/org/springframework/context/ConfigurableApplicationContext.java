@@ -30,7 +30,7 @@ import org.springframework.lang.Nullable;
  * SPI interface to be implemented by most if not all application contexts.
  * Provides facilities to configure an application context in addition
  * to the application context client methods in the
- * {@link org.springframework.context.ApplicationContext} interface.
+ * {@link ApplicationContext} interface.
  *
  * <p>Configuration and lifecycle methods are encapsulated here to avoid
  * making them obvious to ApplicationContext client code. The present
@@ -76,13 +76,13 @@ public interface ConfigurableApplicationContext extends ApplicationContext, Life
 
 	/**
 	 * Name of the System properties bean in the factory.
-	 * @see java.lang.System#getProperties()
+	 * @see System#getProperties()
 	 */
 	String SYSTEM_PROPERTIES_BEAN_NAME = "systemProperties";
 
 	/**
 	 * Name of the System environment bean in the factory.
-	 * @see java.lang.System#getenv()
+	 * @see System#getenv()
 	 */
 	String SYSTEM_ENVIRONMENT_BEAN_NAME = "systemEnvironment";
 
@@ -165,7 +165,7 @@ public interface ConfigurableApplicationContext extends ApplicationContext, Life
 	 * on JVM shutdown unless it has already been closed at that time.
 	 * <p>This method can be called multiple times. Only one shutdown hook
 	 * (at max) will be registered for each context instance.
-	 * @see java.lang.Runtime#addShutdownHook
+	 * @see Runtime#addShutdownHook
 	 * @see #close()
 	 */
 	void registerShutdownHook();

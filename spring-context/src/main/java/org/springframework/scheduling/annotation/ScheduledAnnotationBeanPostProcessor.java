@@ -76,7 +76,7 @@ import org.springframework.util.StringValueResolver;
 
 /**
  * Bean post-processor that registers methods annotated with @{@link Scheduled}
- * to be invoked by a {@link org.springframework.scheduling.TaskScheduler} according
+ * to be invoked by a {@link TaskScheduler} according
  * to the "fixedRate", "fixedDelay", or "cron" expression provided via the annotation.
  *
  * <p>This post-processor is automatically registered by Spring's
@@ -96,8 +96,8 @@ import org.springframework.util.StringValueResolver;
  * @see Scheduled
  * @see EnableScheduling
  * @see SchedulingConfigurer
- * @see org.springframework.scheduling.TaskScheduler
- * @see org.springframework.scheduling.config.ScheduledTaskRegistrar
+ * @see TaskScheduler
+ * @see ScheduledTaskRegistrar
  * @see AsyncAnnotationBeanPostProcessor
  */
 public class ScheduledAnnotationBeanPostProcessor
@@ -144,8 +144,8 @@ public class ScheduledAnnotationBeanPostProcessor
 	}
 
 	/**
-	 * Set the {@link org.springframework.scheduling.TaskScheduler} that will invoke
-	 * the scheduled methods, or a {@link java.util.concurrent.ScheduledExecutorService}
+	 * Set the {@link TaskScheduler} that will invoke
+	 * the scheduled methods, or a {@link ScheduledExecutorService}
 	 * to be wrapped as a TaskScheduler.
 	 * <p>If not specified, default scheduler resolution will apply: searching for a
 	 * unique {@link TaskScheduler} bean in the context, or for a {@link TaskScheduler}

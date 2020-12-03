@@ -29,7 +29,7 @@ import org.springframework.util.ObjectUtils;
 
 /**
  * Base class for message source implementations, providing support infrastructure
- * such as {@link java.text.MessageFormat} handling but not implementing concrete
+ * such as {@link MessageFormat} handling but not implementing concrete
  * methods defined in the {@link org.springframework.context.MessageSource}.
  *
  * <p>{@link AbstractMessageSource} derives from this class, providing concrete
@@ -68,7 +68,7 @@ public abstract class MessageSourceSupport {
 	 * even when not defining argument placeholders, you need to set this
 	 * flag to "true". Else, only message texts with actual arguments
 	 * are supposed to be written with MessageFormat escaping.
-	 * @see java.text.MessageFormat
+	 * @see MessageFormat
 	 */
 	public void setAlwaysUseMessageFormat(boolean alwaysUseMessageFormat) {
 		this.alwaysUseMessageFormat = alwaysUseMessageFormat;
@@ -95,7 +95,7 @@ public abstract class MessageSourceSupport {
 	 * the message, or {@code null} if none.
 	 * @param locale the Locale used for formatting
 	 * @return the rendered default message (with resolved arguments)
-	 * @see #formatMessage(String, Object[], java.util.Locale)
+	 * @see #formatMessage(String, Object[], Locale)
 	 */
 	protected String renderDefaultMessage(String defaultMessage, @Nullable Object[] args, Locale locale) {
 		return formatMessage(defaultMessage, args, locale);

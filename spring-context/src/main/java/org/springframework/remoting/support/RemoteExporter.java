@@ -177,7 +177,7 @@ public abstract class RemoteExporter extends RemotingSupport {
 	 * Can be overridden in subclasses.
 	 * @see #getProxyForService
 	 * @see RemoteInvocationTraceInterceptor
-	 * @see org.springframework.util.ClassUtils#getShortName
+	 * @see ClassUtils#getShortName
 	 */
 	protected String getExporterName() {
 		return ClassUtils.getShortName(getClass());

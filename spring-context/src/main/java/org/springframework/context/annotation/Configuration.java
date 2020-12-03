@@ -383,7 +383,7 @@ import org.springframework.stereotype.Component;
  * {@link org.springframework.scheduling.annotation.EnableAsync @EnableAsync},
  * {@link org.springframework.scheduling.annotation.EnableScheduling @EnableScheduling},
  * {@link org.springframework.transaction.annotation.EnableTransactionManagement @EnableTransactionManagement},
- * {@link org.springframework.context.annotation.EnableAspectJAutoProxy @EnableAspectJAutoProxy},
+ * {@link EnableAspectJAutoProxy @EnableAspectJAutoProxy},
  * and {@link org.springframework.web.servlet.config.annotation.EnableWebMvc @EnableWebMvc}
  * for details.
  *

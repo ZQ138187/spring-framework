@@ -100,7 +100,7 @@ public class MethodValidationPostProcessor extends AbstractBeanFactoryAwareAdvis
 	 * Set the JSR-303 ValidatorFactory to delegate to for validating methods,
 	 * using its default Validator.
 	 * <p>Default is the default ValidatorFactory's default Validator.
-	 * @see javax.validation.ValidatorFactory#getValidator()
+	 * @see ValidatorFactory#getValidator()
 	 */
 	public void setValidatorFactory(ValidatorFactory validatorFactory) {
 		this.validator = validatorFactory.getValidator();

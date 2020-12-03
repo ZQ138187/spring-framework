@@ -24,17 +24,17 @@ import java.util.Locale;
 import org.springframework.format.Formatter;
 
 /**
- * {@link Formatter} implementation for a JSR-310 {@link java.time.Instant},
+ * {@link Formatter} implementation for a JSR-310 {@link Instant},
  * following JSR-310's parsing rules for an Instant (that is, not using a
- * configurable {@link java.time.format.DateTimeFormatter}): accepting the
+ * configurable {@link DateTimeFormatter}): accepting the
  * default {@code ISO_INSTANT} format as well as {@code RFC_1123_DATE_TIME}
  * (which is commonly used for HTTP date header values), as of Spring 4.3.
  *
  * @author Juergen Hoeller
  * @since 4.0
- * @see java.time.Instant#parse
- * @see java.time.format.DateTimeFormatter#ISO_INSTANT
- * @see java.time.format.DateTimeFormatter#RFC_1123_DATE_TIME
+ * @see Instant#parse
+ * @see DateTimeFormatter#ISO_INSTANT
+ * @see DateTimeFormatter#RFC_1123_DATE_TIME
  */
 public class InstantFormatter implements Formatter<Instant> {
 

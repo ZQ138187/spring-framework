@@ -25,7 +25,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.lang.Nullable;
 
 /**
- * {@link org.springframework.context.ApplicationContext} implementation
+ * {@link ApplicationContext} implementation
  * which supports programmatic registration of beans and messages,
  * rather than reading bean definitions from external configuration sources.
  * Mainly useful for testing.

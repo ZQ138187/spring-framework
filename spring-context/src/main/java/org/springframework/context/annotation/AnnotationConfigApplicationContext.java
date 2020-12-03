@@ -62,7 +62,9 @@ public class AnnotationConfigApplicationContext extends GenericApplicationContex
 	 * through {@link #register} calls and then manually {@linkplain #refresh refreshed}.
 	 */
 	public AnnotationConfigApplicationContext() {
+		// 步骤1：获取Spring7个内置处理器、设置systemEnviroment和systemProperties
 		this.reader = new AnnotatedBeanDefinitionReader(this);
+		// 步骤2：获取Spring的类扫描器Component
 		this.scanner = new ClassPathBeanDefinitionScanner(this);
 	}
 
@@ -83,8 +85,13 @@ public class AnnotationConfigApplicationContext extends GenericApplicationContex
 	 * e.g. {@link Configuration @Configuration} classes
 	 */
 	public AnnotationConfigApplicationContext(Class<?>... annotatedClasses) {
+		// 1. 首先初始化Spring的7个内置Bean后置处理器，并放到 DefaultListableBeanFactory 类型的对象 beanFactory 中
+		// 2. 创建Spring的注解解析器 Component
 		this();
+		// 传入的配置类annotatedClasses，生成BeanDefinition，
+		// 然后将BeanDefinition注册到DefaultListableBeanFactory 类型的对象 beanFactory 中
 		register(annotatedClasses);
+//		setAllowCircularReferences(false);
 		refresh();
 	}
 
@@ -114,7 +121,7 @@ public class AnnotationConfigApplicationContext extends GenericApplicationContex
 	/**
 	 * Provide a custom {@link BeanNameGenerator} for use with {@link AnnotatedBeanDefinitionReader}
 	 * and/or {@link ClassPathBeanDefinitionScanner}, if any.
-	 * <p>Default is {@link org.springframework.context.annotation.AnnotationBeanNameGenerator}.
+	 * <p>Default is {@link AnnotationBeanNameGenerator}.
 	 * <p>Any call to this method must occur prior to calls to {@link #register(Class...)}
 	 * and/or {@link #scan(String...)}.
 	 * @see AnnotatedBeanDefinitionReader#setBeanNameGenerator
@@ -152,6 +159,7 @@ public class AnnotationConfigApplicationContext extends GenericApplicationContex
 	 * @see #scan(String...)
 	 * @see #refresh()
 	 */
+//	注册一个或者多个带有注解的配置类
 	public void register(Class<?>... annotatedClasses) {
 		Assert.notEmpty(annotatedClasses, "At least one annotated class must be specified");
 		this.reader.register(annotatedClasses);

@@ -118,7 +118,7 @@ public abstract class AbstractValueAdaptingCache implements Cache {
 	 * @return the wrapped value
 	 */
 	@Nullable
-	protected Cache.ValueWrapper toValueWrapper(@Nullable Object storeValue) {
+	protected ValueWrapper toValueWrapper(@Nullable Object storeValue) {
 		return (storeValue != null ? new SimpleValueWrapper(fromStoreValue(storeValue)) : null);
 	}
 

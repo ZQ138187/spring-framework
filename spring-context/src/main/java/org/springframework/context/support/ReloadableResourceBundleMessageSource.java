@@ -44,8 +44,8 @@ import org.springframework.util.StringUtils;
  * Spring {@link org.springframework.context.ApplicationContext}'s resource loading.
  *
  * <p>In contrast to the JDK-based {@link ResourceBundleMessageSource}, this class uses
- * {@link java.util.Properties} instances as its custom data structure for messages,
- * loading them via a {@link org.springframework.util.PropertiesPersister} strategy
+ * {@link Properties} instances as its custom data structure for messages,
+ * loading them via a {@link PropertiesPersister} strategy
  * from Spring {@link Resource} handles. This strategy is not only capable of
  * reloading files based on timestamp changes, but also of loading properties files
  * with a specific character encoding. It will detect XML property files as well.
@@ -66,7 +66,7 @@ import org.springframework.util.StringUtils;
 
  * <p>This MessageSource can easily be used outside of an
  * {@link org.springframework.context.ApplicationContext}: it will use a
- * {@link org.springframework.core.io.DefaultResourceLoader} as default,
+ * {@link DefaultResourceLoader} as default,
  * simply getting overridden with the ApplicationContext's resource loader
  * if running in a context. It does not have any other specific dependencies.
  *
@@ -80,8 +80,8 @@ import org.springframework.util.StringUtils;
  * @see #setFileEncodings
  * @see #setPropertiesPersister
  * @see #setResourceLoader
- * @see org.springframework.util.DefaultPropertiesPersister
- * @see org.springframework.core.io.DefaultResourceLoader
+ * @see DefaultPropertiesPersister
+ * @see DefaultResourceLoader
  * @see ResourceBundleMessageSource
  * @see java.util.ResourceBundle
  */
@@ -120,7 +120,7 @@ public class ReloadableResourceBundleMessageSource extends AbstractResourceBased
 	 * with optional locale-specific components: e.g. "WEB-INF/messages"
 	 * or "WEB-INF/messages_en".
 	 * @see #setBasenames
-	 * @see org.springframework.util.PropertiesPersister#load
+	 * @see PropertiesPersister#load
 	 */
 	public void setFileEncodings(Properties fileEncodings) {
 		this.fileEncodings = fileEncodings;
@@ -144,7 +144,7 @@ public class ReloadableResourceBundleMessageSource extends AbstractResourceBased
 	/**
 	 * Set the PropertiesPersister to use for parsing properties files.
 	 * <p>The default is a DefaultPropertiesPersister.
-	 * @see org.springframework.util.DefaultPropertiesPersister
+	 * @see DefaultPropertiesPersister
 	 */
 	public void setPropertiesPersister(@Nullable PropertiesPersister propertiesPersister) {
 		this.propertiesPersister =
@@ -157,8 +157,8 @@ public class ReloadableResourceBundleMessageSource extends AbstractResourceBased
 	 * ApplicationContext if running in a context, as it implements the
 	 * ResourceLoaderAware interface. Can be manually overridden when
 	 * running outside of an ApplicationContext.
-	 * @see org.springframework.core.io.DefaultResourceLoader
-	 * @see org.springframework.context.ResourceLoaderAware
+	 * @see DefaultResourceLoader
+	 * @see ResourceLoaderAware
 	 */
 	@Override
 	public void setResourceLoader(@Nullable ResourceLoader resourceLoader) {
@@ -319,7 +319,7 @@ public class ReloadableResourceBundleMessageSource extends AbstractResourceBased
 	 * appending language code, country code, and variant code.
 	 * E.g.: basename "messages", Locale "de_AT_oo" -> "messages_de_AT_OO",
 	 * "messages_de_AT", "messages_de".
-	 * <p>Follows the rules defined by {@link java.util.Locale#toString()}.
+	 * <p>Follows the rules defined by {@link Locale#toString()}.
 	 * @param basename the basename of the bundle
 	 * @param locale the locale
 	 * @return the List of filenames to check

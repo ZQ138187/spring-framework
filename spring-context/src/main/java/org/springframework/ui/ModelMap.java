@@ -25,7 +25,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
- * Implementation of {@link java.util.Map} for use when building model data for use
+ * Implementation of {@link Map} for use when building model data for use
  * with UI tools. Supports chained calls and generation of model attribute names.
  *
  * <p>This class serves as generic model holder for Servlet MVC but is not tied to it.
@@ -79,7 +79,7 @@ public class ModelMap extends LinkedHashMap<String, Object> {
 
 	/**
 	 * Add the supplied attribute to this {@code Map} using a
-	 * {@link org.springframework.core.Conventions#getVariableName generated name}.
+	 * {@link Conventions#getVariableName generated name}.
 	 * <p><i>Note: Empty {@link Collection Collections} are not added to
 	 * the model when using this method because we cannot correctly determine
 	 * the true convention name. View code should check for {@code null} rather

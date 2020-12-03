@@ -23,7 +23,7 @@ import javax.money.Monetary;
 import org.springframework.format.Formatter;
 
 /**
- * Formatter for JSR-354 {@link javax.money.CurrencyUnit} values,
+ * Formatter for JSR-354 {@link CurrencyUnit} values,
  * from and to currency code Strings.
  *
  * @author Juergen Hoeller

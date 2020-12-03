@@ -25,7 +25,7 @@ package org.springframework.context;
  * @since 1.1.1
  * @see ApplicationContext
  * @see ApplicationEventPublisherAware
- * @see org.springframework.context.ApplicationEvent
+ * @see ApplicationEvent
  * @see org.springframework.context.event.EventPublicationInterceptor
  */
 @FunctionalInterface

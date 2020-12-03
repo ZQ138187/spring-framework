@@ -38,7 +38,7 @@ import org.springframework.util.Assert;
  * @since 2.0
  * @see #getPropertyAccessor()
  * @see org.springframework.beans.PropertyAccessor
- * @see org.springframework.beans.ConfigurablePropertyAccessor
+ * @see ConfigurablePropertyAccessor
  */
 @SuppressWarnings("serial")
 public abstract class AbstractPropertyBindingResult extends AbstractBindingResult {
@@ -76,7 +76,7 @@ public abstract class AbstractPropertyBindingResult extends AbstractBindingResul
 
 	/**
 	 * Returns the canonical property name.
-	 * @see org.springframework.beans.PropertyAccessorUtils#canonicalPropertyName
+	 * @see PropertyAccessorUtils#canonicalPropertyName
 	 */
 	@Override
 	protected String canonicalFieldName(String field) {

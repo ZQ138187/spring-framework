@@ -48,7 +48,7 @@ public class SpringModelMBean extends RequiredModelMBean {
 
 	/**
 	 * Construct a new SpringModelMBean instance with an empty {@link ModelMBeanInfo}.
-	 * @see javax.management.modelmbean.RequiredModelMBean#RequiredModelMBean()
+	 * @see RequiredModelMBean#RequiredModelMBean()
 	 */
 	public SpringModelMBean() throws MBeanException, RuntimeOperationsException {
 		super();
@@ -56,7 +56,7 @@ public class SpringModelMBean extends RequiredModelMBean {
 
 	/**
 	 * Construct a new SpringModelMBean instance with the given {@link ModelMBeanInfo}.
-	 * @see javax.management.modelmbean.RequiredModelMBean#RequiredModelMBean(ModelMBeanInfo)
+	 * @see RequiredModelMBean#RequiredModelMBean(ModelMBeanInfo)
 	 */
 	public SpringModelMBean(ModelMBeanInfo mbi) throws MBeanException, RuntimeOperationsException {
 		super(mbi);

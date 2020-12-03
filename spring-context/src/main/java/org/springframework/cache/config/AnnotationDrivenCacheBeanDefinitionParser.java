@@ -33,7 +33,7 @@ import org.springframework.util.ClassUtils;
 import org.springframework.util.StringUtils;
 
 /**
- * {@link org.springframework.beans.factory.xml.BeanDefinitionParser}
+ * {@link BeanDefinitionParser}
  * implementation that allows users to easily configure all the
  * infrastructure beans required to enable annotation-driven cache
  * demarcation.

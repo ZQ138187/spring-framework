@@ -34,7 +34,7 @@ import org.springframework.util.Assert;
  * @author Juergen Hoeller
  * @author Sam Brannen
  * @since 2.5
- * @see org.springframework.context.annotation.Scope
+ * @see Scope
  */
 public class AnnotationScopeMetadataResolver implements ScopeMetadataResolver {
 

@@ -25,7 +25,7 @@ import org.springframework.lang.Nullable;
 /**
  * A general-purpose number formatter using NumberFormat's number style.
  *
- * <p>Delegates to {@link java.text.NumberFormat#getInstance(Locale)}.
+ * <p>Delegates to {@link NumberFormat#getInstance(Locale)}.
  * Configures BigDecimal parsing so there is no loss in precision.
  * Allows configuration over the decimal number pattern.
  * The {@link #parse(String, Locale)} routine always returns a BigDecimal.
@@ -61,7 +61,7 @@ public class NumberStyleFormatter extends AbstractNumberFormatter {
 	/**
 	 * Specify the pattern to use to format number values.
 	 * If not specified, the default DecimalFormat pattern is used.
-	 * @see java.text.DecimalFormat#applyPattern(String)
+	 * @see DecimalFormat#applyPattern(String)
 	 */
 	public void setPattern(String pattern) {
 		this.pattern = pattern;

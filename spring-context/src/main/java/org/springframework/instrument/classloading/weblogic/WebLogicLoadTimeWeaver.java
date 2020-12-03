@@ -42,7 +42,7 @@ public class WebLogicLoadTimeWeaver implements LoadTimeWeaver {
 	/**
 	 * Creates a new instance of the {@link WebLogicLoadTimeWeaver} class using
 	 * the default {@link ClassLoader class loader}.
-	 * @see org.springframework.util.ClassUtils#getDefaultClassLoader()
+	 * @see ClassUtils#getDefaultClassLoader()
 	 */
 	public WebLogicLoadTimeWeaver() {
 		this(ClassUtils.getDefaultClassLoader());

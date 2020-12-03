@@ -104,7 +104,7 @@ public class StandardScriptEvaluator implements ScriptEvaluator, BeanClassLoader
 	 * shared by all scripts, as an alternative to script argument bindings.
 	 * @since 4.2.2
 	 * @see #evaluate(ScriptSource, Map)
-	 * @see javax.script.ScriptEngineManager#setBindings(Bindings)
+	 * @see ScriptEngineManager#setBindings(Bindings)
 	 * @see javax.script.SimpleBindings
 	 */
 	public void setGlobalBindings(Map<String, Object> globalBindings) {

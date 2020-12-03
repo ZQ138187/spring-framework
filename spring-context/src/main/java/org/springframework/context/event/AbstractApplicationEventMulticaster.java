@@ -152,7 +152,7 @@ public abstract class AbstractApplicationEventMulticaster
 	/**
 	 * Return a Collection containing all ApplicationListeners.
 	 * @return a Collection of ApplicationListeners
-	 * @see org.springframework.context.ApplicationListener
+	 * @see ApplicationListener
 	 */
 	protected Collection<ApplicationListener<?>> getApplicationListeners() {
 		synchronized (this.retrievalMutex) {
@@ -167,7 +167,7 @@ public abstract class AbstractApplicationEventMulticaster
 	 * non-matching listeners early, based on cached matching information.
 	 * @param eventType the event type
 	 * @return a Collection of ApplicationListeners
-	 * @see org.springframework.context.ApplicationListener
+	 * @see ApplicationListener
 	 */
 	protected Collection<ApplicationListener<?>> getApplicationListeners(
 			ApplicationEvent event, ResolvableType eventType) {

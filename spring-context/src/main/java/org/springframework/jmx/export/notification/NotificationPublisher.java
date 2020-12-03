@@ -46,7 +46,7 @@ import javax.management.Notification;
 public interface NotificationPublisher {
 
 	/**
-	 * Send the specified {@link javax.management.Notification} to all registered
+	 * Send the specified {@link Notification} to all registered
 	 * {@link javax.management.NotificationListener NotificationListeners}.
 	 * Managed resources are <strong>not</strong> responsible for managing the list
 	 * of registered {@link javax.management.NotificationListener NotificationListeners};

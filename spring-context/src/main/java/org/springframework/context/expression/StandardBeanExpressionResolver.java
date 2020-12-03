@@ -38,14 +38,14 @@ import org.springframework.util.StringUtils;
 
 /**
  * Standard implementation of the
- * {@link org.springframework.beans.factory.config.BeanExpressionResolver}
+ * {@link BeanExpressionResolver}
  * interface, parsing and evaluating Spring EL using Spring's expression module.
  *
  * @author Juergen Hoeller
  * @since 3.0
- * @see org.springframework.expression.ExpressionParser
- * @see org.springframework.expression.spel.standard.SpelExpressionParser
- * @see org.springframework.expression.spel.support.StandardEvaluationContext
+ * @see ExpressionParser
+ * @see SpelExpressionParser
+ * @see StandardEvaluationContext
  */
 public class StandardBeanExpressionResolver implements BeanExpressionResolver {
 
@@ -121,7 +121,7 @@ public class StandardBeanExpressionResolver implements BeanExpressionResolver {
 
 	/**
 	 * Specify the EL parser to use for expression parsing.
-	 * <p>Default is a {@link org.springframework.expression.spel.standard.SpelExpressionParser},
+	 * <p>Default is a {@link SpelExpressionParser},
 	 * compatible with standard Unified EL style expression syntax.
 	 */
 	public void setExpressionParser(ExpressionParser expressionParser) {

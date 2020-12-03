@@ -53,7 +53,7 @@ public class JBossLoadTimeWeaver implements LoadTimeWeaver {
 	/**
 	 * Create a new instance of the {@link JBossLoadTimeWeaver} class using
 	 * the default {@link ClassLoader class loader}.
-	 * @see org.springframework.util.ClassUtils#getDefaultClassLoader()
+	 * @see ClassUtils#getDefaultClassLoader()
 	 */
 	public JBossLoadTimeWeaver() {
 		this(ClassUtils.getDefaultClassLoader());

@@ -84,6 +84,8 @@ public class AnnotatedBeanDefinitionReader {
 		Assert.notNull(environment, "Environment must not be null");
 		this.registry = registry;
 		this.conditionEvaluator = new ConditionEvaluator(registry, environment, null);
+		// 注册注解配置的处理器。即项目中我们标注注解的类由下面注册的处理器解析
+		// 3.4 分析该方法
 		AnnotationConfigUtils.registerAnnotationConfigProcessors(this.registry);
 	}
 
@@ -210,20 +212,28 @@ public class AnnotatedBeanDefinitionReader {
 	 * factory's {@link BeanDefinition}, e.g. setting a lazy-init or primary flag
 	 * @since 5.0
 	 */
+	// 根据给定的class来注册一个bean
 	<T> void doRegisterBean(Class<T> annotatedClass, @Nullable Supplier<T> instanceSupplier, @Nullable String name,
 			@Nullable Class<? extends Annotation>[] qualifiers, BeanDefinitionCustomizer... definitionCustomizers) {
-
+// 根据传入的annotatedClass生成AnnotatedGenericBeanDefinition。
+// AnnotatedGenericBeanDefinition是BeanDefinition的一个实现类。类图在4.补充图片中的图1中。
 		AnnotatedGenericBeanDefinition abd = new AnnotatedGenericBeanDefinition(annotatedClass);
+		// 根据 @conditional注解来判断是否要跳过解析
 		if (this.conditionEvaluator.shouldSkip(abd.getMetadata())) {
 			return;
 		}
 
 		abd.setInstanceSupplier(instanceSupplier);
+		// 获取类的作用域，默认为Singleton
 		ScopeMetadata scopeMetadata = this.scopeMetadataResolver.resolveScopeMetadata(abd);
+		// 将类的作用域添加到AnnotatedGenericBeanDefinition的数据结构中
 		abd.setScope(scopeMetadata.getScopeName());
 		String beanName = (name != null ? name : this.beanNameGenerator.generateBeanName(abd, this.registry));
-
+// 【1】1.1中补充介绍
+		// 处理配置类中的通用注解，即Lazy、DependsOn、Primary和Role等，
+		// 将处理的结果放到AnnotatedGenericBeanDefinition的数据结构中
 		AnnotationConfigUtils.processCommonDefinitionAnnotations(abd);
+		//  依次判断了注解当中是否包含了Primary、Lazy、qualifier，如果包含就设置AnnotatedGenericBeanDefinition对应的属性
 		if (qualifiers != null) {
 			for (Class<? extends Annotation> qualifier : qualifiers) {
 				if (Primary.class == qualifier) {
@@ -240,9 +250,10 @@ public class AnnotatedBeanDefinitionReader {
 		for (BeanDefinitionCustomizer customizer : definitionCustomizers) {
 			customizer.customize(abd);
 		}
-
+// 将AnnotatedGenericBeanDefinition和他对应的beanName存储到BeanDefinitionHolder中的对应属性中
 		BeanDefinitionHolder definitionHolder = new BeanDefinitionHolder(abd, beanName);
 		definitionHolder = AnnotationConfigUtils.applyScopedProxyMode(scopeMetadata, definitionHolder, this.registry);
+		// 将 BeanDefinitionHolder 注册给 this.registry 即 AnnotationConfigApplicationContext。
 		BeanDefinitionReaderUtils.registerBeanDefinition(definitionHolder, this.registry);
 	}
 

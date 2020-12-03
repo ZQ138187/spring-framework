@@ -35,7 +35,7 @@ public class CachePutOperation extends CacheOperation {
 	/**
 	 * @since 4.3
 	 */
-	public CachePutOperation(CachePutOperation.Builder b) {
+	public CachePutOperation(Builder b) {
 		super(b);
 		this.unless = b.unless;
 	}

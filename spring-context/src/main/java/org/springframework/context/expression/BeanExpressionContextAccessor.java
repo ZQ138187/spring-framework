@@ -26,7 +26,7 @@ import org.springframework.util.Assert;
 
 /**
  * EL property accessor that knows how to traverse the beans and contextual objects
- * of a Spring {@link org.springframework.beans.factory.config.BeanExpressionContext}.
+ * of a Spring {@link BeanExpressionContext}.
  *
  * @author Juergen Hoeller
  * @author Andy Clement

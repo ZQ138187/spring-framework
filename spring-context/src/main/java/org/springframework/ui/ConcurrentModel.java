@@ -77,7 +77,7 @@ public class ConcurrentModel extends ConcurrentHashMap<String, Object> implement
 
 	@Override
 	public void putAll(Map<? extends String, ?> map) {
-		for (Map.Entry<? extends String, ?> entry : map.entrySet()) {
+		for (Entry<? extends String, ?> entry : map.entrySet()) {
 			put(entry.getKey(), entry.getValue());
 		}
 	}
@@ -96,7 +96,7 @@ public class ConcurrentModel extends ConcurrentHashMap<String, Object> implement
 
 	/**
 	 * Add the supplied attribute to this {@code Map} using a
-	 * {@link org.springframework.core.Conventions#getVariableName generated name}.
+	 * {@link Conventions#getVariableName generated name}.
 	 * <p><i>Note: Empty {@link Collection Collections} are not added to
 	 * the model when using this method because we cannot correctly determine
 	 * the true convention name. View code should check for {@code null} rather

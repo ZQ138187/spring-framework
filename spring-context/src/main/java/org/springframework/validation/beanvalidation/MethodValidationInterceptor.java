@@ -54,7 +54,7 @@ import org.springframework.validation.annotation.Validated;
  * @author Juergen Hoeller
  * @since 3.1
  * @see MethodValidationPostProcessor
- * @see javax.validation.executable.ExecutableValidator
+ * @see ExecutableValidator
  */
 public class MethodValidationInterceptor implements MethodInterceptor {
 

@@ -24,7 +24,7 @@ import javax.management.ObjectName;
  *
  * @author Rob Harrop
  * @since 1.2.2
- * @see org.springframework.jmx.export.MBeanExporter#setListeners
+ * @see MBeanExporter#setListeners
  */
 public interface MBeanExporterListener {
 

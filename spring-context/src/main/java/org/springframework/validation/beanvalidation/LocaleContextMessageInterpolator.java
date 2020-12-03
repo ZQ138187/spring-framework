@@ -28,7 +28,7 @@ import org.springframework.util.Assert;
  *
  * @author Juergen Hoeller
  * @since 3.0
- * @see org.springframework.context.i18n.LocaleContextHolder#getLocale()
+ * @see LocaleContextHolder#getLocale()
  */
 public class LocaleContextMessageInterpolator implements MessageInterpolator {
 

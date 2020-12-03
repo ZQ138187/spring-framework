@@ -31,18 +31,18 @@ import org.springframework.util.FileCopyUtils;
 import org.springframework.util.StringUtils;
 
 /**
- * {@link org.springframework.scripting.ScriptSource} implementation
- * based on Spring's {@link org.springframework.core.io.Resource}
+ * {@link ScriptSource} implementation
+ * based on Spring's {@link Resource}
  * abstraction. Loads the script text from the underlying Resource's
- * {@link org.springframework.core.io.Resource#getFile() File} or
- * {@link org.springframework.core.io.Resource#getInputStream() InputStream},
+ * {@link Resource#getFile() File} or
+ * {@link Resource#getInputStream() InputStream},
  * and tracks the last-modified timestamp of the file (if possible).
  *
  * @author Rob Harrop
  * @author Juergen Hoeller
  * @since 2.0
- * @see org.springframework.core.io.Resource#getInputStream()
- * @see org.springframework.core.io.Resource#getFile()
+ * @see Resource#getInputStream()
+ * @see Resource#getFile()
  * @see org.springframework.core.io.ResourceLoader
  */
 public class ResourceScriptSource implements ScriptSource {
@@ -77,7 +77,7 @@ public class ResourceScriptSource implements ScriptSource {
 
 
 	/**
-	 * Return the {@link org.springframework.core.io.Resource} to load the
+	 * Return the {@link Resource} to load the
 	 * script from.
 	 */
 	public final Resource getResource() {

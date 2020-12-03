@@ -159,11 +159,11 @@ public abstract class RmiClientInterceptorUtils {
 	 * NoSuchObjectException and StubNotFoundException as connect failure.
 	 * @param ex the RMI exception to check
 	 * @return whether the exception should be treated as connect failure
-	 * @see java.rmi.ConnectException
-	 * @see java.rmi.ConnectIOException
-	 * @see java.rmi.UnknownHostException
-	 * @see java.rmi.NoSuchObjectException
-	 * @see java.rmi.StubNotFoundException
+	 * @see ConnectException
+	 * @see ConnectIOException
+	 * @see UnknownHostException
+	 * @see NoSuchObjectException
+	 * @see StubNotFoundException
 	 */
 	public static boolean isConnectFailure(RemoteException ex) {
 		return (ex instanceof ConnectException || ex instanceof ConnectIOException ||

@@ -27,7 +27,7 @@ import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
 /**
- * Factory that creates a JSR-310 {@link java.time.format.DateTimeFormatter}.
+ * Factory that creates a JSR-310 {@link DateTimeFormatter}.
  *
  * <p>Formatters will be created using the defined {@link #setPattern pattern},
  * {@link #setIso ISO}, and <code>xxxStyle</code> methods (considered in that order).
@@ -127,7 +127,7 @@ public class DateTimeFormatterFactory {
 	 * <li>'-' = Omitted</li>
 	 * </ul>
 	 * <p>This method mimics the styles supported by Joda-Time. Note that
-	 * JSR-310 natively favors {@link java.time.format.FormatStyle} as used for
+	 * JSR-310 natively favors {@link FormatStyle} as used for
 	 * {@link #setDateStyle}, {@link #setTimeStyle} and {@link #setDateTimeStyle}.
 	 * @param style two characters from the set {"S", "M", "L", "F", "-"}
 	 */

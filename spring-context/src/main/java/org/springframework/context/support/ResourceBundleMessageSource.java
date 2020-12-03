@@ -42,9 +42,9 @@ import org.springframework.util.ClassUtils;
 /**
  * {@link org.springframework.context.MessageSource} implementation that
  * accesses resource bundles using specified basenames. This class relies
- * on the underlying JDK's {@link java.util.ResourceBundle} implementation,
+ * on the underlying JDK's {@link ResourceBundle} implementation,
  * in combination with the JDK's standard message parsing provided by
- * {@link java.text.MessageFormat}.
+ * {@link MessageFormat}.
  *
  * <p>This MessageSource caches both the accessed ResourceBundle instances and
  * the generated MessageFormats for each message. It also implements rendering of
@@ -52,7 +52,7 @@ import org.springframework.util.ClassUtils;
  * base class. The caching provided by this MessageSource is significantly faster
  * than the built-in caching of the {@code java.util.ResourceBundle} class.
  *
- * <p>The basenames follow {@link java.util.ResourceBundle} conventions: essentially,
+ * <p>The basenames follow {@link ResourceBundle} conventions: essentially,
  * a fully-qualified classpath location. If it doesn't contain a package qualifier
  * (such as {@code org.mypackage}), it will be resolved from the classpath root.
  * Note that the JDK's standard ResourceBundle treats dots as package separators:
@@ -62,8 +62,8 @@ import org.springframework.util.ClassUtils;
  * @author Juergen Hoeller
  * @see #setBasenames
  * @see ReloadableResourceBundleMessageSource
- * @see java.util.ResourceBundle
- * @see java.text.MessageFormat
+ * @see ResourceBundle
+ * @see MessageFormat
  */
 public class ResourceBundleMessageSource extends AbstractResourceBasedMessageSource implements BeanClassLoaderAware {
 
@@ -101,9 +101,9 @@ public class ResourceBundleMessageSource extends AbstractResourceBasedMessageSou
 	/**
 	 * Set the ClassLoader to load resource bundles with.
 	 * <p>Default is the containing BeanFactory's
-	 * {@link org.springframework.beans.factory.BeanClassLoaderAware bean ClassLoader},
+	 * {@link BeanClassLoaderAware bean ClassLoader},
 	 * or the default ClassLoader determined by
-	 * {@link org.springframework.util.ClassUtils#getDefaultClassLoader()}
+	 * {@link ClassUtils#getDefaultClassLoader()}
 	 * if not running within a BeanFactory.
 	 */
 	public void setBundleClassLoader(ClassLoader classLoader) {
@@ -219,7 +219,7 @@ public class ResourceBundleMessageSource extends AbstractResourceBasedMessageSou
 	 * @param locale the Locale to look for
 	 * @return the corresponding ResourceBundle
 	 * @throws MissingResourceException if no matching bundle could be found
-	 * @see java.util.ResourceBundle#getBundle(String, Locale, ClassLoader)
+	 * @see ResourceBundle#getBundle(String, Locale, ClassLoader)
 	 * @see #getBundleClassLoader()
 	 */
 	protected ResourceBundle doGetBundle(String basename, Locale locale) throws MissingResourceException {

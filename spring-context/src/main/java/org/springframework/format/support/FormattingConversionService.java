@@ -41,7 +41,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.util.StringValueResolver;
 
 /**
- * A {@link org.springframework.core.convert.ConversionService} implementation
+ * A {@link ConversionService} implementation
  * designed to be configured as a {@link FormatterRegistry}.
  *
  * @author Keith Donald

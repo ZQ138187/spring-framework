@@ -33,7 +33,7 @@ import org.springframework.util.Assert;
  *
  * @author Juergen Hoeller
  * @since 3.0
- * @see org.springframework.beans.factory.config.AutowireCapableBeanFactory#createBean(Class)
+ * @see AutowireCapableBeanFactory#createBean(Class)
  * @see org.springframework.context.ApplicationContext#getAutowireCapableBeanFactory()
  */
 public class SpringConstraintValidatorFactory implements ConstraintValidatorFactory {

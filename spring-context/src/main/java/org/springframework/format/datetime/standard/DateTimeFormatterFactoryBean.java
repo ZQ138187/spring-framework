@@ -23,7 +23,7 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.lang.Nullable;
 
 /**
- * {@link FactoryBean} that creates a JSR-310 {@link java.time.format.DateTimeFormatter}.
+ * {@link FactoryBean} that creates a JSR-310 {@link DateTimeFormatter}.
  * See the {@link DateTimeFormatterFactory base class} for configuration details.
  *
  * @author Juergen Hoeller

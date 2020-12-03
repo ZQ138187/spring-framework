@@ -57,7 +57,7 @@ public abstract class AbstractMBeanInfoAssembler implements MBeanInfoAssembler {
 	 * @see #getConstructorInfo(Object, String)
 	 * @see #getOperationInfo(Object, String)
 	 * @see #getNotificationInfo(Object, String)
-	 * @see #populateMBeanDescriptor(javax.management.Descriptor, Object, String)
+	 * @see #populateMBeanDescriptor(Descriptor, Object, String)
 	 */
 	@Override
 	public ModelMBeanInfo getMBeanInfo(Object managedBean, String beanKey) throws JMException {
@@ -89,7 +89,7 @@ public abstract class AbstractMBeanInfoAssembler implements MBeanInfoAssembler {
 	 * and the plain bean class else.
 	 * @param managedBean the bean instance (might be an AOP proxy)
 	 * @return the bean class to expose
-	 * @see org.springframework.aop.support.AopUtils#getTargetClass(Object)
+	 * @see AopUtils#getTargetClass(Object)
 	 */
 	protected Class<?> getTargetClass(Object managedBean) {
 		return AopUtils.getTargetClass(managedBean);

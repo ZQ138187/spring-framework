@@ -204,7 +204,7 @@ public abstract class AbstractReflectiveMBeanInfoAssembler extends AbstractMBean
 	 * and will be translated to {@code Integer.MAX_VALUE}; a positive
 	 * value indicates the number of cache seconds.
 	 * @see org.springframework.jmx.export.metadata.AbstractJmxAttribute#setCurrencyTimeLimit
-	 * @see #applyCurrencyTimeLimit(javax.management.Descriptor, int)
+	 * @see #applyCurrencyTimeLimit(Descriptor, int)
 	 */
 	public void setDefaultCurrencyTimeLimit(@Nullable Integer defaultCurrencyTimeLimit) {
 		this.defaultCurrencyTimeLimit = defaultCurrencyTimeLimit;
@@ -435,7 +435,7 @@ public abstract class AbstractReflectiveMBeanInfoAssembler extends AbstractMBean
 	 * @return the class to expose in the descriptor field "class"
 	 * @see #setExposeClassDescriptor
 	 * @see #getClassToExpose(Class)
-	 * @see org.springframework.aop.framework.AopProxyUtils#proxiedUserInterfaces(Object)
+	 * @see AopProxyUtils#proxiedUserInterfaces(Object)
 	 */
 	protected Class<?> getClassForDescriptor(Object managedBean) {
 		if (AopUtils.isJdkDynamicProxy(managedBean)) {
@@ -533,7 +533,7 @@ public abstract class AbstractReflectiveMBeanInfoAssembler extends AbstractMBean
 	 * @param beanKey the key associated with the MBean in the beans map
 	 * of the {@code MBeanExporter}
 	 * @see #setDefaultCurrencyTimeLimit(Integer)
-	 * @see #applyDefaultCurrencyTimeLimit(javax.management.Descriptor)
+	 * @see #applyDefaultCurrencyTimeLimit(Descriptor)
 	 */
 	@Override
 	protected void populateMBeanDescriptor(Descriptor descriptor, Object managedBean, String beanKey) {
@@ -551,7 +551,7 @@ public abstract class AbstractReflectiveMBeanInfoAssembler extends AbstractMBean
 	 * @param beanKey the key associated with the MBean in the beans map
 	 * of the {@code MBeanExporter}
 	 * @see #setDefaultCurrencyTimeLimit(Integer)
-	 * @see #applyDefaultCurrencyTimeLimit(javax.management.Descriptor)
+	 * @see #applyDefaultCurrencyTimeLimit(Descriptor)
 	 */
 	protected void populateAttributeDescriptor(
 			Descriptor desc, @Nullable Method getter, @Nullable Method setter, String beanKey) {
@@ -569,7 +569,7 @@ public abstract class AbstractReflectiveMBeanInfoAssembler extends AbstractMBean
 	 * @param beanKey the key associated with the MBean in the beans map
 	 * of the {@code MBeanExporter}
 	 * @see #setDefaultCurrencyTimeLimit(Integer)
-	 * @see #applyDefaultCurrencyTimeLimit(javax.management.Descriptor)
+	 * @see #applyDefaultCurrencyTimeLimit(Descriptor)
 	 */
 	protected void populateOperationDescriptor(Descriptor desc, Method method, String beanKey) {
 		applyDefaultCurrencyTimeLimit(desc);
@@ -596,7 +596,7 @@ public abstract class AbstractReflectiveMBeanInfoAssembler extends AbstractMBean
 	 * @param desc the JMX attribute or operation descriptor
 	 * @param currencyTimeLimit the "currencyTimeLimit" value to apply
 	 * @see #setDefaultCurrencyTimeLimit(Integer)
-	 * @see #applyDefaultCurrencyTimeLimit(javax.management.Descriptor)
+	 * @see #applyDefaultCurrencyTimeLimit(Descriptor)
 	 */
 	protected void applyCurrencyTimeLimit(Descriptor desc, int currencyTimeLimit) {
 		if (currencyTimeLimit > 0) {

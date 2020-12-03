@@ -39,7 +39,7 @@ import org.springframework.util.StringUtils;
  * @see DataBinder#setBindingErrorProcessor
  * @see BeanPropertyBindingResult#addError
  * @see BeanPropertyBindingResult#resolveMessageCodes
- * @see org.springframework.beans.PropertyAccessException#getErrorCode
+ * @see PropertyAccessException#getErrorCode
  * @see org.springframework.beans.TypeMismatchException#ERROR_CODE
  * @see org.springframework.beans.MethodInvocationException#ERROR_CODE
  */
@@ -89,8 +89,8 @@ public class DefaultBindingErrorProcessor implements BindingErrorProcessor {
 	 * @param objectName the name of the target object
 	 * @param field the field that caused the binding error
 	 * @return the Object array that represents the FieldError arguments
-	 * @see org.springframework.validation.FieldError#getArguments
-	 * @see org.springframework.context.support.DefaultMessageSourceResolvable
+	 * @see FieldError#getArguments
+	 * @see DefaultMessageSourceResolvable
 	 */
 	protected Object[] getArgumentsForBindError(String objectName, String field) {
 		String[] codes = new String[] {objectName + Errors.NESTED_PATH_SEPARATOR + field, field};

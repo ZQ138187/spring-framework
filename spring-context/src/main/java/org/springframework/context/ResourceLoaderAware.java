@@ -23,7 +23,7 @@ import org.springframework.core.io.ResourceLoader;
  * Interface to be implemented by any object that wishes to be notified of the
  * {@link ResourceLoader} (typically the ApplicationContext) that it runs in.
  * This is an alternative to a full {@link ApplicationContext} dependency via
- * the {@link org.springframework.context.ApplicationContextAware} interface.
+ * the {@link ApplicationContextAware} interface.
  *
  * <p>Note that {@link org.springframework.core.io.Resource} dependencies can also
  * be exposed as bean properties of type {@code Resource}, populated via Strings
@@ -56,7 +56,7 @@ import org.springframework.core.io.ResourceLoader;
  * @since 10.03.2004
  * @see ApplicationContextAware
  * @see org.springframework.core.io.Resource
- * @see org.springframework.core.io.ResourceLoader
+ * @see ResourceLoader
  * @see org.springframework.core.io.support.ResourcePatternResolver
  */
 public interface ResourceLoaderAware extends Aware {

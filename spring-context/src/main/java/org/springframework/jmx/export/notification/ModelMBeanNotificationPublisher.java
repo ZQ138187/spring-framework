@@ -35,7 +35,7 @@ import org.springframework.util.Assert;
  * @author Juergen Hoeller
  * @author Rick Evans
  * @since 2.0
- * @see javax.management.modelmbean.ModelMBeanNotificationBroadcaster
+ * @see ModelMBeanNotificationBroadcaster
  * @see NotificationPublisherAware
  */
 public class ModelMBeanNotificationPublisher implements NotificationPublisher {
@@ -59,7 +59,7 @@ public class ModelMBeanNotificationPublisher implements NotificationPublisher {
 
 	/**
 	 * Create a new instance of the {@link ModelMBeanNotificationPublisher} class
-	 * that will publish all {@link javax.management.Notification Notifications}
+	 * that will publish all {@link Notification Notifications}
 	 * to the supplied {@link ModelMBean}.
 	 * @param modelMBean the target {@link ModelMBean}; must not be {@code null}
 	 * @param objectName the {@link ObjectName} of the source {@link ModelMBean}
@@ -107,7 +107,7 @@ public class ModelMBeanNotificationPublisher implements NotificationPublisher {
 	 * <p><i>"It is strongly recommended that notification senders use the object name
 	 * rather than a reference to the MBean object as the source."</i>
 	 * @param notification the {@link Notification} whose
-	 * {@link javax.management.Notification#getSource()} might need massaging
+	 * {@link Notification#getSource()} might need massaging
 	 */
 	private void replaceNotificationSourceIfNecessary(Notification notification) {
 		if (notification.getSource() == null || notification.getSource().equals(this.managedResource)) {

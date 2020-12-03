@@ -22,7 +22,7 @@ import org.springframework.util.StringValueResolver;
 
 /**
  * Convenient base class for components with a need for embedded value resolution
- * (i.e. {@link org.springframework.context.EmbeddedValueResolverAware} consumers).
+ * (i.e. {@link EmbeddedValueResolverAware} consumers).
  *
  * @author Juergen Hoeller
  * @since 4.1

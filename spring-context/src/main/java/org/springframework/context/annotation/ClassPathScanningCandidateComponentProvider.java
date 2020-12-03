@@ -70,7 +70,7 @@ import org.springframework.util.ClassUtils;
  * classpath scanning is used instead.
  *
  * <p>This implementation is based on Spring's
- * {@link org.springframework.core.type.classreading.MetadataReader MetadataReader}
+ * {@link MetadataReader MetadataReader}
  * facility, backed by an ASM {@link org.springframework.asm.ClassReader ClassReader}.
  *
  * @author Mark Fisher
@@ -79,8 +79,8 @@ import org.springframework.util.ClassUtils;
  * @author Chris Beams
  * @author Stephane Nicoll
  * @since 2.5
- * @see org.springframework.core.type.classreading.MetadataReaderFactory
- * @see org.springframework.core.type.AnnotationMetadata
+ * @see MetadataReaderFactory
+ * @see AnnotationMetadata
  * @see ScannedGenericBeanDefinition
  * @see CandidateComponentsIndex
  */
@@ -193,7 +193,7 @@ public class ClassPathScanningCandidateComponentProvider implements EnvironmentC
 
 	/**
 	 * Register the default filter for {@link Component @Component}.
-	 * <p>This will implicitly register all annotations that have the
+	 * <p>This will implicitly 隐式的register all annotations that have the
 	 * {@link Component @Component} meta-annotation including the
 	 * {@link Repository @Repository}, {@link Service @Service}, and
 	 * {@link Controller @Controller} stereotype annotations.
@@ -201,11 +201,16 @@ public class ClassPathScanningCandidateComponentProvider implements EnvironmentC
 	 * JSR-330's {@link javax.inject.Named} annotations, if available.
 	 *
 	 */
+//	主要是给Spring容器中注册了注解过滤器类Component
 	@SuppressWarnings("unchecked")
 	protected void registerDefaultFilters() {
+		// 增加Component类，即注解过滤器类
+		// 在上面我给出了注解的结构层级，因为Controler、Service、Repotory
+		// 注解都是Component的子注解，因此他们也可以起作用。
 		this.includeFilters.add(new AnnotationTypeFilter(Component.class));
 		ClassLoader cl = ClassPathScanningCandidateComponentProvider.class.getClassLoader();
 		try {
+			// 添加ManagedBean 注解过滤器
 			this.includeFilters.add(new AnnotationTypeFilter(
 					((Class<? extends Annotation>) ClassUtils.forName("javax.annotation.ManagedBean", cl)), false));
 			logger.debug("JSR-250 'javax.annotation.ManagedBean' found and supported for component scanning");
@@ -214,6 +219,7 @@ public class ClassPathScanningCandidateComponentProvider implements EnvironmentC
 			// JSR-250 1.1 API (as included in Java EE 6) not available - simply skip.
 		}
 		try {
+			// 添加Named 注解过滤器
 			this.includeFilters.add(new AnnotationTypeFilter(
 					((Class<? extends Annotation>) ClassUtils.forName("javax.inject.Named", cl)), false));
 			logger.debug("JSR-330 'javax.inject.Named' annotation found and supported for component scanning");
@@ -256,8 +262,8 @@ public class ClassPathScanningCandidateComponentProvider implements EnvironmentC
 	 * This will typically be a {@link ResourcePatternResolver} implementation.
 	 * <p>Default is a {@code PathMatchingResourcePatternResolver}, also capable of
 	 * resource pattern resolving through the {@code ResourcePatternResolver} interface.
-	 * @see org.springframework.core.io.support.ResourcePatternResolver
-	 * @see org.springframework.core.io.support.PathMatchingResourcePatternResolver
+	 * @see ResourcePatternResolver
+	 * @see PathMatchingResourcePatternResolver
 	 */
 	@Override
 	public void setResourceLoader(@Nullable ResourceLoader resourceLoader) {

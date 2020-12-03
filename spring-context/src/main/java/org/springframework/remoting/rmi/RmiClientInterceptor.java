@@ -42,7 +42,7 @@ import org.springframework.remoting.support.RemoteInvocationBasedAccessor;
 import org.springframework.remoting.support.RemoteInvocationUtils;
 
 /**
- * {@link org.aopalliance.intercept.MethodInterceptor} for accessing conventional
+ * {@link MethodInterceptor} for accessing conventional
  * RMI services or RMI invokers. The service URL must be a valid RMI URL
  * (e.g. "rmi://localhost:1099/myservice").
  *
@@ -65,8 +65,8 @@ import org.springframework.remoting.support.RemoteInvocationUtils;
  * @see RmiProxyFactoryBean
  * @see RmiInvocationHandler
  * @see org.springframework.remoting.RemoteAccessException
- * @see java.rmi.RemoteException
- * @see java.rmi.Remote
+ * @see RemoteException
+ * @see Remote
  */
 public class RmiClientInterceptor extends RemoteInvocationBasedAccessor
 		implements MethodInterceptor {
@@ -122,8 +122,8 @@ public class RmiClientInterceptor extends RemoteInvocationBasedAccessor
 
 	/**
 	 * Set a custom RMI client socket factory to use for accessing the RMI registry.
-	 * @see java.rmi.server.RMIClientSocketFactory
-	 * @see java.rmi.registry.LocateRegistry#getRegistry(String, int, RMIClientSocketFactory)
+	 * @see RMIClientSocketFactory
+	 * @see LocateRegistry#getRegistry(String, int, RMIClientSocketFactory)
 	 */
 	public void setRegistryClientSocketFactory(RMIClientSocketFactory registryClientSocketFactory) {
 		this.registryClientSocketFactory = registryClientSocketFactory;
@@ -172,7 +172,7 @@ public class RmiClientInterceptor extends RemoteInvocationBasedAccessor
 	 * @return the RMI stub to store in this interceptor
 	 * @throws RemoteLookupFailureException if RMI stub creation failed
 	 * @see #setCacheStub
-	 * @see java.rmi.Naming#lookup
+	 * @see Naming#lookup
 	 */
 	protected Remote lookupStub() throws RemoteLookupFailureException {
 		try {

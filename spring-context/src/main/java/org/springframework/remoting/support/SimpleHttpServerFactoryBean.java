@@ -36,15 +36,15 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.lang.UsesSunHttpServer;
 
 /**
- * {@link org.springframework.beans.factory.FactoryBean} that creates a simple
+ * {@link FactoryBean} that creates a simple
  * HTTP server, based on the HTTP server that is included in Sun's JRE 1.6.
  * Starts the HTTP server on initialization and stops it on destruction.
- * Exposes the resulting {@link com.sun.net.httpserver.HttpServer} object.
+ * Exposes the resulting {@link HttpServer} object.
  *
- * <p>Allows for registering {@link com.sun.net.httpserver.HttpHandler HttpHandlers}
+ * <p>Allows for registering {@link HttpHandler HttpHandlers}
  * for specific {@link #setContexts context paths}. Alternatively,
  * register such context-specific handlers programmatically on the
- * {@link com.sun.net.httpserver.HttpServer} itself.
+ * {@link HttpServer} itself.
  *
  * @author Juergen Hoeller
  * @author Arjen Poutsma
@@ -109,14 +109,14 @@ public class SimpleHttpServerFactoryBean implements FactoryBean<HttpServer>, Ini
 
 	/**
 	 * Set the JDK concurrent executor to use for dispatching incoming requests.
-	 * @see com.sun.net.httpserver.HttpServer#setExecutor
+	 * @see HttpServer#setExecutor
 	 */
 	public void setExecutor(Executor executor) {
 		this.executor = executor;
 	}
 
 	/**
-	 * Register {@link com.sun.net.httpserver.HttpHandler HttpHandlers}
+	 * Register {@link HttpHandler HttpHandlers}
 	 * for specific context paths.
 	 * @param contexts a Map with context paths as keys and HttpHandler
 	 * objects as values
@@ -128,7 +128,7 @@ public class SimpleHttpServerFactoryBean implements FactoryBean<HttpServer>, Ini
 	}
 
 	/**
-	 * Register common {@link com.sun.net.httpserver.Filter Filters} to be
+	 * Register common {@link Filter Filters} to be
 	 * applied to all locally registered {@link #setContexts contexts}.
 	 */
 	public void setFilters(List<Filter> filters) {
@@ -136,7 +136,7 @@ public class SimpleHttpServerFactoryBean implements FactoryBean<HttpServer>, Ini
 	}
 
 	/**
-	 * Register a common {@link com.sun.net.httpserver.Authenticator} to be
+	 * Register a common {@link Authenticator} to be
 	 * applied to all locally registered {@link #setContexts contexts}.
 	 */
 	public void setAuthenticator(Authenticator authenticator) {

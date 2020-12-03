@@ -118,7 +118,7 @@ public abstract class AbstractRemoteSlsbInvokerInterceptor extends AbstractSlsbI
 	 * <p>The default implementation delegates to RmiClientInterceptorUtils.
 	 * @param ex the RMI exception to check
 	 * @return whether the exception should be treated as connect failure
-	 * @see org.springframework.remoting.rmi.RmiClientInterceptorUtils#isConnectFailure
+	 * @see RmiClientInterceptorUtils#isConnectFailure
 	 */
 	protected boolean isConnectFailure(RemoteException ex) {
 		return RmiClientInterceptorUtils.isConnectFailure(ex);
@@ -196,7 +196,7 @@ public abstract class AbstractRemoteSlsbInvokerInterceptor extends AbstractSlsbI
 	 * Remove the given EJB instance.
 	 * To be invoked by concrete remote SLSB invoker subclasses.
 	 * @param ejb the EJB instance to remove
-	 * @see javax.ejb.EJBObject#remove
+	 * @see EJBObject#remove
 	 */
 	protected void removeSessionBeanInstance(@Nullable EJBObject ejb) {
 		if (ejb != null && !this.homeAsComponent) {

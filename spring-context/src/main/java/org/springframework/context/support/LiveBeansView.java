@@ -118,7 +118,7 @@ public class LiveBeansView implements LiveBeansViewMBean, ApplicationContextAwar
 	/**
 	 * Generate a JSON snapshot of current beans and their dependencies,
 	 * finding all active ApplicationContexts through {@link #findApplicationContexts()},
-	 * then delegating to {@link #generateJson(java.util.Set)}.
+	 * then delegating to {@link #generateJson(Set)}.
 	 */
 	@Override
 	public String getSnapshotAsJson() {

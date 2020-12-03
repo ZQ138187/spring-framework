@@ -89,7 +89,7 @@ public class ScheduledTaskRegistrar implements ScheduledTaskHolder, Initializing
 
 	/**
 	 * Set the {@link TaskScheduler} to register scheduled tasks with, or a
-	 * {@link java.util.concurrent.ScheduledExecutorService} to be wrapped as a
+	 * {@link ScheduledExecutorService} to be wrapped as a
 	 * {@code TaskScheduler}.
 	 */
 	public void setScheduler(@Nullable Object scheduler) {

@@ -32,7 +32,7 @@ import org.springframework.util.concurrent.SuccessCallback;
  * which are declared with a {@code Future} return type for asynchronous execution.
  *
  * <p>As of Spring 4.1, this class implements {@link ListenableFuture}, not just
- * plain {@link java.util.concurrent.Future}, along with the corresponding support
+ * plain {@link Future}, along with the corresponding support
  * in {@code @Async} processing.
  *
  * <p>As of Spring 4.2, this class also supports passing execution exceptions back

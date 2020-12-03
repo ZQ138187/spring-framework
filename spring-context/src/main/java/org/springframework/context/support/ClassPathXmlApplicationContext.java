@@ -155,8 +155,8 @@ public class ClassPathXmlApplicationContext extends AbstractXmlApplicationContex
 	 * @param path relative (or absolute) path within the class path
 	 * @param clazz the class to load resources with (basis for the given paths)
 	 * @throws BeansException if context creation failed
-	 * @see org.springframework.core.io.ClassPathResource#ClassPathResource(String, Class)
-	 * @see org.springframework.context.support.GenericApplicationContext
+	 * @see ClassPathResource#ClassPathResource(String, Class)
+	 * @see GenericApplicationContext
 	 * @see org.springframework.beans.factory.xml.XmlBeanDefinitionReader
 	 */
 	public ClassPathXmlApplicationContext(String path, Class<?> clazz) throws BeansException {
@@ -169,8 +169,8 @@ public class ClassPathXmlApplicationContext extends AbstractXmlApplicationContex
 	 * @param paths array of relative (or absolute) paths within the class path
 	 * @param clazz the class to load resources with (basis for the given paths)
 	 * @throws BeansException if context creation failed
-	 * @see org.springframework.core.io.ClassPathResource#ClassPathResource(String, Class)
-	 * @see org.springframework.context.support.GenericApplicationContext
+	 * @see ClassPathResource#ClassPathResource(String, Class)
+	 * @see GenericApplicationContext
 	 * @see org.springframework.beans.factory.xml.XmlBeanDefinitionReader
 	 */
 	public ClassPathXmlApplicationContext(String[] paths, Class<?> clazz) throws BeansException {
@@ -185,8 +185,8 @@ public class ClassPathXmlApplicationContext extends AbstractXmlApplicationContex
 	 * @param clazz the class to load resources with (basis for the given paths)
 	 * @param parent the parent context
 	 * @throws BeansException if context creation failed
-	 * @see org.springframework.core.io.ClassPathResource#ClassPathResource(String, Class)
-	 * @see org.springframework.context.support.GenericApplicationContext
+	 * @see ClassPathResource#ClassPathResource(String, Class)
+	 * @see GenericApplicationContext
 	 * @see org.springframework.beans.factory.xml.XmlBeanDefinitionReader
 	 */
 	public ClassPathXmlApplicationContext(String[] paths, Class<?> clazz, @Nullable ApplicationContext parent)

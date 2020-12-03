@@ -61,8 +61,8 @@ import org.springframework.lang.Nullable;
  * @since 13.05.2003
  * @see RmiClientInterceptor
  * @see RmiProxyFactoryBean
- * @see java.rmi.Remote
- * @see java.rmi.RemoteException
+ * @see Remote
+ * @see RemoteException
  * @see org.springframework.remoting.caucho.HessianServiceExporter
  * @see org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter
  */
@@ -116,8 +116,8 @@ public class RmiServiceExporter extends RmiBasedExporter implements Initializing
 	 * <p>If the given object also implements {@code java.rmi.server.RMIServerSocketFactory},
 	 * it will automatically be registered as server socket factory too.
 	 * @see #setServerSocketFactory
-	 * @see java.rmi.server.RMIClientSocketFactory
-	 * @see java.rmi.server.RMIServerSocketFactory
+	 * @see RMIClientSocketFactory
+	 * @see RMIServerSocketFactory
 	 * @see UnicastRemoteObject#exportObject(Remote, int, RMIClientSocketFactory, RMIServerSocketFactory)
 	 */
 	public void setClientSocketFactory(RMIClientSocketFactory clientSocketFactory) {
@@ -129,8 +129,8 @@ public class RmiServiceExporter extends RmiBasedExporter implements Initializing
 	 * <p>Only needs to be specified when the client socket factory does not
 	 * implement {@code java.rmi.server.RMIServerSocketFactory} already.
 	 * @see #setClientSocketFactory
-	 * @see java.rmi.server.RMIClientSocketFactory
-	 * @see java.rmi.server.RMIServerSocketFactory
+	 * @see RMIClientSocketFactory
+	 * @see RMIServerSocketFactory
 	 * @see UnicastRemoteObject#exportObject(Remote, int, RMIClientSocketFactory, RMIServerSocketFactory)
 	 */
 	public void setServerSocketFactory(RMIServerSocketFactory serverSocketFactory) {
@@ -168,7 +168,7 @@ public class RmiServiceExporter extends RmiBasedExporter implements Initializing
 	 * Set the port of the registry for the exported RMI service,
 	 * i.e. {@code rmi://host:PORT/name}
 	 * <p>Default is {@code Registry.REGISTRY_PORT} (1099).
-	 * @see java.rmi.registry.Registry#REGISTRY_PORT
+	 * @see Registry#REGISTRY_PORT
 	 */
 	public void setRegistryPort(int registryPort) {
 		this.registryPort = registryPort;
@@ -179,8 +179,8 @@ public class RmiServiceExporter extends RmiBasedExporter implements Initializing
 	 * <p>If the given object also implements {@code java.rmi.server.RMIServerSocketFactory},
 	 * it will automatically be registered as server socket factory too.
 	 * @see #setRegistryServerSocketFactory
-	 * @see java.rmi.server.RMIClientSocketFactory
-	 * @see java.rmi.server.RMIServerSocketFactory
+	 * @see RMIClientSocketFactory
+	 * @see RMIServerSocketFactory
 	 * @see LocateRegistry#getRegistry(String, int, RMIClientSocketFactory)
 	 */
 	public void setRegistryClientSocketFactory(RMIClientSocketFactory registryClientSocketFactory) {
@@ -192,8 +192,8 @@ public class RmiServiceExporter extends RmiBasedExporter implements Initializing
 	 * <p>Only needs to be specified when the client socket factory does not
 	 * implement {@code java.rmi.server.RMIServerSocketFactory} already.
 	 * @see #setRegistryClientSocketFactory
-	 * @see java.rmi.server.RMIClientSocketFactory
-	 * @see java.rmi.server.RMIServerSocketFactory
+	 * @see RMIClientSocketFactory
+	 * @see RMIServerSocketFactory
 	 * @see LocateRegistry#createRegistry(int, RMIClientSocketFactory, RMIServerSocketFactory)
 	 */
 	public void setRegistryServerSocketFactory(RMIServerSocketFactory registryServerSocketFactory) {
@@ -415,7 +415,7 @@ public class RmiServiceExporter extends RmiBasedExporter implements Initializing
 	 * <p>Default implementation calls {@code Registry.list()}.
 	 * @param registry the RMI registry to test
 	 * @throws RemoteException if thrown by registry methods
-	 * @see java.rmi.registry.Registry#list()
+	 * @see Registry#list()
 	 */
 	protected void testRegistry(Registry registry) throws RemoteException {
 		registry.list();

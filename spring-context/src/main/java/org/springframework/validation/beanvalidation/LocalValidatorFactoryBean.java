@@ -57,8 +57,8 @@ import org.springframework.util.ReflectionUtils;
  * This is the central class for {@code javax.validation} (JSR-303) setup in a Spring
  * application context: It bootstraps a {@code javax.validation.ValidationFactory} and
  * exposes it through the Spring {@link org.springframework.validation.Validator} interface
- * as well as through the JSR-303 {@link javax.validation.Validator} interface and the
- * {@link javax.validation.ValidatorFactory} interface itself.
+ * as well as through the JSR-303 {@link Validator} interface and the
+ * {@link ValidatorFactory} interface itself.
  *
  * <p>When talking to an instance of this bean through the Spring or JSR-303 Validator interfaces,
  * you'll be talking to the default Validator of the underlying ValidatorFactory. This is very
@@ -78,10 +78,10 @@ import org.springframework.util.ReflectionUtils;
  *
  * @author Juergen Hoeller
  * @since 3.0
- * @see javax.validation.ValidatorFactory
- * @see javax.validation.Validator
- * @see javax.validation.Validation#buildDefaultValidatorFactory()
- * @see javax.validation.ValidatorFactory#getValidator()
+ * @see ValidatorFactory
+ * @see Validator
+ * @see Validation#buildDefaultValidatorFactory()
+ * @see ValidatorFactory#getValidator()
  */
 public class LocalValidatorFactoryBean extends SpringValidatorAdapter
 		implements ValidatorFactory, ApplicationContextAware, InitializingBean, DisposableBean {
@@ -120,8 +120,8 @@ public class LocalValidatorFactoryBean extends SpringValidatorAdapter
 	/**
 	 * Specify the desired provider class, if any.
 	 * <p>If not specified, JSR-303's default search mechanism will be used.
-	 * @see javax.validation.Validation#byProvider(Class)
-	 * @see javax.validation.Validation#byDefaultProvider()
+	 * @see Validation#byProvider(Class)
+	 * @see Validation#byDefaultProvider()
 	 */
 	@SuppressWarnings("rawtypes")
 	public void setProviderClass(Class providerClass) {
@@ -188,7 +188,7 @@ public class LocalValidatorFactoryBean extends SpringValidatorAdapter
 	/**
 	 * Set the ParameterNameDiscoverer to use for resolving method and constructor
 	 * parameter names if needed for message interpolation.
-	 * <p>Default is a {@link org.springframework.core.DefaultParameterNameDiscoverer}.
+	 * <p>Default is a {@link DefaultParameterNameDiscoverer}.
 	 */
 	public void setParameterNameDiscoverer(ParameterNameDiscoverer parameterNameDiscoverer) {
 		this.parameterNameDiscoverer = parameterNameDiscoverer;
@@ -205,7 +205,7 @@ public class LocalValidatorFactoryBean extends SpringValidatorAdapter
 	 * Specify bean validation properties to be passed to the validation provider.
 	 * <p>Can be populated with a String "value" (parsed via PropertiesEditor)
 	 * or a "props" element in XML bean definitions.
-	 * @see javax.validation.Configuration#addProperty(String, String)
+	 * @see Configuration#addProperty(String, String)
 	 */
 	public void setValidationProperties(Properties jpaProperties) {
 		CollectionUtils.mergePropertiesIntoMap(jpaProperties, this.validationPropertyMap);
@@ -214,7 +214,7 @@ public class LocalValidatorFactoryBean extends SpringValidatorAdapter
 	/**
 	 * Specify bean validation properties to be passed to the validation provider as a Map.
 	 * <p>Can be populated with a "map" or "props" element in XML bean definitions.
-	 * @see javax.validation.Configuration#addProperty(String, String)
+	 * @see Configuration#addProperty(String, String)
 	 */
 	public void setValidationPropertyMap(@Nullable Map<String, String> validationProperties) {
 		if (validationProperties != null) {

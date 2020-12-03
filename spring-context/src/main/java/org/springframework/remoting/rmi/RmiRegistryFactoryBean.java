@@ -32,7 +32,7 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.lang.Nullable;
 
 /**
- * {@link FactoryBean} that locates a {@link java.rmi.registry.Registry} and
+ * {@link FactoryBean} that locates a {@link Registry} and
  * exposes it for bean references. Can also create a local RMI registry
  * on the fly if none exists already.
  *
@@ -58,8 +58,8 @@ import org.springframework.lang.Nullable;
  * @since 1.2.3
  * @see RmiServiceExporter#setRegistry
  * @see org.springframework.jmx.support.ConnectorServerFactoryBean
- * @see java.rmi.registry.Registry
- * @see java.rmi.registry.LocateRegistry
+ * @see Registry
+ * @see LocateRegistry
  */
 public class RmiRegistryFactoryBean implements FactoryBean<Registry>, InitializingBean, DisposableBean {
 
@@ -117,9 +117,9 @@ public class RmiRegistryFactoryBean implements FactoryBean<Registry>, Initializi
 	 * <p>If the given object also implements {@code java.rmi.server.RMIServerSocketFactory},
 	 * it will automatically be registered as server socket factory too.
 	 * @see #setServerSocketFactory
-	 * @see java.rmi.server.RMIClientSocketFactory
-	 * @see java.rmi.server.RMIServerSocketFactory
-	 * @see java.rmi.registry.LocateRegistry#getRegistry(String, int, java.rmi.server.RMIClientSocketFactory)
+	 * @see RMIClientSocketFactory
+	 * @see RMIServerSocketFactory
+	 * @see LocateRegistry#getRegistry(String, int, RMIClientSocketFactory)
 	 */
 	public void setClientSocketFactory(RMIClientSocketFactory clientSocketFactory) {
 		this.clientSocketFactory = clientSocketFactory;
@@ -130,9 +130,9 @@ public class RmiRegistryFactoryBean implements FactoryBean<Registry>, Initializi
 	 * <p>Only needs to be specified when the client socket factory does not
 	 * implement {@code java.rmi.server.RMIServerSocketFactory} already.
 	 * @see #setClientSocketFactory
-	 * @see java.rmi.server.RMIClientSocketFactory
-	 * @see java.rmi.server.RMIServerSocketFactory
-	 * @see java.rmi.registry.LocateRegistry#createRegistry(int, RMIClientSocketFactory, java.rmi.server.RMIServerSocketFactory)
+	 * @see RMIClientSocketFactory
+	 * @see RMIServerSocketFactory
+	 * @see LocateRegistry#createRegistry(int, RMIClientSocketFactory, RMIServerSocketFactory)
 	 */
 	public void setServerSocketFactory(RMIServerSocketFactory serverSocketFactory) {
 		this.serverSocketFactory = serverSocketFactory;
@@ -175,7 +175,7 @@ public class RmiRegistryFactoryBean implements FactoryBean<Registry>, Initializi
 	 * @param clientSocketFactory the RMI client socket factory for the registry (if any)
 	 * @param serverSocketFactory the RMI server socket factory for the registry (if any)
 	 * @return the RMI registry
-	 * @throws java.rmi.RemoteException if the registry couldn't be located or created
+	 * @throws RemoteException if the registry couldn't be located or created
 	 */
 	protected Registry getRegistry(String registryHost, int registryPort,
 			@Nullable RMIClientSocketFactory clientSocketFactory, @Nullable RMIServerSocketFactory serverSocketFactory)
@@ -277,7 +277,7 @@ public class RmiRegistryFactoryBean implements FactoryBean<Registry>, Initializi
 	 * <p>Default implementation calls {@code Registry.list()}.
 	 * @param registry the RMI registry to test
 	 * @throws RemoteException if thrown by registry methods
-	 * @see java.rmi.registry.Registry#list()
+	 * @see Registry#list()
 	 */
 	protected void testRegistry(Registry registry) throws RemoteException {
 		registry.list();

@@ -64,8 +64,8 @@ public class DateTimeContext {
 	 * <p>Alternatively, set a {@link TimeZoneAwareLocaleContext} on
 	 * {@link LocaleContextHolder}. This context class will fall back to
 	 * checking the locale context if no setting has been provided here.
-	 * @see org.springframework.context.i18n.LocaleContextHolder#getTimeZone()
-	 * @see org.springframework.context.i18n.LocaleContextHolder#setLocaleContext
+	 * @see LocaleContextHolder#getTimeZone()
+	 * @see LocaleContextHolder#setLocaleContext
 	 */
 	public void setTimeZone(@Nullable ZoneId timeZone) {
 		this.timeZone = timeZone;

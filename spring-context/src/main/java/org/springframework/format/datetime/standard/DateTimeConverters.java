@@ -36,7 +36,7 @@ import org.springframework.format.datetime.DateFormatterRegistrar;
  * <p>Note: {@link DateTimeFormatterRegistrar} installs these converters but
  * does not rely on them for its formatters. They are just being registered
  * for custom conversion scenarios between different JSR-310 value types
- * and also between {@link java.util.Calendar} and JSR-310 value types.
+ * and also between {@link Calendar} and JSR-310 value types.
  *
  * @author Juergen Hoeller
  * @since 4.0.1

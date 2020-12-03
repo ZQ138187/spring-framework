@@ -38,7 +38,7 @@ import org.springframework.util.CollectionUtils;
 /**
  * Registrar object that associates a specific {@link javax.management.NotificationListener}
  * with one or more MBeans in an {@link javax.management.MBeanServer}
- * (typically via a {@link javax.management.MBeanServerConnection}).
+ * (typically via a {@link MBeanServerConnection}).
  *
  * @author Juergen Hoeller
  * @since 2.5.2
@@ -80,7 +80,7 @@ public class NotificationListenerRegistrar extends NotificationListenerHolder
 
 	/**
 	 * Specify the environment for the JMX connector.
-	 * @see javax.management.remote.JMXConnectorFactory#connect(javax.management.remote.JMXServiceURL, java.util.Map)
+	 * @see javax.management.remote.JMXConnectorFactory#connect(JMXServiceURL, Map)
 	 */
 	public void setEnvironment(@Nullable Map<String, ?> environment) {
 		this.environment = environment;

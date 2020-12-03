@@ -27,9 +27,9 @@ import org.springframework.core.io.Resource;
 import org.springframework.lang.Nullable;
 
 /**
- * Convenient base class for {@link org.springframework.context.ApplicationContext}
+ * Convenient base class for {@link ApplicationContext}
  * implementations, drawing configuration from XML documents containing bean definitions
- * understood by an {@link org.springframework.beans.factory.xml.XmlBeanDefinitionReader}.
+ * understood by an {@link XmlBeanDefinitionReader}.
  *
  * <p>Subclasses just have to implement the {@link #getConfigResources} and/or
  * the {@link #getConfigLocations} method. Furthermore, they might override
@@ -41,7 +41,7 @@ import org.springframework.lang.Nullable;
  * @author Juergen Hoeller
  * @see #getConfigResources
  * @see #getConfigLocations
- * @see org.springframework.beans.factory.xml.XmlBeanDefinitionReader
+ * @see XmlBeanDefinitionReader
  */
 public abstract class AbstractXmlApplicationContext extends AbstractRefreshableConfigApplicationContext {
 
@@ -73,24 +73,37 @@ public abstract class AbstractXmlApplicationContext extends AbstractRefreshableC
 
 	/**
 	 * Loads the bean definitions via an XmlBeanDefinitionReader.
-	 * @see org.springframework.beans.factory.xml.XmlBeanDefinitionReader
+	 * @see XmlBeanDefinitionReader
 	 * @see #initBeanDefinitionReader
 	 * @see #loadBeanDefinitions
 	 */
 	@Override
 	protected void loadBeanDefinitions(DefaultListableBeanFactory beanFactory) throws BeansException, IOException {
 		// Create a new XmlBeanDefinitionReader for the given BeanFactory.
+		// 创建同一个XmlBeanDefinitionReader 见名知意 xml的BeanDefine读取器转换器
+		// 也就是将xml文件转化为BeanDefinition
 		XmlBeanDefinitionReader beanDefinitionReader = new XmlBeanDefinitionReader(beanFactory);
 
 		// Configure the bean definition reader with this context's
 		// resource loading environment.
+
+		// 设置当前环境
 		beanDefinitionReader.setEnvironment(this.getEnvironment());
+		//这里的setResourceLoader赋值 我们在refresh方法的时候就已经给this赋值
+		//且看
+		// 		super(parent);
+		//		// 将配置文件路径设置给AbstractRefreshableConfigApplicationContext 的configLocations的属性
+		//		setConfigLocations(configLocations); //这个方法就将配置路径赋值了
+		//		// 由上面的参数传进refresh为true 下面我们就进入refresh方法 spring初始化全程
+		//		if (refresh) {
+		//			refresh();
 		beanDefinitionReader.setResourceLoader(this);
 		beanDefinitionReader.setEntityResolver(new ResourceEntityResolver(this));
 
 		// Allow a subclass to provide custom initialization of the reader,
 		// then proceed with actually loading the bean definitions.
 		initBeanDefinitionReader(beanDefinitionReader);
+		//下面方法是核心
 		loadBeanDefinitions(beanDefinitionReader);
 	}
 
@@ -100,7 +113,7 @@ public abstract class AbstractXmlApplicationContext extends AbstractRefreshableC
 	 * <p>Can be overridden in subclasses, e.g. for turning off XML validation
 	 * or using a different XmlBeanDefinitionParser implementation.
 	 * @param reader the bean definition reader used by this context
-	 * @see org.springframework.beans.factory.xml.XmlBeanDefinitionReader#setDocumentReaderClass
+	 * @see XmlBeanDefinitionReader#setDocumentReaderClass
 	 */
 	protected void initBeanDefinitionReader(XmlBeanDefinitionReader reader) {
 		reader.setValidating(this.validating);
@@ -123,6 +136,7 @@ public abstract class AbstractXmlApplicationContext extends AbstractRefreshableC
 		if (configResources != null) {
 			reader.loadBeanDefinitions(configResources);
 		}
+		//拿到对应配置文件的地址 对应Resources文件夹下面
 		String[] configLocations = getConfigLocations();
 		if (configLocations != null) {
 			reader.loadBeanDefinitions(configLocations);

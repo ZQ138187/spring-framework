@@ -712,7 +712,7 @@ public class DataBinder implements PropertyEditorRegistry, TypeConverter {
 	 * copy will be created for this purpose. Pass in a copy of the PropertyValues
 	 * if you want your original instance to stay unmodified in any case.
 	 * @param pvs property values to bind
-	 * @see #doBind(org.springframework.beans.MutablePropertyValues)
+	 * @see #doBind(MutablePropertyValues)
 	 */
 	public void bind(PropertyValues pvs) {
 		MutablePropertyValues mpvs = (pvs instanceof MutablePropertyValues ?
@@ -769,7 +769,7 @@ public class DataBinder implements PropertyEditorRegistry, TypeConverter {
 	 * @return if the field is allowed
 	 * @see #setAllowedFields
 	 * @see #setDisallowedFields
-	 * @see org.springframework.util.PatternMatchUtils#simpleMatch(String, String)
+	 * @see PatternMatchUtils#simpleMatch(String, String)
 	 */
 	protected boolean isAllowed(String field) {
 		String[] allowed = getAllowedFields();

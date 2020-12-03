@@ -48,7 +48,7 @@ import org.springframework.format.annotation.DateTimeFormat.ISO;
  * @see #setTimeStyle
  * @see #setDateTimeStyle
  * @see #setUseIsoFormat
- * @see org.springframework.format.FormatterRegistrar#registerFormatters
+ * @see FormatterRegistrar#registerFormatters
  * @see org.springframework.format.datetime.DateFormatterRegistrar
  * @see org.springframework.format.datetime.joda.DateTimeFormatterFactoryBean
  */
@@ -88,24 +88,24 @@ public class DateTimeFormatterRegistrar implements FormatterRegistrar {
 	}
 
 	/**
-	 * Set the default format style of {@link java.time.LocalDate} objects.
-	 * Default is {@link java.time.format.FormatStyle#SHORT}.
+	 * Set the default format style of {@link LocalDate} objects.
+	 * Default is {@link FormatStyle#SHORT}.
 	 */
 	public void setDateStyle(FormatStyle dateStyle) {
 		this.factories.get(Type.DATE).setDateStyle(dateStyle);
 	}
 
 	/**
-	 * Set the default format style of {@link java.time.LocalTime} objects.
-	 * Default is {@link java.time.format.FormatStyle#SHORT}.
+	 * Set the default format style of {@link LocalTime} objects.
+	 * Default is {@link FormatStyle#SHORT}.
 	 */
 	public void setTimeStyle(FormatStyle timeStyle) {
 		this.factories.get(Type.TIME).setTimeStyle(timeStyle);
 	}
 
 	/**
-	 * Set the default format style of {@link java.time.LocalDateTime} objects.
-	 * Default is {@link java.time.format.FormatStyle#SHORT}.
+	 * Set the default format style of {@link LocalDateTime} objects.
+	 * Default is {@link FormatStyle#SHORT}.
 	 */
 	public void setDateTimeStyle(FormatStyle dateTimeStyle) {
 		this.factories.get(Type.DATE_TIME).setDateTimeStyle(dateTimeStyle);
